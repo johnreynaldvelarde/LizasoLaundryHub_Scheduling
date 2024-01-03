@@ -73,6 +73,26 @@ namespace Lizaso_Laundry_Hub.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BellWhite {
+            get {
+                object obj = ResourceManager.GetObject("BellWhite", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap BellWithRed {
+            get {
+                object obj = ResourceManager.GetObject("BellWithRed", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BlueClose {
             get {
                 object obj = ResourceManager.GetObject("BlueClose", resourceCulture);

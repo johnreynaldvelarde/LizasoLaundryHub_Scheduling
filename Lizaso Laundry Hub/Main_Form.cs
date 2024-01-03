@@ -147,6 +147,22 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
+        public async Task DisplayNotification()
+        {
+            try 
+            { 
+            
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                // Enable the timer after the asynchronous operation is complete
+                //Count_Pending_Timer.Enabled = true;
+            }
+        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {

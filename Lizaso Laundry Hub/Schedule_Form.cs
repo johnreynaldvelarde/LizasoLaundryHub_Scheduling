@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using Calendar.NET;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace Lizaso_Laundry_Hub
 {
@@ -25,10 +26,27 @@ namespace Lizaso_Laundry_Hub
         public Schedule_Form()
         {
             InitializeComponent();
+            
             getData = new Get_Data_Class();
             updateData = new Update_Data_Class();
         }
 
+        public void DispalyCalendarEventDetails()
+        {
+
+            calendar1.CalendarDate = DateTime.Now;
+            calendar1.CalendarView = CalendarViews.Month;
+
+            var groundhogEvent = new CustomEvent
+            {
+                Date = new DateTime(2024, 1, 1),
+                EventText = "Groundhog Day",
+                RecurringFrequency = RecurringFrequencies.Yearly
+            };
+            calendar1.AddEvent(groundhogEvent);
+        }
+
+        
         public void DisplayInProgressandReserved()
         {
             if(tab_Schedule.SelectedTab == tabPage1)
@@ -43,9 +61,12 @@ namespace Lizaso_Laundry_Hub
             }
             else if (tab_Schedule.SelectedTab == tabPage3)
             {
-                //MessageBox.Show("ANG MGA TAE AY LUMILIPAD");
+                DispalyCalendarEventDetails();
             }
         }
+
+
+
 
         private void Schedule_Form_Load(object sender, EventArgs e)
         {

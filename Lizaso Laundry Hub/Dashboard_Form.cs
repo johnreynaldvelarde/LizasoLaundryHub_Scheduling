@@ -17,5 +17,19 @@ namespace Lizaso_Laundry_Hub
         {
             InitializeComponent();
         }
+
+        public void DisplayCustomerRankings()
+        {
+            /*
+            if ()
+            {
+
+            }
+            else
+            {
+
+            }
+            */
+        }
     }
 }

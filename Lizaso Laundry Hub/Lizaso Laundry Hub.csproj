@@ -53,6 +53,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -107,6 +108,7 @@
     <Compile Include="Add_Unit_Form.Designer.cs">
       <DependentUpon>Add_Unit_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="CalendarEvent_Class.cs" />
     <Compile Include="Calendar_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -434,6 +436,12 @@
       <Project>{6CBC43B6-E950-49B2-B14A-563C50FCD5C3}</Project>
       <Name>Calendar.NET</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BellWhite.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BellWithRed.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
