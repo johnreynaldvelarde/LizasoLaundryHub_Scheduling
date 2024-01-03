@@ -24,7 +24,7 @@ namespace Lizaso_Laundry_Hub
             getData = new Get_Data_Class();
         }
 
-        private void btnCreateNewUser_Click(object sender, EventArgs e)
+        private void btn_CreateNewUser_Click(object sender, EventArgs e)
         {
             Add_User_Form frm = new Add_User_Form(this);
             frm.ShowDialog();

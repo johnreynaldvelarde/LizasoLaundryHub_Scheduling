@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(User_Form));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
-            this.btnCreateNewUser = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_CreateNewUser = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.panel4 = new System.Windows.Forms.Panel();
             this.tab_User = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -72,8 +72,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.grid_view_activity = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,6 +82,8 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tab_User.SuspendLayout();
@@ -108,70 +108,6 @@
             this.kryptonPalette1.FormStyles.FormMain.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.None;
             this.kryptonPalette1.FormStyles.FormMain.StateCommon.Border.Rounding = 12;
             // 
-            // btnCreateNewUser
-            // 
-            this.btnCreateNewUser.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCreateNewUser.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCreateNewUser.Location = new System.Drawing.Point(1016, 6);
-            this.btnCreateNewUser.Name = "btnCreateNewUser";
-            this.btnCreateNewUser.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(91)))), ((int)(((byte)(166)))));
-            this.btnCreateNewUser.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(91)))), ((int)(((byte)(166)))));
-            this.btnCreateNewUser.OverrideDefault.Back.ColorAngle = 45F;
-            this.btnCreateNewUser.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(91)))), ((int)(((byte)(166)))));
-            this.btnCreateNewUser.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(91)))), ((int)(((byte)(166)))));
-            this.btnCreateNewUser.OverrideDefault.Border.ColorAngle = 45F;
-            this.btnCreateNewUser.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnCreateNewUser.OverrideDefault.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btnCreateNewUser.OverrideDefault.Border.Rounding = 20;
-            this.btnCreateNewUser.OverrideDefault.Border.Width = 1;
-            this.btnCreateNewUser.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.btnCreateNewUser.Size = new System.Drawing.Size(135, 37);
-            this.btnCreateNewUser.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(91)))), ((int)(((byte)(166)))));
-            this.btnCreateNewUser.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(91)))), ((int)(((byte)(166)))));
-            this.btnCreateNewUser.StateCommon.Back.ColorAngle = 45F;
-            this.btnCreateNewUser.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(91)))), ((int)(((byte)(166)))));
-            this.btnCreateNewUser.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(91)))), ((int)(((byte)(166)))));
-            this.btnCreateNewUser.StateCommon.Border.ColorAngle = 45F;
-            this.btnCreateNewUser.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnCreateNewUser.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btnCreateNewUser.StateCommon.Border.Rounding = 20;
-            this.btnCreateNewUser.StateCommon.Border.Width = 1;
-            this.btnCreateNewUser.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnCreateNewUser.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.btnCreateNewUser.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCreateNewUser.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(91)))), ((int)(((byte)(166)))));
-            this.btnCreateNewUser.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(91)))), ((int)(((byte)(166)))));
-            this.btnCreateNewUser.StatePressed.Back.ColorAngle = 135F;
-            this.btnCreateNewUser.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(91)))), ((int)(((byte)(166)))));
-            this.btnCreateNewUser.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(91)))), ((int)(((byte)(166)))));
-            this.btnCreateNewUser.StatePressed.Border.ColorAngle = 135F;
-            this.btnCreateNewUser.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnCreateNewUser.StatePressed.Border.Rounding = 20;
-            this.btnCreateNewUser.StatePressed.Border.Width = 1;
-            this.btnCreateNewUser.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(91)))), ((int)(((byte)(166)))));
-            this.btnCreateNewUser.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(91)))), ((int)(((byte)(166)))));
-            this.btnCreateNewUser.StateTracking.Back.ColorAngle = 45F;
-            this.btnCreateNewUser.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(91)))), ((int)(((byte)(166)))));
-            this.btnCreateNewUser.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(78)))), ((int)(((byte)(91)))), ((int)(((byte)(166)))));
-            this.btnCreateNewUser.StateTracking.Border.ColorAngle = 45F;
-            this.btnCreateNewUser.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btnCreateNewUser.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btnCreateNewUser.StateTracking.Border.Rounding = 20;
-            this.btnCreateNewUser.StateTracking.Border.Width = 1;
-            this.btnCreateNewUser.TabIndex = 15;
-            this.btnCreateNewUser.Values.Image = ((System.Drawing.Image)(resources.GetObject("btnCreateNewUser.Values.Image")));
-            this.btnCreateNewUser.Values.Text = "Create new user";
-            this.btnCreateNewUser.Click += new System.EventHandler(this.btnCreateNewUser_Click);
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
@@ -194,7 +130,7 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.btnCreateNewUser);
+            this.panel2.Controls.Add(this.btn_CreateNewUser);
             this.panel2.Controls.Add(this.panel3);
             this.panel2.Controls.Add(this.label6);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -202,6 +138,70 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1160, 50);
             this.panel2.TabIndex = 7;
+            // 
+            // btn_CreateNewUser
+            // 
+            this.btn_CreateNewUser.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_CreateNewUser.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_CreateNewUser.Location = new System.Drawing.Point(981, 5);
+            this.btn_CreateNewUser.Name = "btn_CreateNewUser";
+            this.btn_CreateNewUser.OverrideDefault.Back.Color1 = System.Drawing.Color.SteelBlue;
+            this.btn_CreateNewUser.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(124)))), ((int)(((byte)(93)))));
+            this.btn_CreateNewUser.OverrideDefault.Back.ColorAngle = 45F;
+            this.btn_CreateNewUser.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(185)))), ((int)(((byte)(200)))));
+            this.btn_CreateNewUser.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
+            this.btn_CreateNewUser.OverrideDefault.Border.ColorAngle = 45F;
+            this.btn_CreateNewUser.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_CreateNewUser.OverrideDefault.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btn_CreateNewUser.OverrideDefault.Border.Rounding = 20;
+            this.btn_CreateNewUser.OverrideDefault.Border.Width = 1;
+            this.btn_CreateNewUser.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.btn_CreateNewUser.Size = new System.Drawing.Size(175, 37);
+            this.btn_CreateNewUser.StateCommon.Back.Color1 = System.Drawing.Color.SteelBlue;
+            this.btn_CreateNewUser.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(124)))), ((int)(((byte)(93)))));
+            this.btn_CreateNewUser.StateCommon.Back.ColorAngle = 45F;
+            this.btn_CreateNewUser.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(185)))), ((int)(((byte)(200)))));
+            this.btn_CreateNewUser.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
+            this.btn_CreateNewUser.StateCommon.Border.ColorAngle = 45F;
+            this.btn_CreateNewUser.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_CreateNewUser.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btn_CreateNewUser.StateCommon.Border.Rounding = 20;
+            this.btn_CreateNewUser.StateCommon.Border.Width = 1;
+            this.btn_CreateNewUser.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btn_CreateNewUser.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.btn_CreateNewUser.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_CreateNewUser.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(90)))), ((int)(((byte)(150)))));
+            this.btn_CreateNewUser.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(70)))), ((int)(((byte)(40)))));
+            this.btn_CreateNewUser.StatePressed.Back.ColorAngle = 135F;
+            this.btn_CreateNewUser.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(90)))), ((int)(((byte)(150)))));
+            this.btn_CreateNewUser.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(70)))), ((int)(((byte)(40)))));
+            this.btn_CreateNewUser.StatePressed.Border.ColorAngle = 135F;
+            this.btn_CreateNewUser.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_CreateNewUser.StatePressed.Border.Rounding = 20;
+            this.btn_CreateNewUser.StatePressed.Border.Width = 1;
+            this.btn_CreateNewUser.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(124)))), ((int)(((byte)(93)))));
+            this.btn_CreateNewUser.StateTracking.Back.Color2 = System.Drawing.Color.SteelBlue;
+            this.btn_CreateNewUser.StateTracking.Back.ColorAngle = 45F;
+            this.btn_CreateNewUser.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(185)))), ((int)(((byte)(200)))));
+            this.btn_CreateNewUser.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
+            this.btn_CreateNewUser.StateTracking.Border.ColorAngle = 45F;
+            this.btn_CreateNewUser.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_CreateNewUser.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btn_CreateNewUser.StateTracking.Border.Rounding = 20;
+            this.btn_CreateNewUser.StateTracking.Border.Width = 1;
+            this.btn_CreateNewUser.TabIndex = 16;
+            this.btn_CreateNewUser.Values.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Values.Image")));
+            this.btn_CreateNewUser.Values.Text = " Add new user account";
+            this.btn_CreateNewUser.Click += new System.EventHandler(this.btn_CreateNewUser_Click);
             // 
             // panel4
             // 
@@ -312,8 +312,8 @@
             // Column9
             // 
             this.Column9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column9.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column9.DefaultCellStyle = dataGridViewCellStyle1;
             this.Column9.FillWeight = 94.58129F;
             this.Column9.HeaderText = "Services Module";
             this.Column9.Name = "Column9";
@@ -630,26 +630,6 @@
             this.grid_view_activity.StateCommon.HeaderColumn.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grid_view_activity.TabIndex = 6;
             // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.label2);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1152, 80);
-            this.panel5.TabIndex = 5;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Poppins SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.label2.Location = new System.Drawing.Point(15, 23);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(141, 37);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Activity Log";
-            // 
             // dataGridViewTextBoxColumn12
             // 
             this.dataGridViewTextBoxColumn12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -735,6 +715,26 @@
             this.Delete.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Delete.Width = 72;
             // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.label2);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1152, 80);
+            this.panel5.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Poppins SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.label2.Location = new System.Drawing.Point(15, 23);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(141, 37);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Activity Log";
+            // 
             // User_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -776,7 +776,6 @@
         #endregion
 
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnCreateNewUser;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel panel2;
@@ -828,5 +827,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btn_CreateNewUser;
     }
 }
