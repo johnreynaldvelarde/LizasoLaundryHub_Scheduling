@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
+using Calendar.NET;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 
 namespace Lizaso_Laundry_Hub
@@ -42,7 +43,7 @@ namespace Lizaso_Laundry_Hub
             }
             else if (tab_Schedule.SelectedTab == tabPage3)
             {
-                MessageBox.Show("ANG MGA TAE AY LUMILIPAD");
+                //MessageBox.Show("ANG MGA TAE AY LUMILIPAD");
             }
         }
 

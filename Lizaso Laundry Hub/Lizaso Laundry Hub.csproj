@@ -429,5 +429,11 @@
   <ItemGroup>
     <None Include="Resources\YellowClose.png" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\Downloads\Calendar Code\CalendarNETSource\Calendar.NET\Calendar.NET.csproj">
+      <Project>{6CBC43B6-E950-49B2-B14A-563C50FCD5C3}</Project>
+      <Name>Calendar.NET</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

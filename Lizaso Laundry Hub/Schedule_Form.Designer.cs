@@ -29,14 +29,26 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Schedule_Form));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.tab_Schedule = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.grid_progress_view = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Cancel = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -60,18 +72,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Cancel = new System.Windows.Forms.DataGridViewImageColumn();
+            this.calendar1 = new Calendar.NET.Calendar();
             this.panel1.SuspendLayout();
             this.tab_Schedule.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -80,6 +81,7 @@
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_reserved_view)).BeginInit();
             this.panel5.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -175,6 +177,108 @@
             this.grid_progress_view.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_progress_view_CellContentClick);
             this.grid_progress_view.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.grid_progress_view_CellFormatting);
             this.grid_progress_view.SelectionChanged += new System.EventHandler(this.grid_progress_view_SelectionChanged);
+            // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column5.HeaderText = "#";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 48;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Booking_ID";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            this.Column6.Visible = false;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "Unit_ID";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            this.Column8.Visible = false;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "Customer_ID";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Visible = false;
+            // 
+            // Column7
+            // 
+            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column7.FillWeight = 30.29005F;
+            this.Column7.HeaderText = "Customer Name";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column3.FillWeight = 19.41925F;
+            this.Column3.HeaderText = "Unit Use";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.FillWeight = 25.18455F;
+            this.Column1.HeaderText = "Services";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.FillWeight = 23.46744F;
+            this.Column2.HeaderText = "Weight (Kg)";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column4.DefaultCellStyle = dataGridViewCellStyle5;
+            this.Column4.FillWeight = 75.09749F;
+            this.Column4.HeaderText = "                            Schedule Time";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            // 
+            // Column10
+            // 
+            this.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column10.FillWeight = 20.98568F;
+            this.Column10.HeaderText = "   Time Left";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            // 
+            // Edit
+            // 
+            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Edit.HeaderText = "  Edit";
+            this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
+            this.Edit.MinimumWidth = 60;
+            this.Edit.Name = "Edit";
+            this.Edit.ReadOnly = true;
+            this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Edit.Width = 60;
+            // 
+            // Cancel
+            // 
+            this.Cancel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Cancel.FillWeight = 505.5556F;
+            this.Cancel.HeaderText = " Cancel";
+            this.Cancel.Image = ((System.Drawing.Image)(resources.GetObject("Cancel.Image")));
+            this.Cancel.MinimumWidth = 60;
+            this.Cancel.Name = "Cancel";
+            this.Cancel.ReadOnly = true;
+            this.Cancel.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Cancel.Width = 80;
             // 
             // panel4
             // 
@@ -315,8 +419,8 @@
             // dataGridViewTextBoxColumn9
             // 
             this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn9.DefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridViewTextBoxColumn9.FillWeight = 231.7294F;
             this.dataGridViewTextBoxColumn9.HeaderText = "                            Schedule Time";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
@@ -371,6 +475,7 @@
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.calendar1);
             this.tabPage3.Location = new System.Drawing.Point(4, 37);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(1152, 469);
@@ -418,109 +523,31 @@
             this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
             this.dataGridViewImageColumn1.ReadOnly = true;
             this.dataGridViewImageColumn1.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewImageColumn1.Width = 70;
             // 
-            // Column5
+            // calendar1
             // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column5.HeaderText = "#";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 48;
-            // 
-            // Column6
-            // 
-            this.Column6.HeaderText = "Booking_ID";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
-            this.Column6.Visible = false;
-            // 
-            // Column8
-            // 
-            this.Column8.HeaderText = "Unit_ID";
-            this.Column8.Name = "Column8";
-            this.Column8.ReadOnly = true;
-            this.Column8.Visible = false;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "Customer_ID";
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.Visible = false;
-            // 
-            // Column7
-            // 
-            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column7.FillWeight = 30.29005F;
-            this.Column7.HeaderText = "Customer Name";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.FillWeight = 19.41925F;
-            this.Column3.HeaderText = "Unit Use";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.FillWeight = 25.18455F;
-            this.Column1.HeaderText = "Services";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.FillWeight = 23.46744F;
-            this.Column2.HeaderText = "Weight (Kg)";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // Column4
-            // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.Column4.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Column4.FillWeight = 75.09749F;
-            this.Column4.HeaderText = "                            Schedule Time";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            // 
-            // Column10
-            // 
-            this.Column10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column10.FillWeight = 20.98568F;
-            this.Column10.HeaderText = "   Time Left";
-            this.Column10.Name = "Column10";
-            this.Column10.ReadOnly = true;
-            // 
-            // Edit
-            // 
-            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Edit.HeaderText = "  Edit";
-            this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
-            this.Edit.MinimumWidth = 60;
-            this.Edit.Name = "Edit";
-            this.Edit.ReadOnly = true;
-            this.Edit.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Edit.Width = 60;
-            // 
-            // Cancel
-            // 
-            this.Cancel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Cancel.FillWeight = 505.5556F;
-            this.Cancel.HeaderText = " Cancel";
-            this.Cancel.Image = ((System.Drawing.Image)(resources.GetObject("Cancel.Image")));
-            this.Cancel.MinimumWidth = 60;
-            this.Cancel.Name = "Cancel";
-            this.Cancel.ReadOnly = true;
-            this.Cancel.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Cancel.Width = 80;
+            this.calendar1.AllowEditingEvents = true;
+            this.calendar1.CalendarDate = new System.DateTime(2024, 1, 3, 13, 54, 15, 313);
+            this.calendar1.CalendarView = Calendar.NET.CalendarViews.Month;
+            this.calendar1.DateHeaderFont = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold);
+            this.calendar1.DayOfWeekFont = new System.Drawing.Font("Arial", 10F);
+            this.calendar1.DaysFont = new System.Drawing.Font("Arial", 10F);
+            this.calendar1.DayViewTimeFont = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            this.calendar1.DimDisabledEvents = true;
+            this.calendar1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.calendar1.HighlightCurrentDay = true;
+            this.calendar1.LoadPresetHolidays = true;
+            this.calendar1.Location = new System.Drawing.Point(0, 0);
+            this.calendar1.Name = "calendar1";
+            this.calendar1.ShowArrowControls = true;
+            this.calendar1.ShowDashedBorderOnDisabledEvents = true;
+            this.calendar1.ShowDateInHeader = true;
+            this.calendar1.ShowDisabledEvents = false;
+            this.calendar1.ShowEventTooltips = true;
+            this.calendar1.ShowTodayButton = true;
+            this.calendar1.Size = new System.Drawing.Size(761, 469);
+            this.calendar1.TabIndex = 0;
+            this.calendar1.TodayFont = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
             // 
             // Schedule_Form
             // 
@@ -550,6 +577,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.grid_reserved_view)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.ResumeLayout(false);
@@ -598,5 +626,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Cancel;
+        private Calendar.NET.Calendar calendar1;
     }
 }
