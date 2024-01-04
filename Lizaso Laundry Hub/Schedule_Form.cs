@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
-using Calendar.NET;
+//using Calendar.NET;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 using System.Runtime.InteropServices.ComTypes;
 
@@ -31,6 +31,7 @@ namespace Lizaso_Laundry_Hub
             updateData = new Update_Data_Class();
         }
 
+        /*
         public void DispalyCalendarEventDetails()
         {
 
@@ -45,7 +46,7 @@ namespace Lizaso_Laundry_Hub
             };
             calendar1.AddEvent(groundhogEvent);
         }
-
+        */
         
         public void DisplayInProgressandReserved()
         {
