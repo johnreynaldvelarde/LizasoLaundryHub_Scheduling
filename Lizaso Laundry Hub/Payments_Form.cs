@@ -25,19 +25,18 @@ namespace Lizaso_Laundry_Hub
 
         public void DisplayInPendingList()
         {
-            if (tab_Payments.SelectedTab == tabPage1)
+            if (grid_transaction_view.SelectedTab == tabPage1)
             {
                  getData.Get_BookingPending(grid_pending_view);
 
             }
-            else if (tab_Payments.SelectedTab == tabPage2)
+            else if (grid_transaction_view.SelectedTab == tabPage2)
             {
-                //getData.Get_BookingReserved(grid_pending_view);
-
+                getData.Get_TransactionHistory(grid_transaction_history_view);
             }
             else
             {
-                MessageBox.Show("Wala wag kang excited");
+              
             }
            
         }

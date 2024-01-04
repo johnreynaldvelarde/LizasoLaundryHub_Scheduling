@@ -15,6 +15,7 @@ namespace Lizaso_Laundry_Hub
     {
         private Insert_Data_Class insertData;
         private Get_Data_Class getData;
+        private Backup_Data_Class backupData;
 
         private string default_user = "Type your username";
         private string default_pass = "Type your password";
@@ -25,6 +26,7 @@ namespace Lizaso_Laundry_Hub
             InitializeComponent();
             insertData = new Insert_Data_Class();
             getData = new Get_Data_Class();
+            backupData = new Backup_Data_Class();
         }
 
         private void txt_username_Enter(object sender, EventArgs e)
@@ -90,6 +92,8 @@ namespace Lizaso_Laundry_Hub
         private void Login_Form_Load(object sender, EventArgs e)
         {
             insertData.Automatic_Create_Super_User();
+            backupData.CreateLizasoLaundryHubFolder();
+
             txt_username.Text = default_user;
             txt_password.Text = default_pass;
             HidePassword();
