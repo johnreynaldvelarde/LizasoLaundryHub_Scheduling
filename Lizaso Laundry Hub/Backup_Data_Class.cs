@@ -23,8 +23,9 @@ namespace Lizaso_Laundry_Hub
                 string backupFolderPath = Path.Combine(baseFolderPath, "Database Backup");
                 string userProfileFolderPath = Path.Combine(baseFolderPath, "User Profile");
                 string customerRecipientFolderPath = Path.Combine(baseFolderPath, "Customer Recipient");
+                string systemSettingsFolderPath = Path.Combine(baseFolderPath, "System Settings");
 
-                // Check if the base folder (Lizaso Laundry Hub) already exists
+                // Check if the base folder (Lizaso Laundry Hub) is already exists
                 if (!Directory.Exists(baseFolderPath))
                 {
                     // Create Lizaso Laundry Hub folder
@@ -38,6 +39,9 @@ namespace Lizaso_Laundry_Hub
 
                     // Create Customer Recipient folder
                     Directory.CreateDirectory(customerRecipientFolderPath);
+
+                    // Create System Settings folder
+                    Directory.CreateDirectory(systemSettingsFolderPath);
                 }
                 else
                 {
@@ -99,7 +103,7 @@ namespace Lizaso_Laundry_Hub
                     }
                 }
 
-                MessageBox.Show("Database backup successful.", "Backup Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //MessageBox.Show("Database backup successful.", "Backup Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (SqlException sqlEx)
             {
