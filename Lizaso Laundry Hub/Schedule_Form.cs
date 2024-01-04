@@ -61,12 +61,9 @@ namespace Lizaso_Laundry_Hub
             }
             else if (tab_Schedule.SelectedTab == tabPage3)
             {
-                DispalyCalendarEventDetails();
+                //DispalyCalendarEventDetails();
             }
         }
-
-
-
 
         private void Schedule_Form_Load(object sender, EventArgs e)
         {
