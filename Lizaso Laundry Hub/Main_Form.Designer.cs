@@ -36,6 +36,9 @@
             this.lblUserName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel_upper = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.btnNotification = new System.Windows.Forms.Button();
+            this.btnDrop = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Count_Pending_Timer = new System.Windows.Forms.Timer(this.components);
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
             this.btn_Settings = new ComponentFactory.Krypton.Toolkit.KryptonButton();
@@ -47,14 +50,14 @@
             this.btn_AvailableServices = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btn_Dashboard = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.main_panelDock = new System.Windows.Forms.Panel();
-            this.btnNotification = new System.Windows.Forms.Button();
-            this.btnDrop = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.image_database_save = new System.Windows.Forms.PictureBox();
+            this.lbl_ShowAutoBackup = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.panel_upper)).BeginInit();
             this.panel_upper.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.image_database_save)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -69,7 +72,7 @@
             this.lblUpperTime.BackColor = System.Drawing.Color.Transparent;
             this.lblUpperTime.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUpperTime.ForeColor = System.Drawing.Color.White;
-            this.lblUpperTime.Location = new System.Drawing.Point(543, 12);
+            this.lblUpperTime.Location = new System.Drawing.Point(591, 12);
             this.lblUpperTime.Name = "lblUpperTime";
             this.lblUpperTime.Size = new System.Drawing.Size(82, 28);
             this.lblUpperTime.TabIndex = 3;
@@ -107,6 +110,8 @@
             // 
             // panel_upper
             // 
+            this.panel_upper.Controls.Add(this.lbl_ShowAutoBackup);
+            this.panel_upper.Controls.Add(this.image_database_save);
             this.panel_upper.Controls.Add(this.btnNotification);
             this.panel_upper.Controls.Add(this.btnDrop);
             this.panel_upper.Controls.Add(this.pictureBox1);
@@ -122,6 +127,51 @@
             this.panel_upper.StateCommon.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
             this.panel_upper.StateCommon.ColorAngle = 0F;
             this.panel_upper.TabIndex = 0;
+            // 
+            // btnNotification
+            // 
+            this.btnNotification.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNotification.BackColor = System.Drawing.Color.Transparent;
+            this.btnNotification.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnNotification.FlatAppearance.BorderSize = 0;
+            this.btnNotification.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNotification.Image = global::Lizaso_Laundry_Hub.Properties.Resources.BellWithRed;
+            this.btnNotification.Location = new System.Drawing.Point(1118, 0);
+            this.btnNotification.Name = "btnNotification";
+            this.btnNotification.Size = new System.Drawing.Size(33, 50);
+            this.btnNotification.TabIndex = 11;
+            this.btnNotification.UseVisualStyleBackColor = false;
+            this.btnNotification.Click += new System.EventHandler(this.btnNotification_Click);
+            // 
+            // btnDrop
+            // 
+            this.btnDrop.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDrop.BackColor = System.Drawing.Color.Transparent;
+            this.btnDrop.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnDrop.FlatAppearance.BorderSize = 0;
+            this.btnDrop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnDrop.Image = ((System.Drawing.Image)(resources.GetObject("btnDrop.Image")));
+            this.btnDrop.Location = new System.Drawing.Point(1157, 0);
+            this.btnDrop.Name = "btnDrop";
+            this.btnDrop.Size = new System.Drawing.Size(31, 50);
+            this.btnDrop.TabIndex = 10;
+            this.btnDrop.UseVisualStyleBackColor = false;
+            this.btnDrop.Click += new System.EventHandler(this.btnDrop_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox1.Image = global::Lizaso_Laundry_Hub.Properties.Resources.Logo;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(50, 50);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 9;
+            this.pictureBox1.TabStop = false;
             // 
             // Count_Pending_Timer
             // 
@@ -740,50 +790,30 @@
             this.main_panelDock.Size = new System.Drawing.Size(1200, 475);
             this.main_panelDock.TabIndex = 2;
             // 
-            // btnNotification
+            // image_database_save
             // 
-            this.btnNotification.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNotification.BackColor = System.Drawing.Color.Transparent;
-            this.btnNotification.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnNotification.FlatAppearance.BorderSize = 0;
-            this.btnNotification.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnNotification.Image = global::Lizaso_Laundry_Hub.Properties.Resources.BellWithRed;
-            this.btnNotification.Location = new System.Drawing.Point(1118, 0);
-            this.btnNotification.Name = "btnNotification";
-            this.btnNotification.Size = new System.Drawing.Size(33, 50);
-            this.btnNotification.TabIndex = 11;
-            this.btnNotification.UseVisualStyleBackColor = false;
-            this.btnNotification.Click += new System.EventHandler(this.btnNotification_Click);
+            this.image_database_save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.image_database_save.BackColor = System.Drawing.Color.Transparent;
+            this.image_database_save.Image = ((System.Drawing.Image)(resources.GetObject("image_database_save.Image")));
+            this.image_database_save.Location = new System.Drawing.Point(265, 0);
+            this.image_database_save.Name = "image_database_save";
+            this.image_database_save.Size = new System.Drawing.Size(50, 50);
+            this.image_database_save.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.image_database_save.TabIndex = 12;
+            this.image_database_save.TabStop = false;
             // 
-            // btnDrop
+            // lbl_ShowAutoBackup
             // 
-            this.btnDrop.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDrop.BackColor = System.Drawing.Color.Transparent;
-            this.btnDrop.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDrop.FlatAppearance.BorderSize = 0;
-            this.btnDrop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDrop.Image = ((System.Drawing.Image)(resources.GetObject("btnDrop.Image")));
-            this.btnDrop.Location = new System.Drawing.Point(1157, 0);
-            this.btnDrop.Name = "btnDrop";
-            this.btnDrop.Size = new System.Drawing.Size(31, 50);
-            this.btnDrop.TabIndex = 10;
-            this.btnDrop.UseVisualStyleBackColor = false;
-            this.btnDrop.Click += new System.EventHandler(this.btnDrop_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox1.Image = global::Lizaso_Laundry_Hub.Properties.Resources.Logo;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(50, 50);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 9;
-            this.pictureBox1.TabStop = false;
+            this.lbl_ShowAutoBackup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lbl_ShowAutoBackup.AutoSize = true;
+            this.lbl_ShowAutoBackup.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_ShowAutoBackup.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ShowAutoBackup.ForeColor = System.Drawing.Color.White;
+            this.lbl_ShowAutoBackup.Location = new System.Drawing.Point(321, 15);
+            this.lbl_ShowAutoBackup.Name = "lbl_ShowAutoBackup";
+            this.lbl_ShowAutoBackup.Size = new System.Drawing.Size(105, 23);
+            this.lbl_ShowAutoBackup.TabIndex = 13;
+            this.lbl_ShowAutoBackup.Text = "Auto-Backup...";
             // 
             // Main_Form
             // 
@@ -804,9 +834,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.panel_upper)).EndInit();
             this.panel_upper.ResumeLayout(false);
             this.panel_upper.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             this.kryptonPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.image_database_save)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -833,5 +864,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton btn_UserMange;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btn_Inventory;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btn_Settings;
+        private System.Windows.Forms.PictureBox image_database_save;
+        private System.Windows.Forms.Label lbl_ShowAutoBackup;
     }
 }
