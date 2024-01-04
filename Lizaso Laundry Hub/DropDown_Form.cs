@@ -39,32 +39,51 @@ namespace Lizaso_Laundry_Hub
         }
 
     
-        private void btn_Logout_Click(object sender, EventArgs e)
+        private async void btn_Logout_Click(object sender, EventArgs e)
         {
-            DialogResult res;
-            res = MessageBox.Show("Do you want to logout", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (res == DialogResult.Yes)
-            {
-                //this.Dispose();
-                Application.OpenForms["Main_Form"].Dispose();
-                Login_Form frm = new Login_Form();
-                frm.Show();
-            }
-            else
+            try
             {
                 backupData.BackupDatabaseEveryLogout();
                 this.Dispose();
+                // Introduce a 5-second delay
+                await Task.Delay(2000);
+
                 Application.OpenForms["Main_Form"].Dispose();
+
                 Login_Form frm = new Login_Form();
                 frm.Show();
-                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
         private void DropDown_Form_Deactivate(object sender, EventArgs e)
         {
             this.Dispose();
+            /*
+           DialogResult res;
+           res = MessageBox.Show("Do you want to logout", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+           if (res == DialogResult.Yes)
+           {
+               /
+               this.Dispose();
+               Application.OpenForms["Main_Form"].Dispose();
+               Login_Form frm = new Login_Form();
+               frm.Show();
+           }
+           else
+           {
+               backupData.BackupDatabaseEveryLogout();
+               this.Dispose();
+               Application.OpenForms["Main_Form"].Dispose();
+               Login_Form frm = new Login_Form();
+               frm.Show();
+
+           }
+           */
         }
     }
 }
