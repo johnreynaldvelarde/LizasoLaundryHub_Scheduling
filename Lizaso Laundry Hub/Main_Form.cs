@@ -42,6 +42,17 @@ namespace Lizaso_Laundry_Hub
             Count_Pending_Timer.Start();
         }
 
+        public void ShowImageDatabase()
+        {
+            image_database_save.Visible = true;
+        }
+
+        public Label Get_AutoSave_Label()
+        {
+            lbl_ShowAutoBackup.Visible = true;
+            return lbl_ShowAutoBackup;
+        }
+
         private int CalculateLabelWidth(string text)
         {
             using (Graphics g = lblUserName.CreateGraphics())

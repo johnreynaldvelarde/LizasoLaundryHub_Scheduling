@@ -36,6 +36,8 @@
             this.lblUserName = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel_upper = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.lbl_ShowAutoBackup = new System.Windows.Forms.Label();
+            this.image_database_save = new System.Windows.Forms.PictureBox();
             this.btnNotification = new System.Windows.Forms.Button();
             this.btnDrop = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -50,14 +52,12 @@
             this.btn_AvailableServices = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btn_Dashboard = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.main_panelDock = new System.Windows.Forms.Panel();
-            this.image_database_save = new System.Windows.Forms.PictureBox();
-            this.lbl_ShowAutoBackup = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.panel_upper)).BeginInit();
             this.panel_upper.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.image_database_save)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.image_database_save)).BeginInit();
             this.SuspendLayout();
             // 
             // timer1
@@ -127,6 +127,33 @@
             this.panel_upper.StateCommon.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
             this.panel_upper.StateCommon.ColorAngle = 0F;
             this.panel_upper.TabIndex = 0;
+            // 
+            // lbl_ShowAutoBackup
+            // 
+            this.lbl_ShowAutoBackup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lbl_ShowAutoBackup.AutoSize = true;
+            this.lbl_ShowAutoBackup.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_ShowAutoBackup.Font = new System.Drawing.Font("Poppins SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ShowAutoBackup.ForeColor = System.Drawing.Color.White;
+            this.lbl_ShowAutoBackup.Location = new System.Drawing.Point(321, 15);
+            this.lbl_ShowAutoBackup.Name = "lbl_ShowAutoBackup";
+            this.lbl_ShowAutoBackup.Size = new System.Drawing.Size(109, 23);
+            this.lbl_ShowAutoBackup.TabIndex = 13;
+            this.lbl_ShowAutoBackup.Text = "Auto-Backup...";
+            this.lbl_ShowAutoBackup.Visible = false;
+            // 
+            // image_database_save
+            // 
+            this.image_database_save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.image_database_save.BackColor = System.Drawing.Color.Transparent;
+            this.image_database_save.Image = ((System.Drawing.Image)(resources.GetObject("image_database_save.Image")));
+            this.image_database_save.Location = new System.Drawing.Point(265, 0);
+            this.image_database_save.Name = "image_database_save";
+            this.image_database_save.Size = new System.Drawing.Size(50, 50);
+            this.image_database_save.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.image_database_save.TabIndex = 12;
+            this.image_database_save.TabStop = false;
+            this.image_database_save.Visible = false;
             // 
             // btnNotification
             // 
@@ -198,10 +225,9 @@
             // 
             // btn_Settings
             // 
-            this.btn_Settings.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_Settings.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.btn_Settings.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Settings.Location = new System.Drawing.Point(1054, 8);
+            this.btn_Settings.Location = new System.Drawing.Point(1052, 8);
             this.btn_Settings.Name = "btn_Settings";
             this.btn_Settings.OverrideDefault.Back.Color1 = System.Drawing.Color.SteelBlue;
             this.btn_Settings.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(70)))), ((int)(((byte)(40)))));
@@ -271,10 +297,9 @@
             // 
             // btn_Inventory
             // 
-            this.btn_Inventory.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_Inventory.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.btn_Inventory.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Inventory.Location = new System.Drawing.Point(907, 8);
+            this.btn_Inventory.Location = new System.Drawing.Point(905, 8);
             this.btn_Inventory.Name = "btn_Inventory";
             this.btn_Inventory.OverrideDefault.Back.Color1 = System.Drawing.Color.SteelBlue;
             this.btn_Inventory.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(70)))), ((int)(((byte)(40)))));
@@ -344,10 +369,9 @@
             // 
             // btn_UserMange
             // 
-            this.btn_UserMange.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_UserMange.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.btn_UserMange.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_UserMange.Location = new System.Drawing.Point(757, 8);
+            this.btn_UserMange.Location = new System.Drawing.Point(755, 8);
             this.btn_UserMange.Name = "btn_UserMange";
             this.btn_UserMange.OverrideDefault.Back.Color1 = System.Drawing.Color.SteelBlue;
             this.btn_UserMange.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(70)))), ((int)(((byte)(40)))));
@@ -417,10 +441,9 @@
             // 
             // btn_CustomerManage
             // 
-            this.btn_CustomerManage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_CustomerManage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.btn_CustomerManage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_CustomerManage.Location = new System.Drawing.Point(608, 8);
+            this.btn_CustomerManage.Location = new System.Drawing.Point(606, 8);
             this.btn_CustomerManage.Name = "btn_CustomerManage";
             this.btn_CustomerManage.OverrideDefault.Back.Color1 = System.Drawing.Color.SteelBlue;
             this.btn_CustomerManage.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(70)))), ((int)(((byte)(40)))));
@@ -490,10 +513,9 @@
             // 
             // btn_Schedule
             // 
-            this.btn_Schedule.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_Schedule.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.btn_Schedule.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Schedule.Location = new System.Drawing.Point(459, 8);
+            this.btn_Schedule.Location = new System.Drawing.Point(457, 8);
             this.btn_Schedule.Name = "btn_Schedule";
             this.btn_Schedule.OverrideDefault.Back.Color1 = System.Drawing.Color.SteelBlue;
             this.btn_Schedule.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(70)))), ((int)(((byte)(40)))));
@@ -563,10 +585,9 @@
             // 
             // btn_PendingPayments
             // 
-            this.btn_PendingPayments.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_PendingPayments.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.btn_PendingPayments.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_PendingPayments.Location = new System.Drawing.Point(310, 8);
+            this.btn_PendingPayments.Location = new System.Drawing.Point(308, 8);
             this.btn_PendingPayments.Name = "btn_PendingPayments";
             this.btn_PendingPayments.OverrideDefault.Back.Color1 = System.Drawing.Color.SteelBlue;
             this.btn_PendingPayments.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(70)))), ((int)(((byte)(40)))));
@@ -636,10 +657,9 @@
             // 
             // btn_AvailableServices
             // 
-            this.btn_AvailableServices.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_AvailableServices.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.btn_AvailableServices.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_AvailableServices.Location = new System.Drawing.Point(161, 8);
+            this.btn_AvailableServices.Location = new System.Drawing.Point(159, 8);
             this.btn_AvailableServices.Name = "btn_AvailableServices";
             this.btn_AvailableServices.OverrideDefault.Back.Color1 = System.Drawing.Color.SteelBlue;
             this.btn_AvailableServices.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(70)))), ((int)(((byte)(40)))));
@@ -709,10 +729,9 @@
             // 
             // btn_Dashboard
             // 
-            this.btn_Dashboard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_Dashboard.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.btn_Dashboard.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Dashboard.Location = new System.Drawing.Point(12, 8);
+            this.btn_Dashboard.Location = new System.Drawing.Point(10, 8);
             this.btn_Dashboard.Name = "btn_Dashboard";
             this.btn_Dashboard.OverrideDefault.Back.Color1 = System.Drawing.Color.SteelBlue;
             this.btn_Dashboard.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(70)))), ((int)(((byte)(40)))));
@@ -790,33 +809,6 @@
             this.main_panelDock.Size = new System.Drawing.Size(1200, 475);
             this.main_panelDock.TabIndex = 2;
             // 
-            // image_database_save
-            // 
-            this.image_database_save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.image_database_save.BackColor = System.Drawing.Color.Transparent;
-            this.image_database_save.Image = ((System.Drawing.Image)(resources.GetObject("image_database_save.Image")));
-            this.image_database_save.Location = new System.Drawing.Point(265, 0);
-            this.image_database_save.Name = "image_database_save";
-            this.image_database_save.Size = new System.Drawing.Size(50, 50);
-            this.image_database_save.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.image_database_save.TabIndex = 12;
-            this.image_database_save.TabStop = false;
-            this.image_database_save.Visible = false;
-            // 
-            // lbl_ShowAutoBackup
-            // 
-            this.lbl_ShowAutoBackup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.lbl_ShowAutoBackup.AutoSize = true;
-            this.lbl_ShowAutoBackup.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_ShowAutoBackup.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl_ShowAutoBackup.ForeColor = System.Drawing.Color.White;
-            this.lbl_ShowAutoBackup.Location = new System.Drawing.Point(321, 15);
-            this.lbl_ShowAutoBackup.Name = "lbl_ShowAutoBackup";
-            this.lbl_ShowAutoBackup.Size = new System.Drawing.Size(105, 23);
-            this.lbl_ShowAutoBackup.TabIndex = 13;
-            this.lbl_ShowAutoBackup.Text = "Auto-Backup...";
-            this.lbl_ShowAutoBackup.Visible = false;
-            // 
             // Main_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -836,10 +828,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.panel_upper)).EndInit();
             this.panel_upper.ResumeLayout(false);
             this.panel_upper.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.image_database_save)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             this.kryptonPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.image_database_save)).EndInit();
             this.ResumeLayout(false);
 
         }

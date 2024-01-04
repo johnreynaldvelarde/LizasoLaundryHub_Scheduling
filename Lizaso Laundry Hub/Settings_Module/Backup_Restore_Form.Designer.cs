@@ -69,7 +69,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(10, 64);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(848, 394);
+            this.panel2.Size = new System.Drawing.Size(844, 390);
             this.panel2.TabIndex = 2;
             // 
             // label11
@@ -78,7 +78,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.label11.Location = new System.Drawing.Point(0, 206);
+            this.label11.Location = new System.Drawing.Point(-2, 206);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(245, 28);
             this.label11.TabIndex = 20;
@@ -90,7 +90,7 @@
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.label10.Location = new System.Drawing.Point(0, 244);
+            this.label10.Location = new System.Drawing.Point(-2, 244);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(197, 28);
             this.label10.TabIndex = 19;
@@ -102,7 +102,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.label6.Location = new System.Drawing.Point(0, 328);
+            this.label6.Location = new System.Drawing.Point(-2, 328);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(154, 28);
             this.label6.TabIndex = 12;
@@ -118,7 +118,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(848, 194);
+            this.panel3.Size = new System.Drawing.Size(844, 194);
             this.panel3.TabIndex = 0;
             // 
             // txt_DatabaseName
@@ -148,7 +148,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.label9.Location = new System.Drawing.Point(34, 136);
+            this.label9.Location = new System.Drawing.Point(32, 136);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(146, 28);
             this.label9.TabIndex = 13;
@@ -160,7 +160,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.label8.Location = new System.Drawing.Point(34, 95);
+            this.label8.Location = new System.Drawing.Point(32, 95);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(204, 28);
             this.label8.TabIndex = 12;
@@ -172,7 +172,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.label7.Location = new System.Drawing.Point(34, 54);
+            this.label7.Location = new System.Drawing.Point(32, 54);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(174, 28);
             this.label7.TabIndex = 11;
@@ -184,7 +184,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.label3.Location = new System.Drawing.Point(2, 14);
+            this.label3.Location = new System.Drawing.Point(0, 14);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(206, 28);
             this.label3.TabIndex = 10;
@@ -196,7 +196,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.label5.Location = new System.Drawing.Point(2, 15);
+            this.label5.Location = new System.Drawing.Point(0, 15);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(150, 28);
             this.label5.TabIndex = 11;
@@ -208,7 +208,7 @@
             this.lblAvailable.AutoSize = true;
             this.lblAvailable.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAvailable.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(35)))), ((int)(((byte)(30)))));
-            this.lblAvailable.Location = new System.Drawing.Point(154, 15);
+            this.lblAvailable.Location = new System.Drawing.Point(152, 15);
             this.lblAvailable.Name = "lblAvailable";
             this.lblAvailable.Size = new System.Drawing.Size(22, 28);
             this.lblAvailable.TabIndex = 6;
@@ -223,14 +223,14 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(10, 10);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(848, 54);
+            this.panel1.Size = new System.Drawing.Size(844, 54);
             this.panel1.TabIndex = 1;
             // 
             // DataBase_Date
             // 
             this.DataBase_Date.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DataBase_Date.Location = new System.Drawing.Point(630, 15);
+            this.DataBase_Date.Location = new System.Drawing.Point(626, 15);
             this.DataBase_Date.Name = "DataBase_Date";
             this.DataBase_Date.Size = new System.Drawing.Size(202, 28);
             this.DataBase_Date.StateCommon.Content.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -243,7 +243,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.label1.Location = new System.Drawing.Point(570, 15);
+            this.label1.Location = new System.Drawing.Point(566, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 28);
             this.label1.TabIndex = 12;
@@ -254,7 +254,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(868, 468);
+            this.ClientSize = new System.Drawing.Size(864, 464);
             this.ControlBox = false;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

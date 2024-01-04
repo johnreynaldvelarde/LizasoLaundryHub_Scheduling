@@ -18,6 +18,15 @@ namespace Lizaso_Laundry_Hub.Settings_Module
             InitializeComponent();
         }
 
-       
+        public void DisplayDateModified()
+        {
+            // get the string data modified in C:\:Lizaso Laundry Hub \ Database Backup check the DB_Backup.bak and get the date modified on it   public void DisplayDateModified()
+            {
+
+            }
+
+
+        }
+
     }
 }
