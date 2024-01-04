@@ -801,6 +801,7 @@
             this.image_database_save.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.image_database_save.TabIndex = 12;
             this.image_database_save.TabStop = false;
+            this.image_database_save.Visible = false;
             // 
             // lbl_ShowAutoBackup
             // 
@@ -814,6 +815,7 @@
             this.lbl_ShowAutoBackup.Size = new System.Drawing.Size(105, 23);
             this.lbl_ShowAutoBackup.TabIndex = 13;
             this.lbl_ShowAutoBackup.Text = "Auto-Backup...";
+            this.lbl_ShowAutoBackup.Visible = false;
             // 
             // Main_Form
             // 
@@ -864,7 +866,7 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton btn_UserMange;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btn_Inventory;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btn_Settings;
-        private System.Windows.Forms.PictureBox image_database_save;
-        private System.Windows.Forms.Label lbl_ShowAutoBackup;
+        public System.Windows.Forms.PictureBox image_database_save;
+        public System.Windows.Forms.Label lbl_ShowAutoBackup;
     }
 }

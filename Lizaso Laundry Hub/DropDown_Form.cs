@@ -17,6 +17,7 @@ namespace Lizaso_Laundry_Hub
     {
         private Panel panel_upper;
         private Backup_Data_Class backupData;
+        //private Main_Form mainForm = new Main_Form(authenticatedUser);
 
         public DropDown_Form(Panel panelUpper)
         {
@@ -43,7 +44,7 @@ namespace Lizaso_Laundry_Hub
         {
             try
             {
-                backupData.BackupDatabaseEveryLogout();
+                DisplayUIBackup();
                 this.Dispose();
                 // Introduce a 5-second delay
                 await Task.Delay(2000);
@@ -58,6 +59,15 @@ namespace Lizaso_Laundry_Hub
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        public void DisplayUIBackup()
+        {
+            backupData.BackupDatabaseEveryLogout();
+           // mainForm.image_database_save.Visible = true;
+           // mainForm.lbl_ShowAutoBackup.Visible = true;
+        }
+
+
 
         private void DropDown_Form_Deactivate(object sender, EventArgs e)
         {
