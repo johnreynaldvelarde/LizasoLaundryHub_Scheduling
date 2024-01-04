@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,11 +16,12 @@ namespace Lizaso_Laundry_Hub
     public partial class DropDown_Form : KryptonForm
     {
         private Panel panel_upper;
-        
+        private Backup_Data_Class backupData;
+
         public DropDown_Form(Panel panelUpper)
         {
             InitializeComponent();
-
+            backupData = new Backup_Data_Class();
             this.panel_upper = panelUpper;
 
             if (this.panel_upper != null)
@@ -43,18 +46,19 @@ namespace Lizaso_Laundry_Hub
 
             if (res == DialogResult.Yes)
             {
-                this.Dispose();
+                //this.Dispose();
                 Application.OpenForms["Main_Form"].Dispose();
                 Login_Form frm = new Login_Form();
                 frm.Show();
             }
             else
             {
+                backupData.BackupDatabaseEveryLogout();
                 this.Dispose();
                 Application.OpenForms["Main_Form"].Dispose();
                 Login_Form frm = new Login_Form();
                 frm.Show();
-                //this.Show();
+                
             }
         }
 

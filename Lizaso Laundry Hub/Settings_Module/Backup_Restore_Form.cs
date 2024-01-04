@@ -17,5 +17,7 @@ namespace Lizaso_Laundry_Hub.Settings_Module
         {
             InitializeComponent();
         }
+
+       
     }
 }

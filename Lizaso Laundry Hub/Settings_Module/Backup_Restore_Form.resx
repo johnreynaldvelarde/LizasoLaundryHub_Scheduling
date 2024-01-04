@@ -120,19 +120,4 @@
   <metadata name="kryptonPalette1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btn_NewUnit.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAgBJREFUSEvd
-        lUtPIkEQx3H3e+lGHgPDMA+YgUGUuF/CNZ5IvJio8RlizOrJlfWtBw8eVsmSPWuQl+A3UPRIM0TaLiky
-        PgYWduWw+0sq6Zmp+le6uqba9n8Ti8U+2HnNzUmhdV9g+JqXw/dgQiBS4kR9zeENcOCD7t3h9GkDTCgv
-        alEyuxCvJX/+oplc4clgPTMfN0R1hAj+4ZyL9/djWGe4pNC4Rw4bie2DOiGEtqJSIXRza6/ulnWDE4Nj
-        GN4ezqdPKPpnclW8Rpnfk78qUSU0SljsF5SxhtXU4Zb0WqFYwtDOyReKlJN0wyGon1DuJZqmfYTDg7Jg
-        TNd8+75XZxoFy4Mf9KgeRR+tVKsGultwU6b09g4f3kKqVSoFoxWnT3WhrAkv61/nllZq6GvNznHD2gAd
-        51XCqyhrImnR3Blrv7Z0kODHWQp2cYmyJoI/cnuZzaPbM6AsiSNW4ENKJxcbBmt4B99ekc7kqFcZukFZ
-        E0iQsUoANT88ofSA2VS8YbCGd+V7dDJpmUDSRrLvUaLTZIrKViVi/b8MB4R+1nSQYHpu2fCIoXmUNXEK
-        qv292rTVz9bnVSLZza39B/Tvmo3E7gPTSINWQ/IVsIu/HRUwhVHOmp4OuyY9HddNenrhNMEr08l2sygG
-        oxe8MnTHK+EyGyvn0Iow3v/4yvxHsNkeATp9Uv3F7t4uAAAAAElFTkSuQmCC
-</value>
-  </data>
 </root>
