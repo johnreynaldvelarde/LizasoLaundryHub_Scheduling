@@ -21,7 +21,6 @@ namespace Lizaso_Laundry_Hub
         
         private Insert_Data_Class insertData;
         private Get_Data_Class getData;
-        private string r_startTime, r_endTime;
         Services_Form frm;
 
         public Add_Reserved_Form(Services_Form services)

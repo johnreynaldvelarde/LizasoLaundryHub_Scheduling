@@ -18,7 +18,8 @@ namespace Lizaso_Laundry_Hub
         {
             try
             {
-                string baseFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Lizaso Laundry Hub");
+                // the base folder path is on the C: drive
+                string baseFolderPath = @"C:\Lizaso Laundry Hub";
                 string backupFolderPath = Path.Combine(baseFolderPath, "Database Backup");
                 string userProfileFolderPath = Path.Combine(baseFolderPath, "User Profile");
                 string customerRecipientFolderPath = Path.Combine(baseFolderPath, "Customer Recipient");
@@ -37,11 +38,10 @@ namespace Lizaso_Laundry_Hub
 
                     // Create Customer Recipient folder
                     Directory.CreateDirectory(customerRecipientFolderPath);
-
                 }
                 else
                 {
-
+                    // Optionally handle the case where the folder already exists
                 }
             }
             catch (Exception ex)
@@ -50,7 +50,97 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
-        
+        // backup database every second
+        public void BackupDatabaseEveryLogout()
+        {
+            try
+            {
+                DateTime dateRecored = DateTime.Now;
+                string dbName = "DB_Laundry";
+                string backupFileName = "DB_Backup.bak";
+
+                // Specify the base folder path on the C: drive
+                string baseFolderPath = @"C:\Lizaso Laundry Hub";
+                string backupPath = Path.Combine(baseFolderPath, "Database Backup");
+
+                // Ensure the base folder (Lizaso Laundry Hub) and backup directory exist or create them
+                if (!Directory.Exists(baseFolderPath))
+                {
+                    Directory.CreateDirectory(baseFolderPath);
+                }
+
+                if (!Directory.Exists(backupPath))
+                {
+                    Directory.CreateDirectory(backupPath);
+                }
+
+                string connectionString = database.MyConnection(); // Adjust this according to your connection method
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // Set the database context
+                    string useDatabaseCommand = $"USE {dbName};";
+                    using (SqlCommand useDatabaseCmd = new SqlCommand(useDatabaseCommand, connection))
+                    {
+                        useDatabaseCmd.ExecuteNonQuery();
+                    }
+
+                    // Create a backup command
+                    string backupCommand = "BACKUP DATABASE " + dbName +
+                                          " TO DISK = '" + Path.Combine(backupPath, backupFileName) +
+                                          "' WITH FORMAT ,MEDIANAME = 'Z_SQLServerBackups', NAME = ' Full Backup of " + dbName + "';";
+
+                    using (SqlCommand command = new SqlCommand(backupCommand, connection))
+                    {
+                        // Execute the backup command
+                        command.ExecuteNonQuery();
+                    }
+                }
+
+                MessageBox.Show("Database backup successful.", "Backup Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show($"SQL Server Error during database backup: {sqlEx.Message}", "Backup Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error during database backup: {ex.Message}", "Backup Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public bool Now5()
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+                    /*
+               using (SqlCommand command = connection.CreateCommand(backupCommand, connection))
+               {
+                   // Use the 'WITH INIT' option to overwrite the existing backup file
+                   //command.CommandText = $"BACKUP DATABASE [{dbName}] TO DISK='{Path.Combine(backupPath, backupFileName)}'";
+
+                   // Execute the backup command
+                   command.ExecuteNonQuery();
+               }
+               */
+
+
+
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        /*
         public void BackupDatabaseEveryLogoutsasass()
         {
             if (MessageBox.Show("Do you want to backup your database? ", "Backup the database", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
@@ -79,183 +169,6 @@ namespace Lizaso_Laundry_Hub
 
             }
         }
-
-        /*
-        public void BackupDatabaseEveryLogouts()
-        {
-            try
-            {
-                //string serverName = "LENOVO-PC\\SQLEXPRESS";
-                string dbName = "DB_Laundry";
-                string backupFileName = "DB_Backup.bak";
-                string backupPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "DB_Backup");
-
-                // Ensure the backup directory exists or create it
-                if (!Directory.Exists(backupPath))
-                {
-                    Directory.CreateDirectory(backupPath);
-                }
-
-                string connectionString = database.MyConnection(); // Adjust this according to your connection method
-
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-
-                    // Create a backup command
-                    using (SqlCommand command = connection.CreateCommand())
-                    {
-                        // Use the 'WITH INIT' option to overwrite the existing backup file
-                        command.CommandText = $"BACKUP DATABASE [{dbName}] TO DISK='{Path.Combine(backupPath, backupFileName)}' WITH INIT";
-
-                        // Execute the backup command
-                        command.ExecuteNonQuery();
-                    }
-                }
-
-                MessageBox.Show("Database backup successful.", "Backup Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (SqlException sqlEx)
-            {
-                MessageBox.Show($"SQL Server Error during database backup: {sqlEx.Message}", "Backup Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error during database backup: {ex.Message}", "Backup Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        
-
-        public void BackupDatabaseEveryLogout()
-        {
-            try
-            {
-                string dbName = "DB_Laundry";
-                string backupFileName = "DB_Backup.bak";
-                string baseFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Lizaso Laundry Hub");
-                string backupPath = Path.Combine(baseFolderPath, "Database Backup");
-
-                // Ensure the base folder (Lizaso Laundry Hub) and backup directory exist or create them
-                if (!Directory.Exists(baseFolderPath))
-                {
-                    Directory.CreateDirectory(baseFolderPath);
-                }
-
-                if (!Directory.Exists(backupPath))
-                {
-                    Directory.CreateDirectory(backupPath);
-                }
-
-                string connectionString = database.MyConnection(); // Adjust this according to your connection method
-
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-
-                    // Create a backup command
-                    using (SqlCommand command = connection.CreateCommand())
-                    {
-                        // Use the 'WITH INIT' option to overwrite the existing backup file
-                        command.CommandText = $"BACKUP DATABASE [{dbName}] TO DISK='{Path.Combine(backupPath, backupFileName)}' WITH INIT";
-
-                        // Execute the backup command
-                        command.ExecuteNonQuery();
-                    }
-                }
-
-                MessageBox.Show("Database backup successful.", "Backup Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (SqlException sqlEx)
-            {
-                MessageBox.Show($"SQL Server Error during database backup: {sqlEx.Message}", "Backup Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error during database backup: {ex.Message}", "Backup Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
         */
-
-        public void BackupDatabaseEveryLogout()
-        {
-            try
-            {
-                string dbName = "DB_Laundry";
-                string backupFileName = "DB_Backup.bak";
-                string baseFolderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "Lizaso Laundry Hub");
-                string backupPath = Path.Combine(baseFolderPath, "Database Backup");
-
-                // Ensure the base folder (Lizaso Laundry Hub) and backup directory exist or create them
-                if (!Directory.Exists(baseFolderPath))
-                {
-                    Directory.CreateDirectory(baseFolderPath);
-                }
-
-                if (!Directory.Exists(backupPath))
-                {
-                    Directory.CreateDirectory(backupPath);
-                }
-
-                string connectionString = database.MyConnection(); // Adjust this according to your connection method
-
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-
-                    // Set the database context
-                    string useDatabaseCommand = $"USE {dbName};";
-                    using (SqlCommand useDatabaseCmd = new SqlCommand(useDatabaseCommand, connection))
-                    {
-                        useDatabaseCmd.ExecuteNonQuery();
-                    }
-                    
-                    // Create a backup command
-                    using (SqlCommand command = connection.CreateCommand())
-                    {
-                        // Use the 'WITH INIT' option to overwrite the existing backup file
-                        command.CommandText = $"BACKUP DATABASE [{dbName}] TO DISK='{Path.Combine(backupPath, backupFileName)}'";
-
-                        // Execute the backup command
-                        command.ExecuteNonQuery();
-                    }
-                    
-                }
-
-                MessageBox.Show("Database backup successful.", "Backup Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (SqlException sqlEx)
-            {
-                MessageBox.Show($"SQL Server Error during database backup: {sqlEx.Message}", "Backup Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error during database backup: {ex.Message}", "Backup Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-
-
-
-
-        public bool Now5()
-        {
-            try
-            {
-                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
-                {
-
-
-
-
-                    return true;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-        }
     }
 }

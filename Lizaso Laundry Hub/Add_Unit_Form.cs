@@ -16,7 +16,6 @@ namespace Lizaso_Laundry_Hub
     {
         private Settings_Module.LaundryUnit_Configuration_Form frm;
 
-        private Services_Form frm2;
         private Account_Class account;
         private Insert_Data_Class insertData;
         private Update_Data_Class updateData;
