@@ -37,9 +37,9 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.Label_NoneCustomer = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.Label_NoneCustomer = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -127,6 +127,17 @@
             this.panel5.Size = new System.Drawing.Size(375, 520);
             this.panel5.TabIndex = 7;
             // 
+            // Label_NoneCustomer
+            // 
+            this.Label_NoneCustomer.AutoSize = true;
+            this.Label_NoneCustomer.Font = new System.Drawing.Font("Poppins Light", 36F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Label_NoneCustomer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.Label_NoneCustomer.Location = new System.Drawing.Point(102, 241);
+            this.Label_NoneCustomer.Name = "Label_NoneCustomer";
+            this.Label_NoneCustomer.Size = new System.Drawing.Size(159, 84);
+            this.Label_NoneCustomer.TabIndex = 4;
+            this.Label_NoneCustomer.Text = "None";
+            // 
             // panel6
             // 
             this.panel6.Controls.Add(this.label2);
@@ -146,17 +157,6 @@
             this.label2.Size = new System.Drawing.Size(258, 34);
             this.label2.TabIndex = 3;
             this.label2.Text = "Best Customer Rankings";
-            // 
-            // Label_NoneCustomer
-            // 
-            this.Label_NoneCustomer.AutoSize = true;
-            this.Label_NoneCustomer.Font = new System.Drawing.Font("Poppins Light", 36F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label_NoneCustomer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.Label_NoneCustomer.Location = new System.Drawing.Point(102, 241);
-            this.Label_NoneCustomer.Name = "Label_NoneCustomer";
-            this.Label_NoneCustomer.Size = new System.Drawing.Size(159, 84);
-            this.Label_NoneCustomer.TabIndex = 4;
-            this.Label_NoneCustomer.Text = "None";
             // 
             // Dashboard_Form
             // 

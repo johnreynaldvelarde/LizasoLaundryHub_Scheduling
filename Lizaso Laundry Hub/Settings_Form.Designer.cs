@@ -268,7 +268,7 @@
             this.btn_BackUpConfig.StateTracking.Border.Width = 1;
             this.btn_BackUpConfig.TabIndex = 22;
             this.btn_BackUpConfig.Values.Image = ((System.Drawing.Image)(resources.GetObject("btn_BackUpConfig.Values.Image")));
-            this.btn_BackUpConfig.Values.Text = "Backup and Save Configuration";
+            this.btn_BackUpConfig.Values.Text = "Backup and Restore Configuration";
             this.btn_BackUpConfig.Click += new System.EventHandler(this.btn_BackUpConfig_Click);
             // 
             // btn_LaundryUnit_Config

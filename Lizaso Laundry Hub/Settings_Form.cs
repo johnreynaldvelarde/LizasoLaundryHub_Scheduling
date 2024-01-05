@@ -57,7 +57,7 @@ namespace Lizaso_Laundry_Hub
 
         private void btn_BackUpConfig_Click(object sender, EventArgs e)
         {
-            lblTitle.Text = "Backup and Save Configuration";
+            lblTitle.Text = "Backup and Restore Configuration";
             openChildPanel(new Settings_Module.Backup_Restore_Form());
         }
 
