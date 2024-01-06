@@ -362,9 +362,39 @@ namespace Lizaso_Laundry_Hub.Settings_Module
            
         }
 
+        private void btn_RestoreDatabase_Click(object sender, EventArgs e)
+        {
+            if (Label_ClickLocateBackup.Text == "Click to the Location of Backup Folder")
+            {
+                MessageBox.Show("Please set the location path.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (String.IsNullOrEmpty(txt_ServerName.Text))
+            {
+                MessageBox.Show("Please enter the server name.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else if (txt_ServerName.Text == "Retrieving...")
+            {
+                MessageBox.Show("Server name is still being retrieved. Please wait.", "Retrieving Server Name", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else if (String.IsNullOrEmpty(txt_RestoreDatabaseName.Text))
+            {
+                MessageBox.Show("Please enter the database name.", "Validation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                string LocationPath = Label_ClickLocateBackup.Text;
+                string serverName = txt_ServerName.Text;
+                string databaseName = txt_RestoreDatabaseName.Text;
+
+                backupData.RestoreDatabase(LocationPath, serverName, databaseName);
+            }
+        }
+
         private void tab_BackupRestore_SelectedIndexChanged(object sender, EventArgs e)
         {
             Display_BackupRestoreSettings();
         }
+
+       
     }
 }

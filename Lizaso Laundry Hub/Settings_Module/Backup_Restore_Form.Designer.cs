@@ -59,6 +59,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.image_server_loading = new System.Windows.Forms.PictureBox();
             this.Label_ClickLocateBackup = new System.Windows.Forms.Label();
             this.txt_ServerName = new System.Windows.Forms.TextBox();
             this.txt_RestoreDatabaseName = new System.Windows.Forms.TextBox();
@@ -74,7 +75,6 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.kryptonButton1 = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.image_server_loading = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tab_BackupRestore.SuspendLayout();
@@ -82,8 +82,8 @@
             this.panel4.SuspendLayout();
             this.panel8.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.image_server_loading)).BeginInit();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // kryptonPalette1
@@ -131,14 +131,14 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(10, 10);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(828, 45);
+            this.panel1.Size = new System.Drawing.Size(824, 45);
             this.panel1.TabIndex = 1;
             // 
             // DataBase_Date
             // 
             this.DataBase_Date.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.DataBase_Date.Location = new System.Drawing.Point(610, 9);
+            this.DataBase_Date.Location = new System.Drawing.Point(606, 9);
             this.DataBase_Date.Name = "DataBase_Date";
             this.DataBase_Date.Size = new System.Drawing.Size(202, 28);
             this.DataBase_Date.StateCommon.Content.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -151,7 +151,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.label1.Location = new System.Drawing.Point(550, 9);
+            this.label1.Location = new System.Drawing.Point(546, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 28);
             this.label1.TabIndex = 12;
@@ -163,7 +163,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(10, 55);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(828, 383);
+            this.panel2.Size = new System.Drawing.Size(824, 379);
             this.panel2.TabIndex = 2;
             // 
             // tab_BackupRestore
@@ -178,7 +178,7 @@
             this.tab_BackupRestore.Name = "tab_BackupRestore";
             this.tab_BackupRestore.Padding = new System.Drawing.Point(20, 3);
             this.tab_BackupRestore.SelectedIndex = 0;
-            this.tab_BackupRestore.Size = new System.Drawing.Size(828, 383);
+            this.tab_BackupRestore.Size = new System.Drawing.Size(824, 379);
             this.tab_BackupRestore.TabIndex = 5;
             this.tab_BackupRestore.SelectedIndexChanged += new System.EventHandler(this.tab_BackupRestore_SelectedIndexChanged);
             // 
@@ -189,7 +189,7 @@
             this.tabPage1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.Location = new System.Drawing.Point(4, 32);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(820, 347);
+            this.tabPage1.Size = new System.Drawing.Size(816, 343);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Manually Backup Configuration";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -208,7 +208,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 169);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(820, 178);
+            this.panel4.Size = new System.Drawing.Size(816, 174);
             this.panel4.TabIndex = 16;
             // 
             // panel5
@@ -217,14 +217,14 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(820, 1);
+            this.panel5.Size = new System.Drawing.Size(816, 1);
             this.panel5.TabIndex = 30;
             // 
             // btn_BackupDatabase
             // 
             this.btn_BackupDatabase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_BackupDatabase.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_BackupDatabase.Location = new System.Drawing.Point(657, 138);
+            this.btn_BackupDatabase.Location = new System.Drawing.Point(653, 134);
             this.btn_BackupDatabase.Name = "btn_BackupDatabase";
             this.btn_BackupDatabase.OverrideDefault.Back.Color1 = System.Drawing.Color.SteelBlue;
             this.btn_BackupDatabase.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(124)))), ((int)(((byte)(93)))));
@@ -387,14 +387,14 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(820, 169);
+            this.panel8.Size = new System.Drawing.Size(816, 169);
             this.panel8.TabIndex = 9;
             // 
             // btn_SaveConfig
             // 
             this.btn_SaveConfig.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_SaveConfig.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_SaveConfig.Location = new System.Drawing.Point(657, 126);
+            this.btn_SaveConfig.Location = new System.Drawing.Point(653, 126);
             this.btn_SaveConfig.Name = "btn_SaveConfig";
             this.btn_SaveConfig.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
             this.btn_SaveConfig.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
@@ -551,10 +551,22 @@
             this.tabPage2.Controls.Add(this.btn_RestoreDatabase);
             this.tabPage2.Location = new System.Drawing.Point(4, 32);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(820, 347);
+            this.tabPage2.Size = new System.Drawing.Size(816, 343);
             this.tabPage2.TabIndex = 4;
             this.tabPage2.Text = "Restore Configuration";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // image_server_loading
+            // 
+            this.image_server_loading.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.image_server_loading.BackColor = System.Drawing.Color.Transparent;
+            this.image_server_loading.Image = ((System.Drawing.Image)(resources.GetObject("image_server_loading.Image")));
+            this.image_server_loading.Location = new System.Drawing.Point(531, 119);
+            this.image_server_loading.Name = "image_server_loading";
+            this.image_server_loading.Size = new System.Drawing.Size(42, 40);
+            this.image_server_loading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.image_server_loading.TabIndex = 36;
+            this.image_server_loading.TabStop = false;
             // 
             // Label_ClickLocateBackup
             // 
@@ -644,7 +656,7 @@
             // 
             this.btn_SaveConfigRestore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_SaveConfigRestore.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_SaveConfigRestore.Location = new System.Drawing.Point(491, 307);
+            this.btn_SaveConfigRestore.Location = new System.Drawing.Point(487, 303);
             this.btn_SaveConfigRestore.Name = "btn_SaveConfigRestore";
             this.btn_SaveConfigRestore.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
             this.btn_SaveConfigRestore.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
@@ -699,7 +711,7 @@
             this.btn_SaveConfigRestore.StateTracking.Border.Rounding = 20;
             this.btn_SaveConfigRestore.StateTracking.Border.Width = 1;
             this.btn_SaveConfigRestore.TabIndex = 25;
-            this.btn_SaveConfigRestore.Values.Image = ((System.Drawing.Image)(resources.GetObject("kryptonButton2.Values.Image")));
+            this.btn_SaveConfigRestore.Values.Image = ((System.Drawing.Image)(resources.GetObject("btn_SaveConfigRestore.Values.Image")));
             this.btn_SaveConfigRestore.Values.Text = " Save Configuration";
             this.btn_SaveConfigRestore.Click += new System.EventHandler(this.btn_SaveConfigRestore_Click);
             // 
@@ -707,7 +719,7 @@
             // 
             this.btn_RestoreDatabase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_RestoreDatabase.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_RestoreDatabase.Location = new System.Drawing.Point(657, 307);
+            this.btn_RestoreDatabase.Location = new System.Drawing.Point(653, 303);
             this.btn_RestoreDatabase.Name = "btn_RestoreDatabase";
             this.btn_RestoreDatabase.OverrideDefault.Back.Color1 = System.Drawing.Color.SteelBlue;
             this.btn_RestoreDatabase.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(124)))), ((int)(((byte)(93)))));
@@ -764,6 +776,7 @@
             this.btn_RestoreDatabase.TabIndex = 27;
             this.btn_RestoreDatabase.Values.Image = ((System.Drawing.Image)(resources.GetObject("btn_RestoreDatabase.Values.Image")));
             this.btn_RestoreDatabase.Values.Text = "  Restore Database";
+            this.btn_RestoreDatabase.Click += new System.EventHandler(this.btn_RestoreDatabase_Click);
             // 
             // tabPage3
             // 
@@ -774,7 +787,7 @@
             this.tabPage3.Controls.Add(this.kryptonButton1);
             this.tabPage3.Location = new System.Drawing.Point(4, 32);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(824, 351);
+            this.tabPage3.Size = new System.Drawing.Size(820, 347);
             this.tabPage3.TabIndex = 5;
             this.tabPage3.Text = "Automatically Backup Configuration";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -893,24 +906,12 @@
             this.kryptonButton1.Values.Image = ((System.Drawing.Image)(resources.GetObject("kryptonButton1.Values.Image")));
             this.kryptonButton1.Values.Text = " Save Configuration";
             // 
-            // image_server_loading
-            // 
-            this.image_server_loading.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.image_server_loading.BackColor = System.Drawing.Color.Transparent;
-            this.image_server_loading.Image = ((System.Drawing.Image)(resources.GetObject("image_server_loading.Image")));
-            this.image_server_loading.Location = new System.Drawing.Point(531, 121);
-            this.image_server_loading.Name = "image_server_loading";
-            this.image_server_loading.Size = new System.Drawing.Size(42, 40);
-            this.image_server_loading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.image_server_loading.TabIndex = 36;
-            this.image_server_loading.TabStop = false;
-            // 
             // Backup_Restore_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(848, 448);
+            this.ClientSize = new System.Drawing.Size(844, 444);
             this.ControlBox = false;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -934,9 +935,9 @@
             this.panel8.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.image_server_loading)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.image_server_loading)).EndInit();
             this.ResumeLayout(false);
 
         }

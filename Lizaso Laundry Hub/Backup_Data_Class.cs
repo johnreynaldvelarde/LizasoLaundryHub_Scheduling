@@ -209,6 +209,106 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
+        public bool RestoreDatabase(string locationPath, string serverName, string databaseName)
+        {
+            try
+            {
+                // Construct connection string to master database
+                string masterConnectionString = $"Data Source={serverName};Initial Catalog=master;Integrated Security=True";
+
+                // Connect to master database
+                using (SqlConnection masterConnection = new SqlConnection(masterConnectionString))
+                {
+                    masterConnection.Open();
+
+                    // Set the database context to master
+                    string useDatabaseCommand = "USE master;";
+                    using (SqlCommand useDatabaseCmd = new SqlCommand(useDatabaseCommand, masterConnection))
+                    {
+                        useDatabaseCmd.ExecuteNonQuery();
+                    }
+
+                    // Put the target database into single-user mode
+                    string singleUserCommand = $"ALTER DATABASE {databaseName} SET SINGLE_USER WITH ROLLBACK IMMEDIATE;";
+                    using (SqlCommand singleUserCmd = new SqlCommand(singleUserCommand, masterConnection))
+                    {
+                        singleUserCmd.ExecuteNonQuery();
+                    }
+
+                    // Construct the RESTORE DATABASE command
+                    string restoreCommand = $"RESTORE DATABASE {databaseName} FROM DISK = '{locationPath}' WITH REPLACE;";
+                    using (SqlCommand restoreCmd = new SqlCommand(restoreCommand, masterConnection))
+                    {
+                        restoreCmd.ExecuteNonQuery();
+                    }
+
+                    // Put the database back into multi-user mode
+                    string multiUserCommand = $"ALTER DATABASE {databaseName} SET MULTI_USER;";
+                    using (SqlCommand multiUserCmd = new SqlCommand(multiUserCommand, masterConnection))
+                    {
+                        multiUserCmd.ExecuteNonQuery();
+                    }
+                }
+
+                MessageBox.Show("Database restore successful.", "Restore Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return true; // Indicates successful database restore
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show($"SQL Server Error during database restore: {sqlEx.Message}", "Restore Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false; // Indicates failure
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error during database restore: {ex.Message}", "Restore Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false; // Indicates failure
+            }
+        }
+
+
+        /*
+        public bool RestoreDatabase(string locationPath, string serverName, string databaseName)
+        {
+            try
+            {
+                string connectionString = $"Data Source={serverName};Initial Catalog=master;Integrated Security=True";
+
+                // Connect to master database
+                using (SqlConnection masterConnection = new SqlConnection(connectionString))
+                {
+                    masterConnection.Open();
+
+                    // Set the database context to master
+                    string useDatabaseCommand = "USE master;";
+                    using (SqlCommand useDatabaseCmd = new SqlCommand(useDatabaseCommand, masterConnection))
+                    {
+                        useDatabaseCmd.ExecuteNonQuery();
+                    }
+
+                    // Construct the RESTORE DATABASE command
+                    string restoreCommand = $"RESTORE DATABASE {databaseName} FROM DISK = '{locationPath}' WITH REPLACE;";
+                    using (SqlCommand restoreCmd = new SqlCommand(restoreCommand, masterConnection))
+                    {
+                        restoreCmd.ExecuteNonQuery();
+                    }
+                }
+
+                return true; // Indicates successful database restore
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show($"SQL Server Error during database restore: {sqlEx.Message}", "Restore Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false; // Indicates failure
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error during database restore: {ex.Message}", "Restore Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false; // Indicates failure
+            }
+        }
+
+        */
+
 
 
 
