@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Security.Principal;
 using System.Text;
@@ -104,6 +105,7 @@ namespace Lizaso_Laundry_Hub
                     {
                         insertData.Set_CreateUser(_username, _password, 1, 1, 1, 1, 1, 1, 1, 1);
                         MessageBox.Show("Super user account successfully created");
+                        Get_CreatedAccountUser();
                         this.Dispose();
                     }
                     else
@@ -117,6 +119,7 @@ namespace Lizaso_Laundry_Hub
                         byte settings = (byte)(ckSettings.Checked ? 1 : 0);
 
                         insertData.Set_CreateUser(_username, _password, 0, availableServices, schedule, customerManage, payments, userManage, inventory, settings);
+                        Get_CreatedAccountUser();
                         MessageBox.Show("Regular user account successfully created");
                         this.Dispose();
                         frm.DisplayUserView();
@@ -125,12 +128,33 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
+        // save details in use profile
+        public void Get_CreatedAccountUser()
+        {
+            string createdUserName= txt_UserName.Text;
+            string createdPassword = txt_Password.Text;
+
+            string filePath = Path.Combine(@"C:\Lizaso Laundry Hub\User Profile", $"{createdUserName}.txt");
+
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(filePath))
+                {
+                    sw.WriteLine($"Password: {createdPassword}");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error saving configuration: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void Add_User_Form_Load(object sender, EventArgs e)
         {
             if (btnSave.Text == "Update")
             {
-                Console.WriteLine("ETO ANG USERID " + account.User_ID);
-                Console.WriteLine("ETO ANG USERID ULOL " + u_userID);
+                //Console.WriteLine("ETO ANG USERID " + account.User_ID);
+                //Console.WriteLine("ETO ANG USERID ULOL " + u_userID);
                 EnableAllCheckboxes();
             }
             else

@@ -31,7 +31,7 @@ namespace Lizaso_Laundry_Hub
                     {
                         // Create a new superuser account
                         string username = "Admin";
-                        string password = "secret123";
+                        string password = "secret12345";
 
                         // Hash the password (you may want to use a secure hashing algorithm)
                         byte[] passwordHash = HashPassword(password);

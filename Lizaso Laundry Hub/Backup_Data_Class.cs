@@ -66,6 +66,7 @@ namespace Lizaso_Laundry_Hub
                     Directory.CreateDirectory(systemSettingsFolderPath);
 
                     AutomaticallyCreateAutoBackupConfig();
+                    AutoCreateDefaultAccountUser();
                 }
                 else
                 {
@@ -75,6 +76,26 @@ namespace Lizaso_Laundry_Hub
             catch (Exception ex)
             {
                 MessageBox.Show($"Error during folder creation: {ex.Message}", "Folder Creation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void AutoCreateDefaultAccountUser()
+        {
+            string defaultUserName = "Admin";
+            string defaultPassWord = "secret12345";
+
+            string filePath = Path.Combine(@"C:\Lizaso Laundry Hub\User Profile", $"{defaultUserName}.txt");
+
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(filePath))
+                {
+                    sw.WriteLine($"Password: {defaultPassWord}");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error saving configuration: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
