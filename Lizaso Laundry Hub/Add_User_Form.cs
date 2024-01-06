@@ -58,27 +58,34 @@ namespace Lizaso_Laundry_Hub
                 string _username = txt_UserName.Text;
                 string _password = txt_Password.Text;
 
-
-                if (rdSuperUser.Checked)
+                if (getData.Get_IsUserNameExistsWhenUpdating(_username, u_userID))
                 {
-                    updateData.Update_User(account.User_ID, u_userID, _username, _password, 1, 1, 1, 1, 1, 1, 1, 1);
-                    //MessageBox.Show("Super user account updated successfully.");
+                    MessageBox.Show("User with the same name already exists. Please choose a different username.", "Duplicate User", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     this.Dispose();
                 }
                 else
                 {
-                    byte availableServices = (byte)(ckAvailableServices.Checked ? 1 : 0);
-                    byte schedule = (byte)(ckSchedule.Checked ? 1 : 0);
-                    byte customerManage = (byte)(ckCustomerManage.Checked ? 1 : 0);
-                    byte payments = (byte)(ckPayments.Checked ? 1 : 0);
-                    byte userManage = (byte)(ckUserManage.Checked ? 1 : 0);
-                    byte inventory = (byte)(ckInventory.Checked ? 1 : 0);
-                    byte settings = (byte)(ckSettings.Checked ? 1 : 0);
+                    if (rdSuperUser.Checked)
+                    {
+                        updateData.Update_User(account.User_ID, u_userID, _username, _password, 1, 1, 1, 1, 1, 1, 1, 1);
+                        //MessageBox.Show("Super user account updated successfully.");
+                        this.Dispose();
+                    }
+                    else
+                    {
+                        byte availableServices = (byte)(ckAvailableServices.Checked ? 1 : 0);
+                        byte schedule = (byte)(ckSchedule.Checked ? 1 : 0);
+                        byte customerManage = (byte)(ckCustomerManage.Checked ? 1 : 0);
+                        byte payments = (byte)(ckPayments.Checked ? 1 : 0);
+                        byte userManage = (byte)(ckUserManage.Checked ? 1 : 0);
+                        byte inventory = (byte)(ckInventory.Checked ? 1 : 0);
+                        byte settings = (byte)(ckSettings.Checked ? 1 : 0);
 
-                    updateData.Update_User(account.User_ID, u_userID, _username, _password, 0, availableServices, schedule, customerManage, payments, userManage, inventory, settings);
-                    //MessageBox.Show("Regular user account updated successfully.");
-                    this.Dispose();
-                    frm.DisplayUserView();
+                        updateData.Update_User(account.User_ID, u_userID, _username, _password, 0, availableServices, schedule, customerManage, payments, userManage, inventory, settings);
+                        //MessageBox.Show("Regular user account updated successfully.");
+                        this.Dispose();
+                        frm.DisplayUserView();
+                    }
                 }
             }
             else

@@ -435,6 +435,39 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
+        //
+        public bool Get_IsUserNameExistsWhenUpdating(string userName, int userID)
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+                    connect.Open();
+
+                    // Check if the new username exists, excluding the current user
+                    string query = "SELECT COUNT(*) FROM User_Account WHERE User_Name = @UserName AND User_ID != @UserID";
+
+                    using (SqlCommand command = new SqlCommand(query, connect))
+                    {
+                        command.Parameters.AddWithValue("@UserName", userName);
+                        command.Parameters.AddWithValue("@UserID", userID);
+
+                        int count = (int)command.ExecuteScalar();
+
+                        // If count is greater than 0, it means the username already exists for another user
+                        return count > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+
+
 
 
         // << ADD RESERVED FORM >>
