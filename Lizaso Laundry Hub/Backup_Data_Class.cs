@@ -15,7 +15,6 @@ namespace Lizaso_Laundry_Hub
         private DB_Connection database = new DB_Connection();
 
         // automatically create a folder for lizaso laundry hub in documents
-
         public void CreateLizasoLaundryHubFolder()
         {
             try
@@ -44,6 +43,19 @@ namespace Lizaso_Laundry_Hub
                     // Create Auto Backup folder within Database Backup
                     Directory.CreateDirectory(autoBackupFolderPath);
 
+                    // Create subfolders inside Auto Backup
+                    string logoutUserBackupFolderPath = Path.Combine(autoBackupFolderPath, "Logout User Backup");
+                    string dailyBackupFolderPath = Path.Combine(autoBackupFolderPath, "Daily Backup");
+                    string weeklyBackupFolderPath = Path.Combine(autoBackupFolderPath, "Weekly Backup");
+                    string monthlyBackupFolderPath = Path.Combine(autoBackupFolderPath, "Monthly Backup");
+                    string yearlyBackupFolderPath = Path.Combine(autoBackupFolderPath, "Yearly Backup");
+
+                    Directory.CreateDirectory(logoutUserBackupFolderPath);
+                    Directory.CreateDirectory(dailyBackupFolderPath);
+                    Directory.CreateDirectory(weeklyBackupFolderPath);
+                    Directory.CreateDirectory(monthlyBackupFolderPath);
+                    Directory.CreateDirectory(yearlyBackupFolderPath);
+
                     // Create User Profile folder
                     Directory.CreateDirectory(userProfileFolderPath);
 
@@ -52,6 +64,8 @@ namespace Lizaso_Laundry_Hub
 
                     // Create System Settings folder
                     Directory.CreateDirectory(systemSettingsFolderPath);
+
+                    AutomaticallyCreateAutoBackupConfig();
                 }
                 else
                 {
@@ -64,8 +78,39 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
+        public void AutomaticallyCreateAutoBackupConfig()
+        {
+            bool logoutBackup = false;
+            bool dailyBackup = false;
+            bool weeklyBackup = false;
+            bool monthlyBackup = false;
+            bool yearlyBackup = false;
+
+            // Define the path for the notepad file
+            string filePath = Path.Combine(@"C:\Lizaso Laundry Hub\System Settings", "Auto Backup Configuration.txt");
+
+            try
+            {
+                // Write the details to the notepad file
+                using (StreamWriter sw = new StreamWriter(filePath))
+                {
+                    sw.WriteLine($"Logout Auto Backup: {logoutBackup}");
+                    sw.WriteLine($"Daily Auto Backup: {dailyBackup}");
+                    sw.WriteLine($"Weekly Auto Backup: {weeklyBackup}");
+                    sw.WriteLine($"Monthly Auto Backup: {monthlyBackup}");
+                    sw.WriteLine($"Yearly Auto Backup: {yearlyBackup}");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error saving configuration: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
 
         // backup database every second
+        /*
         public void BackupDatabaseEveryLogout()
         {
             try
@@ -131,7 +176,82 @@ namespace Lizaso_Laundry_Hub
                 MessageBox.Show($"Error during database backup: {ex.Message}", "Backup Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+        */
 
+        public void BackupDatabaseEveryLogout()
+        {
+            try
+            {
+                DateTime dateRecord = DateTime.Now;
+                string dbName = "DB_Laundry";
+                string backupFileName = $"DB_Backup_{dateRecord:yyyyMMdd_HHmmss}.bak";
+
+                // Specify the base folder path on the C: drive
+                string baseFolderPath = @"C:\Lizaso Laundry Hub";
+                string databaseBackupPath = Path.Combine(baseFolderPath, "Database Backup");
+                string autoBackupPath = Path.Combine(databaseBackupPath, "Auto Backup");
+                string logoutUserBackupPath = Path.Combine(autoBackupPath, "Logout User Backup");
+
+                // Ensure the base folder (Lizaso Laundry Hub), database backup directory, auto backup directory, and Logout User Backup directory exist or create them
+                if (!Directory.Exists(baseFolderPath))
+                {
+                    Directory.CreateDirectory(baseFolderPath);
+                }
+
+                if (!Directory.Exists(databaseBackupPath))
+                {
+                    Directory.CreateDirectory(databaseBackupPath);
+                }
+
+                if (!Directory.Exists(autoBackupPath))
+                {
+                    Directory.CreateDirectory(autoBackupPath);
+                }
+
+                if (!Directory.Exists(logoutUserBackupPath))
+                {
+                    Directory.CreateDirectory(logoutUserBackupPath);
+                }
+
+                string connectionString = database.MyConnection();
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // Set the database context
+                    string useDatabaseCommand = $"USE {dbName};";
+                    using (SqlCommand useDatabaseCmd = new SqlCommand(useDatabaseCommand, connection))
+                    {
+                        useDatabaseCmd.ExecuteNonQuery();
+                    }
+
+                    // Create a backup command
+                    string backupCommand = "BACKUP DATABASE " + dbName +
+                                          " TO DISK = '" + Path.Combine(logoutUserBackupPath, backupFileName) +
+                                          "' WITH FORMAT ,MEDIANAME = 'Z_SQLServerBackups', NAME = ' Full Backup of " + dbName + "';";
+
+                    using (SqlCommand command = new SqlCommand(backupCommand, connection))
+                    {
+                        // Execute the backup command
+                        command.ExecuteNonQuery();
+                    }
+                }
+
+                // MessageBox.Show("Database backup successful.", "Backup Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show($"SQL Server Error during database backup: {sqlEx.Message}", "Backup Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error during database backup: {ex.Message}", "Backup Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // << SETTINGS FORM / Backup Restore Form / Tab Manually Backup Configuration>>
+        // method to manually backup 
         public bool BackupDatabase_Manually(string folderPath, int numberFiles, string databaseName)
         {
             try
@@ -264,6 +384,57 @@ namespace Lizaso_Laundry_Hub
                 return false; // Indicates failure
             }
         }
+
+
+        /*
+        public void CreateLizasoLaundryHubFolder()
+        {
+            try
+            {
+                // the base folder path is on the C: drive
+                string baseFolderPath = @"C:\Lizaso Laundry Hub";
+                string backupFolderPath = Path.Combine(baseFolderPath, "Database Backup");
+                string manuallyBackupFolderPath = Path.Combine(backupFolderPath, "Manually Backup");
+                string autoBackupFolderPath = Path.Combine(backupFolderPath, "Auto Backup");
+                string userProfileFolderPath = Path.Combine(baseFolderPath, "User Profile");
+                string customerRecipientFolderPath = Path.Combine(baseFolderPath, "Customer Recipient");
+                string systemSettingsFolderPath = Path.Combine(baseFolderPath, "System Settings");
+
+                // Check if the base folder (Lizaso Laundry Hub) is already exists
+                if (!Directory.Exists(baseFolderPath))
+                {
+                    // Create Lizaso Laundry Hub folder
+                    Directory.CreateDirectory(baseFolderPath);
+
+                    // Create Database Backup folder
+                    Directory.CreateDirectory(backupFolderPath);
+
+                    // Create Manually Backup folder within Database Backup
+                    Directory.CreateDirectory(manuallyBackupFolderPath);
+
+                    // Create Auto Backup folder within Database Backup
+                    Directory.CreateDirectory(autoBackupFolderPath);
+
+                    // Create User Profile folder
+                    Directory.CreateDirectory(userProfileFolderPath);
+
+                    // Create Customer Recipient folder
+                    Directory.CreateDirectory(customerRecipientFolderPath);
+
+                    // Create System Settings folder
+                    Directory.CreateDirectory(systemSettingsFolderPath);
+                }
+                else
+                {
+                    // Optionally handle the case where the folder already exists
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error during folder creation: {ex.Message}", "Folder Creation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        */
 
 
         /*

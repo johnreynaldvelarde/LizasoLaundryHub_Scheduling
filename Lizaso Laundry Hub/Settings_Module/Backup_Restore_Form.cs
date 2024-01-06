@@ -61,7 +61,6 @@ namespace Lizaso_Laundry_Hub.Settings_Module
         private void Backup_Restore_Form_Load(object sender, EventArgs e)
         {
             Display_BackupRestoreSettings();
-            
         }
 
         public void Display_BackupRestoreSettings()
@@ -74,11 +73,17 @@ namespace Lizaso_Laundry_Hub.Settings_Module
             else if (tab_BackupRestore.SelectedTab == tabPage2)
             {
                 Get_ServerName(txt_ServerName);
+                Get_RestoreConfig();
                 image_server_loading.Visible = true;
+            }
+            else if (tab_BackupRestore.SelectedTab == tabPage3)
+            {
+                Get_AutoBackupConfig();
             }
         }
 
-        private void btn_BackupDatabase_Click_1(object sender, EventArgs e)
+
+        private void btn_BackupDatabase_Click(object sender, EventArgs e)
         {
             string saveDirectory = Label_ClickPath.Text;
             int filesToKeep = int.Parse(txt_NoFiles.Text);
@@ -182,6 +187,35 @@ namespace Lizaso_Laundry_Hub.Settings_Module
             }
         }
 
+        public void Get_RestoreConfig()
+        {
+            // Define the path for the notepad file
+            string filePath = Path.Combine(@"C:\Lizaso Laundry Hub\System Settings", "Restore Configuration.txt");
+
+            // Check if the file exists before proceeding
+            if (!File.Exists(filePath))
+            {
+
+            }
+            else
+            {
+                try
+                {
+                    // Read the details from the notepad file
+                    using (StreamReader sr = new StreamReader(filePath))
+                    {
+                        // Read each line and update the corresponding controls
+                        Label_ClickLocateBackup.Text = sr.ReadLine()?.Replace("Location Path: ", "");
+                        txt_RestoreDatabaseName.Text = sr.ReadLine()?.Replace("Database Name: ", "");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error loading configuration: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
         // restore configuration
         private void Label_ClickLocateBackup_Click(object sender, EventArgs e)
         {
@@ -249,70 +283,6 @@ namespace Lizaso_Laundry_Hub.Settings_Module
             return null;
         }
 
-
-
-
-
-        /*
-        public void Get_ServerName(TextBox textBox)
-        {
-            try
-            {
-                // Get the local machine's NetBIOS name
-                string localMachineName = System.Net.Dns.GetHostName();
-
-                // Get the SQL Server instance name
-                string sqlInstanceName = GetSqlInstanceName(localMachineName);
-
-                // Set the text property of the provided TextBox with the SQL Server instance name
-                textBox.Text = sqlInstanceName;
-            }
-            catch (Exception ex)
-            {
-                // Handle any exceptions that may occur during the process
-                MessageBox.Show($"Error getting SQL Server instance name: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private string GetSqlInstanceName(string serverName)
-        {
-            SqlDataSourceEnumerator enumerator = SqlDataSourceEnumerator.Instance;
-            System.Data.DataTable table = enumerator.GetDataSources();
-
-            foreach (System.Data.DataRow row in table.Rows)
-            {
-                string instanceName = row["InstanceName"] as string;
-                string server = row["ServerName"] as string;
-
-                if (server == serverName)
-                {
-                    return string.IsNullOrEmpty(instanceName) ? server : $"{server}\\{instanceName}";
-                }
-            }
-
-            return null;
-        }
-
-
-        
-        public void Get_ServerName()
-        {
-            try
-            {
-                // Get the local machine's name (server name)
-                string serverName = System.Net.Dns.GetHostName();
-
-                // Set the text property of the provided TextBox
-                txt_ServerName.Text = serverName;
-            }
-            catch (Exception ex)
-            {
-                // Handle any exceptions that may occur during the process
-                MessageBox.Show($"Error getting server name: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        */
-
         private void btn_SaveConfigRestore_Click(object sender, EventArgs e)
         {
             if (Label_ClickLocateBackup.Text == "Click to the Location of Backup Folder")
@@ -352,7 +322,7 @@ namespace Lizaso_Laundry_Hub.Settings_Module
                     }
 
                     MessageBox.Show("Configuration saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    Get_ManuallyBackupConfig();
+                    Get_RestoreConfig();
                 }
                 catch (Exception ex)
                 {
@@ -395,6 +365,102 @@ namespace Lizaso_Laundry_Hub.Settings_Module
             Display_BackupRestoreSettings();
         }
 
-       
+        // Automatically Backup Config
+        private void btn_SaveAutoBackupConfig_Click(object sender, EventArgs e)
+        {
+            bool logoutBackup = cbBackupLogout.Checked;
+            bool dailyBackup = cbDailyBackup.Checked;
+            bool weeklyBackup = cbWeeklyBackup.Checked;
+            bool monthlyBackup = cbMonthlyBackup.Checked;
+            bool yearlyBackup = cbYearlyBackup.Checked;
+
+            // Define the path for the notepad file
+            string filePath = Path.Combine(@"C:\Lizaso Laundry Hub\System Settings", "Auto Backup Configuration.txt");
+
+            try
+            {
+                // Write the details to the notepad file
+                using (StreamWriter sw = new StreamWriter(filePath))
+                {
+                    sw.WriteLine($"Logout Auto Backup: {logoutBackup}");
+                    sw.WriteLine($"Daily Auto Backup: {dailyBackup}");
+                    sw.WriteLine($"Weekly Auto Backup: {weeklyBackup}");
+                    sw.WriteLine($"Monthly Auto Backup: {monthlyBackup}");
+                    sw.WriteLine($"Yearly Auto Backup: {yearlyBackup}");
+                }
+
+                MessageBox.Show("Configuration saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error saving configuration: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        public void Get_AutoBackupConfig()
+        {
+            // Define the path for the notepad file
+            string filePath = Path.Combine(@"C:\Lizaso Laundry Hub\System Settings", "Auto Backup Configuration.txt");
+
+            // Check if the file exists before proceeding
+            if (!File.Exists(filePath))
+            {
+
+            }
+            else
+            {
+                try
+                {
+                    // Read the details from the configuration file
+                    using (StreamReader sr = new StreamReader(filePath))
+                    {
+                        // Read each line and update the corresponding controls
+                        string line;
+                        while ((line = sr.ReadLine()) != null)
+                        {
+                            string[] parts = line.Split(':');
+                            if (parts.Length == 2)
+                            {
+                                string settingName = parts[0].Trim();
+                                bool settingValue = Convert.ToBoolean(parts[1].Trim());
+
+                                // Update controls based on the setting name
+                                UpdateControlBasedOnSetting(settingName, settingValue);
+                            }
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error loading configuration: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void UpdateControlBasedOnSetting(string settingName, bool settingValue)
+        {
+            switch (settingName)
+            {
+                case "Logout Auto Backup":
+                    cbBackupLogout.Checked = settingValue;
+                    break;
+                case "Daily Auto Backup":
+                    cbDailyBackup.Checked = settingValue;
+                    break;
+                case "Weekly Auto Backup":
+                    cbWeeklyBackup.Checked = settingValue;
+                    break;
+                case "Monthly Auto Backup":
+                    cbMonthlyBackup.Checked = settingValue;
+                    break;
+                case "Yearly Auto Backup":
+                    cbYearlyBackup.Checked = settingValue;
+                    break;
+                // Add more cases for additional settings if needed
+                default:
+                    break;
+            }
+        }
     }
 }

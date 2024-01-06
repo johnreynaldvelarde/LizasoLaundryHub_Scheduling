@@ -64,8 +64,8 @@ namespace Lizaso_Laundry_Hub
         private void btn_DataTimeConfig_Click(object sender, EventArgs e)
         {
             lblTitle.Text = "Date and Time Configuration";
-            Notify_Module.Side_Notification_Form notify = new Notify_Module.Side_Notification_Form();
-            notify.Show();
+            //Notify_Module.Side_Notification_Form notify = new Notify_Module.Side_Notification_Form();
+            //notify.Show();
             //openChildPanel(new Settings_Module.DateTime_Configuration());
         }
 

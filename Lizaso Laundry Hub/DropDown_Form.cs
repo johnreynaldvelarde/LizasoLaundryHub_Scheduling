@@ -64,12 +64,59 @@ namespace Lizaso_Laundry_Hub
             // Get the existing instance of Main_Form
             Main_Form mainForm = Application.OpenForms.OfType<Main_Form>().FirstOrDefault();
 
-            if (mainForm != null)
+            if (CheckLogoutAutoBackupSetting())
             {
-                mainForm.ShowImageDatabase();
-                mainForm.Get_AutoSave_Label();
+                if (mainForm != null)
+                {
+                    mainForm.ShowImageDatabase();
+                    mainForm.Get_AutoSave_Label();
+                }
+
+                backupData.BackupDatabaseEveryLogout();
             }
-            backupData.BackupDatabaseEveryLogout();
+        }
+
+        private bool CheckLogoutAutoBackupSetting()
+        {
+            string filePath = Path.Combine(@"C:\Lizaso Laundry Hub\System Settings", "Auto Backup Configuration.txt");
+
+            // Check if the file exists before proceeding
+            if (!File.Exists(filePath))
+            {
+                // Handle the case when the file doesn't exist
+                return false;
+            }
+
+            try
+            {
+                // Read the details from the configuration file
+                using (StreamReader sr = new StreamReader(filePath))
+                {
+                    // Read each line and look for "Logout Auto Backup"
+                    string line;
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        string[] parts = line.Split(':');
+                        if (parts.Length == 2)
+                        {
+                            string settingName = parts[0].Trim();
+                            bool settingValue = Convert.ToBoolean(parts[1].Trim());
+
+                            // Check if it is "Logout Auto Backup"
+                            if (settingName == "Logout Auto Backup")
+                            {
+                                return settingValue;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error loading configuration: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return false; // Default to false if any errors occur
         }
 
 

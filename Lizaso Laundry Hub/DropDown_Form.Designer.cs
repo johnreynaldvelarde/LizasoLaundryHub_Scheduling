@@ -30,13 +30,13 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
+            this.btn_Settings = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel7 = new System.Windows.Forms.Panel();
             this.btn_Logout = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
+            this.btn_BackupRestore = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.panel2.SuspendLayout();
@@ -47,23 +47,23 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.label1);
+            this.panel2.Controls.Add(this.btn_Settings);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(185, 40);
+            this.panel2.Size = new System.Drawing.Size(181, 40);
             this.panel2.TabIndex = 0;
             // 
-            // label1
+            // btn_Settings
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.label1.Location = new System.Drawing.Point(16, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(70, 21);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Settings";
+            this.btn_Settings.AutoSize = true;
+            this.btn_Settings.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Settings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.btn_Settings.Location = new System.Drawing.Point(16, 10);
+            this.btn_Settings.Name = "btn_Settings";
+            this.btn_Settings.Size = new System.Drawing.Size(70, 21);
+            this.btn_Settings.TabIndex = 2;
+            this.btn_Settings.Text = "Settings";
             // 
             // panel1
             // 
@@ -75,7 +75,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(5, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(185, 128);
+            this.panel1.Size = new System.Drawing.Size(181, 124);
             this.panel1.TabIndex = 0;
             // 
             // panel7
@@ -84,7 +84,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 82);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(185, 40);
+            this.panel7.Size = new System.Drawing.Size(181, 40);
             this.panel7.TabIndex = 5;
             // 
             // btn_Logout
@@ -106,28 +106,28 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 81);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(185, 1);
+            this.panel4.Size = new System.Drawing.Size(181, 1);
             this.panel4.TabIndex = 2;
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.label2);
+            this.panel6.Controls.Add(this.btn_BackupRestore);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 41);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(185, 40);
+            this.panel6.Size = new System.Drawing.Size(181, 40);
             this.panel6.TabIndex = 4;
             // 
-            // label2
+            // btn_BackupRestore
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.label2.Location = new System.Drawing.Point(16, 10);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(155, 21);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Backup and Restore";
+            this.btn_BackupRestore.AutoSize = true;
+            this.btn_BackupRestore.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_BackupRestore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.btn_BackupRestore.Location = new System.Drawing.Point(16, 10);
+            this.btn_BackupRestore.Name = "btn_BackupRestore";
+            this.btn_BackupRestore.Size = new System.Drawing.Size(155, 21);
+            this.btn_BackupRestore.TabIndex = 3;
+            this.btn_BackupRestore.Text = "Backup and Restore";
             // 
             // panel3
             // 
@@ -135,7 +135,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 40);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(185, 1);
+            this.panel3.Size = new System.Drawing.Size(181, 1);
             this.panel3.TabIndex = 1;
             // 
             // kryptonPalette1
@@ -153,7 +153,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(195, 138);
+            this.ClientSize = new System.Drawing.Size(191, 134);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -182,9 +182,9 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label btn_Settings;
         private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label btn_BackupRestore;
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.Label btn_Logout;
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
