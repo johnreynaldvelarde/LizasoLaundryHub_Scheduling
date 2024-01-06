@@ -14,15 +14,17 @@ namespace Lizaso_Laundry_Hub
     public partial class User_Form : KryptonForm
     {
         private Get_Data_Class getData;
-        private int u_userID;
-        private string u_username;
+        private int u_userID, s_userID;
+        private string u_username, s_userName;
         private byte u_services, u_schedule, u_customer, u_payments, u_user, u_inventory, u_settings;
+        private byte s_services, s_schedule, s_customer, s_payments, s_user, s_inventory, s_settings;
 
         public User_Form()
         {
             InitializeComponent();
             getData = new Get_Data_Class();
         }
+
 
         private void btn_CreateNewUser_Click(object sender, EventArgs e)
         {
@@ -38,7 +40,7 @@ namespace Lizaso_Laundry_Hub
             }
             else if (tab_User.SelectedTab == tabPage1)
             {
-                //getData.Get_GuestsCustomer(grid_guest_customer);
+                getData.Get_SuperUserAndPermissions(grid_super_user);
             }
             else if (tab_User.SelectedTab == tabPage3)
             {
@@ -62,9 +64,9 @@ namespace Lizaso_Laundry_Hub
 
         private void grid_regular_user_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            string column_user = grid_regular_user.Columns[e.ColumnIndex].Name;
+            string column_regularuser = grid_regular_user.Columns[e.ColumnIndex].Name;
 
-            if (column_user == "Edit2")
+            if (column_regularuser == "Edit2")
             {
                 Add_User_Form frm = new Add_User_Form(this);
                 frm.btnSave.Text = "Update";
@@ -81,7 +83,7 @@ namespace Lizaso_Laundry_Hub
                 frm.ckSettings.Checked = (u_settings == 1);
                 frm.ShowDialog();
             }
-            else if (column_user == "Delete2")
+            else if (column_regularuser == "Delete2")
             {
                 // Handle delete action if needed
             }
@@ -106,6 +108,58 @@ namespace Lizaso_Laundry_Hub
                     u_user = Convert.ToByte(grid_regular_user[7, i].Value.ToString() == "Yes");
                     u_inventory = Convert.ToByte(grid_regular_user[8, i].Value.ToString() == "Yes");
                     u_settings = Convert.ToByte(grid_regular_user[9, i].Value.ToString() == "Yes");
+                }
+            }
+        }
+
+
+        // Datagrid method for Super User
+        private void grid_super_user_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string column_superuser = grid_super_user.Columns[e.ColumnIndex].Name;
+
+            if (column_superuser == "Edit3")
+            {
+                Add_User_Form frm = new Add_User_Form(this);
+                frm.btnSave.Text = "Update";
+                frm.lblUserTitle.Text = "Update User and Permissions";
+                frm.u_userID = s_userID;
+                frm.txt_UserName.Text = s_userName;
+                frm.rdRegularUser.Checked = true;
+                frm.ckAvailableServices.Checked = (s_services == 1);
+                frm.ckSchedule.Checked = (s_schedule == 1);
+                frm.ckCustomerManage.Checked = (s_customer == 1);
+                frm.ckPayments.Checked = (s_payments == 1);
+                frm.ckUserManage.Checked = (s_user == 1);
+                frm.ckInventory.Checked = (s_inventory == 1);
+                frm.ckSettings.Checked = (s_settings == 1);
+                frm.ShowDialog();
+            }
+            else if (column_superuser == "Delete3")
+            {
+                // Handle delete action if needed
+            }
+        }
+
+        private void grid_super_user_SelectionChanged(object sender, EventArgs e)
+        {
+            if (grid_super_user.CurrentRow != null)
+            {
+                int i = grid_super_user.CurrentRow.Index;
+
+                if (int.TryParse(grid_super_user[1, i].Value.ToString(), out int SuperuserId))
+                {
+                    s_userID = SuperuserId;
+
+                    // Assuming you have other columns in your DataGridView for username, services, schedule, etc.
+                    s_userName = grid_super_user[2, i].Value.ToString();
+                    s_services = Convert.ToByte(grid_super_user[3, i].Value.ToString() == "Yes");
+                    s_schedule = Convert.ToByte(grid_super_user[4, i].Value.ToString() == "Yes");
+                    s_customer = Convert.ToByte(grid_super_user[5, i].Value.ToString() == "Yes");
+                    s_payments = Convert.ToByte(grid_super_user[6, i].Value.ToString() == "Yes");
+                    s_user = Convert.ToByte(grid_super_user[7, i].Value.ToString() == "Yes");
+                    s_inventory = Convert.ToByte(grid_super_user[8, i].Value.ToString() == "Yes");
+                    s_settings = Convert.ToByte(grid_super_user[9, i].Value.ToString() == "Yes");
                 }
             }
         }

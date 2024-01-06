@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Lizaso_Laundry_Hub
 {
@@ -84,28 +85,35 @@ namespace Lizaso_Laundry_Hub
             {
                 string _username = txt_UserName.Text;
                 string _password = txt_Password.Text;
-               
 
-                if (rdSuperUser.Checked)
+                if (getData.Get_IsUserNameExists(_username))
                 {
-                    insertData.Set_CreateUser(_username, _password, 1, 1, 1, 1, 1, 1, 1, 1);
-                    MessageBox.Show("Super user account successfully created");
-                    this.Dispose();
+                    MessageBox.Show("User with the same name already exists. Please choose a different username.", "Duplicate User", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
                 else
                 {
-                    byte availableServices = (byte)(ckAvailableServices.Checked ? 1 : 0);
-                    byte schedule = (byte)(ckSchedule.Checked ? 1 : 0);
-                    byte customerManage = (byte)(ckCustomerManage.Checked ? 1 : 0);
-                    byte payments = (byte)(ckPayments.Checked ? 1 : 0);
-                    byte userManage = (byte)(ckUserManage.Checked ? 1 : 0);
-                    byte inventory = (byte)(ckInventory.Checked ? 1 : 0);
-                    byte settings = (byte)(ckSettings.Checked ? 1 : 0);
 
-                    insertData.Set_CreateUser(_username, _password, 0, availableServices, schedule, customerManage, payments, userManage, inventory, settings);
-                    MessageBox.Show("Regular user account successfully created");
-                    this.Dispose();
-                    frm.DisplayUserView();
+                    if (rdSuperUser.Checked)
+                    {
+                        insertData.Set_CreateUser(_username, _password, 1, 1, 1, 1, 1, 1, 1, 1);
+                        MessageBox.Show("Super user account successfully created");
+                        this.Dispose();
+                    }
+                    else
+                    {
+                        byte availableServices = (byte)(ckAvailableServices.Checked ? 1 : 0);
+                        byte schedule = (byte)(ckSchedule.Checked ? 1 : 0);
+                        byte customerManage = (byte)(ckCustomerManage.Checked ? 1 : 0);
+                        byte payments = (byte)(ckPayments.Checked ? 1 : 0);
+                        byte userManage = (byte)(ckUserManage.Checked ? 1 : 0);
+                        byte inventory = (byte)(ckInventory.Checked ? 1 : 0);
+                        byte settings = (byte)(ckSettings.Checked ? 1 : 0);
+
+                        insertData.Set_CreateUser(_username, _password, 0, availableServices, schedule, customerManage, payments, userManage, inventory, settings);
+                        MessageBox.Show("Regular user account successfully created");
+                        this.Dispose();
+                        frm.DisplayUserView();
+                    }
                 }
             }
         }

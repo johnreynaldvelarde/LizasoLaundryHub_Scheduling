@@ -31,6 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(User_Form));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -55,19 +56,6 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.label7 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.grid_super_user = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.kryptonDataGridViewButtonColumn1 = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn();
-            this.kryptonDataGridViewButtonColumn2 = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -84,6 +72,19 @@
             this.Delete = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
+            this.grid_super_user = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edit3 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Delete3 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tab_User.SuspendLayout();
@@ -91,11 +92,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.grid_regular_user)).BeginInit();
             this.panel6.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grid_super_user)).BeginInit();
             this.panel1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_view_activity)).BeginInit();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_super_user)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPalette1
@@ -199,7 +200,7 @@
             this.btn_CreateNewUser.StateTracking.Border.Rounding = 20;
             this.btn_CreateNewUser.StateTracking.Border.Width = 1;
             this.btn_CreateNewUser.TabIndex = 16;
-            this.btn_CreateNewUser.Values.Image = ((System.Drawing.Image)(resources.GetObject("btnAdd.Values.Image")));
+            this.btn_CreateNewUser.Values.Image = ((System.Drawing.Image)(resources.GetObject("btn_CreateNewUser.Values.Image")));
             this.btn_CreateNewUser.Values.Text = " Add new user account";
             this.btn_CreateNewUser.Click += new System.EventHandler(this.btn_CreateNewUser_Click);
             // 
@@ -420,144 +421,6 @@
             this.tabPage1.Text = "Super User Account";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // grid_super_user
-            // 
-            this.grid_super_user.AllowUserToAddRows = false;
-            this.grid_super_user.AllowUserToDeleteRows = false;
-            this.grid_super_user.AllowUserToResizeColumns = false;
-            this.grid_super_user.AllowUserToResizeRows = false;
-            this.grid_super_user.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.grid_super_user.ColumnHeadersHeight = 40;
-            this.grid_super_user.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.grid_super_user.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6,
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn8,
-            this.dataGridViewTextBoxColumn9,
-            this.dataGridViewTextBoxColumn10,
-            this.dataGridViewTextBoxColumn11,
-            this.kryptonDataGridViewButtonColumn1,
-            this.kryptonDataGridViewButtonColumn2});
-            this.grid_super_user.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grid_super_user.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Mixed;
-            this.grid_super_user.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonLowProfile;
-            this.grid_super_user.Location = new System.Drawing.Point(0, 80);
-            this.grid_super_user.Name = "grid_super_user";
-            this.grid_super_user.Palette = this.kryptonPalette1;
-            this.grid_super_user.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-            this.grid_super_user.ReadOnly = true;
-            this.grid_super_user.RowHeadersVisible = false;
-            this.grid_super_user.RowHeadersWidth = 50;
-            this.grid_super_user.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.grid_super_user.RowTemplate.Height = 30;
-            this.grid_super_user.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grid_super_user.Size = new System.Drawing.Size(1152, 389);
-            this.grid_super_user.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonLowProfile;
-            this.grid_super_user.StateCommon.DataCell.Content.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grid_super_user.StateCommon.HeaderColumn.Content.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grid_super_user.TabIndex = 9;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn2.HeaderText = "#";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 45;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "User_ID";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn4.FillWeight = 206.8966F;
-            this.dataGridViewTextBoxColumn4.HeaderText = "User Name";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn5.FillWeight = 84.72906F;
-            this.dataGridViewTextBoxColumn5.HeaderText = "Services ";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn6.FillWeight = 84.72906F;
-            this.dataGridViewTextBoxColumn6.HeaderText = "Schedule ";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn7.FillWeight = 84.72906F;
-            this.dataGridViewTextBoxColumn7.HeaderText = "Customer ";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn8.FillWeight = 84.72906F;
-            this.dataGridViewTextBoxColumn8.HeaderText = "Payments ";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn9.FillWeight = 84.72906F;
-            this.dataGridViewTextBoxColumn9.HeaderText = "User";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn10.FillWeight = 84.72906F;
-            this.dataGridViewTextBoxColumn10.HeaderText = "Inventory ";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn11.FillWeight = 84.72906F;
-            this.dataGridViewTextBoxColumn11.HeaderText = "Settings";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.ReadOnly = true;
-            // 
-            // kryptonDataGridViewButtonColumn1
-            // 
-            this.kryptonDataGridViewButtonColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.kryptonDataGridViewButtonColumn1.HeaderText = "";
-            this.kryptonDataGridViewButtonColumn1.MinimumWidth = 50;
-            this.kryptonDataGridViewButtonColumn1.Name = "kryptonDataGridViewButtonColumn1";
-            this.kryptonDataGridViewButtonColumn1.ReadOnly = true;
-            this.kryptonDataGridViewButtonColumn1.Width = 50;
-            // 
-            // kryptonDataGridViewButtonColumn2
-            // 
-            this.kryptonDataGridViewButtonColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.kryptonDataGridViewButtonColumn2.HeaderText = "";
-            this.kryptonDataGridViewButtonColumn2.MinimumWidth = 50;
-            this.kryptonDataGridViewButtonColumn2.Name = "kryptonDataGridViewButtonColumn2";
-            this.kryptonDataGridViewButtonColumn2.ReadOnly = true;
-            this.kryptonDataGridViewButtonColumn2.Width = 50;
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.label1);
@@ -735,6 +598,155 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Activity Log";
             // 
+            // grid_super_user
+            // 
+            this.grid_super_user.AllowUserToAddRows = false;
+            this.grid_super_user.AllowUserToDeleteRows = false;
+            this.grid_super_user.AllowUserToResizeColumns = false;
+            this.grid_super_user.AllowUserToResizeRows = false;
+            this.grid_super_user.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grid_super_user.ColumnHeadersHeight = 40;
+            this.grid_super_user.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.grid_super_user.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.dataGridViewTextBoxColumn10,
+            this.dataGridViewTextBoxColumn11,
+            this.Edit3,
+            this.Delete3});
+            this.grid_super_user.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grid_super_user.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Mixed;
+            this.grid_super_user.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonLowProfile;
+            this.grid_super_user.Location = new System.Drawing.Point(0, 80);
+            this.grid_super_user.Name = "grid_super_user";
+            this.grid_super_user.Palette = this.kryptonPalette1;
+            this.grid_super_user.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
+            this.grid_super_user.ReadOnly = true;
+            this.grid_super_user.RowHeadersVisible = false;
+            this.grid_super_user.RowHeadersWidth = 50;
+            this.grid_super_user.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.grid_super_user.RowTemplate.Height = 50;
+            this.grid_super_user.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grid_super_user.Size = new System.Drawing.Size(1152, 389);
+            this.grid_super_user.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonLowProfile;
+            this.grid_super_user.StateCommon.DataCell.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.grid_super_user.StateCommon.DataCell.Content.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.grid_super_user.StateCommon.DataCell.Content.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grid_super_user.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
+            this.grid_super_user.StateCommon.HeaderColumn.Content.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
+            this.grid_super_user.StateCommon.HeaderColumn.Content.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grid_super_user.TabIndex = 9;
+            this.grid_super_user.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_super_user_CellContentClick);
+            this.grid_super_user.SelectionChanged += new System.EventHandler(this.grid_super_user_SelectionChanged);
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn2.HeaderText = "#";
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 44;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "User_ID";
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.FillWeight = 137.931F;
+            this.dataGridViewTextBoxColumn4.HeaderText = "User Name";
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewTextBoxColumn5.FillWeight = 94.58129F;
+            this.dataGridViewTextBoxColumn5.HeaderText = "Services Module";
+            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn6.FillWeight = 94.58129F;
+            this.dataGridViewTextBoxColumn6.HeaderText = "Schedule Module";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn7.FillWeight = 94.58129F;
+            this.dataGridViewTextBoxColumn7.HeaderText = "Customer Module";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn8.FillWeight = 94.58129F;
+            this.dataGridViewTextBoxColumn8.HeaderText = "Payments Module";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn9.FillWeight = 94.58129F;
+            this.dataGridViewTextBoxColumn9.HeaderText = "User Module";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn10.FillWeight = 94.58129F;
+            this.dataGridViewTextBoxColumn10.HeaderText = "Inventory Module";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn11.FillWeight = 94.58129F;
+            this.dataGridViewTextBoxColumn11.HeaderText = "Settings Module";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.ReadOnly = true;
+            // 
+            // Edit3
+            // 
+            this.Edit3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Edit3.HeaderText = "  Edit";
+            this.Edit3.Image = ((System.Drawing.Image)(resources.GetObject("Edit3.Image")));
+            this.Edit3.MinimumWidth = 50;
+            this.Edit3.Name = "Edit3";
+            this.Edit3.ReadOnly = true;
+            this.Edit3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Edit3.Width = 50;
+            // 
+            // Delete3
+            // 
+            this.Delete3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Delete3.HeaderText = " Delete";
+            this.Delete3.Image = ((System.Drawing.Image)(resources.GetObject("Delete3.Image")));
+            this.Delete3.MinimumWidth = 50;
+            this.Delete3.Name = "Delete3";
+            this.Delete3.ReadOnly = true;
+            this.Delete3.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Delete3.Width = 62;
+            // 
             // User_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -762,13 +774,13 @@
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.tabPage1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.grid_super_user)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grid_view_activity)).EndInit();
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_super_user)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -786,19 +798,6 @@
         private System.Windows.Forms.Panel panel6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TabPage tabPage1;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView grid_super_user;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn kryptonDataGridViewButtonColumn1;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn kryptonDataGridViewButtonColumn2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
@@ -828,5 +827,18 @@
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btn_CreateNewUser;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView grid_super_user;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.DataGridViewImageColumn Edit3;
+        private System.Windows.Forms.DataGridViewImageColumn Delete3;
     }
 }

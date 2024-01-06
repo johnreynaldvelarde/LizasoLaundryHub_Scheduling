@@ -351,6 +351,92 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
+        public bool Get_SuperUserAndPermissions(DataGridView view_super_user)
+        {
+            try
+            {
+                view_super_user.Rows.Clear();
+
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+                    int i = 0;
+                    connect.Open();
+
+                    // Define your SQL query with a CASE statement to convert bit values to 'Yes' or 'No'
+                    // Add a condition to filter out super users
+                    string query = @"SELECT UA.User_ID, UA.User_Name,
+                                CASE WHEN UP.Available_Services = 1 THEN 'Yes' ELSE 'No' END AS Available_Services,
+                                CASE WHEN UP.Schedule = 1 THEN 'Yes' ELSE 'No' END AS Schedule,
+                                CASE WHEN UP.Customer_Manage = 1 THEN 'Yes' ELSE 'No' END AS Customer_Manage,
+                                CASE WHEN UP.Payments = 1 THEN 'Yes' ELSE 'No' END AS Payments,
+                                CASE WHEN UP.User_Manage = 1 THEN 'Yes' ELSE 'No' END AS User_Manage,
+                                CASE WHEN UP.Inventory = 1 THEN 'Yes' ELSE 'No' END AS Inventory,
+                                CASE WHEN UP.Settings = 1 THEN 'Yes' ELSE 'No' END AS Settings
+                         FROM User_View UA
+                         INNER JOIN Permissions_View UP ON UA.User_ID = UP.User_ID
+                         WHERE UA.Super_User = 1"; // Filter out super users
+
+                    using (SqlCommand command = new SqlCommand(query, connect))
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            i += 1;
+                            // Add rows to the DataGridView
+                            view_super_user.Rows.Add(i,
+                                reader["User_ID"],
+                                reader["User_Name"],
+                                reader["Available_Services"],
+                                reader["Schedule"],
+                                reader["Customer_Manage"],
+                                reader["Payments"],
+                                reader["User_Manage"],
+                                reader["Inventory"],
+                                reader["Settings"]
+                            );
+                        }
+                    }
+
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        public bool Get_IsUserNameExists(string userName)
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+                    connect.Open();
+
+                    string query = "SELECT COUNT(*) FROM User_Account WHERE User_Name = @UserName";
+
+                    using (SqlCommand command = new SqlCommand(query, connect))
+                    {
+                        command.Parameters.AddWithValue("@UserName", userName);
+
+                        int count = (int)command.ExecuteScalar();
+
+                        // If count is greater than 0, it means the username already exists
+                        return count > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+
+
         // << ADD RESERVED FORM >>
         // metyhod to check if have available unit and cannot proceed to reserved if have available unit
         public bool IsAnyUnitAvailable()
@@ -370,24 +456,8 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
-        /*
-        public bool IsAnyUnitAvailable()
-        {
-            using (SqlConnection connect = new SqlConnection(database.MyConnection()))
-            {
-                connect.Open();
 
-                string sql = "SELECT TOP 1 Unit_ID FROM Laundry_Unit WHERE Unit_Status = 0";
 
-                using (SqlCommand command = new SqlCommand(sql, connect))
-                {
-                    object result = command.ExecuteScalar();
-
-                    return (result != null);
-                }
-            }
-        }
-        */
 
         public bool Get_ClosestUnit(Label r_unitID, Label lbl_UnitName, Label lblReservedStartTime)
         {
