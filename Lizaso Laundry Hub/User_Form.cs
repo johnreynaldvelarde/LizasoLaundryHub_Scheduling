@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +19,7 @@ namespace Lizaso_Laundry_Hub
         private string u_username, s_userName;
         private byte u_services, u_schedule, u_customer, u_payments, u_user, u_inventory, u_settings;
         private byte s_services, s_schedule, s_customer, s_payments, s_user, s_inventory, s_settings;
+        private string getPassword;
 
         public User_Form()
         {
@@ -68,11 +70,14 @@ namespace Lizaso_Laundry_Hub
 
             if (column_regularuser == "Edit2")
             {
+                Get_UserProfileRegularUser();
+                
                 Add_User_Form frm = new Add_User_Form(this);
                 frm.btnSave.Text = "Update";
                 frm.lblUserTitle.Text = "Update User and Permissions";
                 frm.u_userID = u_userID;
                 frm.txt_UserName.Text = u_username;
+                frm.txt_Password.Text = getPassword;
                 frm.rdRegularUser.Checked = true;
                 frm.ckAvailableServices.Checked = (u_services == 1);
                 frm.ckSchedule.Checked = (u_schedule == 1);
@@ -112,7 +117,6 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
-
         // Datagrid method for Super User
         private void grid_super_user_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -120,11 +124,14 @@ namespace Lizaso_Laundry_Hub
 
             if (column_superuser == "Edit3")
             {
+                Get_UserProfileSuperUser();
+
                 Add_User_Form frm = new Add_User_Form(this);
                 frm.btnSave.Text = "Update";
                 frm.lblUserTitle.Text = "Update User and Permissions";
                 frm.u_userID = s_userID;
                 frm.txt_UserName.Text = s_userName;
+                frm.txt_Password.Text = getPassword;
                 frm.rdRegularUser.Checked = true;
                 frm.ckAvailableServices.Checked = (s_services == 1);
                 frm.ckSchedule.Checked = (s_schedule == 1);
@@ -164,7 +171,61 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
+        // for super user
+        public void Get_UserProfileSuperUser()
+        {
+            // Define the path for the notepad file
+            string filePath = Path.Combine(@"C:\Lizaso Laundry Hub\User Profile", $"{s_userName}.txt");
 
+            // Check if the file exists before proceeding
+            if (!File.Exists(filePath))
+            {
+
+            }
+            else
+            {
+                try
+                {
+                    // Read the details from the notepad file
+                    using (StreamReader sr = new StreamReader(filePath))
+                    {
+                        getPassword = sr.ReadLine()?.Replace("Password: ", "");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error loading configuration: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        // for regular user
+        public void Get_UserProfileRegularUser()
+        {
+            // Define the path for the notepad file
+            string filePath = Path.Combine(@"C:\Lizaso Laundry Hub\User Profile", $"{u_username}.txt");
+
+            // Check if the file exists before proceeding
+            if (!File.Exists(filePath))
+            {
+
+            }
+            else
+            {
+                try
+                {
+                    // Read the details from the notepad file
+                    using (StreamReader sr = new StreamReader(filePath))
+                    {
+                        getPassword = sr.ReadLine()?.Replace("Password: ", "");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error loading configuration: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
 
     }
 }

@@ -41,18 +41,21 @@ namespace Lizaso_Laundry_Hub
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            if (String.IsNullOrEmpty(txt_UserName.Text))
+            if (String.IsNullOrWhiteSpace(txt_UserName.Text))
             {
                 MessageBox.Show("Please enter the User Name.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            else if (String.IsNullOrEmpty(txt_Password.Text))
+            else if (String.IsNullOrWhiteSpace(txt_Password.Text))
             {
                 MessageBox.Show("Please enter the Password.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (txt_Password.Text.Length < 8)
+            {
+                MessageBox.Show("Password must be at least 8 characters long.", "Invalid Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (!(rdSuperUser.Checked ^ rdRegularUser.Checked))
             {
                 MessageBox.Show("Please choose a user type (Super User or Regular User).", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
             }
             else if (btnSave.Text == "Update")
             {
@@ -69,6 +72,7 @@ namespace Lizaso_Laundry_Hub
                     if (rdSuperUser.Checked)
                     {
                         updateData.Update_User(account.User_ID, u_userID, _username, _password, 1, 1, 1, 1, 1, 1, 1, 1);
+                        Get_UpdateAccountUser();
                         //MessageBox.Show("Super user account updated successfully.");
                         this.Dispose();
                     }
@@ -83,6 +87,7 @@ namespace Lizaso_Laundry_Hub
                         byte settings = (byte)(ckSettings.Checked ? 1 : 0);
 
                         updateData.Update_User(account.User_ID, u_userID, _username, _password, 0, availableServices, schedule, customerManage, payments, userManage, inventory, settings);
+                        Get_UpdateAccountUser();
                         //MessageBox.Show("Regular user account updated successfully.");
                         this.Dispose();
                         frm.DisplayUserView();
@@ -107,6 +112,7 @@ namespace Lizaso_Laundry_Hub
                         MessageBox.Show("Super user account successfully created");
                         Get_CreatedAccountUser();
                         this.Dispose();
+                        frm.DisplayUserView();
                     }
                     else
                     {
@@ -127,27 +133,7 @@ namespace Lizaso_Laundry_Hub
                 }
             }
         }
-
-        // save details in use profile
-        public void Get_CreatedAccountUser()
-        {
-            string createdUserName= txt_UserName.Text;
-            string createdPassword = txt_Password.Text;
-
-            string filePath = Path.Combine(@"C:\Lizaso Laundry Hub\User Profile", $"{createdUserName}.txt");
-
-            try
-            {
-                using (StreamWriter sw = new StreamWriter(filePath))
-                {
-                    sw.WriteLine($"Password: {createdPassword}");
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error saving configuration: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
+       
 
         private void Add_User_Form_Load(object sender, EventArgs e)
         {
@@ -227,5 +213,49 @@ namespace Lizaso_Laundry_Hub
         {
             Clear();
         }
+
+        // save details in user profile
+        public void Get_CreatedAccountUser()
+        {
+            string createdUserName = txt_UserName.Text;
+            string createdPassword = txt_Password.Text;
+
+            string filePath = Path.Combine(@"C:\Lizaso Laundry Hub\User Profile", $"{createdUserName}.txt");
+
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(filePath))
+                {
+                    sw.WriteLine($"Password: {createdPassword}");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error saving configuration: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        // update details in user profile
+        public void Get_UpdateAccountUser()
+        {
+            string createdUserName = txt_UserName.Text;
+            string createdPassword = txt_Password.Text;
+
+            string filePath = Path.Combine(@"C:\Lizaso Laundry Hub\User Profile", $"{createdUserName}.txt");
+
+            try
+            {
+                using (StreamWriter sw = new StreamWriter(filePath))
+                {
+                    sw.WriteLine($"Password: {createdPassword}");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error saving configuration: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+       
     }
 }

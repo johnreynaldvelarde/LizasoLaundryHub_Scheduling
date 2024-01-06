@@ -20,25 +20,27 @@ namespace Lizaso_Laundry_Hub
         {
             try
             {
+              
                 if (loggedInUserId == userId)
                 {
                     MessageBox.Show("You are not authorized to update this user's account.", "Unauthorized", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
-                
-                if (_IsSuperUser == 1)
+
+                bool isCurrentUserSuperUser = IsUserSuper(loggedInUserId);
+
+                if (isCurrentUserSuperUser)
                 {
-                    MessageBox.Show("This user is not a super user. Additional actions for regular users can be performed here.", "Regular User", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("You are not authorized to update this user's account.", "Unauthorized", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
-                
 
                 using (SqlConnection connect = new SqlConnection(database.MyConnection()))
                 {
                     connect.Open();
 
                     // Check if the provided userId exists in the User_Account table
-                    string checkUserSql = "SELECT COUNT(*) FROM User_Account WHERE User_ID = @User_ID";
+                    string checkUserSql = "SELECT COUNT(*) FROM User_View WHERE User_ID = @User_ID";
                     using (SqlCommand checkUserCommand = new SqlCommand(checkUserSql, connect))
                     {
                         checkUserCommand.Parameters.AddWithValue("@User_ID", userId);
@@ -90,6 +92,83 @@ namespace Lizaso_Laundry_Hub
                 return false;
             }
         }
+
+        private bool IsUserSuper(int userId)
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+                    connect.Open();
+
+                    // Query the Super_User column for the specified user
+                    string superUserSql = "SELECT Super_User FROM User_View WHERE User_ID = @User_ID";
+                    using (SqlCommand superUserCommand = new SqlCommand(superUserSql, connect))
+                    {
+                        superUserCommand.Parameters.AddWithValue("@User_ID", userId);
+
+                        // Execute the query and get the Super_User value
+                        object result = superUserCommand.ExecuteScalar();
+
+                        // Check if the result is not null and if Super_User is false
+                        return result != null && !(bool)result;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred while checking if the user is a super user: {ex.Message}");
+                return false;
+            }
+        }
+
+        public bool Update_SuperUserToDeleted(int userID)
+        {
+            /*
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+                    connect.Open();
+
+                    // Check if the quantity is 0 before updating the Archive field
+                    string checkQuantitySql = "SELECT Quantity FROM Item WHERE Item_ID = @ItemID";
+                    SqlCommand checkQuantityCommand = new SqlCommand(checkQuantitySql, connect);
+                    checkQuantityCommand.Parameters.AddWithValue("@ItemID", itemID);
+
+                    int quantity = (int)checkQuantityCommand.ExecuteScalar();
+
+                    if (quantity == 0)
+                    {
+                        // Update the Archive field to 1 (indicating deleted)
+                        string updateSql = "UPDATE Item SET Archive = 1 WHERE Item_ID = @ItemID";
+                        SqlCommand updateCommand = new SqlCommand(updateSql, connect);
+                        updateCommand.Parameters.AddWithValue("@ItemID", itemID);
+
+                        updateCommand.ExecuteNonQuery();
+
+                        MessageBox.Show("Item deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Item cannot be deleted as it still has quantity.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+            */
+            return false;
+        }
+
+
+
+
 
         // HashPassword function (replace with a secure hashing algorithm)
         private byte[] HashPassword(string password)
