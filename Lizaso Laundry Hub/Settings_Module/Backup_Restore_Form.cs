@@ -204,9 +204,29 @@ namespace Lizaso_Laundry_Hub.Settings_Module
                     // Read the details from the notepad file
                     using (StreamReader sr = new StreamReader(filePath))
                     {
+                        string locationPathLine = sr.ReadLine();
+                        string serverNameLine = sr.ReadLine();
+                        string databaseNameLine = sr.ReadLine();
+
+                        // Check if the lines are not null before extracting values
+                        if (locationPathLine != null)
+                        {
+                            Label_ClickLocateBackup.Text = locationPathLine.Replace("Location Path: ", "");
+                        }
+
+                        // Ignore the Server Name and proceed to read the Database Name
+                        sr.ReadLine();
+
+                        if (databaseNameLine != null)
+                        {
+                            txt_RestoreDatabaseName.Text = databaseNameLine.Replace("Database Name: ", "");
+                        }
+                        /*
                         // Read each line and update the corresponding controls
                         Label_ClickLocateBackup.Text = sr.ReadLine()?.Replace("Location Path: ", "");
+                        txt_ServerName.Text = sr.ReadLine()?.Replace("Server Name: ", "");
                         txt_RestoreDatabaseName.Text = sr.ReadLine()?.Replace("Database Name: ", "");
+                        */
                     }
                 }
                 catch (Exception ex)
