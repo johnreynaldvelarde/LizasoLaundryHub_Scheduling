@@ -17,12 +17,16 @@ namespace Lizaso_Laundry_Hub
     {
         private Panel panel_upper;
         private Backup_Data_Class backupData;
+        private Update_Data_Class updateData;
+        private Account_Class account;
         //private Main_Form mainForm = new Main_Form(authenticatedUser);
 
         public DropDown_Form(Panel panelUpper)
         {
             InitializeComponent();
             backupData = new Backup_Data_Class();
+            updateData = new Update_Data_Class();
+            account = new Account_Class();
             this.panel_upper = panelUpper;
 
             if (this.panel_upper != null)
@@ -47,6 +51,7 @@ namespace Lizaso_Laundry_Hub
                 DisplayUIBackup();
                 await Task.Delay(2000);
                 this.Dispose();
+                updateData.Update_UserLastActiveAndStatus(account.User_ID);
                 Application.OpenForms["Main_Form"].Dispose();
                 
                 // Open the Login_Form

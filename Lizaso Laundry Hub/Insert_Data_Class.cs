@@ -37,12 +37,14 @@ namespace Lizaso_Laundry_Hub
                         byte[] passwordHash = HashPassword(password);
 
                         // Insert the new superuser account into the User_Account table
-                        string userSql = "INSERT INTO User_Account (User_Name, Super_User, Password_Hash, Date_Added, Archive) VALUES (@User_Name, 1,  @Password_Hash,  @Date_Added, @Archive)";
+                        string userSql = "INSERT INTO User_Account (User_Name, Super_User, Password_Hash, Date_Added, Last_Active, Status, Archive) VALUES (@User_Name, 1,  @Password_Hash,  @Date_Added, @Last_Active, @Status, @Archive)";
                         using (SqlCommand userCommand = new SqlCommand(userSql, connect))
                         {
                             userCommand.Parameters.AddWithValue("@User_Name", username);
                             userCommand.Parameters.AddWithValue("@Password_Hash", passwordHash);
                             userCommand.Parameters.AddWithValue("@Date_Added", DateTime.Now);
+                            userCommand.Parameters.AddWithValue("@Last_Active", DateTime.Now);
+                            userCommand.Parameters.AddWithValue("@Status", "Offline");
                             userCommand.Parameters.AddWithValue("@Archive", 0);
                             userCommand.ExecuteNonQuery();
                         }

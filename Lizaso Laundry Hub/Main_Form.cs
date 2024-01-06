@@ -17,6 +17,7 @@ namespace Lizaso_Laundry_Hub
         public Account_Class AuthenticatedUser { get; set; }
         private DropDown_Form dropDownForm;
         private Notify_Module.DropDown_Notification_Form dropNoti;
+        private Update_Data_Class updateData;
         private Get_Data_Class getData;
         public int User_ID;
         public string User_Name;
@@ -27,6 +28,7 @@ namespace Lizaso_Laundry_Hub
         {
             InitializeComponent();
             getData = new Get_Data_Class();
+            updateData = new Update_Data_Class();
             AuthenticatedUser = authenticatedUser;
 
             if (AuthenticatedUser != null)
@@ -35,6 +37,8 @@ namespace Lizaso_Laundry_Hub
                 lblUserName.Width = CalculateLabelWidth(lblUserName.Text);
                 User_ID = AuthenticatedUser.User_ID;
                 User_Name = AuthenticatedUser.User_Name;
+
+                updateData.Update_UserToOnline(User_ID);
             }
 
             Count_Pending_Timer.Interval = 1000; // Set the interval to 1000 milliseconds (1 second)

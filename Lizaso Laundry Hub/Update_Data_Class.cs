@@ -122,6 +122,65 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
+        // update user to online
+        public bool Update_UserToOnline(int userID)
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+                    connect.Open();
+
+                    // Update the Last_Active timestamp and set the Status to 'Online'
+                    string updateSql = "UPDATE User_Account SET Last_Active = @Last_Active, Status = 'Online' WHERE User_ID = @User_ID";
+                    using (SqlCommand updateCommand = new SqlCommand(updateSql, connect))
+                    {
+                        updateCommand.Parameters.AddWithValue("@User_ID", userID);
+                        updateCommand.Parameters.AddWithValue("@Last_Active", DateTime.Now);
+                        updateCommand.ExecuteNonQuery();
+                    }
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        // update user to offline when logging out
+        public bool Update_UserLastActiveAndStatus(int userID)
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+                    connect.Open();
+
+                    // Update the Last_Active timestamp and set the Status to 'Offline'
+                    string updateSql = "UPDATE User_Account SET Last_Active = @Last_Active, Status = 'Offline' WHERE User_ID = @User_ID";
+                    using (SqlCommand updateCommand = new SqlCommand(updateSql, connect))
+                    {
+                        updateCommand.Parameters.AddWithValue("@User_ID", userID);
+                        updateCommand.Parameters.AddWithValue("@Last_Active", DateTime.Now);
+                        updateCommand.ExecuteNonQuery();
+                    }
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+
+
+
         public bool Update_SuperUserToDeleted(int userID)
         {
             /*
