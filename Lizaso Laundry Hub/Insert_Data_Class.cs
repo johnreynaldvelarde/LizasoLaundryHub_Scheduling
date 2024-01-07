@@ -595,8 +595,62 @@ namespace Lizaso_Laundry_Hub
             return true;
         }
 
+        // << PAYMENT DETAILS FORM / Delivery Method >>
+        // method for create free delivery for regular user
+        public bool Set_Delivery(int transactionID)
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+                    connect.Open();
 
+                    // Retrieve the Delivery_Address from the Customer's Address column
+                    string query = "SELECT C.Address FROM Transactions T " +
+                                   "INNER JOIN Laundry_Bookings LB ON T.Booking_ID = LB.Booking_ID " +
+                                   "INNER JOIN Customers C ON LB.Customer_ID = C.Customer_ID " +
+                                   "WHERE T.Transaction_ID = @TransactionID";
 
+                    using (SqlCommand cmd = new SqlCommand(query, connect))
+                    {
+                        cmd.Parameters.AddWithValue("@TransactionID", transactionID);
+
+                        // Execute the query to get the Delivery_Address
+                        object result = cmd.ExecuteScalar();
+
+                        if (result != null)
+                        {
+                            string deliveryAddress = result.ToString();
+
+                            // Insert the delivery information into the Deliveries table
+                            query = "INSERT INTO Deliveries (Transaction_ID, Delivery_Address, Delivery_Date, Delivery_Status) " +
+                                    "VALUES (@TransactionID, @DeliveryAddress, GETDATE(), 'In Transit')";
+
+                            using (SqlCommand insertCmd = new SqlCommand(query, connect))
+                            {
+                                insertCmd.Parameters.AddWithValue("@TransactionID", transactionID);
+                                insertCmd.Parameters.AddWithValue("@DeliveryAddress", deliveryAddress);
+
+                                // Execute the insert query
+                                insertCmd.ExecuteNonQuery();
+                            }
+
+                            return true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Delivery address not found for the given transaction ID.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
 
         // << ADD USER FROM >>
         // Create user acount with permission or not

@@ -109,9 +109,9 @@ namespace Lizaso_Laundry_Hub
         {
             if(btnSave.Text == "Update" && cbTypeCustomer.Text == "Guest Customer")
             {
-                txt_ContactNumber.PasswordChar = '*';
-                txt_EmailAddress.PasswordChar = '*';
-                txt_Address.PasswordChar = '*';
+                //txt_ContactNumber.PasswordChar = '*';
+                //txt_EmailAddress.PasswordChar = '*';
+                //txt_Address.PasswordChar = '*';
             }
             else
             {

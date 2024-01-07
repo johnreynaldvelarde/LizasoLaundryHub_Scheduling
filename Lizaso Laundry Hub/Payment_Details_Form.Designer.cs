@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Payment_Details_Form));
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ckFreeShipping = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblPaymentTitle = new System.Windows.Forms.Label();
             this.lbl_username = new System.Windows.Forms.Label();
@@ -54,7 +55,6 @@
             this.btnViewDetails = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblServicePrice = new System.Windows.Forms.Label();
-            this.ckFreeShipping = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -79,6 +79,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(429, 40);
             this.panel1.TabIndex = 56;
+            // 
+            // ckFreeShipping
+            // 
+            this.ckFreeShipping.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ckFreeShipping.Location = new System.Drawing.Point(232, 5);
+            this.ckFreeShipping.Name = "ckFreeShipping";
+            this.ckFreeShipping.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
+            this.ckFreeShipping.Size = new System.Drawing.Size(194, 27);
+            this.ckFreeShipping.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.ckFreeShipping.StateCommon.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.ckFreeShipping.StateCommon.ShortText.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckFreeShipping.TabIndex = 79;
+            this.ckFreeShipping.Values.Text = "Include Free Delivery";
             // 
             // panel2
             // 
@@ -466,20 +480,6 @@
             this.lblServicePrice.TabIndex = 78;
             this.lblServicePrice.Text = "0";
             // 
-            // ckFreeShipping
-            // 
-            this.ckFreeShipping.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ckFreeShipping.Location = new System.Drawing.Point(232, 5);
-            this.ckFreeShipping.Name = "ckFreeShipping";
-            this.ckFreeShipping.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
-            this.ckFreeShipping.Size = new System.Drawing.Size(194, 27);
-            this.ckFreeShipping.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.ckFreeShipping.StateCommon.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.ckFreeShipping.StateCommon.ShortText.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckFreeShipping.TabIndex = 79;
-            this.ckFreeShipping.Values.Text = "Include Free Delivery";
-            // 
             // Payment_Details_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -517,6 +517,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.Payment_Details_Form_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.ResumeLayout(false);

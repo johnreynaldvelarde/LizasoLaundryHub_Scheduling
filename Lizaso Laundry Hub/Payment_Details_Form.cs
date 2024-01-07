@@ -18,6 +18,7 @@ namespace Lizaso_Laundry_Hub
         private Additional_Payment_Form additionalPaymentForm;
         private Account_Class account;
         private Insert_Data_Class insertData;
+        private Get_Data_Class getData;
         private Payments_Form frm;
 
         public int UnitID;
@@ -30,7 +31,7 @@ namespace Lizaso_Laundry_Hub
         public double TotalServicesPrice;
         private double TotalAmount;
 
-
+        private int TransactionID;
 
         public Payment_Details_Form(Payments_Form payments)
         {
@@ -39,6 +40,7 @@ namespace Lizaso_Laundry_Hub
             frm = payments;
             account = new Account_Class();
             insertData = new Insert_Data_Class();
+            getData = new Get_Data_Class();
             payments = new Payments_Form();
           
         }
@@ -71,17 +73,24 @@ namespace Lizaso_Laundry_Hub
 
                     List<Item_Data> additionalItems = additionalPaymentForm.GetAdditionalItems();
 
-                    int transactionID = insertData.Set_PendingDetails(UnitID, BookingID, account.User_ID, amount, paymentMethod);
+                    TransactionID = insertData.Set_PendingDetails(UnitID, BookingID, account.User_ID, amount, paymentMethod);
 
                     // check if SetPaymentDetails was successful before proceeding
-                    if (transactionID != -1)
+                    if (TransactionID != -1)
                     {
                         // call the SetAdditionalPayment with the obtained Transaction_ID
-                        bool success = insertData.Set_AdditionalPayment(transactionID, additionalItems, totalAmount);
+                        bool success = insertData.Set_AdditionalPayment(TransactionID, additionalItems, totalAmount);
 
                         if (success)
                         {
+
                             MessageBox.Show("Transaction with additional payment added successfully");
+
+                            if (ckFreeShipping.Checked)
+                            {
+                                insertData.Set_Delivery(TransactionID);
+                            }
+
                             this.Dispose();
                             frm.DisplayInPendingList();
                         }
@@ -98,19 +107,19 @@ namespace Lizaso_Laundry_Hub
                 }
                 else
                 {
-                    if (ckFreeShipping.Checked == true)
-                    {
-
-                    }
-
                     int transactionID = insertData.Set_PendingDetails(UnitID, BookingID, account.User_ID, amount, paymentMethod);
+
+                    if (ckFreeShipping.Checked)
+                    {
+                        insertData.Set_Delivery(TransactionID);
+                        return;
+                    }
 
                     if (transactionID != -1)
                     {
                         MessageBox.Show("Transaction payment added successfully");
                         this.Dispose();
                         frm.DisplayInPendingList();
-
                     }
                     else
                     {
@@ -303,12 +312,14 @@ namespace Lizaso_Laundry_Hub
             btnViewDetails.Enabled = true;
         }
 
-
-
-
         public void Get_InfoResereved()
         {
 
+        }
+
+        private void Payment_Details_Form_Load(object sender, EventArgs e)
+        {
+            getData.Get_CustomerType(CustomerID, ckFreeShipping);
         }
     }
 }

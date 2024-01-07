@@ -794,6 +794,58 @@ namespace Lizaso_Laundry_Hub
                 return false;
             }
         }
+        // << PAYMENT DETAILS FORM / Enable & Disable ckFreeShipping >>
+        // method to get the customer type
+        public bool Get_CustomerType(int customerID, KryptonCheckBox ckFreeShipping)
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+                    connect.Open();
+
+                    // Retrieve Customer_Type based on customerID
+                    string query = "SELECT Customer_Type FROM Customers WHERE Customer_ID = @CustomerID";
+
+                    using (SqlCommand cmd = new SqlCommand(query, connect))
+                    {
+                        cmd.Parameters.AddWithValue("@CustomerID", customerID);
+
+                        // Execute the query to get Customer_Type
+                        object result = cmd.ExecuteScalar();
+
+                        if (result != null && int.TryParse(result.ToString(), out int customerType))
+                        {
+                            // Check the retrieved Customer_Type
+                            if (customerType == 0)
+                            {
+                                // Enable the checkbox if Customer_Type is 0
+                                ckFreeShipping.Enabled = true;
+                            }
+                            else
+                            {
+                                // Disable the checkbox if Customer_Type is 1
+                                ckFreeShipping.Enabled = false;
+                            }
+
+                            return true;
+                        }
+                        else
+                        {
+                            // Handle the case where the Customer_Type is not retrieved or cannot be parsed
+                            MessageBox.Show("Error retrieving Customer_Type information", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
 
         public bool Get_AllActivityLog(DataGridView view_activity_log)
         {
