@@ -107,17 +107,18 @@ namespace Lizaso_Laundry_Hub
                 }
                 else
                 {
-                    int transactionID = insertData.Set_PendingDetails(UnitID, BookingID, account.User_ID, amount, paymentMethod);
+                    //int transactionID = insertData.Set_PendingDetails(UnitID, BookingID, account.User_ID, amount, paymentMethod);
+                    TransactionID = insertData.Set_PendingDetails(UnitID, BookingID, account.User_ID, amount, paymentMethod);
 
-                    if (ckFreeShipping.Checked)
-                    {
-                        insertData.Set_Delivery(TransactionID);
-                        return;
-                    }
-
-                    if (transactionID != -1)
+                    if (TransactionID != -1)
                     {
                         MessageBox.Show("Transaction payment added successfully");
+
+                        if (ckFreeShipping.Checked)
+                        {
+                            insertData.Set_Delivery(TransactionID);
+                        }
+
                         this.Dispose();
                         frm.DisplayInPendingList();
                     }
