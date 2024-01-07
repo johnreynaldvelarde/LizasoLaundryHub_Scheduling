@@ -98,6 +98,11 @@ namespace Lizaso_Laundry_Hub
                 }
                 else
                 {
+                    if (ckFreeShipping.Checked == true)
+                    {
+
+                    }
+
                     int transactionID = insertData.Set_PendingDetails(UnitID, BookingID, account.User_ID, amount, paymentMethod);
 
                     if (transactionID != -1)

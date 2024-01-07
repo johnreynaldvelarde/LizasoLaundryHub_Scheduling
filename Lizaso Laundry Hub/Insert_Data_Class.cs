@@ -229,44 +229,6 @@ namespace Lizaso_Laundry_Hub
             return true;
         }
 
-
-
-
-        /*
-        public bool Set_Unit(int _status)
-        {
-            using (SqlConnection connect = new SqlConnection(database.MyConnection()))
-            {
-                connect.Open();
-
-                // Retrieve the current maximum unit number
-                string getMaxUnitNumberSql = "SELECT ISNULL(MAX(CONVERT(INT, SUBSTRING(Unit_Name, 6, LEN(Unit_Name) - 5))), 0) + 1 FROM Laundry_Unit";
-                SqlCommand getMaxUnitNumberCommand = new SqlCommand(getMaxUnitNumberSql, connect);
-
-                // Check if the table is empty
-                object result = getMaxUnitNumberCommand.ExecuteScalar();
-                int maxUnitNumber = result == DBNull.Value ? 1 : Convert.ToInt32(result);
-
-                // Construct the new Unit_Name
-                string newUnitName = "Unit " + maxUnitNumber;
-
-
-                string sql = "INSERT INTO Laundry_Unit (Unit_Name, Unit_Status) " +
-                             "VALUES (@Unit_Name, @Unit_Status)";
-
-                SqlCommand command = new SqlCommand(sql, connect);
-                command.Parameters.AddWithValue("@Unit_Name", newUnitName);
-                command.Parameters.AddWithValue("@Unit_Status", _status);
-                command.ExecuteNonQuery();
-
-                connect.Close();
-                MessageBox.Show("Successfully saved with Unit_Name: " + newUnitName);
-            }
-            return true;
-        }
-        */
-
-
         // INVENTORY MODULE >>
         // Create Item in Inventory
         public bool Set_ItemDetails(string _itemName, string _categoryItem, decimal _itemPrice, int _qyt)
@@ -552,6 +514,48 @@ namespace Lizaso_Laundry_Hub
             return transactionID;
         }
 
+        // << PAYMENT DETAILS FORM >>
+        // method for payment transaction
+        public int Set_PendingDetails(int _unitID, int _bookingID, int _userID, decimal _amount, string _paymentMethod)
+        {
+            int transactionID = -1; // Initialize with an invalid value
+
+            using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+            {
+                connect.Open();
+
+                // Insert payment details into Transactions table and retrieve Transaction_ID
+                string insertCmdText = "INSERT INTO Transactions (Booking_ID, User_ID, Amount, Transaction_Date, Payment_Method) " +
+                                       "VALUES (@BookingID, @UserID, @Amount, GETDATE(), @PaymentMethod); SELECT SCOPE_IDENTITY()";
+
+                using (SqlCommand insertCmd = new SqlCommand(insertCmdText, connect))
+                {
+                    insertCmd.Parameters.AddWithValue("@BookingID", _bookingID);
+                    insertCmd.Parameters.AddWithValue("@UserID", _userID);
+                    insertCmd.Parameters.AddWithValue("@Amount", _amount);
+                    insertCmd.Parameters.AddWithValue("@PaymentMethod", _paymentMethod);
+
+                    // Execute the query and retrieve the new Transaction_ID
+                    var result = insertCmd.ExecuteScalar();
+
+                    if (result != null && result != DBNull.Value)
+                    {
+                        transactionID = Convert.ToInt32(result);
+                    }
+                }
+
+                // Update Booking_Status to 'Completed' in Laundry_Bookings table
+                using (SqlCommand updateBookingCmd = new SqlCommand("UPDATE Laundry_Bookings SET Bookings_Status = 'Completed' WHERE Booking_ID = @BookingID", connect))
+                {
+                    updateBookingCmd.Parameters.AddWithValue("@BookingID", _bookingID);
+                    updateBookingCmd.ExecuteNonQuery();
+                }
+            }
+
+            return transactionID;
+        }
+
+        // << PAYMENT DETAILS FORM >>
         // Create aditional payment
         public bool Set_AdditionalPayment(int transactionID, List<Item_Data> additionalItems, double totalAmount)
         {
@@ -591,6 +595,10 @@ namespace Lizaso_Laundry_Hub
             return true;
         }
 
+
+
+
+        // << ADD USER FROM >>
         // Create user acount with permission or not
         public bool Set_CreateUser(string username, string password, byte _IsSuperUser, byte _services, byte _schedule, byte _customer, byte _payments, byte _user, byte _inventory, byte _settings)
         {
@@ -720,44 +728,6 @@ namespace Lizaso_Laundry_Hub
         }
 
 
-        public int Set_PendingDetails(int _unitID, int _bookingID, int _userID, decimal _amount, string _paymentMethod)
-        {
-            int transactionID = -1; // Initialize with an invalid value
-
-            using (SqlConnection connect = new SqlConnection(database.MyConnection()))
-            {
-                connect.Open();
-
-                // Insert payment details into Transactions table and retrieve Transaction_ID
-                string insertCmdText = "INSERT INTO Transactions (Booking_ID, User_ID, Amount, Transaction_Date, Payment_Method) " +
-                                       "VALUES (@BookingID, @UserID, @Amount, GETDATE(), @PaymentMethod); SELECT SCOPE_IDENTITY()";
-
-                using (SqlCommand insertCmd = new SqlCommand(insertCmdText, connect))
-                {
-                    insertCmd.Parameters.AddWithValue("@BookingID", _bookingID);
-                    insertCmd.Parameters.AddWithValue("@UserID", _userID);
-                    insertCmd.Parameters.AddWithValue("@Amount", _amount);
-                    insertCmd.Parameters.AddWithValue("@PaymentMethod", _paymentMethod);
-
-                    // Execute the query and retrieve the new Transaction_ID
-                    var result = insertCmd.ExecuteScalar();
-
-                    if (result != null && result != DBNull.Value)
-                    {
-                        transactionID = Convert.ToInt32(result);
-                    }
-                }
-
-                // Update Booking_Status to 'Completed' in Laundry_Bookings table
-                using (SqlCommand updateBookingCmd = new SqlCommand("UPDATE Laundry_Bookings SET Bookings_Status = 'Completed' WHERE Booking_ID = @BookingID", connect))
-                {
-                    updateBookingCmd.Parameters.AddWithValue("@BookingID", _bookingID);
-                    updateBookingCmd.ExecuteNonQuery();
-                }
-            }
-
-            return transactionID;
-        }
 
         // << ACTIVITY LOG >>
         // method to insert action of user in table activit log in database 
