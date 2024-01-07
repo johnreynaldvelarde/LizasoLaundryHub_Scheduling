@@ -318,7 +318,8 @@ namespace Lizaso_Laundry_Hub
                                 CASE WHEN UP.Settings = 1 THEN 'Yes' ELSE 'No' END AS Settings
                          FROM User_View UA
                          INNER JOIN Permissions_View UP ON UA.User_ID = UP.User_ID
-                         WHERE UA.Super_User = 0"; // Filter out super users
+                         WHERE UA.Super_User = 0
+                         AND UA.Archive = 0";
 
                     using (SqlCommand command = new SqlCommand(query, connect))
                     using (SqlDataReader reader = command.ExecuteReader())
@@ -374,7 +375,8 @@ namespace Lizaso_Laundry_Hub
                                 CASE WHEN UP.Settings = 1 THEN 'Yes' ELSE 'No' END AS Settings
                          FROM User_View UA
                          INNER JOIN Permissions_View UP ON UA.User_ID = UP.User_ID
-                         WHERE UA.Super_User = 1"; // Filter out super users
+                         WHERE UA.Super_User = 1
+                         AND UA.Archive = 0";
 
                     using (SqlCommand command = new SqlCommand(query, connect))
                     using (SqlDataReader reader = command.ExecuteReader())
@@ -462,6 +464,38 @@ namespace Lizaso_Laundry_Hub
             catch (Exception ex)
             {
                 MessageBox.Show($"Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        public bool Get_DeletedUser(DataGridView view_deleted_user)
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+                    int i = 0;
+                    connect.Open();
+                    string sql = "SELECT * FROM User_View WHERE Archive = 1";
+                    SqlCommand command = new SqlCommand(sql, connect);
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    view_deleted_user.Rows.Clear();
+
+                    while (reader.Read())
+                    {
+                        i += 1;
+                        view_deleted_user.Rows.Add(i, reader["User_ID"], reader["User_Name"], reader["Date_Added"].ToString());
+                    }
+                    reader.Close();
+                    connect.Close();
+
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
         }
@@ -767,15 +801,15 @@ namespace Lizaso_Laundry_Hub
             {
                 using (SqlConnection connect = new SqlConnection(database.MyConnection()))
                 {
+                    int i = 0;
                     connect.Open();
-
                     string query = "SELECT Log_ID, User_ID, Log_Date, User_Name, Activity_Type, Description, Status FROM Log_View";
 
                     using (SqlCommand cmd = new SqlCommand(query, connect))
                     {
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            int i = 0;
+                            view_activity_log.Rows.Clear();
 
                             while (reader.Read())
                             {

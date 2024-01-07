@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Customer_Form));
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            this.btn_AddNewCustomer = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -50,6 +51,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.grid_guest_customer = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Edit2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Delete2 = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -64,16 +74,6 @@
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Recycle = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edit2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Delete2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.btn_AddNewCustomer = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tab_Customer.SuspendLayout();
@@ -109,6 +109,70 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1156, 50);
             this.panel2.TabIndex = 3;
+            // 
+            // btn_AddNewCustomer
+            // 
+            this.btn_AddNewCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_AddNewCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_AddNewCustomer.Location = new System.Drawing.Point(992, 4);
+            this.btn_AddNewCustomer.Name = "btn_AddNewCustomer";
+            this.btn_AddNewCustomer.OverrideDefault.Back.Color1 = System.Drawing.Color.SteelBlue;
+            this.btn_AddNewCustomer.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(124)))), ((int)(((byte)(93)))));
+            this.btn_AddNewCustomer.OverrideDefault.Back.ColorAngle = 45F;
+            this.btn_AddNewCustomer.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(185)))), ((int)(((byte)(200)))));
+            this.btn_AddNewCustomer.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
+            this.btn_AddNewCustomer.OverrideDefault.Border.ColorAngle = 45F;
+            this.btn_AddNewCustomer.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_AddNewCustomer.OverrideDefault.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btn_AddNewCustomer.OverrideDefault.Border.Rounding = 20;
+            this.btn_AddNewCustomer.OverrideDefault.Border.Width = 1;
+            this.btn_AddNewCustomer.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.btn_AddNewCustomer.Size = new System.Drawing.Size(160, 37);
+            this.btn_AddNewCustomer.StateCommon.Back.Color1 = System.Drawing.Color.SteelBlue;
+            this.btn_AddNewCustomer.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(124)))), ((int)(((byte)(93)))));
+            this.btn_AddNewCustomer.StateCommon.Back.ColorAngle = 45F;
+            this.btn_AddNewCustomer.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(185)))), ((int)(((byte)(200)))));
+            this.btn_AddNewCustomer.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
+            this.btn_AddNewCustomer.StateCommon.Border.ColorAngle = 45F;
+            this.btn_AddNewCustomer.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_AddNewCustomer.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btn_AddNewCustomer.StateCommon.Border.Rounding = 20;
+            this.btn_AddNewCustomer.StateCommon.Border.Width = 1;
+            this.btn_AddNewCustomer.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btn_AddNewCustomer.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.btn_AddNewCustomer.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_AddNewCustomer.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(90)))), ((int)(((byte)(150)))));
+            this.btn_AddNewCustomer.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(70)))), ((int)(((byte)(40)))));
+            this.btn_AddNewCustomer.StatePressed.Back.ColorAngle = 135F;
+            this.btn_AddNewCustomer.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(90)))), ((int)(((byte)(150)))));
+            this.btn_AddNewCustomer.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(70)))), ((int)(((byte)(40)))));
+            this.btn_AddNewCustomer.StatePressed.Border.ColorAngle = 135F;
+            this.btn_AddNewCustomer.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_AddNewCustomer.StatePressed.Border.Rounding = 20;
+            this.btn_AddNewCustomer.StatePressed.Border.Width = 1;
+            this.btn_AddNewCustomer.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(124)))), ((int)(((byte)(93)))));
+            this.btn_AddNewCustomer.StateTracking.Back.Color2 = System.Drawing.Color.SteelBlue;
+            this.btn_AddNewCustomer.StateTracking.Back.ColorAngle = 45F;
+            this.btn_AddNewCustomer.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(185)))), ((int)(((byte)(200)))));
+            this.btn_AddNewCustomer.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
+            this.btn_AddNewCustomer.StateTracking.Border.ColorAngle = 45F;
+            this.btn_AddNewCustomer.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_AddNewCustomer.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btn_AddNewCustomer.StateTracking.Border.Rounding = 20;
+            this.btn_AddNewCustomer.StateTracking.Border.Width = 1;
+            this.btn_AddNewCustomer.TabIndex = 16;
+            this.btn_AddNewCustomer.Values.Image = ((System.Drawing.Image)(resources.GetObject("btn_AddNewCustomer.Values.Image")));
+            this.btn_AddNewCustomer.Values.Text = " Add new customer";
+            this.btn_AddNewCustomer.Click += new System.EventHandler(this.btn_AddNewCustomer_Click);
             // 
             // panel3
             // 
@@ -350,6 +414,81 @@
             this.grid_guest_customer.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_guest_customer_CellContentClick);
             this.grid_guest_customer.SelectionChanged += new System.EventHandler(this.grid_guest_customer_SelectionChanged);
             // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn12.HeaderText = "#";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            this.dataGridViewTextBoxColumn12.Width = 48;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.HeaderText = "Customer_ID";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.ReadOnly = true;
+            this.dataGridViewTextBoxColumn13.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn14.HeaderText = "Customer Name";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn15
+            // 
+            this.dataGridViewTextBoxColumn15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn15.HeaderText = "Date Created";
+            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
+            this.dataGridViewTextBoxColumn15.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn16
+            // 
+            this.dataGridViewTextBoxColumn16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn16.HeaderText = "Email Address";
+            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
+            this.dataGridViewTextBoxColumn16.ReadOnly = true;
+            this.dataGridViewTextBoxColumn16.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn17
+            // 
+            this.dataGridViewTextBoxColumn17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn17.HeaderText = "Phone Number";
+            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
+            this.dataGridViewTextBoxColumn17.ReadOnly = true;
+            this.dataGridViewTextBoxColumn17.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn18.HeaderText = "Address";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            this.dataGridViewTextBoxColumn18.Visible = false;
+            // 
+            // Edit2
+            // 
+            this.Edit2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Edit2.HeaderText = " Edit";
+            this.Edit2.Image = ((System.Drawing.Image)(resources.GetObject("Edit2.Image")));
+            this.Edit2.MinimumWidth = 50;
+            this.Edit2.Name = "Edit2";
+            this.Edit2.ReadOnly = true;
+            this.Edit2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Edit2.Width = 50;
+            // 
+            // Delete2
+            // 
+            this.Delete2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Delete2.HeaderText = " Delete";
+            this.Delete2.Image = ((System.Drawing.Image)(resources.GetObject("Delete2.Image")));
+            this.Delete2.MinimumWidth = 50;
+            this.Delete2.Name = "Delete2";
+            this.Delete2.ReadOnly = true;
+            this.Delete2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Delete2.Width = 72;
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.label1);
@@ -467,7 +606,7 @@
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn4.HeaderText = "Date Added";
+            this.dataGridViewTextBoxColumn4.HeaderText = "Date Created";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
             // 
@@ -505,145 +644,6 @@
             this.Recycle.ReadOnly = true;
             this.Recycle.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Recycle.Width = 85;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn12.HeaderText = "#";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            this.dataGridViewTextBoxColumn12.Width = 48;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.HeaderText = "Customer_ID";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.ReadOnly = true;
-            this.dataGridViewTextBoxColumn13.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn14.HeaderText = "Customer Name";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn15
-            // 
-            this.dataGridViewTextBoxColumn15.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn15.HeaderText = "Date Created";
-            this.dataGridViewTextBoxColumn15.Name = "dataGridViewTextBoxColumn15";
-            this.dataGridViewTextBoxColumn15.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn16
-            // 
-            this.dataGridViewTextBoxColumn16.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn16.HeaderText = "Email Address";
-            this.dataGridViewTextBoxColumn16.Name = "dataGridViewTextBoxColumn16";
-            this.dataGridViewTextBoxColumn16.ReadOnly = true;
-            this.dataGridViewTextBoxColumn16.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn17
-            // 
-            this.dataGridViewTextBoxColumn17.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn17.HeaderText = "Phone Number";
-            this.dataGridViewTextBoxColumn17.Name = "dataGridViewTextBoxColumn17";
-            this.dataGridViewTextBoxColumn17.ReadOnly = true;
-            this.dataGridViewTextBoxColumn17.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn18.HeaderText = "Address";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.ReadOnly = true;
-            this.dataGridViewTextBoxColumn18.Visible = false;
-            // 
-            // Edit2
-            // 
-            this.Edit2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Edit2.HeaderText = " Edit";
-            this.Edit2.Image = ((System.Drawing.Image)(resources.GetObject("Edit2.Image")));
-            this.Edit2.MinimumWidth = 50;
-            this.Edit2.Name = "Edit2";
-            this.Edit2.ReadOnly = true;
-            this.Edit2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Edit2.Width = 50;
-            // 
-            // Delete2
-            // 
-            this.Delete2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Delete2.HeaderText = " Delete";
-            this.Delete2.Image = ((System.Drawing.Image)(resources.GetObject("Delete2.Image")));
-            this.Delete2.MinimumWidth = 50;
-            this.Delete2.Name = "Delete2";
-            this.Delete2.ReadOnly = true;
-            this.Delete2.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Delete2.Width = 72;
-            // 
-            // btn_AddNewCustomer
-            // 
-            this.btn_AddNewCustomer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_AddNewCustomer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_AddNewCustomer.Location = new System.Drawing.Point(992, 4);
-            this.btn_AddNewCustomer.Name = "btn_AddNewCustomer";
-            this.btn_AddNewCustomer.OverrideDefault.Back.Color1 = System.Drawing.Color.SteelBlue;
-            this.btn_AddNewCustomer.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(124)))), ((int)(((byte)(93)))));
-            this.btn_AddNewCustomer.OverrideDefault.Back.ColorAngle = 45F;
-            this.btn_AddNewCustomer.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(185)))), ((int)(((byte)(200)))));
-            this.btn_AddNewCustomer.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
-            this.btn_AddNewCustomer.OverrideDefault.Border.ColorAngle = 45F;
-            this.btn_AddNewCustomer.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btn_AddNewCustomer.OverrideDefault.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btn_AddNewCustomer.OverrideDefault.Border.Rounding = 20;
-            this.btn_AddNewCustomer.OverrideDefault.Border.Width = 1;
-            this.btn_AddNewCustomer.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.btn_AddNewCustomer.Size = new System.Drawing.Size(160, 37);
-            this.btn_AddNewCustomer.StateCommon.Back.Color1 = System.Drawing.Color.SteelBlue;
-            this.btn_AddNewCustomer.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(124)))), ((int)(((byte)(93)))));
-            this.btn_AddNewCustomer.StateCommon.Back.ColorAngle = 45F;
-            this.btn_AddNewCustomer.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(185)))), ((int)(((byte)(200)))));
-            this.btn_AddNewCustomer.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
-            this.btn_AddNewCustomer.StateCommon.Border.ColorAngle = 45F;
-            this.btn_AddNewCustomer.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btn_AddNewCustomer.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btn_AddNewCustomer.StateCommon.Border.Rounding = 20;
-            this.btn_AddNewCustomer.StateCommon.Border.Width = 1;
-            this.btn_AddNewCustomer.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btn_AddNewCustomer.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.btn_AddNewCustomer.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_AddNewCustomer.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(90)))), ((int)(((byte)(150)))));
-            this.btn_AddNewCustomer.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(70)))), ((int)(((byte)(40)))));
-            this.btn_AddNewCustomer.StatePressed.Back.ColorAngle = 135F;
-            this.btn_AddNewCustomer.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(90)))), ((int)(((byte)(150)))));
-            this.btn_AddNewCustomer.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(70)))), ((int)(((byte)(40)))));
-            this.btn_AddNewCustomer.StatePressed.Border.ColorAngle = 135F;
-            this.btn_AddNewCustomer.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btn_AddNewCustomer.StatePressed.Border.Rounding = 20;
-            this.btn_AddNewCustomer.StatePressed.Border.Width = 1;
-            this.btn_AddNewCustomer.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(124)))), ((int)(((byte)(93)))));
-            this.btn_AddNewCustomer.StateTracking.Back.Color2 = System.Drawing.Color.SteelBlue;
-            this.btn_AddNewCustomer.StateTracking.Back.ColorAngle = 45F;
-            this.btn_AddNewCustomer.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(185)))), ((int)(((byte)(200)))));
-            this.btn_AddNewCustomer.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
-            this.btn_AddNewCustomer.StateTracking.Border.ColorAngle = 45F;
-            this.btn_AddNewCustomer.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btn_AddNewCustomer.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btn_AddNewCustomer.StateTracking.Border.Rounding = 20;
-            this.btn_AddNewCustomer.StateTracking.Border.Width = 1;
-            this.btn_AddNewCustomer.TabIndex = 16;
-            this.btn_AddNewCustomer.Values.Image = ((System.Drawing.Image)(resources.GetObject("kryptonButton1.Values.Image")));
-            this.btn_AddNewCustomer.Values.Text = " Add new customer";
-            this.btn_AddNewCustomer.Click += new System.EventHandler(this.btn_AddNewCustomer_Click);
             // 
             // Customer_Form
             // 
@@ -711,14 +711,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewImageColumn Edit;
         private System.Windows.Forms.DataGridViewImageColumn Delete;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
-        private System.Windows.Forms.DataGridViewImageColumn Recycle;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
@@ -729,5 +721,13 @@
         private System.Windows.Forms.DataGridViewImageColumn Edit2;
         private System.Windows.Forms.DataGridViewImageColumn Delete2;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btn_AddNewCustomer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.DataGridViewImageColumn Recycle;
     }
 }

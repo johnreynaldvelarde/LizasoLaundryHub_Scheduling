@@ -15,16 +15,33 @@ namespace Lizaso_Laundry_Hub
     public partial class User_Form : KryptonForm
     {
         private Get_Data_Class getData;
-        private int u_userID, s_userID;
+        private Update_Data_Class updateData;
+        private Account_Class account;
+        private User_Module.View_Offline_Form offline;
+        private int u_userID, s_userID, getUserIDArchive;
         private string u_username, s_userName;
         private byte u_services, u_schedule, u_customer, u_payments, u_user, u_inventory, u_settings;
         private byte s_services, s_schedule, s_customer, s_payments, s_user, s_inventory, s_settings;
+
+        private void btn_OnlineView_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_OfflineView_Click(object sender, EventArgs e)
+        {
+            offline = new User_Module.View_Offline_Form();
+            offline.ShowDialog();
+        }
+
         private string getPassword;
 
         public User_Form()
         {
             InitializeComponent();
             getData = new Get_Data_Class();
+            updateData = new Update_Data_Class();
+            account = new Account_Class();
         }
 
 
@@ -36,15 +53,19 @@ namespace Lizaso_Laundry_Hub
 
         public void  DisplayUserView()
         {
-            if (tab_User.SelectedTab == tabPage2)
+            if (tab_User.SelectedTab == tabPage1)
             {
                 getData.Get_RegularUserAndPermissions(grid_regular_user);
             }
-            else if (tab_User.SelectedTab == tabPage1)
+            else if (tab_User.SelectedTab == tabPage2)
             {
                 getData.Get_SuperUserAndPermissions(grid_super_user);
             }
             else if (tab_User.SelectedTab == tabPage3)
+            {
+                getData.Get_DeletedUser(grid_user_archive);
+            }
+            else if (tab_User.SelectedTab == tabPage4)
             {
                 getData.Get_AllActivityLog(grid_view_activity);
             }
@@ -90,7 +111,13 @@ namespace Lizaso_Laundry_Hub
             }
             else if (column_regularuser == "Delete2")
             {
-                // Handle delete action if needed
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this user account?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    updateData.Update_UserToDeleted(u_userID, account.User_ID);
+                    DisplayUserView();
+                }
             }
         }
 
@@ -144,7 +171,13 @@ namespace Lizaso_Laundry_Hub
             }
             else if (column_superuser == "Delete3")
             {
-                // Handle delete action if needed
+                DialogResult result = MessageBox.Show("Are you sure you want to delete this user account?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    updateData.Update_UserToDeleted(s_userID, account.User_ID);
+                    DisplayUserView();
+                }
             }
         }
 
@@ -170,6 +203,42 @@ namespace Lizaso_Laundry_Hub
                 }
             }
         }
+
+
+        private void grid_user_archive_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string column_archive = grid_user_archive.Columns[e.ColumnIndex].Name;
+
+            if (column_archive == "Recycle")
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to recycle this user?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    updateData.Update_UserRecycleArchive(getUserIDArchive);
+                    DisplayUserView();
+                }
+            }
+
+        }
+
+        private void grid_user_archive_SelectionChanged(object sender, EventArgs e)
+        {
+
+            if (grid_user_archive.CurrentRow != null)
+            {
+                int archive = grid_user_archive.CurrentRow.Index;
+
+                if (int.TryParse(grid_user_archive[1, archive].Value.ToString(), out int selectArchiveID))
+                {
+                    getUserIDArchive = selectArchiveID;
+
+                }
+            }
+        }
+
+
+
 
         // for super user
         public void Get_UserProfileSuperUser()

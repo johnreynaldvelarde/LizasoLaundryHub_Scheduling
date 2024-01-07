@@ -16,12 +16,11 @@ namespace Lizaso_Laundry_Hub
 
         // << USER FORM >>
         // update user account
-        public bool Update_User(int loggedInUserId, int userId, string username, string password, byte _IsSuperUser, byte _services, byte _schedule, byte _customer, byte _payments, byte _user, byte _inventory, byte _settings)
+        public bool Update_User(int loggedInUserId, int userID, string username, string password, byte _IsSuperUser, byte _services, byte _schedule, byte _customer, byte _payments, byte _user, byte _inventory, byte _settings)
         {
             try
             {
-              
-                if (loggedInUserId == userId)
+                if (loggedInUserId == userID)
                 {
                     MessageBox.Show("You are not authorized to update this user's account.", "Unauthorized", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
@@ -35,6 +34,12 @@ namespace Lizaso_Laundry_Hub
                     return false;
                 }
 
+                if (IsUserOnline(userID))
+                {
+                    Console.WriteLine("Cannot edit the user account. The user is currently online.");
+                    return false;
+                }
+
                 using (SqlConnection connect = new SqlConnection(database.MyConnection()))
                 {
                     connect.Open();
@@ -43,7 +48,7 @@ namespace Lizaso_Laundry_Hub
                     string checkUserSql = "SELECT COUNT(*) FROM User_View WHERE User_ID = @User_ID";
                     using (SqlCommand checkUserCommand = new SqlCommand(checkUserSql, connect))
                     {
-                        checkUserCommand.Parameters.AddWithValue("@User_ID", userId);
+                        checkUserCommand.Parameters.AddWithValue("@User_ID", userID);
                         int userCount = (int)checkUserCommand.ExecuteScalar();
 
                         if (userCount == 0)
@@ -61,7 +66,7 @@ namespace Lizaso_Laundry_Hub
                     string userSql = "UPDATE User_Account SET User_Name = @User_Name, Super_User = @Super_User, Password_Hash = @Password_Hash WHERE User_ID = @User_ID";
                     using (SqlCommand userCommand = new SqlCommand(userSql, connect))
                     {
-                        userCommand.Parameters.AddWithValue("@User_ID", userId);
+                        userCommand.Parameters.AddWithValue("@User_ID", userID);
                         userCommand.Parameters.AddWithValue("@User_Name", username);
                         userCommand.Parameters.AddWithValue("@Super_User", _IsSuperUser);
                         userCommand.Parameters.AddWithValue("@Password_Hash", passwordHash);
@@ -72,7 +77,7 @@ namespace Lizaso_Laundry_Hub
                     string permissionsSql = "UPDATE User_Permissions SET Available_Services = @Available_Services, Schedule = @Schedule, Customer_Manage = @Customer_Manage, Payments = @Payments, User_Manage = @User_Manage, Inventory = @Inventory, Settings = @Settings WHERE User_ID = @User_ID";
                     using (SqlCommand permissionsCommand = new SqlCommand(permissionsSql, connect))
                     {
-                        permissionsCommand.Parameters.AddWithValue("@User_ID", userId);
+                        permissionsCommand.Parameters.AddWithValue("@User_ID", userID);
                         permissionsCommand.Parameters.AddWithValue("@Available_Services", _services);
                         permissionsCommand.Parameters.AddWithValue("@Schedule", _schedule);
                         permissionsCommand.Parameters.AddWithValue("@Customer_Manage", _customer);
@@ -89,35 +94,6 @@ namespace Lizaso_Laundry_Hub
             catch (Exception ex)
             {
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-        }
-
-        private bool IsUserSuper(int userId)
-        {
-            try
-            {
-                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
-                {
-                    connect.Open();
-
-                    // Query the Super_User column for the specified user
-                    string superUserSql = "SELECT Super_User FROM User_View WHERE User_ID = @User_ID";
-                    using (SqlCommand superUserCommand = new SqlCommand(superUserSql, connect))
-                    {
-                        superUserCommand.Parameters.AddWithValue("@User_ID", userId);
-
-                        // Execute the query and get the Super_User value
-                        object result = superUserCommand.ExecuteScalar();
-
-                        // Check if the result is not null and if Super_User is false
-                        return result != null && !(bool)result;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"An error occurred while checking if the user is a super user: {ex.Message}");
                 return false;
             }
         }
@@ -178,41 +154,55 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
-
-
-
-        public bool Update_SuperUserToDeleted(int userID)
+        // << USER FORM >>
+        // method to temporary delete the user account 
+        public bool Update_UserToDeleted(int userID, int loggedInUserID)
         {
-            /*
             try
             {
+                if (loggedInUserID == userID)
+                {
+                    MessageBox.Show("You are not authorized to deleted this user's account.", "Unauthorized", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                bool isCurrentUserSuperUser = IsUserSuper(loggedInUserID);
+
+                if (isCurrentUserSuperUser)
+                {
+                    MessageBox.Show("You are not authorized to deleted this user's account.", "Unauthorized", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return false;
+                }
+
+                if (IsUserOnline(userID))
+                {
+                    Console.WriteLine("Cannot delete the user. The user is currently online.");
+                    return false;
+                }
+
+
                 using (SqlConnection connect = new SqlConnection(database.MyConnection()))
                 {
                     connect.Open();
 
-                    // Check if the quantity is 0 before updating the Archive field
-                    string checkQuantitySql = "SELECT Quantity FROM Item WHERE Item_ID = @ItemID";
-                    SqlCommand checkQuantityCommand = new SqlCommand(checkQuantitySql, connect);
-                    checkQuantityCommand.Parameters.AddWithValue("@ItemID", itemID);
+                    string updateQuery = "UPDATE User_Account SET Archive = 1 WHERE User_ID = @User_ID";
 
-                    int quantity = (int)checkQuantityCommand.ExecuteScalar();
-
-                    if (quantity == 0)
+                    using (SqlCommand cmd = new SqlCommand(updateQuery, connect))
                     {
-                        // Update the Archive field to 1 (indicating deleted)
-                        string updateSql = "UPDATE Item SET Archive = 1 WHERE Item_ID = @ItemID";
-                        SqlCommand updateCommand = new SqlCommand(updateSql, connect);
-                        updateCommand.Parameters.AddWithValue("@ItemID", itemID);
+                        cmd.Parameters.AddWithValue("@User_ID", userID);
 
-                        updateCommand.ExecuteNonQuery();
+                        int rowsAffected = cmd.ExecuteNonQuery();
 
-                        MessageBox.Show("Item deleted successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        return true;
-                    }
-                    else
-                    {
-                        MessageBox.Show("Item cannot be deleted as it still has quantity.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return false;
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("User account successfully archived.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("User account not found or update failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
                     }
                 }
             }
@@ -221,8 +211,105 @@ namespace Lizaso_Laundry_Hub
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
-            */
-            return false;
+        }
+
+        // check the user its super user or not
+        private bool IsUserSuper(int userId)
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+                    connect.Open();
+
+                    // Query the Super_User column for the specified user
+                    string superUserSql = "SELECT Super_User FROM User_View WHERE User_ID = @User_ID";
+                    using (SqlCommand superUserCommand = new SqlCommand(superUserSql, connect))
+                    {
+                        superUserCommand.Parameters.AddWithValue("@User_ID", userId);
+
+                        // Execute the query and get the Super_User value
+                        object result = superUserCommand.ExecuteScalar();
+
+                        // Check if the result is not null and if Super_User is false
+                        return result != null && !(bool)result;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred while checking if the user is a super user: {ex.Message}");
+                return false;
+            }
+        }
+
+        // check if the user if its online 
+        private bool IsUserOnline(int userId)
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+                    connect.Open();
+
+                    // Query the User_Status column for the specified user
+                    string userStatusSql = "SELECT Status FROM User_Account WHERE User_ID = @User_ID";
+                    using (SqlCommand userStatusCommand = new SqlCommand(userStatusSql, connect))
+                    {
+                        userStatusCommand.Parameters.AddWithValue("@User_ID", userId);
+
+                        // Execute the query and get the user status
+                        object result = userStatusCommand.ExecuteScalar();
+
+                        // Check if the result is not null and if the user is online
+                        return result != null && result.ToString().Equals("Online", StringComparison.OrdinalIgnoreCase);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred while checking if the user is online: {ex.Message}");
+                return false;
+            }
+        }
+
+        // method to recycle the delete user acocunt in archive
+        public bool Update_UserRecycleArchive(int archiveID)
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+                    connect.Open();
+
+                    string updateQuery = "UPDATE User_Account SET Archive = 0 WHERE User_ID = @UserID";
+
+                    using (SqlCommand cmd = new SqlCommand(updateQuery, connect))
+                    {
+                        cmd.Parameters.AddWithValue("@UserID", archiveID);
+                        cmd.ExecuteNonQuery();
+
+                        /*
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Customer successfully recycle.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            return true;
+                        }
+                        else
+                        {
+                            MessageBox.Show("Customer not found or update failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return false;
+                        }
+                        */
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
         }
 
 
