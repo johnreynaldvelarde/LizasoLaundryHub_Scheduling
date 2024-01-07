@@ -127,41 +127,6 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
-        public void ss()
-        {
-            /*
-            if (String.IsNullOrEmpty(txt_username.Text) || txt_username.Text == default_user)
-            {
-                ShowErrorMessage("Please enter a valid username.");
-            }
-            else if (String.IsNullOrEmpty(txt_password.Text) || txt_password.Text == default_pass)
-            {
-                ShowErrorMessage("Please enter a valid password.");
-            }
-            else
-            {
-                Account_Class authenticatedUser = AuthenticateUser(txt_username.Text, txt_password.Text);
-
-                if (authenticatedUser != null)
-                {
-                    // Debugging information
-                    Console.WriteLine($"Authenticated User: {authenticatedUser.User_Name}, ID: {authenticatedUser.User_ID}");
-
-                    HideErrorMessage();
-                    HidePassword();
-
-                    Main_Form mainForm = new Main_Form(authenticatedUser);
-                    mainForm.Show();
-                    this.Hide();
-                }
-                else
-                {
-                    ShowErrorMessage("Invalid username or password.");
-                }
-            }
-            */
-        }
-
         private void btnLogin_Click(object sender, EventArgs e)
         {
             if (String.IsNullOrEmpty(txt_username.Text) || txt_username.Text == default_user)

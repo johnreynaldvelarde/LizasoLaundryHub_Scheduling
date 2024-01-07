@@ -85,6 +85,7 @@ namespace Lizaso_Laundry_Hub
             DisplayUserView();
         }
 
+        // Datagridview for Regular User
         private void grid_regular_user_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string column_regularuser = grid_regular_user.Columns[e.ColumnIndex].Name;
@@ -121,6 +122,7 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
+        // Datagridview for Regular User
         private void grid_regular_user_SelectionChanged(object sender, EventArgs e)
         {
             if (grid_regular_user.CurrentRow != null)
@@ -159,7 +161,9 @@ namespace Lizaso_Laundry_Hub
                 frm.u_userID = s_userID;
                 frm.txt_UserName.Text = s_userName;
                 frm.txt_Password.Text = getPassword;
-                frm.rdRegularUser.Checked = true;
+                frm.rdSuperUser.Checked = true;
+                frm.ShowDialog();
+                /*
                 frm.ckAvailableServices.Checked = (s_services == 1);
                 frm.ckSchedule.Checked = (s_schedule == 1);
                 frm.ckCustomerManage.Checked = (s_customer == 1);
@@ -167,7 +171,8 @@ namespace Lizaso_Laundry_Hub
                 frm.ckUserManage.Checked = (s_user == 1);
                 frm.ckInventory.Checked = (s_inventory == 1);
                 frm.ckSettings.Checked = (s_settings == 1);
-                frm.ShowDialog();
+                */
+
             }
             else if (column_superuser == "Delete3")
             {
@@ -236,9 +241,6 @@ namespace Lizaso_Laundry_Hub
                 }
             }
         }
-
-
-
 
         // for super user
         public void Get_UserProfileSuperUser()

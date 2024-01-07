@@ -24,6 +24,8 @@ namespace Lizaso_Laundry_Hub
         private User_Form frm;
         public int u_userID;
 
+        private bool isDefaultPassShown = true;
+
         public Add_User_Form(User_Form user)
         {
             InitializeComponent();
@@ -32,6 +34,7 @@ namespace Lizaso_Laundry_Hub
             updateData = new Update_Data_Class();
             account = new Account_Class();
             frm = user;
+           
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -49,9 +52,17 @@ namespace Lizaso_Laundry_Hub
             {
                 MessageBox.Show("Please enter the Password.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+            else if (String.IsNullOrWhiteSpace(txt_ConfirmPassword.Text))
+            {
+                MessageBox.Show("Please enter the confirm password.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
             else if (txt_Password.Text.Length < 8)
             {
                 MessageBox.Show("Password must be at least 8 characters long.", "Invalid Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (txt_Password.Text != txt_ConfirmPassword.Text)
+            {
+                MessageBox.Show("Passwords do not match.", "Invalid Password", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (!(rdSuperUser.Checked ^ rdRegularUser.Checked))
             {
@@ -72,9 +83,10 @@ namespace Lizaso_Laundry_Hub
                     if (rdSuperUser.Checked)
                     {
                         updateData.Update_User(account.User_ID, u_userID, _username, _password, 1, 1, 1, 1, 1, 1, 1, 1);
-                        Get_UpdateAccountUser();
                         //MessageBox.Show("Super user account updated successfully.");
+                        Get_UpdateAccountUser();
                         this.Dispose();
+                        frm.DisplayUserView();
                     }
                     else
                     {
@@ -132,16 +144,25 @@ namespace Lizaso_Laundry_Hub
                     }
                 }
             }
+
         }
-       
 
         private void Add_User_Form_Load(object sender, EventArgs e)
         {
+            txt_Password.PasswordChar = '\0';
+
             if (btnSave.Text == "Update")
             {
+                if (rdSuperUser.Checked == true)
+                {
+                    DisableAllCheckboxes();
+                }
+                else if (rdRegularUser.Checked == true)
+                {
+                    EnableAllCheckboxes();
+                }
                 //Console.WriteLine("ETO ANG USERID " + account.User_ID);
                 //Console.WriteLine("ETO ANG USERID ULOL " + u_userID);
-                EnableAllCheckboxes();
             }
             else
             {
@@ -149,7 +170,7 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
-        private void DisableAllCheckboxes()
+        public void DisableAllCheckboxes()
         {
             ckAvailableServices.Enabled = false;
             ckSchedule.Enabled = false;
@@ -158,6 +179,7 @@ namespace Lizaso_Laundry_Hub
             ckUserManage.Enabled = false;
             ckInventory.Enabled = false;
             ckSettings.Enabled = false;
+            txt_UserName.Focus();
         }
 
         public void EnableAllCheckboxes()
@@ -169,6 +191,7 @@ namespace Lizaso_Laundry_Hub
             ckUserManage.Enabled = true;
             ckInventory.Enabled = true;
             ckSettings.Enabled = true;
+            txt_UserName.Focus();
         }
 
         private void rdSuperUser_CheckedChanged(object sender, EventArgs e)
@@ -208,10 +231,6 @@ namespace Lizaso_Laundry_Hub
             ckUserManage.Checked = false;
             ckInventory.Checked = false;
             ckSettings.Checked = false;
-        }
-        private void btnClear_Click(object sender, EventArgs e)
-        {
-            Clear();
         }
 
         // save details in user profile
@@ -256,6 +275,49 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
-       
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            Clear();
+        }
+
+        private void passhidePassword_CheckedChanged(object sender, EventArgs e)
+        {
+            // Toggle password visibility
+            if (txt_Password.PasswordChar == '\0')
+            {
+                // If currently visible, hide the password
+                txt_Password.PasswordChar = '*'; // or any other character you prefer
+            }
+            else
+            {
+                // If currently hidden, show the password
+                txt_Password.PasswordChar = '\0';
+            }
+        }
+
+        private void passhideConfirmPassword_CheckedChanged(object sender, EventArgs e)
+        {
+            // Toggle password visibility
+            if (txt_ConfirmPassword.PasswordChar == '\0')
+            {
+                // If currently visible, hide the password
+                txt_ConfirmPassword.PasswordChar = '*'; // or any other character you prefer
+            }
+            else
+            {
+                // If currently hidden, show the password
+                txt_ConfirmPassword.PasswordChar = '\0';
+            }
+        }
+
+        private void txt_Password_TextChanged(object sender, EventArgs e)
+        {
+            txt_Password.PasswordChar = '*';
+        }
+
+        private void txt_ConfirmPassword_TextChanged(object sender, EventArgs e)
+        {
+            txt_ConfirmPassword.PasswordChar = '*';
+        }
     }
 }

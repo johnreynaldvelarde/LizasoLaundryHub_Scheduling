@@ -129,7 +129,20 @@
         +QuMeQB5NR9VOH73IwAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="passhide.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="passhidePassword.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAaFJREFUSEvt
+        lL9KA0EQxtMI/kXt/Qf6GoovoEi4jSEQ3b2E2UtsFKwVG30I4xtEA4JPEK2DVikUTKNgYWVlkTizmZjc
+        7pEEJWKRH3zcsd83c3dzdxsb8r/ZknLGU5AVvi4JpWt4fDdqnpeMBzDN8f4BgBFPwjE2+kA1eogyR1TD
+        5d2JZ/YWsaDS0aBfVcQOLHCbaJIqP4/BJ6uwISQUPZlbTaVys6RERq/h+qWTU/oxns3OcbswGwDjGHiw
+        ChqeD/sccUgofWjn8WbuqRdH2gipCxHhInk0XyGDM6Hg2QjPWzPnDyBUl1DBOXnf8CPX7SCNhfxm87CH
+        d39KnieDddtD1Vu1BlwoWwGjdDo9YXypXxwf18jb9P0px2uqTL5BqOAuItC+gNKvttfzAr6+Jd8w8BER
+        +FdeRASvyWu/5ODNqPMlK31j1dDTFcgLIfL5STSrThj/Uo44oHdiZUlV6sWRMCKTX8FAzSownys9spRy
+        VIiDMR7plZPD2u1dWOZ20SRlsITBH20VVMttukPzHdhm14mzXSv9yfrddj3kD4nFvgCnEOoBzu/GHwAA
+        AABJRU5ErkJggg==
+</value>
+  </data>
+  <data name="passhideConfirmPassword.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAAaFJREFUSEvt
         lL9KA0EQxtMI/kXt/Qf6GoovoEi4jSEQ3b2E2UtsFKwVG30I4xtEA4JPEK2DVikUTKNgYWVlkTizmZjc

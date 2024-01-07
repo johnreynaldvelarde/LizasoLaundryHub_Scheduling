@@ -39,9 +39,9 @@
             this.txt_UnitName = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.txt_UnitID = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.cbStatus = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.btnCancel = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.cbStatus = new ComponentFactory.Krypton.Toolkit.KryptonComboBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.image_unit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cbStatus)).BeginInit();
@@ -65,7 +65,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(20, 20);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(714, 40);
+            this.panel1.Size = new System.Drawing.Size(719, 40);
             this.panel1.TabIndex = 3;
             // 
             // panel2
@@ -74,7 +74,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel2.Location = new System.Drawing.Point(0, 37);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(714, 3);
+            this.panel2.Size = new System.Drawing.Size(719, 3);
             this.panel2.TabIndex = 2;
             // 
             // lblUnitTitle
@@ -173,12 +173,34 @@
             this.label2.TabIndex = 41;
             this.label2.Text = "Status";
             // 
+            // cbStatus
+            // 
+            this.cbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbStatus.DropDownWidth = 367;
+            this.cbStatus.Location = new System.Drawing.Point(359, 368);
+            this.cbStatus.Name = "cbStatus";
+            this.cbStatus.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.cbStatus.Size = new System.Drawing.Size(379, 40);
+            this.cbStatus.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.White;
+            this.cbStatus.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.cbStatus.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.cbStatus.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.cbStatus.StateCommon.ComboBox.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.cbStatus.StateCommon.ComboBox.Border.Rounding = 20;
+            this.cbStatus.StateCommon.ComboBox.Border.Width = 1;
+            this.cbStatus.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.Gray;
+            this.cbStatus.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbStatus.StateCommon.ComboBox.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            this.cbStatus.TabIndex = 44;
+            this.cbStatus.SelectedIndexChanged += new System.EventHandler(this.cbStatus_SelectedIndexChanged);
+            // 
             // btnCancel
             // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnCancel.Location = new System.Drawing.Point(583, 503);
+            this.btnCancel.Location = new System.Drawing.Point(588, 490);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
             this.btnCancel.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(252)))), ((int)(((byte)(252)))));
@@ -233,16 +255,15 @@
             this.btnCancel.StateTracking.Border.Rounding = 20;
             this.btnCancel.StateTracking.Border.Width = 1;
             this.btnCancel.StateTracking.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btnCancel.TabIndex = 43;
+            this.btnCancel.TabIndex = 46;
             this.btnCancel.Values.Text = "Cancel";
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // btnSave
             // 
-            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnSave.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnSave.Location = new System.Drawing.Point(405, 503);
+            this.btnSave.Location = new System.Drawing.Point(409, 490);
             this.btnSave.Name = "btnSave";
             this.btnSave.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
             this.btnSave.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
@@ -296,43 +317,20 @@
             this.btnSave.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
             this.btnSave.StateTracking.Border.Rounding = 20;
             this.btnSave.StateTracking.Border.Width = 1;
-            this.btnSave.TabIndex = 42;
+            this.btnSave.TabIndex = 45;
             this.btnSave.Values.Text = "Save";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
-            // 
-            // cbStatus
-            // 
-            this.cbStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbStatus.DropDownWidth = 367;
-            this.cbStatus.Location = new System.Drawing.Point(359, 368);
-            this.cbStatus.Name = "cbStatus";
-            this.cbStatus.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.cbStatus.Size = new System.Drawing.Size(379, 40);
-            this.cbStatus.StateCommon.ComboBox.Back.Color1 = System.Drawing.Color.White;
-            this.cbStatus.StateCommon.ComboBox.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.cbStatus.StateCommon.ComboBox.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.cbStatus.StateCommon.ComboBox.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.cbStatus.StateCommon.ComboBox.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.cbStatus.StateCommon.ComboBox.Border.Rounding = 20;
-            this.cbStatus.StateCommon.ComboBox.Border.Width = 1;
-            this.cbStatus.StateCommon.ComboBox.Content.Color1 = System.Drawing.Color.Gray;
-            this.cbStatus.StateCommon.ComboBox.Content.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbStatus.StateCommon.ComboBox.Content.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            this.cbStatus.TabIndex = 44;
-            this.cbStatus.SelectedIndexChanged += new System.EventHandler(this.cbStatus_SelectedIndexChanged);
             // 
             // Add_Unit_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(754, 554);
+            this.ClientSize = new System.Drawing.Size(759, 542);
             this.ControlBox = false;
-            this.Controls.Add(this.cbStatus);
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.cbStatus);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.lbl_password);
             this.Controls.Add(this.lbl_username);
@@ -368,10 +366,10 @@
         private System.Windows.Forms.Label lbl_username;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txt_UnitID;
         private System.Windows.Forms.Label label2;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btnCancel;
         public System.Windows.Forms.Label lblUnitTitle;
         public ComponentFactory.Krypton.Toolkit.KryptonTextBox txt_UnitName;
-        public ComponentFactory.Krypton.Toolkit.KryptonButton btnSave;
         public ComponentFactory.Krypton.Toolkit.KryptonComboBox cbStatus;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btnCancel;
+        public ComponentFactory.Krypton.Toolkit.KryptonButton btnSave;
     }
 }

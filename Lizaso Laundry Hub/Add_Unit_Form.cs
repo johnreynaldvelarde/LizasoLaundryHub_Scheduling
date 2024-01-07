@@ -33,8 +33,10 @@ namespace Lizaso_Laundry_Hub
             //sideNotificationForm = new Side_Notification_Form();
             frm = unit;
         }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
+
             Notify_Module.Side_Notification_Form notify = new Notify_Module.Side_Notification_Form();
 
             if (cbStatus.SelectedIndex == -1)
@@ -63,13 +65,13 @@ namespace Lizaso_Laundry_Hub
                             notify.Show();
                             this.Close();
                             frm.DisplayUnit();
-                           
+
                         }
                         else
                         {
                             // Update failed or was canceled
                             MessageBox.Show("Failed to update unit. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                           
+
                         }
                     }
                     else
@@ -87,10 +89,12 @@ namespace Lizaso_Laundry_Hub
                     this.Dispose();
                     frm.DisplayUnit();
                 }
-                
+
                 //frm2.Load_Unit();
             }
+
         }
+
         /*
         // Method to show success message using Side_Notification_Form
         private void ShowSuccessNotification(string message)
@@ -128,6 +132,7 @@ namespace Lizaso_Laundry_Hub
         }
 
         */
+
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -152,6 +157,9 @@ namespace Lizaso_Laundry_Hub
                 cbStatus.Items.Add(ListofStatus[i].ToString());
             }
         }
+
+       
+      
 
         private void cbStatus_SelectedIndexChanged(object sender, EventArgs e)
         {
