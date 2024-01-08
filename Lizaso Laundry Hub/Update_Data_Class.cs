@@ -57,6 +57,33 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
+        // << DASH BOARD / Delivery Widget Form >>
+        // method to change the Status of Delivery to completed
+        public bool Update_DeliveryToCompleted(int deliveryID)
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+                    connect.Open();
+
+                    string sql = "UPDATE Deliveries SET Delivery_Status = 'Completed' WHERE Delivery_ID = @DeliveryID";
+
+                    SqlCommand command = new SqlCommand(sql, connect);
+                    command.Parameters.AddWithValue("@DeliveryID", deliveryID);
+                    command.ExecuteNonQuery();
+                    connect.Close();
+
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
 
         // << USER FORM >>
         // update user account

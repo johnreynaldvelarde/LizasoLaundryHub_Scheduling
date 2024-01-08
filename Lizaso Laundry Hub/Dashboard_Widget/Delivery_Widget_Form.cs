@@ -25,8 +25,8 @@ namespace Lizaso_Laundry_Hub.Dashboard_Widget
             InitializeComponent();
             getData = new Get_Data_Class();
             updateData = new Update_Data_Class();
-            ckInTransit.Checked = true;
         }
+        /*
         private void ResetCounting()
         {
             deliveryCount = 0;
@@ -48,10 +48,12 @@ namespace Lizaso_Laundry_Hub.Dashboard_Widget
                 grid_delivery_view.Rows[i].Cells[0].Value = deliveryCount;
             }
         }
+        */
 
         public void DisplayDeliveryStatus()
         {
-            getData.Get_DashboardDeliveryList(grid_delivery_view, ckInTransit.Checked, ckCompleted.Checked, ckCancel.Checked);
+            //getData.Get_DashboardDeliveryList(grid_delivery_view, ckInTransit.Checked, ckCompleted.Checked, ckCancel.Checked);
+            getData.Get_DashboardDeliveryList(grid_delivery_view);
         }
 
         private void Delivery_Widget_Form_Load(object sender, EventArgs e)
@@ -73,6 +75,16 @@ namespace Lizaso_Laundry_Hub.Dashboard_Widget
                     DisplayDeliveryStatus();
                 }
             }
+            else if (column_delivery == "Complete")
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to complete this delivery?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    updateData.Update_DeliveryToCompleted(getDeliveryID);
+                    DisplayDeliveryStatus();
+                }
+            }
         }
 
         private void grid_delivery_view_SelectionChanged(object sender, EventArgs e)
@@ -88,6 +100,7 @@ namespace Lizaso_Laundry_Hub.Dashboard_Widget
             }
         }
 
+        /*
         private void ckInTransit_CheckedChanged(object sender, EventArgs e)
         {
             if (ckInTransit.Checked)
@@ -106,7 +119,7 @@ namespace Lizaso_Laundry_Hub.Dashboard_Widget
                 DisplayDeliveryStatus();
             }
             //DisplayDeliveryStatus();
-            */
+            
         }
 
         private void ckCompleted_CheckedChanged(object sender, EventArgs e)
@@ -129,7 +142,7 @@ namespace Lizaso_Laundry_Hub.Dashboard_Widget
                 DisplayDeliveryStatus();
             }
             //DisplayDeliveryStatus();
-            I*/
+            I
         }
 
         private void ckCancel_CheckedChanged(object sender, EventArgs e)
@@ -151,17 +164,25 @@ namespace Lizaso_Laundry_Hub.Dashboard_Widget
                 ResetCounting();
                 DisplayDeliveryStatus();
             }
-            */
+
         }
+            */
 
         private void grid_delivery_view_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
+            int count = 0;
+            foreach (DataGridViewRow row in grid_delivery_view.Rows)
+            {
+                count++;
+                row.Cells[0].Value = count;
+            }
+            /*
             if (!updatingCheckboxes)
             {
                 deliveryCount = e.RowIndex + 1;
                 grid_delivery_view.Rows[e.RowIndex].Cells[0].Value = deliveryCount;
             }
-            /*
+            
             if (!ckInTransit.Checked && !ckCompleted.Checked && !ckCancel.Checked)
             {
                 deliveryCount = e.RowIndex + 1;
@@ -175,6 +196,11 @@ namespace Lizaso_Laundry_Hub.Dashboard_Widget
                 row.Cells[0].Value = count;
             }
             */
+        }
+
+        private void btn_ClickDeliveryList_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

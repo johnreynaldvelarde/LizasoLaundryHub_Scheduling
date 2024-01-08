@@ -33,9 +33,11 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelSection3 = new System.Windows.Forms.Panel();
             this.panel_downward = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panelSection2 = new System.Windows.Forms.Panel();
+            this.panelSection1 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -81,15 +83,14 @@
             this.label6.TabIndex = 1;
             this.label6.Text = "Dashboard";
             // 
-            // panel1
+            // panelSection3
             // 
-            this.panel1.Controls.Add(this.panel_downward);
-            this.panel1.Controls.Add(this.panel4);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(20, 60);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1160, 520);
-            this.panel1.TabIndex = 6;
+            this.panelSection3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panelSection3.Location = new System.Drawing.Point(738, 0);
+            this.panelSection3.Name = "panelSection3";
+            this.panelSection3.Padding = new System.Windows.Forms.Padding(5);
+            this.panelSection3.Size = new System.Drawing.Size(422, 520);
+            this.panelSection3.TabIndex = 0;
             // 
             // panel_downward
             // 
@@ -97,16 +98,37 @@
             this.panel_downward.Location = new System.Drawing.Point(0, 221);
             this.panel_downward.Name = "panel_downward";
             this.panel_downward.Padding = new System.Windows.Forms.Padding(5);
-            this.panel_downward.Size = new System.Drawing.Size(819, 299);
+            this.panel_downward.Size = new System.Drawing.Size(738, 299);
             this.panel_downward.TabIndex = 1;
             // 
-            // panel4
+            // panel1
             // 
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel4.Location = new System.Drawing.Point(819, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(341, 520);
-            this.panel4.TabIndex = 0;
+            this.panel1.Controls.Add(this.panelSection2);
+            this.panel1.Controls.Add(this.panelSection1);
+            this.panel1.Controls.Add(this.panel_downward);
+            this.panel1.Controls.Add(this.panelSection3);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(20, 60);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1160, 520);
+            this.panel1.TabIndex = 6;
+            // 
+            // panelSection2
+            // 
+            this.panelSection2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelSection2.Location = new System.Drawing.Point(383, 0);
+            this.panelSection2.Name = "panelSection2";
+            this.panelSection2.Size = new System.Drawing.Size(355, 221);
+            this.panelSection2.TabIndex = 3;
+            // 
+            // panelSection1
+            // 
+            this.panelSection1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panelSection1.Location = new System.Drawing.Point(0, 0);
+            this.panelSection1.Name = "panelSection1";
+            this.panelSection1.Padding = new System.Windows.Forms.Padding(5);
+            this.panelSection1.Size = new System.Drawing.Size(383, 221);
+            this.panelSection1.TabIndex = 2;
             // 
             // Dashboard_Form
             // 
@@ -138,8 +160,10 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelSection3;
         private System.Windows.Forms.Panel panel_downward;
-        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panelSection2;
+        private System.Windows.Forms.Panel panelSection1;
     }
 }

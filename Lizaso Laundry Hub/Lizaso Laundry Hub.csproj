@@ -128,11 +128,29 @@
     <Compile Include="Dashboard_Form.Designer.cs">
       <DependentUpon>Dashboard_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dashboard_Widget\ActivityLog_Widget_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard_Widget\ActivityLog_Widget_Form.Designer.cs">
+      <DependentUpon>ActivityLog_Widget_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard_Widget\Calendar_Widget_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard_Widget\Calendar_Widget_Form.Designer.cs">
+      <DependentUpon>Calendar_Widget_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard_Widget\Delivery_Widget_Form.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Dashboard_Widget\Delivery_Widget_Form.Designer.cs">
       <DependentUpon>Delivery_Widget_Form.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dashboard_Widget\Earnings_Widget_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard_Widget\Earnings_Widget_Form.Designer.cs">
+      <DependentUpon>Earnings_Widget_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="DB_Connection.cs" />
     <Compile Include="DropDown_Form.cs">
@@ -322,8 +340,17 @@
     <EmbeddedResource Include="Dashboard_Form.resx">
       <DependentUpon>Dashboard_Form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard_Widget\ActivityLog_Widget_Form.resx">
+      <DependentUpon>ActivityLog_Widget_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard_Widget\Calendar_Widget_Form.resx">
+      <DependentUpon>Calendar_Widget_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard_Widget\Delivery_Widget_Form.resx">
       <DependentUpon>Delivery_Widget_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard_Widget\Earnings_Widget_Form.resx">
+      <DependentUpon>Earnings_Widget_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DropDown_Form.resx">
       <DependentUpon>DropDown_Form.cs</DependentUpon>

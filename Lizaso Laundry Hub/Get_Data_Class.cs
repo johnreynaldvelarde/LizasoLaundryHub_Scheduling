@@ -21,6 +21,57 @@ namespace Lizaso_Laundry_Hub
 
         // << DASHBOARD FROM / Delivery Widget Form >>
         // method to get delivery list in table Delivires in database
+
+        public bool Get_DashboardDeliveryList(DataGridView view_delivery_list)
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+                    connect.Open();
+
+                    // Define your SQL query to fetch data with a filter for 'In Transit' deliveries
+                    string sql = "SELECT D.Delivery_ID, T.Transaction_ID, C.Customer_Name, D.Delivery_Address, T.Amount, D.Delivery_Status " +
+                                 "FROM Deliveries D " +
+                                 "JOIN Transactions T ON D.Transaction_ID = T.Transaction_ID " +
+                                 "JOIN Laundry_Bookings LB ON T.Booking_ID = LB.Booking_ID " +
+                                 "JOIN Customers C ON LB.Customer_ID = C.Customer_ID " +
+                                 "WHERE D.Delivery_Status = 'In Transit'";  // Add this line to filter by 'In Transit' status
+
+                    SqlCommand command = new SqlCommand(sql, connect);
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    view_delivery_list.Rows.Clear();
+
+                   
+
+                    while (reader.Read())
+                    {
+                        // Assuming you have the corresponding columns in your Deliveries, Transactions, Laundry_Bookings, and Customers tables
+                        view_delivery_list.Rows.Add(0,
+                            reader["Delivery_ID"],
+                            reader["Transaction_ID"],
+                            reader["Customer_Name"],
+                            reader["Delivery_Address"],
+                            reader["Amount"],
+                            reader["Delivery_Status"]
+                        );
+                    }
+
+                    reader.Close();
+                    connect.Close();
+
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        /*
         public void Get_DashboardDeliveryList(DataGridView view_delivery_list, bool inTransit, bool completed, bool canceled)
         {
             try
@@ -87,7 +138,7 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
-        /*
+        
         public bool Get_DashboardDeliveryList(DataGridView view_delivery_list)
         {
             try

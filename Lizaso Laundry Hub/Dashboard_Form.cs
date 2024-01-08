@@ -19,9 +19,12 @@ namespace Lizaso_Laundry_Hub
         {
             InitializeComponent();
             DisplayDeliverySummaryStatus();
+            DisplayHistoryLog();
+            DisplayCalendarView();
         }
 
-        private void openChildPanel(Form childPanel)
+        // for downward panel
+        private void openChildPanelDownward(Form childPanel)
         {
             if (activeForm != null)
 
@@ -35,23 +38,49 @@ namespace Lizaso_Laundry_Hub
             childPanel.Show();
         }
 
-        public void DisplayCustomerRankings()
+        // for upward panel
+        private void openChildPanelUpward(Form childPanel)
         {
-            /*
-            if ()
-            {
+            if (activeForm != null)
 
-            }
-            else
-            {
+                activeForm.Close();
+            childPanel.TopLevel = false;
+            childPanel.FormBorderStyle = FormBorderStyle.FixedSingle;
+            childPanel.Dock = DockStyle.Fill;
+            panelSection1.Controls.Add(childPanel);
+            panelSection1.Tag = childPanel;
+            childPanel.BringToFront();
+            childPanel.Show();
+        }
 
-            }
-            */
+        // for sideward panel
+        private void openChildPanelSideward(Form childPanel)
+        {
+            if (activeForm != null)
+
+                activeForm.Close();
+            childPanel.TopLevel = false;
+            childPanel.FormBorderStyle = FormBorderStyle.FixedSingle;
+            childPanel.Dock = DockStyle.Fill;
+            panelSection3.Controls.Add(childPanel);
+            panelSection3.Tag = childPanel;
+            childPanel.BringToFront();
+            childPanel.Show();
+        }
+
+        public void DisplayCalendarView()
+        {
+            openChildPanelSideward(new Dashboard_Widget.Calendar_Widget_Form());
+        }
+
+        public void DisplayHistoryLog()
+        {
+            openChildPanelUpward(new Dashboard_Widget.ActivityLog_Widget_Form());
         }
 
         public void DisplayDeliverySummaryStatus()
         {
-            openChildPanel(new Dashboard_Widget.Delivery_Widget_Form());
+            openChildPanelDownward(new Dashboard_Widget.Delivery_Widget_Form());
         }
 
       

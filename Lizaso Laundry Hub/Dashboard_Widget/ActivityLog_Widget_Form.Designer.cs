@@ -1,6 +1,6 @@
 ﻿namespace Lizaso_Laundry_Hub.Dashboard_Widget
 {
-    partial class Delivery_Widget_Form
+    partial class ActivityLog_Widget_Form
     {
         /// <summary>
         /// Required designer variable.
@@ -29,12 +29,10 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Delivery_Widget_Form));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ActivityLog_Widget_Form));
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Label_LastBackUpInfo = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.grid_delivery_view = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -44,10 +42,7 @@
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cancel = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Complete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.btn_ClickDeliveryList = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_delivery_view)).BeginInit();
             this.SuspendLayout();
             // 
@@ -63,27 +58,12 @@
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.btn_ClickDeliveryList);
-            this.panel1.Controls.Add(this.Label_LastBackUpInfo);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(5, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(770, 45);
-            this.panel1.TabIndex = 2;
-            // 
-            // Label_LastBackUpInfo
-            // 
-            this.Label_LastBackUpInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.Label_LastBackUpInfo.AutoSize = true;
-            this.Label_LastBackUpInfo.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label_LastBackUpInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(35)))), ((int)(((byte)(30)))));
-            this.Label_LastBackUpInfo.Location = new System.Drawing.Point(262, 9);
-            this.Label_LastBackUpInfo.Name = "Label_LastBackUpInfo";
-            this.Label_LastBackUpInfo.Size = new System.Drawing.Size(22, 28);
-            this.Label_LastBackUpInfo.TabIndex = 6;
-            this.Label_LastBackUpInfo.Text = "0";
+            this.panel1.Size = new System.Drawing.Size(778, 45);
+            this.panel1.TabIndex = 3;
             // 
             // label5
             // 
@@ -94,18 +74,9 @@
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.label5.Location = new System.Drawing.Point(19, 9);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(220, 28);
+            this.label5.Size = new System.Drawing.Size(142, 28);
             this.label5.TabIndex = 11;
-            this.label5.Text = "Delivery Status Summary";
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.grid_delivery_view);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(5, 50);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(770, 375);
-            this.panel2.TabIndex = 3;
+            this.label5.Text = "Task History Log";
             // 
             // grid_delivery_view
             // 
@@ -124,13 +95,12 @@
             this.Column1,
             this.Column2,
             this.Column3,
-            this.Cancel,
-            this.Complete});
+            this.Cancel});
             this.grid_delivery_view.Cursor = System.Windows.Forms.Cursors.Hand;
             this.grid_delivery_view.Dock = System.Windows.Forms.DockStyle.Fill;
             this.grid_delivery_view.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Mixed;
             this.grid_delivery_view.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonLowProfile;
-            this.grid_delivery_view.Location = new System.Drawing.Point(0, 0);
+            this.grid_delivery_view.Location = new System.Drawing.Point(5, 50);
             this.grid_delivery_view.Name = "grid_delivery_view";
             this.grid_delivery_view.ReadOnly = true;
             this.grid_delivery_view.RowHeadersVisible = false;
@@ -138,7 +108,7 @@
             this.grid_delivery_view.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.grid_delivery_view.RowTemplate.Height = 50;
             this.grid_delivery_view.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grid_delivery_view.Size = new System.Drawing.Size(770, 375);
+            this.grid_delivery_view.Size = new System.Drawing.Size(778, 383);
             this.grid_delivery_view.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonLowProfile;
             this.grid_delivery_view.StateCommon.DataCell.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.grid_delivery_view.StateCommon.DataCell.Content.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
@@ -150,15 +120,12 @@
             this.grid_delivery_view.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.White;
             this.grid_delivery_view.StateCommon.HeaderColumn.Content.Color2 = System.Drawing.Color.White;
             this.grid_delivery_view.StateCommon.HeaderColumn.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grid_delivery_view.TabIndex = 9;
-            this.grid_delivery_view.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_delivery_view_CellContentClick);
-            this.grid_delivery_view.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.grid_delivery_view_CellFormatting);
-            this.grid_delivery_view.SelectionChanged += new System.EventHandler(this.grid_delivery_view_SelectionChanged);
+            this.grid_delivery_view.TabIndex = 10;
             // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn6.FillWeight = 27.84934F;
+            this.dataGridViewTextBoxColumn6.FillWeight = 22.24427F;
             this.dataGridViewTextBoxColumn6.HeaderText = "#";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
@@ -182,15 +149,14 @@
             // dataGridViewTextBoxColumn9
             // 
             this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn9.FillWeight = 134.2327F;
+            this.dataGridViewTextBoxColumn9.FillWeight = 127.5247F;
             this.dataGridViewTextBoxColumn9.HeaderText = "Customer Name";
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
             this.dataGridViewTextBoxColumn9.ReadOnly = true;
             // 
             // Column1
             // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.FillWeight = 141.5388F;
+            this.Column1.FillWeight = 186.7603F;
             this.Column1.HeaderText = "Delivery Address";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
@@ -198,14 +164,14 @@
             // Column2
             // 
             this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column2.FillWeight = 103.1457F;
+            this.Column2.FillWeight = 82.38619F;
             this.Column2.HeaderText = " Total Amount";
             this.Column2.Name = "Column2";
             this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
-            this.Column3.FillWeight = 60.36311F;
+            this.Column3.FillWeight = 48.21418F;
             this.Column3.HeaderText = " Status";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -221,51 +187,25 @@
             this.Cancel.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Cancel.Width = 80;
             // 
-            // Complete
-            // 
-            this.Complete.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Complete.HeaderText = " Complete";
-            this.Complete.Image = ((System.Drawing.Image)(resources.GetObject("Complete.Image")));
-            this.Complete.Name = "Complete";
-            this.Complete.ReadOnly = true;
-            // 
-            // btn_ClickDeliveryList
-            // 
-            this.btn_ClickDeliveryList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_ClickDeliveryList.AutoSize = true;
-            this.btn_ClickDeliveryList.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_ClickDeliveryList.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ClickDeliveryList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(138)))), ((int)(((byte)(97)))));
-            this.btn_ClickDeliveryList.Location = new System.Drawing.Point(554, 10);
-            this.btn_ClickDeliveryList.Name = "btn_ClickDeliveryList";
-            this.btn_ClickDeliveryList.Size = new System.Drawing.Size(213, 21);
-            this.btn_ClickDeliveryList.TabIndex = 20;
-            this.btn_ClickDeliveryList.Text = " Click to view all delivery list";
-            this.btn_ClickDeliveryList.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btn_ClickDeliveryList.Click += new System.EventHandler(this.btn_ClickDeliveryList_Click);
-            // 
-            // Delivery_Widget_Form
+            // ActivityLog_Widget_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(780, 430);
+            this.ClientSize = new System.Drawing.Size(788, 438);
             this.ControlBox = false;
-            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.grid_delivery_view);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "Delivery_Widget_Form";
+            this.Name = "ActivityLog_Widget_Form";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Palette = this.kryptonPalette1;
             this.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Load += new System.EventHandler(this.Delivery_Widget_Form_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.grid_delivery_view)).EndInit();
             this.ResumeLayout(false);
 
@@ -275,9 +215,7 @@
 
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label Label_LastBackUpInfo;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Panel panel2;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView grid_delivery_view;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
@@ -287,7 +225,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewImageColumn Cancel;
-        private System.Windows.Forms.DataGridViewImageColumn Complete;
-        private System.Windows.Forms.Label btn_ClickDeliveryList;
     }
 }
