@@ -27,11 +27,22 @@ namespace Lizaso_Laundry_Hub
         }
         public void Clear()
         {
-            txt_ItemName.Clear();
-            txt_Price.Clear();
-            txt_Quantity.Clear();
-            cb_Category.SelectedIndex = -1;
-            txt_ItemName.Focus();
+            if(btnSave.Text == "Update")
+            {
+                txt_ItemName.Clear();
+                txt_Price.Clear();
+                cb_Category.SelectedIndex = -1;
+                txt_ItemName.Focus();
+            }
+            else
+            {
+                txt_ItemName.Clear();
+                txt_Price.Clear();
+                txt_Quantity.Clear();
+                cb_Category.SelectedIndex = -1;
+                txt_ItemName.Focus();
+
+            }
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -41,15 +52,7 @@ namespace Lizaso_Laundry_Hub
 
         private void Add_New_Item_Form_Load(object sender, EventArgs e)
         {
-            /*
-            string[] ListofStatus = new string[] { "Liquid",
-                                                   "Detergent",
-                                                   "Donwy" };
-            for (int i = 0; i < 3; i++)
-            {
-                cb_Category.Items.Add(ListofStatus[i].ToString());
-            }
-            */
+           
         }
 
         private void btnSave_Click(object sender, EventArgs e)

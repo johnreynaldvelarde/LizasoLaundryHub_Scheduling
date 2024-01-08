@@ -7,12 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ComponentFactory.Krypton.Toolkit;
 
-namespace Lizaso_Laundry_Hub.Dashboard_Widget
+namespace Lizaso_Laundry_Hub.Settings_Module
 {
-    public partial class Delivery_List_Control : UserControl
+    public partial class Dashboard_Preferences : KryptonForm
     {
-        public Delivery_List_Control()
+        public Dashboard_Preferences()
         {
             InitializeComponent();
         }

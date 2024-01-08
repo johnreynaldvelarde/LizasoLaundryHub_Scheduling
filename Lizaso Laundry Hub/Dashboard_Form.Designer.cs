@@ -33,8 +33,11 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel_downward = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // kryptonPalette1
@@ -78,13 +81,32 @@
             this.label6.TabIndex = 1;
             this.label6.Text = "Dashboard";
             // 
-            // flowLayoutPanel1
+            // panel1
             // 
-            this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(20, 60);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1160, 520);
-            this.flowLayoutPanel1.TabIndex = 6;
+            this.panel1.Controls.Add(this.panel_downward);
+            this.panel1.Controls.Add(this.panel4);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(20, 60);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1160, 520);
+            this.panel1.TabIndex = 6;
+            // 
+            // panel_downward
+            // 
+            this.panel_downward.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel_downward.Location = new System.Drawing.Point(0, 137);
+            this.panel_downward.Name = "panel_downward";
+            this.panel_downward.Padding = new System.Windows.Forms.Padding(5);
+            this.panel_downward.Size = new System.Drawing.Size(819, 383);
+            this.panel_downward.TabIndex = 1;
+            // 
+            // panel4
+            // 
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel4.Location = new System.Drawing.Point(819, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(341, 520);
+            this.panel4.TabIndex = 0;
             // 
             // Dashboard_Form
             // 
@@ -93,7 +115,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1200, 600);
             this.ControlBox = false;
-            this.Controls.Add(this.flowLayoutPanel1);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Dashboard_Form";
@@ -105,6 +127,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -115,6 +138,8 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel_downward;
+        private System.Windows.Forms.Panel panel4;
     }
 }

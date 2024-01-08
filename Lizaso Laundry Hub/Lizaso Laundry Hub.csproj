@@ -128,11 +128,11 @@
     <Compile Include="Dashboard_Form.Designer.cs">
       <DependentUpon>Dashboard_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dashboard_Widget\Delivery_List_Control.cs">
-      <SubType>UserControl</SubType>
+    <Compile Include="Dashboard_Widget\Delivery_Widget_Form.cs">
+      <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dashboard_Widget\Delivery_List_Control.Designer.cs">
-      <DependentUpon>Delivery_List_Control.cs</DependentUpon>
+    <Compile Include="Dashboard_Widget\Delivery_Widget_Form.Designer.cs">
+      <DependentUpon>Delivery_Widget_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="DB_Connection.cs" />
     <Compile Include="DropDown_Form.cs">
@@ -229,6 +229,12 @@
     <Compile Include="Settings_Module\Backup_Restore_Form.Designer.cs">
       <DependentUpon>Backup_Restore_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings_Module\Dashboard Preferences.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settings_Module\Dashboard Preferences.Designer.cs">
+      <DependentUpon>Dashboard Preferences.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings_Module\DateTime_Configuration.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -316,8 +322,8 @@
     <EmbeddedResource Include="Dashboard_Form.resx">
       <DependentUpon>Dashboard_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dashboard_Widget\Delivery_List_Control.resx">
-      <DependentUpon>Delivery_List_Control.cs</DependentUpon>
+    <EmbeddedResource Include="Dashboard_Widget\Delivery_Widget_Form.resx">
+      <DependentUpon>Delivery_Widget_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DropDown_Form.resx">
       <DependentUpon>DropDown_Form.cs</DependentUpon>
@@ -370,6 +376,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Settings_Module\Backup_Restore_Form.resx">
       <DependentUpon>Backup_Restore_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settings_Module\Dashboard Preferences.resx">
+      <DependentUpon>Dashboard Preferences.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings_Module\DateTime_Configuration.resx">
       <DependentUpon>DateTime_Configuration.cs</DependentUpon>
@@ -462,5 +471,6 @@
   <ItemGroup>
     <None Include="Resources\BellWithRed.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
