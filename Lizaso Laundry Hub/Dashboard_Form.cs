@@ -21,6 +21,20 @@ namespace Lizaso_Laundry_Hub
             DisplayDeliverySummaryStatus();
         }
 
+        private void openChildPanel(Form childPanel)
+        {
+            if (activeForm != null)
+
+                activeForm.Close();
+            childPanel.TopLevel = false;
+            childPanel.FormBorderStyle = FormBorderStyle.FixedSingle;
+            childPanel.Dock = DockStyle.Fill;
+            panel_downward.Controls.Add(childPanel);
+            panel_downward.Tag = childPanel;
+            childPanel.BringToFront();
+            childPanel.Show();
+        }
+
         public void DisplayCustomerRankings()
         {
             /*
@@ -40,19 +54,7 @@ namespace Lizaso_Laundry_Hub
             openChildPanel(new Dashboard_Widget.Delivery_Widget_Form());
         }
 
-        private void openChildPanel(Form childPanel)
-        {
-            if (activeForm != null)
-
-            activeForm.Close();
-            childPanel.TopLevel = false;
-            childPanel.FormBorderStyle = FormBorderStyle.FixedSingle;
-            childPanel.Dock = DockStyle.Fill;
-            panel_downward.Controls.Add(childPanel);
-            panel_downward.Tag = childPanel;
-            childPanel.BringToFront();
-            childPanel.Show();
-        }
+      
 
 
 

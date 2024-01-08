@@ -94,10 +94,10 @@
             // panel_downward
             // 
             this.panel_downward.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel_downward.Location = new System.Drawing.Point(0, 137);
+            this.panel_downward.Location = new System.Drawing.Point(0, 221);
             this.panel_downward.Name = "panel_downward";
             this.panel_downward.Padding = new System.Windows.Forms.Padding(5);
-            this.panel_downward.Size = new System.Drawing.Size(819, 383);
+            this.panel_downward.Size = new System.Drawing.Size(819, 299);
             this.panel_downward.TabIndex = 1;
             // 
             // panel4

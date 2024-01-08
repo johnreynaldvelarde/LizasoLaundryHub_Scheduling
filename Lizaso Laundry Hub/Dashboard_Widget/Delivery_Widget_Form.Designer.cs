@@ -32,13 +32,13 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Delivery_Widget_Form));
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
+            this.ckCompleted = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
+            this.ckInTransit = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
+            this.ckCancel = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
             this.Label_LastBackUpInfo = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.grid_delivery_view = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.ckCancel = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.ckInTransit = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
-            this.ckCompleted = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -72,8 +72,53 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(5, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(782, 45);
+            this.panel1.Size = new System.Drawing.Size(778, 45);
             this.panel1.TabIndex = 2;
+            // 
+            // ckCompleted
+            // 
+            this.ckCompleted.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ckCompleted.Location = new System.Drawing.Point(546, 9);
+            this.ckCompleted.Name = "ckCompleted";
+            this.ckCompleted.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
+            this.ckCompleted.Size = new System.Drawing.Size(118, 27);
+            this.ckCompleted.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.ckCompleted.StateCommon.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.ckCompleted.StateCommon.ShortText.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckCompleted.TabIndex = 82;
+            this.ckCompleted.Values.Text = "Completed";
+            this.ckCompleted.CheckedChanged += new System.EventHandler(this.ckCompleted_CheckedChanged);
+            // 
+            // ckInTransit
+            // 
+            this.ckInTransit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ckInTransit.Location = new System.Drawing.Point(441, 9);
+            this.ckInTransit.Name = "ckInTransit";
+            this.ckInTransit.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
+            this.ckInTransit.Size = new System.Drawing.Size(99, 27);
+            this.ckInTransit.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.ckInTransit.StateCommon.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.ckInTransit.StateCommon.ShortText.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckInTransit.TabIndex = 81;
+            this.ckInTransit.Values.Text = "In Transit";
+            this.ckInTransit.CheckedChanged += new System.EventHandler(this.ckInTransit_CheckedChanged);
+            // 
+            // ckCancel
+            // 
+            this.ckCancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ckCancel.Location = new System.Drawing.Point(670, 9);
+            this.ckCancel.Name = "ckCancel";
+            this.ckCancel.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
+            this.ckCancel.Size = new System.Drawing.Size(105, 27);
+            this.ckCancel.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.ckCancel.StateCommon.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.ckCancel.StateCommon.ShortText.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckCancel.TabIndex = 80;
+            this.ckCancel.Values.Text = "Canceled";
+            this.ckCancel.CheckedChanged += new System.EventHandler(this.ckCancel_CheckedChanged);
             // 
             // Label_LastBackUpInfo
             // 
@@ -107,7 +152,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(5, 50);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(782, 387);
+            this.panel2.Size = new System.Drawing.Size(778, 383);
             this.panel2.TabIndex = 3;
             // 
             // grid_delivery_view
@@ -140,63 +185,22 @@
             this.grid_delivery_view.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.grid_delivery_view.RowTemplate.Height = 50;
             this.grid_delivery_view.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grid_delivery_view.Size = new System.Drawing.Size(782, 387);
+            this.grid_delivery_view.Size = new System.Drawing.Size(778, 383);
             this.grid_delivery_view.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonLowProfile;
             this.grid_delivery_view.StateCommon.DataCell.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.grid_delivery_view.StateCommon.DataCell.Content.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.grid_delivery_view.StateCommon.DataCell.Content.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grid_delivery_view.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
-            this.grid_delivery_view.StateCommon.HeaderColumn.Content.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
+            this.grid_delivery_view.StateCommon.HeaderColumn.Back.Color1 = System.Drawing.Color.DarkSlateGray;
+            this.grid_delivery_view.StateCommon.HeaderColumn.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(110)))), ((int)(((byte)(121)))));
+            this.grid_delivery_view.StateCommon.HeaderColumn.Back.ColorAngle = 45F;
+            this.grid_delivery_view.StateCommon.HeaderColumn.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.HalfCut;
+            this.grid_delivery_view.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.White;
+            this.grid_delivery_view.StateCommon.HeaderColumn.Content.Color2 = System.Drawing.Color.White;
             this.grid_delivery_view.StateCommon.HeaderColumn.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grid_delivery_view.TabIndex = 9;
             this.grid_delivery_view.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_delivery_view_CellContentClick);
             this.grid_delivery_view.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.grid_delivery_view_CellFormatting);
             this.grid_delivery_view.SelectionChanged += new System.EventHandler(this.grid_delivery_view_SelectionChanged);
-            // 
-            // ckCancel
-            // 
-            this.ckCancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ckCancel.Location = new System.Drawing.Point(674, 9);
-            this.ckCancel.Name = "ckCancel";
-            this.ckCancel.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
-            this.ckCancel.Size = new System.Drawing.Size(105, 27);
-            this.ckCancel.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.ckCancel.StateCommon.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.ckCancel.StateCommon.ShortText.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckCancel.TabIndex = 80;
-            this.ckCancel.Values.Text = "Canceled";
-            this.ckCancel.CheckedChanged += new System.EventHandler(this.ckCancel_CheckedChanged);
-            // 
-            // ckInTransit
-            // 
-            this.ckInTransit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ckInTransit.Location = new System.Drawing.Point(445, 9);
-            this.ckInTransit.Name = "ckInTransit";
-            this.ckInTransit.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
-            this.ckInTransit.Size = new System.Drawing.Size(99, 27);
-            this.ckInTransit.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.ckInTransit.StateCommon.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.ckInTransit.StateCommon.ShortText.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckInTransit.TabIndex = 81;
-            this.ckInTransit.Values.Text = "In Transit";
-            this.ckInTransit.CheckedChanged += new System.EventHandler(this.ckInTransit_CheckedChanged);
-            // 
-            // ckCompleted
-            // 
-            this.ckCompleted.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ckCompleted.Location = new System.Drawing.Point(550, 9);
-            this.ckCompleted.Name = "ckCompleted";
-            this.ckCompleted.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
-            this.ckCompleted.Size = new System.Drawing.Size(118, 27);
-            this.ckCompleted.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.ckCompleted.StateCommon.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.ckCompleted.StateCommon.ShortText.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ckCompleted.TabIndex = 82;
-            this.ckCompleted.Values.Text = "Completed";
-            this.ckCompleted.CheckedChanged += new System.EventHandler(this.ckCompleted_CheckedChanged);
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -268,7 +272,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(792, 442);
+            this.ClientSize = new System.Drawing.Size(788, 438);
             this.ControlBox = false;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
