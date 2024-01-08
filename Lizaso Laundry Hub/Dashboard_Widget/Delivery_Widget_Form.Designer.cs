@@ -29,27 +29,27 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Delivery_Widget_Form));
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.Label_LastBackUpInfo = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.datagridItem = new System.Windows.Forms.DataGridView();
+            this.grid_delivery_view = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.ckCancel = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
+            this.ckInTransit = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
+            this.ckCompleted = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemImage = new System.Windows.Forms.DataGridViewImageColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Edit = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Restock = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Cancel = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.datagridItem)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_delivery_view)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPalette1
@@ -64,12 +64,15 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.ckCompleted);
+            this.panel1.Controls.Add(this.ckInTransit);
+            this.panel1.Controls.Add(this.ckCancel);
             this.panel1.Controls.Add(this.Label_LastBackUpInfo);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(5, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(790, 45);
+            this.panel1.Size = new System.Drawing.Size(782, 45);
             this.panel1.TabIndex = 2;
             // 
             // Label_LastBackUpInfo
@@ -100,144 +103,172 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.datagridItem);
+            this.panel2.Controls.Add(this.grid_delivery_view);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(5, 50);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(790, 395);
+            this.panel2.Size = new System.Drawing.Size(782, 387);
             this.panel2.TabIndex = 3;
             // 
-            // datagridItem
+            // grid_delivery_view
             // 
-            this.datagridItem.AllowUserToAddRows = false;
-            this.datagridItem.AllowUserToOrderColumns = true;
-            this.datagridItem.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.datagridItem.BackgroundColor = System.Drawing.Color.White;
-            this.datagridItem.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.datagridItem.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
-            this.datagridItem.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(124)))), ((int)(((byte)(214)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(124)))), ((int)(((byte)(214)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datagridItem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.datagridItem.ColumnHeadersHeight = 50;
-            this.datagridItem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.datagridItem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.grid_delivery_view.AllowUserToAddRows = false;
+            this.grid_delivery_view.AllowUserToDeleteRows = false;
+            this.grid_delivery_view.AllowUserToResizeColumns = false;
+            this.grid_delivery_view.AllowUserToResizeRows = false;
+            this.grid_delivery_view.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grid_delivery_view.ColumnHeadersHeight = 40;
+            this.grid_delivery_view.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.grid_delivery_view.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
             this.Column1,
             this.Column2,
-            this.itemImage,
             this.Column3,
-            this.Column6,
-            this.Column7,
-            this.Edit,
-            this.Restock});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(227)))), ((int)(((byte)(245)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.datagridItem.DefaultCellStyle = dataGridViewCellStyle2;
-            this.datagridItem.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.datagridItem.EnableHeadersVisualStyles = false;
-            this.datagridItem.Location = new System.Drawing.Point(0, 0);
-            this.datagridItem.Name = "datagridItem";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.datagridItem.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.datagridItem.RowHeadersVisible = false;
-            this.datagridItem.RowHeadersWidth = 50;
-            this.datagridItem.RowTemplate.Height = 100;
-            this.datagridItem.RowTemplate.ReadOnly = true;
-            this.datagridItem.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.datagridItem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.datagridItem.Size = new System.Drawing.Size(790, 395);
-            this.datagridItem.TabIndex = 4;
+            this.Cancel});
+            this.grid_delivery_view.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.grid_delivery_view.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grid_delivery_view.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Mixed;
+            this.grid_delivery_view.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonLowProfile;
+            this.grid_delivery_view.Location = new System.Drawing.Point(0, 0);
+            this.grid_delivery_view.Name = "grid_delivery_view";
+            this.grid_delivery_view.ReadOnly = true;
+            this.grid_delivery_view.RowHeadersVisible = false;
+            this.grid_delivery_view.RowHeadersWidth = 50;
+            this.grid_delivery_view.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.grid_delivery_view.RowTemplate.Height = 50;
+            this.grid_delivery_view.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grid_delivery_view.Size = new System.Drawing.Size(782, 387);
+            this.grid_delivery_view.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonLowProfile;
+            this.grid_delivery_view.StateCommon.DataCell.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.grid_delivery_view.StateCommon.DataCell.Content.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.grid_delivery_view.StateCommon.DataCell.Content.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grid_delivery_view.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
+            this.grid_delivery_view.StateCommon.HeaderColumn.Content.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
+            this.grid_delivery_view.StateCommon.HeaderColumn.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grid_delivery_view.TabIndex = 9;
+            this.grid_delivery_view.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_delivery_view_CellContentClick);
+            this.grid_delivery_view.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.grid_delivery_view_CellFormatting);
+            this.grid_delivery_view.SelectionChanged += new System.EventHandler(this.grid_delivery_view_SelectionChanged);
+            // 
+            // ckCancel
+            // 
+            this.ckCancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ckCancel.Location = new System.Drawing.Point(674, 9);
+            this.ckCancel.Name = "ckCancel";
+            this.ckCancel.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
+            this.ckCancel.Size = new System.Drawing.Size(105, 27);
+            this.ckCancel.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.ckCancel.StateCommon.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.ckCancel.StateCommon.ShortText.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckCancel.TabIndex = 80;
+            this.ckCancel.Values.Text = "Canceled";
+            this.ckCancel.CheckedChanged += new System.EventHandler(this.ckCancel_CheckedChanged);
+            // 
+            // ckInTransit
+            // 
+            this.ckInTransit.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ckInTransit.Location = new System.Drawing.Point(445, 9);
+            this.ckInTransit.Name = "ckInTransit";
+            this.ckInTransit.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
+            this.ckInTransit.Size = new System.Drawing.Size(99, 27);
+            this.ckInTransit.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.ckInTransit.StateCommon.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.ckInTransit.StateCommon.ShortText.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckInTransit.TabIndex = 81;
+            this.ckInTransit.Values.Text = "In Transit";
+            this.ckInTransit.CheckedChanged += new System.EventHandler(this.ckInTransit_CheckedChanged);
+            // 
+            // ckCompleted
+            // 
+            this.ckCompleted.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.ckCompleted.Location = new System.Drawing.Point(550, 9);
+            this.ckCompleted.Name = "ckCompleted";
+            this.ckCompleted.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
+            this.ckCompleted.Size = new System.Drawing.Size(118, 27);
+            this.ckCompleted.StateCommon.ShortText.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.ckCompleted.StateCommon.ShortText.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.ckCompleted.StateCommon.ShortText.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckCompleted.TabIndex = 82;
+            this.ckCompleted.Values.Text = "Completed";
+            this.ckCompleted.CheckedChanged += new System.EventHandler(this.ckCompleted_CheckedChanged);
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn6.FillWeight = 22.24427F;
+            this.dataGridViewTextBoxColumn6.HeaderText = "#";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "Delivery_ID";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn8.FillWeight = 67.12963F;
+            this.dataGridViewTextBoxColumn8.HeaderText = "Transaction_ID";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn9.FillWeight = 127.5247F;
+            this.dataGridViewTextBoxColumn9.HeaderText = "Customer Name";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
             // 
             // Column1
             // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column1.HeaderText = "#";
-            this.Column1.MinimumWidth = 8;
+            this.Column1.FillWeight = 186.7603F;
+            this.Column1.HeaderText = "Delivery Address";
             this.Column1.Name = "Column1";
-            this.Column1.Width = 42;
+            this.Column1.ReadOnly = true;
             // 
             // Column2
             // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column2.FillWeight = 99.8196F;
-            this.Column2.HeaderText = "ID";
-            this.Column2.MinimumWidth = 8;
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.FillWeight = 82.38619F;
+            this.Column2.HeaderText = " Total Amount";
             this.Column2.Name = "Column2";
-            this.Column2.Visible = false;
-            this.Column2.Width = 49;
-            // 
-            // itemImage
-            // 
-            this.itemImage.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.itemImage.HeaderText = "            Image";
-            this.itemImage.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.itemImage.MinimumWidth = 8;
-            this.itemImage.Name = "itemImage";
+            this.Column2.ReadOnly = true;
             // 
             // Column3
             // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.FillWeight = 100.447F;
-            this.Column3.HeaderText = "Item Name";
-            this.Column3.MinimumWidth = 8;
+            this.Column3.FillWeight = 48.21418F;
+            this.Column3.HeaderText = " Status";
             this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
             // 
-            // Column6
+            // Cancel
             // 
-            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column6.FillWeight = 99.8216F;
-            this.Column6.HeaderText = "Stock Quantity";
-            this.Column6.MinimumWidth = 8;
-            this.Column6.Name = "Column6";
-            // 
-            // Column7
-            // 
-            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column7.FillWeight = 100.447F;
-            this.Column7.HeaderText = "Status";
-            this.Column7.MinimumWidth = 8;
-            this.Column7.Name = "Column7";
-            // 
-            // Edit
-            // 
-            this.Edit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Edit.HeaderText = "";
-            this.Edit.Image = ((System.Drawing.Image)(resources.GetObject("Edit.Image")));
-            this.Edit.MinimumWidth = 50;
-            this.Edit.Name = "Edit";
-            this.Edit.Width = 50;
-            // 
-            // Restock
-            // 
-            this.Restock.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Restock.HeaderText = "";
-            this.Restock.Image = ((System.Drawing.Image)(resources.GetObject("Restock.Image")));
-            this.Restock.MinimumWidth = 50;
-            this.Restock.Name = "Restock";
-            this.Restock.Width = 50;
+            this.Cancel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Cancel.HeaderText = " Cancel";
+            this.Cancel.Image = ((System.Drawing.Image)(resources.GetObject("Cancel.Image")));
+            this.Cancel.MinimumWidth = 50;
+            this.Cancel.Name = "Cancel";
+            this.Cancel.ReadOnly = true;
+            this.Cancel.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Cancel.Width = 80;
             // 
             // Delivery_Widget_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(792, 442);
             this.ControlBox = false;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -249,10 +280,11 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.Delivery_Widget_Form_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.datagridItem)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_delivery_view)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -264,14 +296,17 @@
         private System.Windows.Forms.Label Label_LastBackUpInfo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DataGridView datagridItem;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView grid_delivery_view;
+        public ComponentFactory.Krypton.Toolkit.KryptonCheckBox ckCancel;
+        public ComponentFactory.Krypton.Toolkit.KryptonCheckBox ckCompleted;
+        public ComponentFactory.Krypton.Toolkit.KryptonCheckBox ckInTransit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewImageColumn itemImage;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewImageColumn Edit;
-        private System.Windows.Forms.DataGridViewImageColumn Restock;
+        private System.Windows.Forms.DataGridViewImageColumn Cancel;
     }
 }

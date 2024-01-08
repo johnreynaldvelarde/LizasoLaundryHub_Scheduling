@@ -127,8 +127,9 @@ namespace Lizaso_Laundry_Hub
 
         private void Main_Form_Load(object sender, EventArgs e)
         {
-            Services_Form servicesForm = new Services_Form();
-            openChildPanel(servicesForm);
+            //Services_Form servicesForm = new Services_Form();
+            //openChildPanel(servicesForm);
+            openChildPanel(new Dashboard_Form());
             lblUpperTime.Text = DateTime.Now.ToLongTimeString();
             //DisplayCountPending();
         }

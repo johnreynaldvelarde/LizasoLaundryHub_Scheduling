@@ -19,6 +19,127 @@ namespace Lizaso_Laundry_Hub
     {
         private DB_Connection database = new DB_Connection();
 
+        // << DASHBOARD FROM / Delivery Widget Form >>
+        // method to get delivery list in table Delivires in database
+        public void Get_DashboardDeliveryList(DataGridView view_delivery_list, bool inTransit, bool completed, bool canceled)
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+                    connect.Open();
+
+                    // Define your SQL query to fetch data from multiple tables
+                    string sql = "SELECT D.Delivery_ID, T.Transaction_ID, C.Customer_Name, D.Delivery_Address, T.Amount, D.Delivery_Status " +
+                                 "FROM Deliveries D " +
+                                 "JOIN Transactions T ON D.Transaction_ID = T.Transaction_ID " +
+                                 "JOIN Laundry_Bookings LB ON T.Booking_ID = LB.Booking_ID " +
+                                 "JOIN Customers C ON LB.Customer_ID = C.Customer_ID";
+
+                    SqlCommand command = new SqlCommand(sql, connect);
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    view_delivery_list.Rows.Clear();
+                   
+                    while (reader.Read())
+                    {
+                        // Assuming you have the corresponding columns in your Deliveries, Transactions, Laundry_Bookings, and Customers tables
+                        view_delivery_list.Rows.Add(0,
+                            reader["Delivery_ID"],
+                            reader["Transaction_ID"],
+                            reader["Customer_Name"],
+                            reader["Delivery_Address"],
+                            reader["Amount"],
+                            reader["Delivery_Status"]
+                        );
+                    }
+
+                    reader.Close();
+                }
+
+                // Apply filtering based on checkboxes
+                if (!inTransit && !completed && !canceled)
+                {
+                    // No checkboxes are checked, display all rows
+                    return;
+                }
+
+                foreach (DataGridViewRow row in view_delivery_list.Rows)
+                {
+                    string status = row.Cells[6].Value.ToString();
+
+                    // Check the status against the checkboxes and hide the row if it doesn't match
+                    if ((inTransit && status == "In Transit") ||
+                        (completed && status == "Completed") ||
+                        (canceled && status == "Canceled"))
+                    {
+                        row.Visible = true;
+                    }
+                    else
+                    {
+                        row.Visible = false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        /*
+        public bool Get_DashboardDeliveryList(DataGridView view_delivery_list)
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+                    connect.Open();
+
+                    // Define your SQL query to fetch data from multiple tables
+                    string sql = "SELECT D.Delivery_ID, T.Transaction_ID, C.Customer_Name, D.Delivery_Address, T.Amount, D.Delivery_Status " +
+                                 "FROM Deliveries D " +
+                                 "JOIN Transactions T ON D.Transaction_ID = T.Transaction_ID " +
+                                 "JOIN Laundry_Bookings LB ON T.Booking_ID = LB.Booking_ID " +
+                                 "JOIN Customers C ON LB.Customer_ID = C.Customer_ID";
+
+                    SqlCommand command = new SqlCommand(sql, connect);
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    view_delivery_list.Rows.Clear();
+
+                    int i = 0;
+
+                    while (reader.Read())
+                    {
+                        i += 1;
+
+                        // Assuming you have the corresponding columns in your Deliveries, Transactions, Laundry_Bookings, and Customers tables
+                        view_delivery_list.Rows.Add(
+                            i,
+                            reader["Delivery_ID"],
+                            reader["Transaction_ID"],
+                            reader["Customer_Name"],
+                            reader["Delivery_Address"],
+                            reader["Amount"],
+                            reader["Delivery_Status"]
+                        );
+                    }
+
+                    reader.Close();
+                    connect.Close();
+
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+        */
+
         // << ucProgressList Control  >>
         // method to check the timeleft based on bookingID proviced
         public DateTime RetrieveEndTimeFromDatabase(int bookingID)

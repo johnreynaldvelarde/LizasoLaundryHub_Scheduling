@@ -14,6 +14,50 @@ namespace Lizaso_Laundry_Hub
     {
         private DB_Connection database = new DB_Connection();
 
+        // << DASH BOARD / Delivery Widget Form >>
+        // method to change the Status of Delivery to canceled
+        public bool Update_DeliveryToCancel(int deliveryID)
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+                    connect.Open();
+
+                    // Define your SQL update query with a parameter for Delivery_ID
+                    string sql = "UPDATE Deliveries SET Delivery_Status = 'Canceled' WHERE Delivery_ID = @DeliveryID";
+
+                    SqlCommand command = new SqlCommand(sql, connect);
+
+                    // Add a parameter to the SqlCommand
+                    command.Parameters.AddWithValue("@DeliveryID", deliveryID);
+
+                    // Execute the query
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    connect.Close();
+
+                    // Check if any rows were affected
+                    if (rowsAffected > 0)
+                    {
+                        MessageBox.Show("Delivery status updated to Canceled successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return true;
+                    }
+                    else
+                    {
+                        MessageBox.Show("No rows were updated. Delivery may not exist or already canceled.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        return false;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+
         // << USER FORM >>
         // update user account
         public bool Update_User(int loggedInUserId, int userID, string username, string password, byte _IsSuperUser, byte _services, byte _schedule, byte _customer, byte _payments, byte _user, byte _inventory, byte _settings)
