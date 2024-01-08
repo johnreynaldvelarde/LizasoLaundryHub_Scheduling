@@ -21,6 +21,7 @@ namespace Lizaso_Laundry_Hub
             DisplayDeliverySummaryStatus();
             DisplayHistoryLog();
             DisplayCalendarView();
+            DisplayPendingPayment();
         }
 
         // for downward panel
@@ -68,6 +69,24 @@ namespace Lizaso_Laundry_Hub
             childPanel.Show();
         }
 
+        private void openChildPanelSection2(Form childPanel)
+        {
+            if (activeForm != null)
+
+                activeForm.Close();
+            childPanel.TopLevel = false;
+            childPanel.FormBorderStyle = FormBorderStyle.FixedSingle;
+            childPanel.Dock = DockStyle.Fill;
+            panelSection2.Controls.Add(childPanel);
+            panelSection2.Tag = childPanel;
+            childPanel.BringToFront();
+            childPanel.Show();
+        }
+
+        public void DisplayPendingPayment()
+        {
+            openChildPanelSection2(new Dashboard_Widget.Pending_Widget_Form());
+        }
         public void DisplayCalendarView()
         {
             openChildPanelSideward(new Dashboard_Widget.Calendar_Widget_Form());
