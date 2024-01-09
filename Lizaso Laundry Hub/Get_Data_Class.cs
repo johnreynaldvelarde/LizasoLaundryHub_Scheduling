@@ -12,6 +12,7 @@ using System.IO;
 using System.Globalization;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 using System.Diagnostics;
+using Lizaso_Laundry_Hub.Notify_Module;
 
 namespace Lizaso_Laundry_Hub
 {
@@ -1474,6 +1475,70 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
+        // method to get the notification log based on user_ID
+        public List<NotificationLog> GetNotificationLog(int userID)
+        {
+            List<NotificationLog> notificationLogs = new List<NotificationLog>();
+
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+                    connect.Open();
+
+                    string query = "SELECT Log_ID, Log_Date, User_Name, Activity_Type, Description FROM Activity_Log " +
+                                   "WHERE User_ID = @UserID AND Status = 1 AND Activity_Type = 'Notifications'";
+
+                    using (SqlCommand cmd = new SqlCommand(query, connect))
+                    {
+                        cmd.Parameters.AddWithValue("@UserID", userID);
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                NotificationLog log = new NotificationLog
+                                {
+                                    LogID = Convert.ToInt32(reader["Log_ID"]),
+                                    LogDate = Convert.ToDateTime(reader["Log_Date"]),
+                                    UserName = reader["User_Name"].ToString(),
+                                    ActivityType = reader["Activity_Type"].ToString(),
+                                    Description = reader["Description"].ToString()
+                                };
+
+                                notificationLogs.Add(log);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            return notificationLogs;
+        }
+
+        /*
+        public bool Get_NotificationLog(int userID)
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+
+
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+        */
 
     }
 }

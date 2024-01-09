@@ -196,6 +196,7 @@
     <Compile Include="Notify_Module\DropDown_Notification_Form.Designer.cs">
       <DependentUpon>DropDown_Notification_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Notify_Module\NotificationLog.cs" />
     <Compile Include="Notify_Module\Side_Notification_Form.cs">
       <SubType>Form</SubType>
     </Compile>
