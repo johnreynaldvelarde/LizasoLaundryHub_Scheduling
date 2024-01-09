@@ -21,44 +21,6 @@ namespace Lizaso_Laundry_Hub.Settings_Module
             InitializeComponent();
             backupData = new Backup_Data_Class();
         }
-        // get the string data modified in C:\:Lizaso Laundry Hub \ Database Backup check the DB_Backup.bak and get the date modified on it   public void DisplayDateModified()
-        /*
-        public void DisplayDateModified()
-        {
-            string backupFolderPath = @"C:\Lizaso Laundry Hub\Database Backup";
-            string backupFileName = "DB_Backup.bak";
-            string backupFilePath = Path.Combine(backupFolderPath, backupFileName);
-
-            try
-            {
-                // Check if the directory exists
-                if (Directory.Exists(backupFolderPath))
-                {
-                    // Check if the file exists
-                    if (File.Exists(backupFilePath))
-                    {
-                        // Get the date modified of the file
-                        DateTime dateModified = File.GetLastWriteTime(backupFilePath);
-
-                        // Display the date modified in the label
-                        Label_LastBackUpInfo.Text = dateModified.ToString();
-                    }
-                    else
-                    {
-                        Label_LastBackUpInfo.Text = "DB_Backup.bak file not found.";
-                    }
-                }
-                else
-                {
-                    Label_LastBackUpInfo.Text = "Database Backup directory not found.";
-                }
-            }
-            catch (Exception ex)
-            {
-                Label_LastBackUpInfo.Text = $"An error occurred: {ex.Message}";
-            }
-        }
-        */
 
         private void Backup_Restore_Form_Load(object sender, EventArgs e)
         {
