@@ -26,6 +26,7 @@ namespace Lizaso_Laundry_Hub
         public int UnitID;
         public int BookingID;
         public int CustomerID;
+        public string setWeight;
 
         public int userId;
         public string userName;
@@ -67,6 +68,8 @@ namespace Lizaso_Laundry_Hub
             {
                 string _customerName = txt_CustomerName.Text;
                 string _serviceType = txt_ServiceType.Text;
+                string _load = txtNumberLoad.Text;
+                //string _weight =
                 string paymentMethod = GetSelectedPaymentMethod();
                 string totalPaymentText = lblTotalPayment.Text;
                 totalPaymentText = totalPaymentText.Replace("PHP", "").Trim();
@@ -130,7 +133,7 @@ namespace Lizaso_Laundry_Hub
                         this.Dispose();
                         frm.DisplayInPendingList();
 
-                        //receipt.GetPaymentDetails(account.User_Name, _customerName, _serviceType);
+                        receipt.GetPaymentDetails(account.User_Name, _serviceType, _load, setWeight, TotalServicesPrice.ToString(),totalPaymentText, _customerName, paymentMethod);
                         receipt.ShowDialog();
                     }
                     else

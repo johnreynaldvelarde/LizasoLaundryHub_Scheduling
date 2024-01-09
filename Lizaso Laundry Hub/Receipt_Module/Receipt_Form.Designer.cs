@@ -58,7 +58,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(10, 10);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(562, 45);
+            this.panel1.Size = new System.Drawing.Size(495, 45);
             this.panel1.TabIndex = 4;
             // 
             // label5
@@ -80,7 +80,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(10, 55);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(562, 452);
+            this.panel2.Size = new System.Drawing.Size(495, 452);
             this.panel2.TabIndex = 5;
             // 
             // reportViewer1
@@ -90,7 +90,7 @@
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(562, 452);
+            this.reportViewer1.Size = new System.Drawing.Size(495, 452);
             this.reportViewer1.TabIndex = 0;
             // 
             // panel3
@@ -98,7 +98,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(10, 507);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(562, 41);
+            this.panel3.Size = new System.Drawing.Size(495, 41);
             this.panel3.TabIndex = 6;
             // 
             // btnClose
@@ -109,7 +109,7 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(529, 8);
+            this.btnClose.Location = new System.Drawing.Point(462, 8);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(23, 29);
             this.btnClose.TabIndex = 76;
@@ -121,12 +121,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(582, 558);
+            this.ClientSize = new System.Drawing.Size(515, 558);
             this.ControlBox = false;
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MinimumSize = new System.Drawing.Size(521, 564);
             this.Name = "Receipt_Form";
             this.Padding = new System.Windows.Forms.Padding(10);
             this.Palette = this.kryptonPalette1;

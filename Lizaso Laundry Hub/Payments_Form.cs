@@ -15,7 +15,7 @@ namespace Lizaso_Laundry_Hub
     {
         private Get_Data_Class getData;
         private int bookingID, unitID, customerID;
-        private string customerName, serviceType;
+        private string customerName, serviceType, weight;
 
         public Payments_Form()
         {
@@ -73,6 +73,7 @@ namespace Lizaso_Laundry_Hub
                 frm.BookingID = bookingID;
                 frm.txt_CustomerName.Text = customerName;
                 frm.txt_ServiceType.Text = serviceType;
+                frm.setWeight = weight;
                 frm.ShowDialog();
             }
             else if (column_pending == "Cancel")
@@ -94,14 +95,14 @@ namespace Lizaso_Laundry_Hub
                     int selectedCustomerID = Convert.ToInt32(grid_pending_view[3, rowIndex].Value);
                     string selectedCustomerName = grid_pending_view[4, rowIndex].Value.ToString();
                     string selectedServiceType = grid_pending_view[6, rowIndex].Value.ToString();
-
+                    string selectedWeight = grid_pending_view[7, rowIndex].Value.ToString();
                     // Assign the values to the class properties
                     bookingID = selectedBookingID;
                     unitID = selectedUnitID;
                     customerID = selectedCustomerID;
                     customerName = selectedCustomerName;
                     serviceType = selectedServiceType;
-
+                    weight = selectedWeight;
                     // Now you can use bookingID, unitID, customerID, customerName, and serviceType as needed
                 }
             }
