@@ -31,26 +31,22 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Backup_Restore_Form));
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
-            this.label5 = new System.Windows.Forms.Label();
-            this.Label_LastBackUpInfo = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.DataBase_Date = new ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tab_BackupRestore = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.btn_SaveConfig = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btn_SaveGoogle = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btn_LocateFileForDrive = new System.Windows.Forms.Label();
+            this.txt_ApplicationName = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txt_EmailAddress = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
             this.btn_BackupDatabase = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.Label_DatabaseName = new System.Windows.Forms.Label();
-            this.Label_ManuallyPath = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.btn_SaveConfig = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.txt_NoFiles = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.Label_ClickPath = new System.Windows.Forms.Label();
@@ -77,7 +73,6 @@
             this.cbBackupLogout = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
             this.label20 = new System.Windows.Forms.Label();
             this.btn_SaveAutoBackupConfig = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tab_BackupRestore.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -98,76 +93,13 @@
             this.kryptonPalette1.FormStyles.FormMain.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.None;
             this.kryptonPalette1.FormStyles.FormMain.StateCommon.Border.Rounding = 12;
             // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.label5.Location = new System.Drawing.Point(19, 9);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(237, 28);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Last Manually Backup Date:";
-            this.label5.Visible = false;
-            // 
-            // Label_LastBackUpInfo
-            // 
-            this.Label_LastBackUpInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.Label_LastBackUpInfo.AutoSize = true;
-            this.Label_LastBackUpInfo.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label_LastBackUpInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(35)))), ((int)(((byte)(30)))));
-            this.Label_LastBackUpInfo.Location = new System.Drawing.Point(262, 9);
-            this.Label_LastBackUpInfo.Name = "Label_LastBackUpInfo";
-            this.Label_LastBackUpInfo.Size = new System.Drawing.Size(22, 28);
-            this.Label_LastBackUpInfo.TabIndex = 6;
-            this.Label_LastBackUpInfo.Text = "0";
-            this.Label_LastBackUpInfo.Visible = false;
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.DataBase_Date);
-            this.panel1.Controls.Add(this.label1);
-            this.panel1.Controls.Add(this.Label_LastBackUpInfo);
-            this.panel1.Controls.Add(this.label5);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(10, 10);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(856, 45);
-            this.panel1.TabIndex = 1;
-            // 
-            // DataBase_Date
-            // 
-            this.DataBase_Date.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.DataBase_Date.Location = new System.Drawing.Point(638, 9);
-            this.DataBase_Date.Name = "DataBase_Date";
-            this.DataBase_Date.Size = new System.Drawing.Size(202, 28);
-            this.DataBase_Date.StateCommon.Content.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DataBase_Date.TabIndex = 13;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.label1.Location = new System.Drawing.Point(578, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 28);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Date:";
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.tab_BackupRestore);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(10, 55);
+            this.panel2.Location = new System.Drawing.Point(10, 10);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(856, 411);
+            this.panel2.Size = new System.Drawing.Size(848, 448);
             this.panel2.TabIndex = 2;
             // 
             // tab_BackupRestore
@@ -182,7 +114,7 @@
             this.tab_BackupRestore.Name = "tab_BackupRestore";
             this.tab_BackupRestore.Padding = new System.Drawing.Point(20, 3);
             this.tab_BackupRestore.SelectedIndex = 0;
-            this.tab_BackupRestore.Size = new System.Drawing.Size(856, 411);
+            this.tab_BackupRestore.Size = new System.Drawing.Size(848, 448);
             this.tab_BackupRestore.TabIndex = 5;
             this.tab_BackupRestore.SelectedIndexChanged += new System.EventHandler(this.tab_BackupRestore_SelectedIndexChanged);
             // 
@@ -193,34 +125,275 @@
             this.tabPage1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.Location = new System.Drawing.Point(4, 32);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(848, 375);
+            this.tabPage1.Size = new System.Drawing.Size(840, 412);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Manually Backup Configuration";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.btn_SaveConfig);
+            this.panel4.Controls.Add(this.btn_SaveGoogle);
+            this.panel4.Controls.Add(this.btn_LocateFileForDrive);
+            this.panel4.Controls.Add(this.txt_ApplicationName);
+            this.panel4.Controls.Add(this.label8);
+            this.panel4.Controls.Add(this.txt_EmailAddress);
+            this.panel4.Controls.Add(this.label11);
+            this.panel4.Controls.Add(this.label14);
+            this.panel4.Controls.Add(this.label15);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Controls.Add(this.btn_BackupDatabase);
-            this.panel4.Controls.Add(this.Label_DatabaseName);
-            this.panel4.Controls.Add(this.Label_ManuallyPath);
-            this.panel4.Controls.Add(this.label17);
-            this.panel4.Controls.Add(this.label16);
-            this.panel4.Controls.Add(this.label15);
-            this.panel4.Controls.Add(this.label14);
-            this.panel4.Controls.Add(this.label11);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 169);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(848, 206);
+            this.panel4.Size = new System.Drawing.Size(840, 243);
             this.panel4.TabIndex = 16;
+            // 
+            // btn_SaveGoogle
+            // 
+            this.btn_SaveGoogle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_SaveGoogle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_SaveGoogle.Location = new System.Drawing.Point(668, 150);
+            this.btn_SaveGoogle.Name = "btn_SaveGoogle";
+            this.btn_SaveGoogle.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btn_SaveGoogle.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btn_SaveGoogle.OverrideDefault.Back.ColorAngle = 45F;
+            this.btn_SaveGoogle.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(147)))), ((int)(((byte)(244)))));
+            this.btn_SaveGoogle.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btn_SaveGoogle.OverrideDefault.Border.ColorAngle = 45F;
+            this.btn_SaveGoogle.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_SaveGoogle.OverrideDefault.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btn_SaveGoogle.OverrideDefault.Border.Rounding = 20;
+            this.btn_SaveGoogle.OverrideDefault.Border.Width = 1;
+            this.btn_SaveGoogle.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.btn_SaveGoogle.Size = new System.Drawing.Size(160, 38);
+            this.btn_SaveGoogle.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btn_SaveGoogle.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btn_SaveGoogle.StateCommon.Back.ColorAngle = 45F;
+            this.btn_SaveGoogle.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btn_SaveGoogle.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btn_SaveGoogle.StateCommon.Border.ColorAngle = 45F;
+            this.btn_SaveGoogle.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_SaveGoogle.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btn_SaveGoogle.StateCommon.Border.Rounding = 20;
+            this.btn_SaveGoogle.StateCommon.Border.Width = 1;
+            this.btn_SaveGoogle.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btn_SaveGoogle.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.btn_SaveGoogle.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_SaveGoogle.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(145)))), ((int)(((byte)(198)))));
+            this.btn_SaveGoogle.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(121)))), ((int)(((byte)(206)))));
+            this.btn_SaveGoogle.StatePressed.Back.ColorAngle = 135F;
+            this.btn_SaveGoogle.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(145)))), ((int)(((byte)(198)))));
+            this.btn_SaveGoogle.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(121)))), ((int)(((byte)(206)))));
+            this.btn_SaveGoogle.StatePressed.Border.ColorAngle = 135F;
+            this.btn_SaveGoogle.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_SaveGoogle.StatePressed.Border.Rounding = 20;
+            this.btn_SaveGoogle.StatePressed.Border.Width = 1;
+            this.btn_SaveGoogle.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btn_SaveGoogle.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btn_SaveGoogle.StateTracking.Back.ColorAngle = 45F;
+            this.btn_SaveGoogle.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btn_SaveGoogle.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btn_SaveGoogle.StateTracking.Border.ColorAngle = 45F;
+            this.btn_SaveGoogle.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_SaveGoogle.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btn_SaveGoogle.StateTracking.Border.Rounding = 20;
+            this.btn_SaveGoogle.StateTracking.Border.Width = 1;
+            this.btn_SaveGoogle.TabIndex = 39;
+            this.btn_SaveGoogle.Values.Image = ((System.Drawing.Image)(resources.GetObject("btn_SaveGoogle.Values.Image")));
+            this.btn_SaveGoogle.Values.Text = " Backup in Drive";
+            this.btn_SaveGoogle.Click += new System.EventHandler(this.btn_SaveGoogle_Click);
+            // 
+            // btn_LocateFileForDrive
+            // 
+            this.btn_LocateFileForDrive.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.btn_LocateFileForDrive.AutoSize = true;
+            this.btn_LocateFileForDrive.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_LocateFileForDrive.ForeColor = System.Drawing.Color.SteelBlue;
+            this.btn_LocateFileForDrive.Location = new System.Drawing.Point(176, 61);
+            this.btn_LocateFileForDrive.Name = "btn_LocateFileForDrive";
+            this.btn_LocateFileForDrive.Size = new System.Drawing.Size(249, 23);
+            this.btn_LocateFileForDrive.TabIndex = 38;
+            this.btn_LocateFileForDrive.Text = "Click to the Location of Backup Folder";
+            this.btn_LocateFileForDrive.Click += new System.EventHandler(this.btn_LocateFileForDrive_Click);
+            // 
+            // txt_ApplicationName
+            // 
+            this.txt_ApplicationName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.txt_ApplicationName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_ApplicationName.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_ApplicationName.Location = new System.Drawing.Point(180, 98);
+            this.txt_ApplicationName.Name = "txt_ApplicationName";
+            this.txt_ApplicationName.Size = new System.Drawing.Size(354, 27);
+            this.txt_ApplicationName.TabIndex = 37;
+            this.txt_ApplicationName.Text = "Lizaso Laundry Hub";
+            // 
+            // label8
+            // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.label8.Location = new System.Drawing.Point(29, 100);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(126, 23);
+            this.label8.TabIndex = 36;
+            this.label8.Text = "Applicaton Name:";
+            // 
+            // txt_EmailAddress
+            // 
+            this.txt_EmailAddress.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.txt_EmailAddress.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txt_EmailAddress.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_EmailAddress.Location = new System.Drawing.Point(180, 141);
+            this.txt_EmailAddress.Name = "txt_EmailAddress";
+            this.txt_EmailAddress.Size = new System.Drawing.Size(354, 27);
+            this.txt_EmailAddress.TabIndex = 34;
+            this.txt_EmailAddress.Text = "johnreynaldvelarde@gmail.com";
+            // 
+            // label11
+            // 
+            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.label11.Location = new System.Drawing.Point(28, 141);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(105, 23);
+            this.label11.TabIndex = 33;
+            this.label11.Text = "Email Address:";
+            // 
+            // label14
+            // 
+            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.label14.Location = new System.Drawing.Point(28, 61);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(104, 23);
+            this.label14.TabIndex = 32;
+            this.label14.Text = "Location Path :";
+            // 
+            // label15
+            // 
+            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.label15.Location = new System.Drawing.Point(15, 17);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(358, 26);
+            this.label15.TabIndex = 31;
+            this.label15.Text = "Backup Setup in Cloud Storage (Google Drive)";
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(840, 1);
+            this.panel5.TabIndex = 30;
+            // 
+            // btn_BackupDatabase
+            // 
+            this.btn_BackupDatabase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_BackupDatabase.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_BackupDatabase.Location = new System.Drawing.Point(668, 194);
+            this.btn_BackupDatabase.Name = "btn_BackupDatabase";
+            this.btn_BackupDatabase.OverrideDefault.Back.Color1 = System.Drawing.Color.SteelBlue;
+            this.btn_BackupDatabase.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(124)))), ((int)(((byte)(93)))));
+            this.btn_BackupDatabase.OverrideDefault.Back.ColorAngle = 45F;
+            this.btn_BackupDatabase.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(185)))), ((int)(((byte)(200)))));
+            this.btn_BackupDatabase.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
+            this.btn_BackupDatabase.OverrideDefault.Border.ColorAngle = 45F;
+            this.btn_BackupDatabase.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_BackupDatabase.OverrideDefault.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btn_BackupDatabase.OverrideDefault.Border.Rounding = 20;
+            this.btn_BackupDatabase.OverrideDefault.Border.Width = 1;
+            this.btn_BackupDatabase.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.btn_BackupDatabase.Size = new System.Drawing.Size(160, 38);
+            this.btn_BackupDatabase.StateCommon.Back.Color1 = System.Drawing.Color.SteelBlue;
+            this.btn_BackupDatabase.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(124)))), ((int)(((byte)(93)))));
+            this.btn_BackupDatabase.StateCommon.Back.ColorAngle = 45F;
+            this.btn_BackupDatabase.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(185)))), ((int)(((byte)(200)))));
+            this.btn_BackupDatabase.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
+            this.btn_BackupDatabase.StateCommon.Border.ColorAngle = 45F;
+            this.btn_BackupDatabase.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_BackupDatabase.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btn_BackupDatabase.StateCommon.Border.Rounding = 20;
+            this.btn_BackupDatabase.StateCommon.Border.Width = 1;
+            this.btn_BackupDatabase.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btn_BackupDatabase.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.btn_BackupDatabase.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_BackupDatabase.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(90)))), ((int)(((byte)(150)))));
+            this.btn_BackupDatabase.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(70)))), ((int)(((byte)(40)))));
+            this.btn_BackupDatabase.StatePressed.Back.ColorAngle = 135F;
+            this.btn_BackupDatabase.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(90)))), ((int)(((byte)(150)))));
+            this.btn_BackupDatabase.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(70)))), ((int)(((byte)(40)))));
+            this.btn_BackupDatabase.StatePressed.Border.ColorAngle = 135F;
+            this.btn_BackupDatabase.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_BackupDatabase.StatePressed.Border.Rounding = 20;
+            this.btn_BackupDatabase.StatePressed.Border.Width = 1;
+            this.btn_BackupDatabase.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(124)))), ((int)(((byte)(93)))));
+            this.btn_BackupDatabase.StateTracking.Back.Color2 = System.Drawing.Color.SteelBlue;
+            this.btn_BackupDatabase.StateTracking.Back.ColorAngle = 45F;
+            this.btn_BackupDatabase.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(185)))), ((int)(((byte)(200)))));
+            this.btn_BackupDatabase.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
+            this.btn_BackupDatabase.StateTracking.Border.ColorAngle = 45F;
+            this.btn_BackupDatabase.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_BackupDatabase.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btn_BackupDatabase.StateTracking.Border.Rounding = 20;
+            this.btn_BackupDatabase.StateTracking.Border.Width = 1;
+            this.btn_BackupDatabase.TabIndex = 26;
+            this.btn_BackupDatabase.Values.Image = ((System.Drawing.Image)(resources.GetObject("btn_BackupDatabase.Values.Image")));
+            this.btn_BackupDatabase.Values.Text = "  Backup Database";
+            this.btn_BackupDatabase.Click += new System.EventHandler(this.btn_BackupDatabase_Click);
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.btn_SaveConfig);
+            this.panel8.Controls.Add(this.txt_NoFiles);
+            this.panel8.Controls.Add(this.label13);
+            this.panel8.Controls.Add(this.Label_ClickPath);
+            this.panel8.Controls.Add(this.txt_DatabaseName);
+            this.panel8.Controls.Add(this.label9);
+            this.panel8.Controls.Add(this.label7);
+            this.panel8.Controls.Add(this.label3);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel8.Location = new System.Drawing.Point(0, 0);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(840, 169);
+            this.panel8.TabIndex = 9;
             // 
             // btn_SaveConfig
             // 
             this.btn_SaveConfig.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_SaveConfig.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_SaveConfig.Location = new System.Drawing.Point(510, 157);
+            this.btn_SaveConfig.Location = new System.Drawing.Point(668, 126);
             this.btn_SaveConfig.Name = "btn_SaveConfig";
             this.btn_SaveConfig.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
             this.btn_SaveConfig.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
@@ -278,184 +451,6 @@
             this.btn_SaveConfig.Values.Image = ((System.Drawing.Image)(resources.GetObject("btn_SaveConfig.Values.Image")));
             this.btn_SaveConfig.Values.Text = " Save Configuration";
             this.btn_SaveConfig.Click += new System.EventHandler(this.btn_SaveConfig_Click);
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(848, 1);
-            this.panel5.TabIndex = 30;
-            // 
-            // btn_BackupDatabase
-            // 
-            this.btn_BackupDatabase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_BackupDatabase.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_BackupDatabase.Location = new System.Drawing.Point(676, 157);
-            this.btn_BackupDatabase.Name = "btn_BackupDatabase";
-            this.btn_BackupDatabase.OverrideDefault.Back.Color1 = System.Drawing.Color.SteelBlue;
-            this.btn_BackupDatabase.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(124)))), ((int)(((byte)(93)))));
-            this.btn_BackupDatabase.OverrideDefault.Back.ColorAngle = 45F;
-            this.btn_BackupDatabase.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(185)))), ((int)(((byte)(200)))));
-            this.btn_BackupDatabase.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
-            this.btn_BackupDatabase.OverrideDefault.Border.ColorAngle = 45F;
-            this.btn_BackupDatabase.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btn_BackupDatabase.OverrideDefault.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btn_BackupDatabase.OverrideDefault.Border.Rounding = 20;
-            this.btn_BackupDatabase.OverrideDefault.Border.Width = 1;
-            this.btn_BackupDatabase.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.btn_BackupDatabase.Size = new System.Drawing.Size(160, 37);
-            this.btn_BackupDatabase.StateCommon.Back.Color1 = System.Drawing.Color.SteelBlue;
-            this.btn_BackupDatabase.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(124)))), ((int)(((byte)(93)))));
-            this.btn_BackupDatabase.StateCommon.Back.ColorAngle = 45F;
-            this.btn_BackupDatabase.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(185)))), ((int)(((byte)(200)))));
-            this.btn_BackupDatabase.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
-            this.btn_BackupDatabase.StateCommon.Border.ColorAngle = 45F;
-            this.btn_BackupDatabase.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btn_BackupDatabase.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btn_BackupDatabase.StateCommon.Border.Rounding = 20;
-            this.btn_BackupDatabase.StateCommon.Border.Width = 1;
-            this.btn_BackupDatabase.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btn_BackupDatabase.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.btn_BackupDatabase.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_BackupDatabase.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(90)))), ((int)(((byte)(150)))));
-            this.btn_BackupDatabase.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(70)))), ((int)(((byte)(40)))));
-            this.btn_BackupDatabase.StatePressed.Back.ColorAngle = 135F;
-            this.btn_BackupDatabase.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(90)))), ((int)(((byte)(150)))));
-            this.btn_BackupDatabase.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(70)))), ((int)(((byte)(40)))));
-            this.btn_BackupDatabase.StatePressed.Border.ColorAngle = 135F;
-            this.btn_BackupDatabase.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btn_BackupDatabase.StatePressed.Border.Rounding = 20;
-            this.btn_BackupDatabase.StatePressed.Border.Width = 1;
-            this.btn_BackupDatabase.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(124)))), ((int)(((byte)(93)))));
-            this.btn_BackupDatabase.StateTracking.Back.Color2 = System.Drawing.Color.SteelBlue;
-            this.btn_BackupDatabase.StateTracking.Back.ColorAngle = 45F;
-            this.btn_BackupDatabase.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(185)))), ((int)(((byte)(200)))));
-            this.btn_BackupDatabase.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
-            this.btn_BackupDatabase.StateTracking.Border.ColorAngle = 45F;
-            this.btn_BackupDatabase.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btn_BackupDatabase.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btn_BackupDatabase.StateTracking.Border.Rounding = 20;
-            this.btn_BackupDatabase.StateTracking.Border.Width = 1;
-            this.btn_BackupDatabase.TabIndex = 26;
-            this.btn_BackupDatabase.Values.Image = ((System.Drawing.Image)(resources.GetObject("btn_BackupDatabase.Values.Image")));
-            this.btn_BackupDatabase.Values.Text = "  Backup Database";
-            this.btn_BackupDatabase.Click += new System.EventHandler(this.btn_BackupDatabase_Click);
-            // 
-            // Label_DatabaseName
-            // 
-            this.Label_DatabaseName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.Label_DatabaseName.AutoSize = true;
-            this.Label_DatabaseName.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label_DatabaseName.ForeColor = System.Drawing.Color.Black;
-            this.Label_DatabaseName.Location = new System.Drawing.Point(176, 99);
-            this.Label_DatabaseName.Name = "Label_DatabaseName";
-            this.Label_DatabaseName.Size = new System.Drawing.Size(92, 23);
-            this.Label_DatabaseName.TabIndex = 29;
-            this.Label_DatabaseName.Text = "Backup Path";
-            // 
-            // Label_ManuallyPath
-            // 
-            this.Label_ManuallyPath.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.Label_ManuallyPath.AutoSize = true;
-            this.Label_ManuallyPath.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label_ManuallyPath.ForeColor = System.Drawing.Color.Black;
-            this.Label_ManuallyPath.Location = new System.Drawing.Point(176, 65);
-            this.Label_ManuallyPath.Name = "Label_ManuallyPath";
-            this.Label_ManuallyPath.Size = new System.Drawing.Size(92, 23);
-            this.Label_ManuallyPath.TabIndex = 28;
-            this.Label_ManuallyPath.Text = "Backup Path";
-            // 
-            // label17
-            // 
-            this.label17.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.label17.Location = new System.Drawing.Point(28, 99);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(120, 23);
-            this.label17.TabIndex = 27;
-            this.label17.Text = "Database Name:";
-            // 
-            // label16
-            // 
-            this.label16.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.label16.Location = new System.Drawing.Point(28, 65);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(95, 23);
-            this.label16.TabIndex = 26;
-            this.label16.Text = "Backup Path:";
-            // 
-            // label15
-            // 
-            this.label15.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.label15.Location = new System.Drawing.Point(433, 65);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(118, 23);
-            this.label15.TabIndex = 24;
-            this.label15.Text = "No backup yet !!!";
-            // 
-            // label14
-            // 
-            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.label14.Location = new System.Drawing.Point(394, 26);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(136, 26);
-            this.label14.TabIndex = 14;
-            this.label14.Text = "Last Backup Info";
-            // 
-            // label11
-            // 
-            this.label11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.label11.Location = new System.Drawing.Point(15, 26);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(144, 26);
-            this.label11.TabIndex = 20;
-            this.label11.Text = "Manually Backup";
-            // 
-            // panel8
-            // 
-            this.panel8.Controls.Add(this.txt_NoFiles);
-            this.panel8.Controls.Add(this.label13);
-            this.panel8.Controls.Add(this.Label_ClickPath);
-            this.panel8.Controls.Add(this.txt_DatabaseName);
-            this.panel8.Controls.Add(this.label9);
-            this.panel8.Controls.Add(this.label7);
-            this.panel8.Controls.Add(this.label3);
-            this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel8.Location = new System.Drawing.Point(0, 0);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(848, 169);
-            this.panel8.TabIndex = 9;
             // 
             // txt_NoFiles
             // 
@@ -555,7 +550,7 @@
             this.tabPage2.Controls.Add(this.btn_RestoreDatabase);
             this.tabPage2.Location = new System.Drawing.Point(4, 32);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(852, 379);
+            this.tabPage2.Size = new System.Drawing.Size(844, 371);
             this.tabPage2.TabIndex = 4;
             this.tabPage2.Text = "Restore Configuration";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -565,7 +560,7 @@
             this.image_server_loading.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.image_server_loading.BackColor = System.Drawing.Color.Transparent;
             this.image_server_loading.Image = ((System.Drawing.Image)(resources.GetObject("image_server_loading.Image")));
-            this.image_server_loading.Location = new System.Drawing.Point(531, 147);
+            this.image_server_loading.Location = new System.Drawing.Point(531, 145);
             this.image_server_loading.Name = "image_server_loading";
             this.image_server_loading.Size = new System.Drawing.Size(42, 40);
             this.image_server_loading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -660,7 +655,7 @@
             // 
             this.btn_SaveConfigRestore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_SaveConfigRestore.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_SaveConfigRestore.Location = new System.Drawing.Point(514, 330);
+            this.btn_SaveConfigRestore.Location = new System.Drawing.Point(510, 326);
             this.btn_SaveConfigRestore.Name = "btn_SaveConfigRestore";
             this.btn_SaveConfigRestore.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
             this.btn_SaveConfigRestore.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
@@ -723,7 +718,7 @@
             // 
             this.btn_RestoreDatabase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_RestoreDatabase.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_RestoreDatabase.Location = new System.Drawing.Point(680, 330);
+            this.btn_RestoreDatabase.Location = new System.Drawing.Point(676, 326);
             this.btn_RestoreDatabase.Name = "btn_RestoreDatabase";
             this.btn_RestoreDatabase.OverrideDefault.Back.Color1 = System.Drawing.Color.SteelBlue;
             this.btn_RestoreDatabase.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(124)))), ((int)(((byte)(93)))));
@@ -793,7 +788,7 @@
             this.tabPage3.Controls.Add(this.btn_SaveAutoBackupConfig);
             this.tabPage3.Location = new System.Drawing.Point(4, 32);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(852, 379);
+            this.tabPage3.Size = new System.Drawing.Size(844, 371);
             this.tabPage3.TabIndex = 5;
             this.tabPage3.Text = "Automatically Backup Configuration";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -939,10 +934,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(876, 476);
+            this.ClientSize = new System.Drawing.Size(868, 468);
             this.ControlBox = false;
             this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Backup_Restore_Form";
             this.Padding = new System.Windows.Forms.Padding(10);
@@ -952,8 +946,6 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.Backup_Restore_Form_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.tab_BackupRestore.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -973,11 +965,6 @@
         #endregion
 
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label Label_LastBackUpInfo;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label label1;
-        private ComponentFactory.Krypton.Toolkit.KryptonDateTimePicker DataBase_Date;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.TabControl tab_BackupRestore;
         private System.Windows.Forms.TabPage tabPage1;
@@ -995,13 +982,6 @@
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Panel panel5;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btn_BackupDatabase;
-        private System.Windows.Forms.Label Label_DatabaseName;
-        private System.Windows.Forms.Label Label_ManuallyPath;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label11;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btn_SaveConfigRestore;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btn_SaveAutoBackupConfig;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btn_RestoreDatabase;
@@ -1019,5 +999,13 @@
         public ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbMonthlyBackup;
         public ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbWeeklyBackup;
         public ComponentFactory.Krypton.Toolkit.KryptonCheckBox cbYearlyBackup;
+        private System.Windows.Forms.TextBox txt_ApplicationName;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox txt_EmailAddress;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label btn_LocateFileForDrive;
+        private ComponentFactory.Krypton.Toolkit.KryptonButton btn_SaveGoogle;
     }
 }

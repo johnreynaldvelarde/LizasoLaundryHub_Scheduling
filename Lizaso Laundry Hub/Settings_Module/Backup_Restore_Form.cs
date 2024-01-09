@@ -22,6 +22,7 @@ namespace Lizaso_Laundry_Hub.Settings_Module
             backupData = new Backup_Data_Class();
         }
         // get the string data modified in C:\:Lizaso Laundry Hub \ Database Backup check the DB_Backup.bak and get the date modified on it   public void DisplayDateModified()
+        /*
         public void DisplayDateModified()
         {
             string backupFolderPath = @"C:\Lizaso Laundry Hub\Database Backup";
@@ -57,6 +58,7 @@ namespace Lizaso_Laundry_Hub.Settings_Module
                 Label_LastBackUpInfo.Text = $"An error occurred: {ex.Message}";
             }
         }
+        */
 
         private void Backup_Restore_Form_Load(object sender, EventArgs e)
         {
@@ -67,7 +69,7 @@ namespace Lizaso_Laundry_Hub.Settings_Module
         {
             if (tab_BackupRestore.SelectedTab == tabPage1)
             {
-                DisplayDateModified();
+                //DisplayDateModified();
                 Get_ManuallyBackupConfig();
             }
             else if (tab_BackupRestore.SelectedTab == tabPage2)
@@ -481,6 +483,37 @@ namespace Lizaso_Laundry_Hub.Settings_Module
                 default:
                     break;
             }
+        }
+
+        private void btn_LocateFileForDrive_Click(object sender, EventArgs e)
+        {
+            // Create an OpenFileDialog
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            // Set initial directory, title, and filter
+            openFileDialog.InitialDirectory = @"C:\Lizaso Laundry Hub\Database Backup";
+            openFileDialog.Title = "Select .bak File";
+            openFileDialog.Filter = "BAK files (*.bak)|*.bak";
+            openFileDialog.FilterIndex = 1;
+            openFileDialog.RestoreDirectory = true;
+
+            // Display the OpenFileDialog
+            DialogResult result = openFileDialog.ShowDialog();
+
+            // Process the selected file
+            if (result == DialogResult.OK)
+            {
+                // Update the Label_ClickLocateBackup with the selected file's full path
+                Label_ClickLocateBackup.Text = openFileDialog.FileName;
+
+                // Optionally, you can display the selected .bak file's full path
+                Console.WriteLine("Selected .bak file: " + openFileDialog.FileName);
+            }
+        }
+
+        private void btn_SaveGoogle_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

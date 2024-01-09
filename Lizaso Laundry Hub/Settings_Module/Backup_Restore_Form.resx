@@ -121,13 +121,21 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="btn_SaveConfig.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="btn_SaveGoogle.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAALdJREFUOE9j
-        GDzg9+/fDUD8Goj3Q4XA4NevX+lAsdY/f/74A+nHQL4xVAoVABXcBSr4D8RnoEJgAOSXA+VmAXEoVP4d
-        VkNwGQAUjweKVSMZAMLXoNIIgGTA4x8/fqgDsRIyBoo3QuX/g9RCtSEAkgEEMW0NgNJ9QNyBhvuAcveA
-        NEED/KBCGAAoB4pKgl5wgQphAJAc7Q0AJpJMUELBgTOhBtyBakMAoEQDyBBiMFBtHVTbgAMGBgATcanC
-        ssm4zgAAAABJRU5ErkJggg==
+        iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAALGPC/xhBQAAAqBJREFUOE/d
+        kltIk2EcxgdZF+VFIHQZURF10VV33eVVImRmXQQJRThvpBCKCgRTIzFanlZOp9OQrdRpyzm/edw87OS2
+        8NAkLDow/Xb6tuk08/z0ftu7TyU70F098IOX//t/nvfAX/T/yAXXHkvYc8gWmU6ipb+Tg2X3WkKeSkuQ
+        XSGAsGEOzvQNh9iDtOX3KszNOVlVlJfMr81BtoMGRXGGfRifC+D9fNjPLS8fjxp+pZrHDzLH7QNjPnYq
+        4hzp/9IgLYfm3n2oc+/gdfEjdPQwcIS9eDvHYTISfAIgkVp/lKy44PLigndjfS0Mnq/zHtgqn8Kfni1g
+        vXANbYw2elv+6dS6s152dh7psg0sdTtM6FXUYPJ2PvrEN9FUKcULZSMa8wugKi0Xnk9YIf9b0QzsohGb
+        MoQ/7ScNtXwj82YIn3vT4MrLBGMybg3YETM3k0NjYuJPsIRYZ7yhTSfHuicdxuYswXRLVouL8haBDIkc
+        uglnfL+HRsVkC0wfixt5mphYYGNrtlDbGpjS4UBqUx+0oyOxfW5GS6NiMvj9iWQjEjfrJizQ9F/B6YYi
+        qOzDQihPmUaDs11juFqtxKBRD/1QN/Sjtlc0alO2kCeVGNxx43W5FCJlFU7IJLirVKC0XY0sRRXOq7RI
+        YUahaGmOTsLSog8GIwOVWrXzTJJBHuQDje4PSJM8RMJzEqySCSTVVqCgvg5rq6FoIA+/rpaU3KAR22Xm
+        2GJyW7giHMwBN0p0rbhUJ8W5mnJkKp6hTFkP/chglIEJO8GxoW5Xa8Vi8W4asV2zq9+S30VC3MeFWUzN
+        h7f9H0H4EvIS1hpgT5m83gPU+nOZ/e6jxGSKmwkRElBoABKsAc8Za5DN4OeWtv+5+NPts77DY17vPlr6
+        5yUSfQcSLG9WMl1T6AAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="btn_BackupDatabase.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
@@ -140,6 +148,15 @@
         WdxfYQj04n52zOMehi3uT6CjTcMsA32iDzNmkXaBZ8aoWtwvcGimB1iDIk+1PwzDXqFeGqyDPymZA4s7
         h6mHez5r0Ap4nxqNRrfFv4tdOhksY9C/MMkGDGnXeJbwdliseWFo51R9BPTqAvXSbJwp574A3IsA2rcH
         rtcAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="btn_SaveConfig.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAALdJREFUOE9j
+        GDzg9+/fDUD8Goj3Q4XA4NevX+lAsdY/f/74A+nHQL4xVAoVABXcBSr4D8RnoEJgAOSXA+VmAXEoVP4d
+        VkNwGQAUjweKVSMZAMLXoNIIgGTA4x8/fqgDsRIyBoo3QuX/g9RCtSEAkgEEMW0NgNJ9QNyBhvuAcveA
+        NEED/KBCGAAoB4pKgl5wgQphAJAc7Q0AJpJMUELBgTOhBtyBakMAoEQDyBBiMFBtHVTbgAMGBgATcanC
+        ssm4zgAAAABJRU5ErkJggg==
 </value>
   </data>
   <data name="image_server_loading.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">

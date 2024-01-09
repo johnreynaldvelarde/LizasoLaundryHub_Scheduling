@@ -24,7 +24,6 @@ namespace Lizaso_Laundry_Hub
             servicesForm = form;
         }
 
-
         // method to update the ui of in progress
         private async Task<List<In_Progress_Class>> RetrieveProgressListAsync()
         {
@@ -79,9 +78,8 @@ namespace Lizaso_Laundry_Hub
             }
             catch (Exception ex)
             {
-                // Handle the exception (log, display a message, etc.)
                 Console.WriteLine($"An error occurred: {ex.Message}");
-                return null; // or throw an exception if you prefer
+                return null; 
             }
         }
 
