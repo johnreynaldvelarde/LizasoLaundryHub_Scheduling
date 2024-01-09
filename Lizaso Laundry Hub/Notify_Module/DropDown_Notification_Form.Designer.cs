@@ -56,7 +56,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(5, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(517, 45);
+            this.panel1.Size = new System.Drawing.Size(464, 45);
             this.panel1.TabIndex = 0;
             // 
             // btnMarkasRead
@@ -67,7 +67,7 @@
             this.btnMarkasRead.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnMarkasRead.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnMarkasRead.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(131)))), ((int)(((byte)(186)))));
-            this.btnMarkasRead.Location = new System.Drawing.Point(375, 9);
+            this.btnMarkasRead.Location = new System.Drawing.Point(322, 9);
             this.btnMarkasRead.Name = "btnMarkasRead";
             this.btnMarkasRead.Size = new System.Drawing.Size(139, 28);
             this.btnMarkasRead.TabIndex = 4;
@@ -94,7 +94,7 @@
             this.panel2.Location = new System.Drawing.Point(5, 50);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(5);
-            this.panel2.Size = new System.Drawing.Size(517, 250);
+            this.panel2.Size = new System.Drawing.Size(464, 250);
             this.panel2.TabIndex = 1;
             // 
             // notification_flow_panel
@@ -103,7 +103,7 @@
             this.notification_flow_panel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.notification_flow_panel.Location = new System.Drawing.Point(5, 5);
             this.notification_flow_panel.Name = "notification_flow_panel";
-            this.notification_flow_panel.Size = new System.Drawing.Size(507, 240);
+            this.notification_flow_panel.Size = new System.Drawing.Size(454, 240);
             this.notification_flow_panel.TabIndex = 0;
             // 
             // DropDown_Notification_Form
@@ -111,11 +111,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(527, 305);
+            this.ClientSize = new System.Drawing.Size(474, 305);
             this.ControlBox = false;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MinimumSize = new System.Drawing.Size(480, 311);
             this.Name = "DropDown_Notification_Form";
             this.Padding = new System.Windows.Forms.Padding(5);
             this.Palette = this.kryptonPalette1;

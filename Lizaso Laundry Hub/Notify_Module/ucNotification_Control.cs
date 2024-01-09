@@ -24,8 +24,8 @@ namespace Lizaso_Laundry_Hub.Notify_Module
         public void ShowNotification()
         {
             int LogID = Log.LogID;
-            Label_Description.Text = Log.Description;
-            //Label_Time.Text = Log.LogDate.ToString();
+            
+            txt_Description.Text = Log.Description;
 
             // Calculate the time difference
             TimeSpan timeDifference = DateTime.Now - Log.LogDate;
@@ -35,7 +35,6 @@ namespace Lizaso_Laundry_Hub.Notify_Module
 
             // Update the Label_Time text using the variable
             Label_Time.Text = elapsedTime;
-
         }
 
         private string FormatElapsedTime(TimeSpan timeDifference)
@@ -57,6 +56,15 @@ namespace Lizaso_Laundry_Hub.Notify_Module
             else
             {
                 return Log.LogDate.ToString();
+            }
+        }
+
+        private int CalculateTextHeight(string text, Font font, int width)
+        {
+            using (Graphics g = this.CreateGraphics())
+            {
+                SizeF size = g.MeasureString(text, font, width);
+                return (int)size.Height;
             }
         }
     }

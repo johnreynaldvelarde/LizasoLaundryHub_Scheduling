@@ -28,7 +28,7 @@ namespace Lizaso_Laundry_Hub.Notify_Module
             if (this.panel_upper_noti != null)
             {
                 this.StartPosition = FormStartPosition.Manual;
-                this.Location = new Point(900, 50); // Coordinates of the button
+                this.Location = new Point(850, 50); // Coordinates of the button
             }
             else
             {
