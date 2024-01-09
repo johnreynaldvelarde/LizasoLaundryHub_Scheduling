@@ -31,15 +31,15 @@
             this.components = new System.ComponentModel.Container();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblTotalEarnings = new System.Windows.Forms.Label();
-            this.lblDaily = new System.Windows.Forms.Label();
-            this.lblWeekly = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.lblMonthly = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.lblWeekly = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblDaily = new System.Windows.Forms.Label();
+            this.lblTotalEarnings = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
             this.SuspendLayout();
@@ -68,96 +68,21 @@
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel1.Location = new System.Drawing.Point(5, 5);
             this.kryptonPanel1.Name = "kryptonPanel1";
-            this.kryptonPanel1.Size = new System.Drawing.Size(401, 268);
+            this.kryptonPanel1.Size = new System.Drawing.Size(397, 264);
             this.kryptonPanel1.StateCommon.Color1 = System.Drawing.Color.DarkSlateGray;
             this.kryptonPanel1.StateCommon.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(110)))), ((int)(((byte)(121)))));
             this.kryptonPanel1.StateCommon.ColorAngle = 45F;
             this.kryptonPanel1.StateCommon.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.Dashed;
             this.kryptonPanel1.TabIndex = 0;
             // 
-            // label1
+            // panel1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Poppins SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(14, 36);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(173, 37);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "Total Earnings:";
-            // 
-            // label2
-            // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(43, 85);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(122, 28);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Today\'s Sales:";
-            // 
-            // lblTotalEarnings
-            // 
-            this.lblTotalEarnings.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblTotalEarnings.AutoSize = true;
-            this.lblTotalEarnings.BackColor = System.Drawing.Color.Transparent;
-            this.lblTotalEarnings.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotalEarnings.ForeColor = System.Drawing.Color.White;
-            this.lblTotalEarnings.Location = new System.Drawing.Point(193, 36);
-            this.lblTotalEarnings.Name = "lblTotalEarnings";
-            this.lblTotalEarnings.Size = new System.Drawing.Size(69, 30);
-            this.lblTotalEarnings.TabIndex = 5;
-            this.lblTotalEarnings.Text = "PHP 0";
-            // 
-            // lblDaily
-            // 
-            this.lblDaily.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblDaily.AutoSize = true;
-            this.lblDaily.BackColor = System.Drawing.Color.Transparent;
-            this.lblDaily.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDaily.ForeColor = System.Drawing.Color.White;
-            this.lblDaily.Location = new System.Drawing.Point(171, 85);
-            this.lblDaily.Name = "lblDaily";
-            this.lblDaily.Size = new System.Drawing.Size(52, 21);
-            this.lblDaily.TabIndex = 6;
-            this.lblDaily.Text = "PHP 0";
-            // 
-            // lblWeekly
-            // 
-            this.lblWeekly.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblWeekly.AutoSize = true;
-            this.lblWeekly.BackColor = System.Drawing.Color.Transparent;
-            this.lblWeekly.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblWeekly.ForeColor = System.Drawing.Color.White;
-            this.lblWeekly.Location = new System.Drawing.Point(171, 122);
-            this.lblWeekly.Name = "lblWeekly";
-            this.lblWeekly.Size = new System.Drawing.Size(52, 21);
-            this.lblWeekly.TabIndex = 8;
-            this.lblWeekly.Text = "PHP 0";
-            // 
-            // label6
-            // 
-            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(43, 122);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(118, 28);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Weekly Sales:";
+            this.panel1.BackColor = System.Drawing.Color.Transparent;
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 240);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(397, 24);
+            this.panel1.TabIndex = 11;
             // 
             // lblMonthly
             // 
@@ -187,21 +112,96 @@
             this.label8.TabIndex = 9;
             this.label8.Text = "Monthly Sales:";
             // 
-            // panel1
+            // lblWeekly
             // 
-            this.panel1.BackColor = System.Drawing.Color.Transparent;
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 244);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(401, 24);
-            this.panel1.TabIndex = 11;
+            this.lblWeekly.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblWeekly.AutoSize = true;
+            this.lblWeekly.BackColor = System.Drawing.Color.Transparent;
+            this.lblWeekly.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblWeekly.ForeColor = System.Drawing.Color.White;
+            this.lblWeekly.Location = new System.Drawing.Point(171, 122);
+            this.lblWeekly.Name = "lblWeekly";
+            this.lblWeekly.Size = new System.Drawing.Size(52, 21);
+            this.lblWeekly.TabIndex = 8;
+            this.lblWeekly.Text = "PHP 0";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(43, 122);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(118, 28);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Weekly Sales:";
+            // 
+            // lblDaily
+            // 
+            this.lblDaily.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblDaily.AutoSize = true;
+            this.lblDaily.BackColor = System.Drawing.Color.Transparent;
+            this.lblDaily.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDaily.ForeColor = System.Drawing.Color.White;
+            this.lblDaily.Location = new System.Drawing.Point(171, 85);
+            this.lblDaily.Name = "lblDaily";
+            this.lblDaily.Size = new System.Drawing.Size(52, 21);
+            this.lblDaily.TabIndex = 6;
+            this.lblDaily.Text = "PHP 0";
+            // 
+            // lblTotalEarnings
+            // 
+            this.lblTotalEarnings.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.lblTotalEarnings.AutoSize = true;
+            this.lblTotalEarnings.BackColor = System.Drawing.Color.Transparent;
+            this.lblTotalEarnings.Font = new System.Drawing.Font("Segoe UI", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalEarnings.ForeColor = System.Drawing.Color.White;
+            this.lblTotalEarnings.Location = new System.Drawing.Point(193, 36);
+            this.lblTotalEarnings.Name = "lblTotalEarnings";
+            this.lblTotalEarnings.Size = new System.Drawing.Size(69, 30);
+            this.lblTotalEarnings.TabIndex = 5;
+            this.lblTotalEarnings.Text = "PHP 0";
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(43, 85);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(122, 28);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Today\'s Sales:";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Poppins SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(14, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(173, 37);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Total Earnings:";
             // 
             // Earnings_Widget_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(411, 278);
+            this.ClientSize = new System.Drawing.Size(407, 274);
             this.ControlBox = false;
             this.Controls.Add(this.kryptonPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

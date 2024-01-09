@@ -21,8 +21,8 @@ namespace Lizaso_Laundry_Hub.Receipt_Module
 
         private void Receipt_Form_Load(object sender, EventArgs e)
         {
-
             this.reportViewer1.RefreshReport();
+            //this.reportViewer1.
         }
 
         public bool GetPaymentDetails(string _userName, string _customerName, string _serviceType)
@@ -58,6 +58,11 @@ namespace Lizaso_Laundry_Hub.Receipt_Module
             reportViewer1.LocalReport.SetParameters(parameters);
             reportViewer1.RefreshReport();
             return true;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

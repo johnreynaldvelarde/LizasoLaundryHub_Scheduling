@@ -249,6 +249,12 @@
     <Compile Include="Receipt_Module\Receipt_Form.Designer.cs">
       <DependentUpon>Receipt_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Receipt_Module\WithAdditionalPayment_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receipt_Module\WithAdditionalPayment_Form.Designer.cs">
+      <DependentUpon>WithAdditionalPayment_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Regular_User_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -436,6 +442,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Receipt_Module\Receipt_Payment.rdlc" />
     <EmbeddedResource Include="Receipt_Module\Receipt_PaymentsWithAdditional.rdlc" />
+    <EmbeddedResource Include="Receipt_Module\WithAdditionalPayment_Form.resx">
+      <DependentUpon>WithAdditionalPayment_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Regular_User_Form.resx">
       <DependentUpon>Regular_User_Form.cs</DependentUpon>
     </EmbeddedResource>

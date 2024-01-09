@@ -131,7 +131,7 @@ namespace Lizaso_Laundry_Hub
                         frm.DisplayInPendingList();
 
                         //receipt.GetPaymentDetails(account.User_Name, _customerName, _serviceType);
-                        //receipt.ShowDialog();
+                        receipt.ShowDialog();
                     }
                     else
                     {
