@@ -22,7 +22,6 @@ namespace Lizaso_Laundry_Hub
 
         // << DASHBOARD FROM / Delivery Widget Form >>
         // method to get delivery list in table Delivires in database
-
         public bool Get_DashboardDeliveryList(DataGridView view_delivery_list)
         {
             try
@@ -71,6 +70,153 @@ namespace Lizaso_Laundry_Hub
                 return false;
             }
         }
+
+        // << DASHBOARD FORM / Earnings Widget Form >> 
+        // method to get the total earnings of the shop and seperate the daily, weekly, monthly
+        public bool Get_Transaction_Amount(Label totalEarnings, Label dailyEarnings, Label weeklyEarnings, Label monthlyEarnings)
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+                    connect.Open();
+
+                    // Calculate Total Earnings
+                    string totalQuery = "SELECT SUM(Amount) FROM Transactions";
+                    using (SqlCommand totalCmd = new SqlCommand(totalQuery, connect))
+                    {
+                        object totalResult = totalCmd.ExecuteScalar();
+                        if (totalResult != DBNull.Value)
+                        {
+                            totalEarnings.Text = $"PHP {Convert.ToDecimal(totalResult):N2}";
+                        }
+                        else
+                        {
+                            totalEarnings.Text = "PHP 0.00";
+                        }
+                    }
+
+                    // Calculate Daily Earnings
+                    string dailyQuery = "SELECT SUM(Amount) FROM Transactions WHERE Transaction_Date >= CAST(GETDATE() AS DATE)";
+                    using (SqlCommand dailyCmd = new SqlCommand(dailyQuery, connect))
+                    {
+                        object dailyResult = dailyCmd.ExecuteScalar();
+                        if (dailyResult != DBNull.Value)
+                        {
+                            dailyEarnings.Text = $"PHP {Convert.ToDecimal(dailyResult):N2}";
+                        }
+                        else
+                        {
+                            dailyEarnings.Text = "PHP 0.00";
+                        }
+                    }
+
+                    // Calculate Weekly Earnings
+                    string weeklyQuery = "SELECT SUM(Amount) FROM Transactions WHERE Transaction_Date >= DATEADD(WEEK, DATEDIFF(WEEK, 0, GETDATE()), 0)";
+                    using (SqlCommand weeklyCmd = new SqlCommand(weeklyQuery, connect))
+                    {
+                        object weeklyResult = weeklyCmd.ExecuteScalar();
+                        if (weeklyResult != DBNull.Value)
+                        {
+                            weeklyEarnings.Text = $"PHP {Convert.ToDecimal(weeklyResult):N2}";
+                        }
+                        else
+                        {
+                            weeklyEarnings.Text = "PHP 0.00";
+                        }
+                    }
+
+                    // Calculate Monthly Earnings
+                    string monthlyQuery = "SELECT SUM(Amount) FROM Transactions WHERE Transaction_Date >= DATEADD(MONTH, DATEDIFF(MONTH, 0, GETDATE()), 0)";
+                    using (SqlCommand monthlyCmd = new SqlCommand(monthlyQuery, connect))
+                    {
+                        object monthlyResult = monthlyCmd.ExecuteScalar();
+                        if (monthlyResult != DBNull.Value)
+                        {
+                            monthlyEarnings.Text = $"PHP {Convert.ToDecimal(monthlyResult):N2}";
+                        }
+                        else
+                        {
+                            monthlyEarnings.Text = "PHP 0.00";
+                        }
+                    }
+
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        // << DASHBOARD FORM / ActivityLog Widget Form >>
+        // method to get activity log even get another user activity log
+        public bool Get_AllUsersActivityLog(DataGridView view_activity_log)
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+                    connect.Open();
+
+                    string query = "SELECT Log_ID, User_Name, Log_Date, Description FROM Log_View ORDER BY Log_Date DESC";
+
+                    using (SqlCommand cmd = new SqlCommand(query, connect))
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        // Clear existing rows
+                        view_activity_log.Rows.Clear();
+
+                        while (reader.Read())
+                        {
+                            int logID = reader.GetInt32(reader.GetOrdinal("Log_ID"));
+                            string userName = reader.GetString(reader.GetOrdinal("User_Name"));
+                            DateTime logDate = reader.GetDateTime(reader.GetOrdinal("Log_Date"));
+                            string description = reader.GetString(reader.GetOrdinal("Description"));
+
+                            string formattedLogDate = FormatLogDate(logDate);
+
+                            view_activity_log.Rows.Add(0, logID, userName, formattedLogDate, description);
+                        }
+                    }
+
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        // instead showing the literal date in Log Date show minutes ago or hourse instead
+        private string FormatLogDate(DateTime logDate)
+        {
+            TimeSpan timeDifference = DateTime.Now - logDate;
+
+            if (timeDifference.TotalMinutes < 1)
+            {
+                return "Just now";
+            }
+            else if (timeDifference.TotalMinutes < 60)
+            {
+                int minutes = (int)timeDifference.TotalMinutes;
+                return $"{minutes} minute{(minutes != 1 ? "s" : "")} ago";
+            }
+            else if (timeDifference.TotalHours < 24)
+            {
+                int hours = (int)timeDifference.TotalHours;
+                return $"{hours} hour{(hours != 1 ? "s" : "")} ago";
+            }
+            else
+            {
+                return logDate.ToString(); // or any other formatting you prefer for older dates
+            }
+        }
+
 
         /*
         public void Get_DashboardDeliveryList(DataGridView view_delivery_list, bool inTransit, bool completed, bool canceled)
