@@ -39,5 +39,38 @@ namespace Lizaso_Laundry_Hub.Notify_Module
         {
             this.Dispose();
         }
+
+        public async Task DisplayNotificationLog()
+        {
+            //await 
+        }
+
+        public void LoadNotification()
+        {
+            try
+            {
+                notification_flow_panel.Controls.Clear();
+
+                //List<In_Reserved_Class> notify = getData.Get_RetrieveLaundryBookingsReserved();
+
+                /*
+                foreach (var noti in notify)
+                {
+                    ucNotification_Control reservedNotify = new ucNotification_Control(noti);
+                    notification_flow_panel.Controls.Add(reservedNotify);
+                }
+                */
+            }
+            catch (Exception ex)
+            {
+                // Log or display the exception
+                Console.WriteLine($"An error occurred in Load_Unit: {ex.Message}");
+            }
+        }
+
+        private void DropDown_Notification_Form_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

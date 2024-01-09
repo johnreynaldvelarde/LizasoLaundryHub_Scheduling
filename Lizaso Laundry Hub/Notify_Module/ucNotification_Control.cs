@@ -18,11 +18,14 @@ namespace Lizaso_Laundry_Hub.Notify_Module
         {
             InitializeComponent();
             Log = log;
+            ShowNotification();
         }
 
         public void ShowNotification()
         {
             int LogID = Log.LogID;
+            Label_Description.Text = Log.Description;
+            Label_Time.Text = Log.LogDate.ToString();
 
         }
     }
