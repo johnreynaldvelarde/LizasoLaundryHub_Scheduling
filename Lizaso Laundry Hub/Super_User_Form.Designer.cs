@@ -720,7 +720,7 @@
             this.kryptonButton11.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.kryptonButton11.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.kryptonButton11.Location = new System.Drawing.Point(1003, 20);
+            this.kryptonButton11.Location = new System.Drawing.Point(1017, 14);
             this.kryptonButton11.Name = "kryptonButton11";
             this.kryptonButton11.OverrideDefault.Back.Color1 = System.Drawing.Color.SteelBlue;
             this.kryptonButton11.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(70)))), ((int)(((byte)(40)))));
