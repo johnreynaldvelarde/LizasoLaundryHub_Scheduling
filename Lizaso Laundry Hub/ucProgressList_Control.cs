@@ -96,29 +96,6 @@ namespace Lizaso_Laundry_Hub
                 updateData.Update_BookingStatusToPending(bookingID, unitID);
                
             }
-            /*
-           Payment_Details_Form frm = new Payment_Details_Form(this.ParentForm as Services_Form);
-           frm.CustomerID = pen.CustomerID;
-           frm.UnitID = pen.UnitID;
-           frm.BookingID = pen.BookingID;
-           frm.txt_CustomerName.Text = pen.Customer_Name;
-           frm.txt_ServiceType.Text = pen.ServiceType;
-           frm.ShowDialog();
-           */
         }
-
-           /*
-        public void UpdateTimeLeft()
-        {
-            // Calculate the updated time left based on the current time
-            DateTime endTime = getData.RetrieveEndTimeFromDatabase(pen.BookingID); // Pass the BookingID
-            TimeSpan timeLeft = endTime - DateTime.Now;
-
-            // Display the updated time left
-            lblTimeLeft.Text = timeLeft.TotalMinutes > 0 ? $"{(int)timeLeft.TotalMinutes} minutes" : "0 minutes";
-            pen.Status = timeLeft.TotalMinutes > 0 ? "In-Progress" : "Pending";
-            lblStatus.Text = pen.Status;
-        }
-        */
     }
 }

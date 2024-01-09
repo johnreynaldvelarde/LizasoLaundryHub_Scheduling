@@ -28,5 +28,10 @@ namespace Lizaso_Laundry_Hub.Notify_Module
             Label_Time.Text = Log.LogDate.ToString();
 
         }
+
+        public void UpdateTimeAgo()
+        {
+
+        }
     }
 }
