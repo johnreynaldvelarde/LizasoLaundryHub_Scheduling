@@ -203,6 +203,12 @@
     <Compile Include="Notify_Module\Side_Notification_Form.Designer.cs">
       <DependentUpon>Side_Notification_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Notify_Module\ucNotification_Control.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Notify_Module\ucNotification_Control.Designer.cs">
+      <DependentUpon>ucNotification_Control.cs</DependentUpon>
+    </Compile>
     <Compile Include="Payments_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -380,6 +386,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Notify_Module\Side_Notification_Form.resx">
       <DependentUpon>Side_Notification_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Notify_Module\ucNotification_Control.resx">
+      <DependentUpon>ucNotification_Control.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Payments_Form.resx">
       <DependentUpon>Payments_Form.cs</DependentUpon>
