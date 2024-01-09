@@ -116,10 +116,10 @@
             // panelSection2
             // 
             this.panelSection2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelSection2.Location = new System.Drawing.Point(383, 0);
+            this.panelSection2.Location = new System.Drawing.Point(483, 0);
             this.panelSection2.Name = "panelSection2";
             this.panelSection2.Padding = new System.Windows.Forms.Padding(5);
-            this.panelSection2.Size = new System.Drawing.Size(355, 221);
+            this.panelSection2.Size = new System.Drawing.Size(255, 221);
             this.panelSection2.TabIndex = 3;
             // 
             // panelSection1
@@ -128,7 +128,7 @@
             this.panelSection1.Location = new System.Drawing.Point(0, 0);
             this.panelSection1.Name = "panelSection1";
             this.panelSection1.Padding = new System.Windows.Forms.Padding(5);
-            this.panelSection1.Size = new System.Drawing.Size(383, 221);
+            this.panelSection1.Size = new System.Drawing.Size(483, 221);
             this.panelSection1.TabIndex = 2;
             // 
             // Dashboard_Form

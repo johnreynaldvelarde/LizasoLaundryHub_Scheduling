@@ -66,6 +66,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Account_Class.cs" />
+    <Compile Include="Activity_Log_Class.cs" />
     <Compile Include="Additional_Payment_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -229,7 +230,6 @@
     <Compile Include="Schedule_Form.Designer.cs">
       <DependentUpon>Schedule_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="SelectUnitFormBridge.cs" />
     <Compile Include="Select_Unit_Form.cs">
       <SubType>Form</SubType>
     </Compile>

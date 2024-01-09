@@ -13,14 +13,22 @@ namespace Lizaso_Laundry_Hub
     public class RealTime_Data_Class
     {
         private DB_Connection database = new DB_Connection();
+        private Activity_Log_Class activityLogger;
         private readonly object updateBookingLockPending = new object();
         private readonly object checkBookingLockReserved = new object();
         private static SemaphoreSlim semaphore = new SemaphoreSlim(1, 1);
 
         private Services_Form servicesForm;
 
+        public RealTime_Data_Class()
+        {
+            // Initialize the ActivityLogger instance
+            activityLogger = new Activity_Log_Class();
+        }
+
         public RealTime_Data_Class(Services_Form form)
         {
+            activityLogger = new Activity_Log_Class();
             servicesForm = form;
         }
 
@@ -211,7 +219,8 @@ namespace Lizaso_Laundry_Hub
 
                             // Commit the transaction if both updates are successful
                             transaction.Commit();
-                            //servicesForm.Load_Unit();
+
+                            Get_CustomerNameUnitNameInProgress(bookingID, unitID);
                         }
                         catch (Exception)
                         {
@@ -223,6 +232,83 @@ namespace Lizaso_Laundry_Hub
                 }
             }
         }
+
+        // notification log when laundry bookings is finished the progress
+        public async Task Get_CustomerNameUnitNameInProgress(int BookingID, int UnitID)
+        {
+            string activityType = "Notifications";
+            string Description;
+
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+                    connect.Open();
+
+                    // Query to retrieve Customer_Name and Unit_Name based on Booking_ID and Unit_ID
+                    string query = @"SELECT C.Customer_Name, U.Unit_Name
+                             FROM Laundry_Bookings B
+                             INNER JOIN Customers C ON B.Customer_ID = C.Customer_ID
+                             INNER JOIN Laundry_Unit U ON B.Unit_ID = U.Unit_ID
+                             WHERE B.Booking_ID = @BookingID AND U.Unit_ID = @UnitID";
+
+                    using (SqlCommand cmd = new SqlCommand(query, connect))
+                    {
+                        cmd.Parameters.AddWithValue("@BookingID", BookingID);
+                        cmd.Parameters.AddWithValue("@UnitID", UnitID);
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                string customerName = reader["Customer_Name"].ToString();
+                                string unitName = reader["Unit_Name"].ToString();
+
+                                // Form the description string
+                                //Description = $"The laundry booking of {customerName} is finished, and {unitName} is now available.";
+                                Description = $"{customerName}'s laundry is done! {unitName} is ready for the next booking.";
+
+                                // Log the activity with the formed description
+                                activityLogger.LogActivity(activityType, Description);
+                            }
+                            else
+                            {
+                                // Handle the case where no matching records are found
+                                Description = "No matching records found for the provided Booking_ID and Unit_ID.";
+                                activityLogger.LogActivity(activityType, Description);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+            }
+        }
+
+        /*
+        public async Task Get_CustomerNameUnitName(int BookingID, int UnitID)
+        {
+            string activityType = "Notifications";
+            string Description = "The ";
+
+            try
+            {
+                activityLogger.LogActivity(activityType, Description);
+
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+
+                }
+
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+            }
+        }
+        */
 
 
         // reservation
@@ -241,11 +327,13 @@ namespace Lizaso_Laundry_Hub
         private async Task CheckReservedAsync(int reservedunitID)
         {
             await semaphore.WaitAsync();
+
             try
             {
                 using (SqlConnection connect = new SqlConnection(database.MyConnection()))
                 {
                     connect.Open();
+
                     SqlTransaction transaction = connect.BeginTransaction();
                     try
                     {
@@ -288,6 +376,13 @@ namespace Lizaso_Laundry_Hub
 
                         // Commit the transaction if everything is successful
                         transaction.Commit();
+
+                        foreach (int bookingID in reservedBookingIDs)
+                        {
+                            Get_CustomerNameUnitNameInReserved(bookingID, reservedunitID);
+                        }
+
+                        //Get_CustomerNameUnitNameInReserved(bookingID, reservedunitID);    
                     }
                     catch (Exception)
                     {
@@ -307,6 +402,61 @@ namespace Lizaso_Laundry_Hub
                 semaphore.Release();
             }
         }
+
+        // notification log when laundry bookings reserved is now in progress
+        public async Task Get_CustomerNameUnitNameInReserved(int BookingID, int UnitID)
+        {
+            string activityType = "Notifications";
+            string Description;
+
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+                    connect.Open();
+
+                    // Query to retrieve Customer_Name and Unit_Name based on Booking_ID and Unit_ID
+                    string query = @"SELECT C.Customer_Name, U.Unit_Name
+                             FROM Laundry_Bookings B
+                             INNER JOIN Customers C ON B.Customer_ID = C.Customer_ID
+                             INNER JOIN Laundry_Unit U ON B.Unit_ID = U.Unit_ID
+                             WHERE B.Booking_ID = @BookingID AND U.Unit_ID = @UnitID";
+
+                    using (SqlCommand cmd = new SqlCommand(query, connect))
+                    {
+                        cmd.Parameters.AddWithValue("@BookingID", BookingID);
+                        cmd.Parameters.AddWithValue("@UnitID", UnitID);
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                string customerName = reader["Customer_Name"].ToString();
+                                string unitName = reader["Unit_Name"].ToString();
+
+                                // Form the description string
+                                Description = $"{customerName}'s unit reserved is now in progress! {unitName} is currently occupied";
+
+                                // Log the activity with the formed description
+                                activityLogger.LogActivity(activityType, Description);
+                            }
+                            else
+                            {
+                                // Handle the case where no matching records are found
+                                Description = "No matching records found for the provided Booking_ID and Unit_ID.";
+                                activityLogger.LogActivity(activityType, Description);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred: {ex.Message}");
+            }
+        }
+
+
 
         /*
         private async Task CheckReservedAsync(int reservedunitID)
