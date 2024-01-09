@@ -1479,7 +1479,6 @@ namespace Lizaso_Laundry_Hub
         public List<NotificationLog> GetNotificationLog(int userID)
         {
             List<NotificationLog> notificationLogs = new List<NotificationLog>();
-
             try
             {
                 using (SqlConnection connect = new SqlConnection(database.MyConnection()))

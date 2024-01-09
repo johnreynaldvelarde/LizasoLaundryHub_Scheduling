@@ -25,13 +25,39 @@ namespace Lizaso_Laundry_Hub.Notify_Module
         {
             int LogID = Log.LogID;
             Label_Description.Text = Log.Description;
-            Label_Time.Text = Log.LogDate.ToString();
+            //Label_Time.Text = Log.LogDate.ToString();
+
+            // Calculate the time difference
+            TimeSpan timeDifference = DateTime.Now - Log.LogDate;
+
+            // Assign the result of the conditional expression to a variable
+            string elapsedTime = FormatElapsedTime(timeDifference);
+
+            // Update the Label_Time text using the variable
+            Label_Time.Text = elapsedTime;
 
         }
 
-        public void UpdateTimeAgo()
+        private string FormatElapsedTime(TimeSpan timeDifference)
         {
-
+            if (timeDifference.TotalMinutes < 1)
+            {
+                return "Just now";
+            }
+            else if (timeDifference.TotalMinutes < 60)
+            {
+                int minutes = (int)timeDifference.TotalMinutes;
+                return $"{minutes} minute{(minutes != 1 ? "s" : "")} ago";
+            }
+            else if (timeDifference.TotalHours < 24)
+            {
+                int hours = (int)timeDifference.TotalHours;
+                return $"{hours} hour{(hours != 1 ? "s" : "")} ago";
+            }
+            else
+            {
+                return Log.LogDate.ToString();
+            }
         }
     }
 }

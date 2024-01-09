@@ -14,10 +14,14 @@ namespace Lizaso_Laundry_Hub.Notify_Module
     public partial class DropDown_Notification_Form : KryptonForm
     {
         private Panel panel_upper_noti;
+        private Get_Data_Class getData;
+        private Account_Class account;
 
         public DropDown_Notification_Form(Panel panelUpperNoti)
         {
             InitializeComponent();
+            getData = new Get_Data_Class();
+            account = new Account_Class();
 
             this.panel_upper_noti = panelUpperNoti;
 
@@ -51,26 +55,24 @@ namespace Lizaso_Laundry_Hub.Notify_Module
             {
                 notification_flow_panel.Controls.Clear();
 
-                //List<In_Reserved_Class> notify = getData.Get_RetrieveLaundryBookingsReserved();
+                List<NotificationLog> notificationLogs = getData.GetNotificationLog(account.User_ID);
 
-                /*
-                foreach (var noti in notify)
+                foreach (var noti in notificationLogs)
                 {
                     ucNotification_Control reservedNotify = new ucNotification_Control(noti);
                     notification_flow_panel.Controls.Add(reservedNotify);
                 }
-                */
+                
             }
             catch (Exception ex)
             {
-                // Log or display the exception
                 Console.WriteLine($"An error occurred in Load_Unit: {ex.Message}");
             }
         }
 
         private void DropDown_Notification_Form_Load(object sender, EventArgs e)
         {
-
+            LoadNotification();
         }
     }
 }
