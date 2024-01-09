@@ -861,7 +861,6 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
-
         // << INVENTORY_FORM / Archive tab >>
         // update the item column archive to 1 to means its deleted item
         public bool Update_ItemToDeleted(int itemID)
@@ -905,12 +904,9 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
-
-
-
-
-        /*
-        public bool Delete_Unit(int unitID)
+        // << NOTIFY MODULE / Dropdown Notification Form >>
+        // method to mark as all read its change the status to false means in read
+        public bool Update_MarkasAllRead(int userID)
         {
             try
             {
@@ -918,31 +914,15 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    // Check the current status of the unit
-                    string getStatusQuery = "SELECT Unit_Status FROM Laundry_Unit WHERE Unit_ID = @UnitID";
-                    using (SqlCommand getStatusCommand = new SqlCommand(getStatusQuery, connect))
-                    {
-                        getStatusCommand.Parameters.AddWithValue("@UnitID", unitID);
-                        int unitStatus = Convert.ToInt32(getStatusCommand.ExecuteScalar());
+                    string updateQuery = "UPDATE Activity_Log SET Status = 0 WHERE User_ID = @UserID";
 
-                        // Check if the unit can be deleted (Available or Not Available)
-                        if (unitStatus == 0 || unitStatus == 3)
-                        {
-                            // Proceed with deletion
-                            string deleteQuery = "DELETE FROM Laundry_Unit WHERE Unit_ID = @UnitID";
-                            using (SqlCommand deleteCommand = new SqlCommand(deleteQuery, connect))
-                            {
-                                deleteCommand.Parameters.AddWithValue("@UnitID", unitID);
-                                deleteCommand.ExecuteNonQuery();
-                                return true;
-                            }
-                        }
-                        else
-                        {
-                            // Unit is Occupied, cannot delete
-                            MessageBox.Show("Cannot delete an occupied unit.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
+                    using (SqlCommand cmd = new SqlCommand(updateQuery, connect))
+                    {
+                        cmd.Parameters.AddWithValue("@UserID", userID);
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        return rowsAffected > 0;
                     }
                 }
             }
@@ -952,15 +932,9 @@ namespace Lizaso_Laundry_Hub
                 return false;
             }
         }
-        */
 
-
-
-
-
-
-        /*
-        public bool Update_BookingStatusToPending(int bookingID, int unitID)
+        // method when click by the user to read the notification then the status change to false means its reads by user
+        public bool Update_ItsReadbyUser(int logID)
         {
             try
             {
@@ -968,110 +942,16 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    // Update Booking_Status to Canceled in Laundry_Bookings table
-                    string updateBookingtoPending = "UPDATE Laundry_Bookings SET Bookings_Status = 'Pending' WHERE Booking_ID = @BookingID";
-                    using (SqlCommand cmdUpdateBooking = new SqlCommand(updateBookingtoPending, connect))
+                    string updateQuery = "UPDATE Activity_Log SET Status = 0 WHERE Log_ID = @LogID";
+
+                    using (SqlCommand cmd = new SqlCommand(updateQuery, connect))
                     {
-                        cmdUpdateBooking.Parameters.AddWithValue("@BookingID", bookingID);
-                        cmdUpdateBooking.ExecuteNonQuery();
+                        cmd.Parameters.AddWithValue("@LogID", logID);
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        return rowsAffected > 0;
                     }
-
-                    // Update Unit_Status to 0 in Laundry_Unit table
-                    string updateUnitQuery = "UPDATE Laundry_Unit SET Unit_Status = 0 WHERE Unit_ID = @UnitID";
-                    using (SqlCommand cmdUpdateUnit = new SqlCommand(updateUnitQuery, connect))
-                    {
-                        cmdUpdateUnit.Parameters.AddWithValue("@UnitID", unitID);
-                        cmdUpdateUnit.ExecuteNonQuery();
-                    }
-
-                    return true;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-        }
-        
-        public bool Update_BookingStatusToPending(int bookingID, int unitID)
-        {
-            try
-            {
-                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
-                {
-                    connect.Open();
-
-                    // Check if the Unit_ID is found in Laundry_Bookings with Bookings_Status equal to 'Reserved'
-                    string checkReservedStatusQuery = "SELECT COUNT(*) FROM Laundry_Bookings WHERE Unit_ID = @UnitID AND Bookings_Status = 'Reserved'";
-                    using (SqlCommand cmdCheckReservedStatus = new SqlCommand(checkReservedStatusQuery, connect))
-                    {
-                        cmdCheckReservedStatus.Parameters.AddWithValue("@UnitID", unitID);
-                        int reservedCount = (int)cmdCheckReservedStatus.ExecuteScalar();
-
-                        // Update Bookings_Status to 'In-Progress' when 'Reserved' is found
-                        if (reservedCount > 0)
-                        {
-                            string updateBookingStatusQuery = "UPDATE Laundry_Bookings SET Bookings_Status = 'In-Progress' WHERE Unit_ID = @UnitID AND Bookings_Status = 'Reserved'";
-                            using (SqlCommand cmdUpdateBookingStatus = new SqlCommand(updateBookingStatusQuery, connect))
-                            {
-                                cmdUpdateBookingStatus.Parameters.AddWithValue("@UnitID", unitID);
-                                cmdUpdateBookingStatus.ExecuteNonQuery();
-                            }
-                        }
-                        else
-                        {
-                            // Update Bookings_Status to 'Pending' when 'Reserved' is not found
-                            string updateBookingStatusQuery = "UPDATE Laundry_Bookings SET Bookings_Status = 'Pending' WHERE Unit_ID = @UnitID";
-                            using (SqlCommand cmdUpdateBookingStatus = new SqlCommand(updateBookingStatusQuery, connect))
-                            {
-                                cmdUpdateBookingStatus.Parameters.AddWithValue("@UnitID", unitID);
-                                cmdUpdateBookingStatus.ExecuteNonQuery();
-                            }
-                        }
-
-                        // Update Booking_Status to 'Pending' in Laundry_Bookings table
-                        string updateBookingtoPending = "UPDATE Laundry_Bookings SET Bookings_Status = 'Pending' WHERE Booking_ID = @BookingID";
-                        using (SqlCommand cmdUpdateBooking = new SqlCommand(updateBookingtoPending, connect))
-                        {
-                            cmdUpdateBooking.Parameters.AddWithValue("@BookingID", bookingID);
-                            cmdUpdateBooking.ExecuteNonQuery();
-                        }
-
-                        // Update Unit_Status based on the condition
-                        string updateUnitQuery = "UPDATE Laundry_Unit SET Unit_Status = @UnitStatus WHERE Unit_ID = @UnitID";
-                        using (SqlCommand cmdUpdateUnit = new SqlCommand(updateUnitQuery, connect))
-                        {
-                            cmdUpdateUnit.Parameters.AddWithValue("@UnitID", unitID);
-                            cmdUpdateUnit.Parameters.AddWithValue("@UnitStatus", (reservedCount > 0) ? 1 : 0);
-                            cmdUpdateUnit.ExecuteNonQuery();
-                        }
-                    }
-
-                    return true;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-        }
-
-        */
-
-
-        public bool Delete_Unit2()
-        {
-            try
-            {
-                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
-                {
-
-
-
-
-                    return true;
                 }
             }
             catch (Exception ex)

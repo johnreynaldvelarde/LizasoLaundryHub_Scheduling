@@ -92,8 +92,10 @@
             this.Controls.Add(this.txt_Description);
             this.Controls.Add(this.Label_Time);
             this.Controls.Add(this.panel1);
+            this.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Name = "ucNotification_Control";
             this.Size = new System.Drawing.Size(425, 92);
+            this.Click += new System.EventHandler(this.ucNotification_Control_Click);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);

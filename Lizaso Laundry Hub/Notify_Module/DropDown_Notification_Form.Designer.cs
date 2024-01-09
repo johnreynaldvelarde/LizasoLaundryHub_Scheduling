@@ -72,6 +72,7 @@
             this.btnMarkasRead.Size = new System.Drawing.Size(139, 28);
             this.btnMarkasRead.TabIndex = 4;
             this.btnMarkasRead.Text = "Mark as all read";
+            this.btnMarkasRead.Click += new System.EventHandler(this.btnMarkasRead_Click);
             // 
             // label1
             // 

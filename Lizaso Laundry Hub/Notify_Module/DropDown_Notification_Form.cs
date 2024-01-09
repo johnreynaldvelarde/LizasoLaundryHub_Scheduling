@@ -15,6 +15,7 @@ namespace Lizaso_Laundry_Hub.Notify_Module
     {
         private Panel panel_upper_noti;
         private Get_Data_Class getData;
+        private Update_Data_Class update;
         private Account_Class account;
 
         public DropDown_Notification_Form(Panel panelUpperNoti)
@@ -22,6 +23,7 @@ namespace Lizaso_Laundry_Hub.Notify_Module
             InitializeComponent();
             getData = new Get_Data_Class();
             account = new Account_Class();
+            update = new Update_Data_Class();
 
             this.panel_upper_noti = panelUpperNoti;
 
@@ -44,11 +46,42 @@ namespace Lizaso_Laundry_Hub.Notify_Module
             this.Dispose();
         }
 
-        public async Task DisplayNotificationLog()
+        public void LoadNotification()
         {
-            //await 
+            try
+            {
+                notification_flow_panel.Controls.Clear();
+
+                List<NotificationLog> notificationLogs = getData.GetNotificationLog(account.User_ID);
+
+                // Reverse the order of notificationLogs to display the latest at the top
+                notificationLogs.Reverse();
+
+                foreach (var noti in notificationLogs)
+                {
+                    ucNotification_Control reservedNotify = new ucNotification_Control(noti);
+                    notification_flow_panel.Controls.Add(reservedNotify);
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"An error occurred in LoadNotification: {ex.Message}");
+            }
         }
 
+        private void DropDown_Notification_Form_Load(object sender, EventArgs e)
+        {
+            LoadNotification();
+        }
+
+        private void btnMarkasRead_Click(object sender, EventArgs e)
+        {
+            update.Update_MarkasAllRead(account.User_ID);
+            LoadNotification();
+        }
+
+
+        /*
         public void LoadNotification()
         {
             try
@@ -69,10 +102,8 @@ namespace Lizaso_Laundry_Hub.Notify_Module
                 Console.WriteLine($"An error occurred in Load_Unit: {ex.Message}");
             }
         }
+        */
 
-        private void DropDown_Notification_Form_Load(object sender, EventArgs e)
-        {
-            LoadNotification();
-        }
+
     }
 }
