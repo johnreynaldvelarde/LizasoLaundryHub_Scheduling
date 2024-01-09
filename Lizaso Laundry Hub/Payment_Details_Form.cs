@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using ComponentFactory.Krypton.Toolkit;
+using Lizaso_Laundry_Hub.Receipt_Module;
 
 namespace Lizaso_Laundry_Hub
 {
@@ -20,6 +21,7 @@ namespace Lizaso_Laundry_Hub
         private Insert_Data_Class insertData;
         private Get_Data_Class getData;
         private Payments_Form frm;
+        private Receipt_Form receipt;
 
         public int UnitID;
         public int BookingID;
@@ -42,6 +44,7 @@ namespace Lizaso_Laundry_Hub
             insertData = new Insert_Data_Class();
             getData = new Get_Data_Class();
             payments = new Payments_Form();
+            receipt = new Receipt_Form();
           
         }
 
@@ -62,6 +65,8 @@ namespace Lizaso_Laundry_Hub
             }
             else
             {
+                string _customerName = txt_CustomerName.Text;
+                string _serviceType = txt_ServiceType.Text;
                 string paymentMethod = GetSelectedPaymentMethod();
                 string totalPaymentText = lblTotalPayment.Text;
                 totalPaymentText = totalPaymentText.Replace("PHP", "").Trim();
@@ -93,6 +98,9 @@ namespace Lizaso_Laundry_Hub
 
                             this.Dispose();
                             frm.DisplayInPendingList();
+
+                            //receipt.Get_AdditonalPayment(account.User_Name, _customerName, _serviceType, additionalItems);
+                            //receipt.ShowDialog();
                         }
                         else
                         {
@@ -121,6 +129,9 @@ namespace Lizaso_Laundry_Hub
 
                         this.Dispose();
                         frm.DisplayInPendingList();
+
+                        //receipt.GetPaymentDetails(account.User_Name, _customerName, _serviceType);
+                        //receipt.ShowDialog();
                     }
                     else
                     {
