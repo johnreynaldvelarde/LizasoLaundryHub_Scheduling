@@ -13,14 +13,15 @@ namespace Lizaso_Laundry_Hub.Notify_Module
     public partial class ucNotification_Control : UserControl
     {
         public NotificationLog Log { get; private set; }
-        private DropDown_Form drop;
+        private DropDown_Notification_Form dropForm;
         private Update_Data_Class updateData;
 
-        public ucNotification_Control(NotificationLog log)
+        public ucNotification_Control(NotificationLog log, DropDown_Notification_Form dropForm )
         {
             InitializeComponent();
             updateData = new Update_Data_Class();
             Log = log;
+            this.dropForm = dropForm;
             ShowNotification();
         }
 
@@ -74,6 +75,7 @@ namespace Lizaso_Laundry_Hub.Notify_Module
         private void ucNotification_Control_Click(object sender, EventArgs e)
         {
             updateData.Update_ItsReadbyUser(Log.LogID);
+            dropForm.LoadNotification();
         }
 
     }

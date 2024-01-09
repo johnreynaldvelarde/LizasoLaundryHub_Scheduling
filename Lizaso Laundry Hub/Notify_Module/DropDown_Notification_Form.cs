@@ -59,7 +59,7 @@ namespace Lizaso_Laundry_Hub.Notify_Module
 
                 foreach (var noti in notificationLogs)
                 {
-                    ucNotification_Control reservedNotify = new ucNotification_Control(noti);
+                    ucNotification_Control reservedNotify = new ucNotification_Control(noti, this);
                     notification_flow_panel.Controls.Add(reservedNotify);
                 }
             }
