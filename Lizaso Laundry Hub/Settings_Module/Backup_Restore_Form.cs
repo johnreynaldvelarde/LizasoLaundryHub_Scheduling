@@ -504,7 +504,7 @@ namespace Lizaso_Laundry_Hub.Settings_Module
             if (result == DialogResult.OK)
             {
                 // Update the Label_ClickLocateBackup with the selected file's full path
-                Label_ClickLocateBackup.Text = openFileDialog.FileName;
+                btn_LocateFileForDrive.Text = openFileDialog.FileName;
 
                 // Optionally, you can display the selected .bak file's full path
                 Console.WriteLine("Selected .bak file: " + openFileDialog.FileName);

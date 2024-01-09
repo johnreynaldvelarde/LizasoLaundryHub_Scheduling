@@ -38,12 +38,12 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.settings_main_panel_dock = new System.Windows.Forms.Panel();
             this.side_panel = new System.Windows.Forms.Panel();
+            this.btn_DashboardPreferences = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btn_DataTimeConfig = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btn_BackUpConfig = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btn_LaundryUnit_Config = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.panel5 = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
-            this.btn_DashboardPreferences = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -133,11 +133,81 @@
             this.side_panel.Size = new System.Drawing.Size(330, 440);
             this.side_panel.TabIndex = 3;
             // 
+            // btn_DashboardPreferences
+            // 
+            this.btn_DashboardPreferences.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.btn_DashboardPreferences.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_DashboardPreferences.Location = new System.Drawing.Point(12, 82);
+            this.btn_DashboardPreferences.Name = "btn_DashboardPreferences";
+            this.btn_DashboardPreferences.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.btn_DashboardPreferences.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(90)))), ((int)(((byte)(140)))));
+            this.btn_DashboardPreferences.OverrideDefault.Back.ColorAngle = 45F;
+            this.btn_DashboardPreferences.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btn_DashboardPreferences.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btn_DashboardPreferences.OverrideDefault.Border.ColorAngle = 45F;
+            this.btn_DashboardPreferences.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_DashboardPreferences.OverrideDefault.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btn_DashboardPreferences.OverrideDefault.Border.Rounding = 5;
+            this.btn_DashboardPreferences.OverrideDefault.Border.Width = 1;
+            this.btn_DashboardPreferences.OverrideFocus.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.btn_DashboardPreferences.OverrideFocus.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(90)))), ((int)(((byte)(140)))));
+            this.btn_DashboardPreferences.OverrideFocus.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.btn_DashboardPreferences.OverrideFocus.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btn_DashboardPreferences.OverrideFocus.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_DashboardPreferences.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.btn_DashboardPreferences.Size = new System.Drawing.Size(303, 60);
+            this.btn_DashboardPreferences.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(160)))), ((int)(((byte)(130)))));
+            this.btn_DashboardPreferences.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(120)))), ((int)(((byte)(90)))));
+            this.btn_DashboardPreferences.StateCommon.Back.ColorAngle = 45F;
+            this.btn_DashboardPreferences.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(140)))), ((int)(((byte)(110)))));
+            this.btn_DashboardPreferences.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
+            this.btn_DashboardPreferences.StateCommon.Border.ColorAngle = 45F;
+            this.btn_DashboardPreferences.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_DashboardPreferences.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btn_DashboardPreferences.StateCommon.Border.Rounding = 5;
+            this.btn_DashboardPreferences.StateCommon.Border.Width = 1;
+            this.btn_DashboardPreferences.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btn_DashboardPreferences.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.btn_DashboardPreferences.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_DashboardPreferences.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(140)))), ((int)(((byte)(110)))));
+            this.btn_DashboardPreferences.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(100)))), ((int)(((byte)(70)))));
+            this.btn_DashboardPreferences.StatePressed.Back.ColorAngle = 135F;
+            this.btn_DashboardPreferences.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(100)))), ((int)(((byte)(80)))));
+            this.btn_DashboardPreferences.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
+            this.btn_DashboardPreferences.StatePressed.Border.ColorAngle = 135F;
+            this.btn_DashboardPreferences.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_DashboardPreferences.StatePressed.Border.Rounding = 5;
+            this.btn_DashboardPreferences.StatePressed.Border.Width = 1;
+            this.btn_DashboardPreferences.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(120)))), ((int)(((byte)(90)))));
+            this.btn_DashboardPreferences.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(160)))), ((int)(((byte)(130)))));
+            this.btn_DashboardPreferences.StateTracking.Back.ColorAngle = 45F;
+            this.btn_DashboardPreferences.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(120)))), ((int)(((byte)(90)))));
+            this.btn_DashboardPreferences.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(160)))), ((int)(((byte)(130)))));
+            this.btn_DashboardPreferences.StateTracking.Border.ColorAngle = 45F;
+            this.btn_DashboardPreferences.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_DashboardPreferences.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btn_DashboardPreferences.StateTracking.Border.Rounding = 5;
+            this.btn_DashboardPreferences.StateTracking.Border.Width = 1;
+            this.btn_DashboardPreferences.TabIndex = 24;
+            this.btn_DashboardPreferences.Values.Image = ((System.Drawing.Image)(resources.GetObject("btn_DashboardPreferences.Values.Image")));
+            this.btn_DashboardPreferences.Values.Text = "Dashboard Preferences";
+            this.btn_DashboardPreferences.Click += new System.EventHandler(this.btn_DashboardPreferences_Click);
+            // 
             // btn_DataTimeConfig
             // 
             this.btn_DataTimeConfig.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_DataTimeConfig.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_DataTimeConfig.Location = new System.Drawing.Point(12, 167);
+            this.btn_DataTimeConfig.Location = new System.Drawing.Point(12, 236);
             this.btn_DataTimeConfig.Name = "btn_DataTimeConfig";
             this.btn_DataTimeConfig.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btn_DataTimeConfig.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(90)))), ((int)(((byte)(140)))));
@@ -207,7 +277,7 @@
             // 
             this.btn_BackUpConfig.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btn_BackUpConfig.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_BackUpConfig.Location = new System.Drawing.Point(12, 85);
+            this.btn_BackUpConfig.Location = new System.Drawing.Point(12, 159);
             this.btn_BackUpConfig.Name = "btn_BackUpConfig";
             this.btn_BackUpConfig.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btn_BackUpConfig.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(90)))), ((int)(((byte)(140)))));
@@ -363,75 +433,6 @@
             this.lblTitle.Size = new System.Drawing.Size(226, 37);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Super User Account";
-            // 
-            // btn_DashboardPreferences
-            // 
-            this.btn_DashboardPreferences.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_DashboardPreferences.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_DashboardPreferences.Location = new System.Drawing.Point(12, 249);
-            this.btn_DashboardPreferences.Name = "btn_DashboardPreferences";
-            this.btn_DashboardPreferences.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.btn_DashboardPreferences.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(90)))), ((int)(((byte)(140)))));
-            this.btn_DashboardPreferences.OverrideDefault.Back.ColorAngle = 45F;
-            this.btn_DashboardPreferences.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btn_DashboardPreferences.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.btn_DashboardPreferences.OverrideDefault.Border.ColorAngle = 45F;
-            this.btn_DashboardPreferences.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btn_DashboardPreferences.OverrideDefault.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btn_DashboardPreferences.OverrideDefault.Border.Rounding = 5;
-            this.btn_DashboardPreferences.OverrideDefault.Border.Width = 1;
-            this.btn_DashboardPreferences.OverrideFocus.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.btn_DashboardPreferences.OverrideFocus.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(90)))), ((int)(((byte)(140)))));
-            this.btn_DashboardPreferences.OverrideFocus.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btn_DashboardPreferences.OverrideFocus.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.btn_DashboardPreferences.OverrideFocus.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btn_DashboardPreferences.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.btn_DashboardPreferences.Size = new System.Drawing.Size(303, 60);
-            this.btn_DashboardPreferences.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(160)))), ((int)(((byte)(130)))));
-            this.btn_DashboardPreferences.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(120)))), ((int)(((byte)(90)))));
-            this.btn_DashboardPreferences.StateCommon.Back.ColorAngle = 45F;
-            this.btn_DashboardPreferences.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(140)))), ((int)(((byte)(110)))));
-            this.btn_DashboardPreferences.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.btn_DashboardPreferences.StateCommon.Border.ColorAngle = 45F;
-            this.btn_DashboardPreferences.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btn_DashboardPreferences.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btn_DashboardPreferences.StateCommon.Border.Rounding = 5;
-            this.btn_DashboardPreferences.StateCommon.Border.Width = 1;
-            this.btn_DashboardPreferences.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btn_DashboardPreferences.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.btn_DashboardPreferences.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_DashboardPreferences.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(140)))), ((int)(((byte)(110)))));
-            this.btn_DashboardPreferences.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(100)))), ((int)(((byte)(70)))));
-            this.btn_DashboardPreferences.StatePressed.Back.ColorAngle = 135F;
-            this.btn_DashboardPreferences.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(100)))), ((int)(((byte)(80)))));
-            this.btn_DashboardPreferences.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.btn_DashboardPreferences.StatePressed.Border.ColorAngle = 135F;
-            this.btn_DashboardPreferences.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btn_DashboardPreferences.StatePressed.Border.Rounding = 5;
-            this.btn_DashboardPreferences.StatePressed.Border.Width = 1;
-            this.btn_DashboardPreferences.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(120)))), ((int)(((byte)(90)))));
-            this.btn_DashboardPreferences.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(160)))), ((int)(((byte)(130)))));
-            this.btn_DashboardPreferences.StateTracking.Back.ColorAngle = 45F;
-            this.btn_DashboardPreferences.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(120)))), ((int)(((byte)(90)))));
-            this.btn_DashboardPreferences.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(160)))), ((int)(((byte)(130)))));
-            this.btn_DashboardPreferences.StateTracking.Border.ColorAngle = 45F;
-            this.btn_DashboardPreferences.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btn_DashboardPreferences.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btn_DashboardPreferences.StateTracking.Border.Rounding = 5;
-            this.btn_DashboardPreferences.StateTracking.Border.Width = 1;
-            this.btn_DashboardPreferences.TabIndex = 24;
-            this.btn_DashboardPreferences.Values.Image = ((System.Drawing.Image)(resources.GetObject("kryptonButton1.Values.Image")));
-            this.btn_DashboardPreferences.Values.Text = "Dashboard Preferences";
             // 
             // Settings_Form
             // 

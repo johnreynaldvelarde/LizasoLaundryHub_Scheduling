@@ -55,6 +55,12 @@ namespace Lizaso_Laundry_Hub
             openChildPanel(new Settings_Module.LaundryUnit_Configuration_Form());
         }
 
+        private void btn_DashboardPreferences_Click(object sender, EventArgs e)
+        {
+            lblTitle.Text = "Dashboard Preferences";
+            openChildPanel(new Settings_Module.Dashboard_Preferences());
+        }
+
         private void btn_BackUpConfig_Click(object sender, EventArgs e)
         {
             lblTitle.Text = "Backup and Restore Configuration";
@@ -64,9 +70,10 @@ namespace Lizaso_Laundry_Hub
         private void btn_DataTimeConfig_Click(object sender, EventArgs e)
         {
             lblTitle.Text = "Date and Time Configuration";
+            openChildPanel(new Settings_Module.DateTime_Configuration());
             //Notify_Module.Side_Notification_Form notify = new Notify_Module.Side_Notification_Form();
             //notify.Show();
-            //openChildPanel(new Settings_Module.DateTime_Configuration());
+
         }
 
         private void Settings_Form_Load(object sender, EventArgs e)
@@ -74,5 +81,7 @@ namespace Lizaso_Laundry_Hub
             lblTitle.Text = "Laundry Unit Configuration";
             openChildPanel(new Settings_Module.LaundryUnit_Configuration_Form());
         }
+
+        
     }
 }

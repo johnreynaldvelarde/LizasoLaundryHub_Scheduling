@@ -99,7 +99,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(10, 10);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(848, 448);
+            this.panel2.Size = new System.Drawing.Size(844, 444);
             this.panel2.TabIndex = 2;
             // 
             // tab_BackupRestore
@@ -114,7 +114,7 @@
             this.tab_BackupRestore.Name = "tab_BackupRestore";
             this.tab_BackupRestore.Padding = new System.Drawing.Point(20, 3);
             this.tab_BackupRestore.SelectedIndex = 0;
-            this.tab_BackupRestore.Size = new System.Drawing.Size(848, 448);
+            this.tab_BackupRestore.Size = new System.Drawing.Size(844, 444);
             this.tab_BackupRestore.TabIndex = 5;
             this.tab_BackupRestore.SelectedIndexChanged += new System.EventHandler(this.tab_BackupRestore_SelectedIndexChanged);
             // 
@@ -125,7 +125,7 @@
             this.tabPage1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.Location = new System.Drawing.Point(4, 32);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(840, 412);
+            this.tabPage1.Size = new System.Drawing.Size(836, 408);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Manually Backup Configuration";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -145,14 +145,14 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 169);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(840, 243);
+            this.panel4.Size = new System.Drawing.Size(836, 239);
             this.panel4.TabIndex = 16;
             // 
             // btn_SaveGoogle
             // 
             this.btn_SaveGoogle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_SaveGoogle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_SaveGoogle.Location = new System.Drawing.Point(668, 150);
+            this.btn_SaveGoogle.Location = new System.Drawing.Point(664, 146);
             this.btn_SaveGoogle.Name = "btn_SaveGoogle";
             this.btn_SaveGoogle.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
             this.btn_SaveGoogle.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
@@ -307,14 +307,14 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(840, 1);
+            this.panel5.Size = new System.Drawing.Size(836, 1);
             this.panel5.TabIndex = 30;
             // 
             // btn_BackupDatabase
             // 
             this.btn_BackupDatabase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_BackupDatabase.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_BackupDatabase.Location = new System.Drawing.Point(668, 194);
+            this.btn_BackupDatabase.Location = new System.Drawing.Point(664, 190);
             this.btn_BackupDatabase.Name = "btn_BackupDatabase";
             this.btn_BackupDatabase.OverrideDefault.Back.Color1 = System.Drawing.Color.SteelBlue;
             this.btn_BackupDatabase.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(124)))), ((int)(((byte)(93)))));
@@ -386,14 +386,14 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(840, 169);
+            this.panel8.Size = new System.Drawing.Size(836, 169);
             this.panel8.TabIndex = 9;
             // 
             // btn_SaveConfig
             // 
             this.btn_SaveConfig.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_SaveConfig.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_SaveConfig.Location = new System.Drawing.Point(668, 126);
+            this.btn_SaveConfig.Location = new System.Drawing.Point(664, 126);
             this.btn_SaveConfig.Name = "btn_SaveConfig";
             this.btn_SaveConfig.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
             this.btn_SaveConfig.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
@@ -550,7 +550,7 @@
             this.tabPage2.Controls.Add(this.btn_RestoreDatabase);
             this.tabPage2.Location = new System.Drawing.Point(4, 32);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(844, 371);
+            this.tabPage2.Size = new System.Drawing.Size(840, 412);
             this.tabPage2.TabIndex = 4;
             this.tabPage2.Text = "Restore Configuration";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -788,7 +788,7 @@
             this.tabPage3.Controls.Add(this.btn_SaveAutoBackupConfig);
             this.tabPage3.Location = new System.Drawing.Point(4, 32);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(844, 371);
+            this.tabPage3.Size = new System.Drawing.Size(840, 412);
             this.tabPage3.TabIndex = 5;
             this.tabPage3.Text = "Automatically Backup Configuration";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -934,7 +934,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(868, 468);
+            this.ClientSize = new System.Drawing.Size(864, 464);
             this.ControlBox = false;
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
