@@ -17,5 +17,10 @@ namespace Lizaso_Laundry_Hub.Settings_Module
         {
             InitializeComponent();
         }
+
+        private void btn_SaveConfigRestore_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

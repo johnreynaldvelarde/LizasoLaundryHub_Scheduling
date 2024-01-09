@@ -55,6 +55,9 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_RestoreDatabase = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.btn_SaveConfigRestore = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.image_server_loading = new System.Windows.Forms.PictureBox();
             this.Label_ClickLocateBackup = new System.Windows.Forms.Label();
             this.txt_ServerName = new System.Windows.Forms.TextBox();
@@ -63,24 +66,25 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.btn_SaveConfigRestore = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btn_RestoreDatabase = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.btn_SaveAutoBackupConfig = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.cbYearlyBackup = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
             this.cbMonthlyBackup = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
             this.cbWeeklyBackup = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
             this.cbDailyBackup = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
             this.cbBackupLogout = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.btn_SaveAutoBackupConfig = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.panel2.SuspendLayout();
             this.tab_BackupRestore.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel8.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.image_server_loading)).BeginInit();
             this.tabPage3.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // kryptonPalette1
@@ -99,7 +103,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(10, 10);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(844, 444);
+            this.panel2.Size = new System.Drawing.Size(832, 432);
             this.panel2.TabIndex = 2;
             // 
             // tab_BackupRestore
@@ -114,7 +118,7 @@
             this.tab_BackupRestore.Name = "tab_BackupRestore";
             this.tab_BackupRestore.Padding = new System.Drawing.Point(20, 3);
             this.tab_BackupRestore.SelectedIndex = 0;
-            this.tab_BackupRestore.Size = new System.Drawing.Size(844, 444);
+            this.tab_BackupRestore.Size = new System.Drawing.Size(832, 432);
             this.tab_BackupRestore.TabIndex = 5;
             this.tab_BackupRestore.SelectedIndexChanged += new System.EventHandler(this.tab_BackupRestore_SelectedIndexChanged);
             // 
@@ -125,7 +129,7 @@
             this.tabPage1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabPage1.Location = new System.Drawing.Point(4, 32);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Size = new System.Drawing.Size(836, 408);
+            this.tabPage1.Size = new System.Drawing.Size(824, 396);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Manually Backup Configuration";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -145,14 +149,14 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 169);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(836, 239);
+            this.panel4.Size = new System.Drawing.Size(824, 227);
             this.panel4.TabIndex = 16;
             // 
             // btn_SaveGoogle
             // 
             this.btn_SaveGoogle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_SaveGoogle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_SaveGoogle.Location = new System.Drawing.Point(664, 146);
+            this.btn_SaveGoogle.Location = new System.Drawing.Point(652, 134);
             this.btn_SaveGoogle.Name = "btn_SaveGoogle";
             this.btn_SaveGoogle.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
             this.btn_SaveGoogle.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
@@ -307,14 +311,14 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(836, 1);
+            this.panel5.Size = new System.Drawing.Size(824, 1);
             this.panel5.TabIndex = 30;
             // 
             // btn_BackupDatabase
             // 
             this.btn_BackupDatabase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_BackupDatabase.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_BackupDatabase.Location = new System.Drawing.Point(664, 190);
+            this.btn_BackupDatabase.Location = new System.Drawing.Point(652, 178);
             this.btn_BackupDatabase.Name = "btn_BackupDatabase";
             this.btn_BackupDatabase.OverrideDefault.Back.Color1 = System.Drawing.Color.SteelBlue;
             this.btn_BackupDatabase.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(124)))), ((int)(((byte)(93)))));
@@ -386,14 +390,14 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel8.Location = new System.Drawing.Point(0, 0);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(836, 169);
+            this.panel8.Size = new System.Drawing.Size(824, 169);
             this.panel8.TabIndex = 9;
             // 
             // btn_SaveConfig
             // 
             this.btn_SaveConfig.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_SaveConfig.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_SaveConfig.Location = new System.Drawing.Point(664, 126);
+            this.btn_SaveConfig.Location = new System.Drawing.Point(652, 126);
             this.btn_SaveConfig.Name = "btn_SaveConfig";
             this.btn_SaveConfig.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
             this.btn_SaveConfig.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
@@ -538,6 +542,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.panel1);
             this.tabPage2.Controls.Add(this.image_server_loading);
             this.tabPage2.Controls.Add(this.Label_ClickLocateBackup);
             this.tabPage2.Controls.Add(this.txt_ServerName);
@@ -546,21 +551,157 @@
             this.tabPage2.Controls.Add(this.label4);
             this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Controls.Add(this.label12);
-            this.tabPage2.Controls.Add(this.btn_SaveConfigRestore);
-            this.tabPage2.Controls.Add(this.btn_RestoreDatabase);
             this.tabPage2.Location = new System.Drawing.Point(4, 32);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Size = new System.Drawing.Size(840, 412);
+            this.tabPage2.Size = new System.Drawing.Size(828, 400);
             this.tabPage2.TabIndex = 4;
             this.tabPage2.Text = "Restore Configuration";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.btn_RestoreDatabase);
+            this.panel1.Controls.Add(this.btn_SaveConfigRestore);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel1.Location = new System.Drawing.Point(0, 350);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(828, 50);
+            this.panel1.TabIndex = 37;
+            // 
+            // btn_RestoreDatabase
+            // 
+            this.btn_RestoreDatabase.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_RestoreDatabase.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_RestoreDatabase.Location = new System.Drawing.Point(665, 6);
+            this.btn_RestoreDatabase.Name = "btn_RestoreDatabase";
+            this.btn_RestoreDatabase.OverrideDefault.Back.Color1 = System.Drawing.Color.SteelBlue;
+            this.btn_RestoreDatabase.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(124)))), ((int)(((byte)(93)))));
+            this.btn_RestoreDatabase.OverrideDefault.Back.ColorAngle = 45F;
+            this.btn_RestoreDatabase.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(185)))), ((int)(((byte)(200)))));
+            this.btn_RestoreDatabase.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
+            this.btn_RestoreDatabase.OverrideDefault.Border.ColorAngle = 45F;
+            this.btn_RestoreDatabase.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_RestoreDatabase.OverrideDefault.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btn_RestoreDatabase.OverrideDefault.Border.Rounding = 20;
+            this.btn_RestoreDatabase.OverrideDefault.Border.Width = 1;
+            this.btn_RestoreDatabase.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.btn_RestoreDatabase.Size = new System.Drawing.Size(160, 38);
+            this.btn_RestoreDatabase.StateCommon.Back.Color1 = System.Drawing.Color.SteelBlue;
+            this.btn_RestoreDatabase.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(124)))), ((int)(((byte)(93)))));
+            this.btn_RestoreDatabase.StateCommon.Back.ColorAngle = 45F;
+            this.btn_RestoreDatabase.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(185)))), ((int)(((byte)(200)))));
+            this.btn_RestoreDatabase.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
+            this.btn_RestoreDatabase.StateCommon.Border.ColorAngle = 45F;
+            this.btn_RestoreDatabase.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_RestoreDatabase.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btn_RestoreDatabase.StateCommon.Border.Rounding = 20;
+            this.btn_RestoreDatabase.StateCommon.Border.Width = 1;
+            this.btn_RestoreDatabase.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btn_RestoreDatabase.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.btn_RestoreDatabase.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_RestoreDatabase.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(90)))), ((int)(((byte)(150)))));
+            this.btn_RestoreDatabase.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(70)))), ((int)(((byte)(40)))));
+            this.btn_RestoreDatabase.StatePressed.Back.ColorAngle = 135F;
+            this.btn_RestoreDatabase.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(90)))), ((int)(((byte)(150)))));
+            this.btn_RestoreDatabase.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(70)))), ((int)(((byte)(40)))));
+            this.btn_RestoreDatabase.StatePressed.Border.ColorAngle = 135F;
+            this.btn_RestoreDatabase.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_RestoreDatabase.StatePressed.Border.Rounding = 20;
+            this.btn_RestoreDatabase.StatePressed.Border.Width = 1;
+            this.btn_RestoreDatabase.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(124)))), ((int)(((byte)(93)))));
+            this.btn_RestoreDatabase.StateTracking.Back.Color2 = System.Drawing.Color.SteelBlue;
+            this.btn_RestoreDatabase.StateTracking.Back.ColorAngle = 45F;
+            this.btn_RestoreDatabase.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(185)))), ((int)(((byte)(200)))));
+            this.btn_RestoreDatabase.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
+            this.btn_RestoreDatabase.StateTracking.Border.ColorAngle = 45F;
+            this.btn_RestoreDatabase.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_RestoreDatabase.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btn_RestoreDatabase.StateTracking.Border.Rounding = 20;
+            this.btn_RestoreDatabase.StateTracking.Border.Width = 1;
+            this.btn_RestoreDatabase.TabIndex = 27;
+            this.btn_RestoreDatabase.Values.Image = ((System.Drawing.Image)(resources.GetObject("btn_RestoreDatabase.Values.Image")));
+            this.btn_RestoreDatabase.Values.Text = "  Restore Database";
+            this.btn_RestoreDatabase.Click += new System.EventHandler(this.btn_RestoreDatabase_Click);
+            // 
+            // btn_SaveConfigRestore
+            // 
+            this.btn_SaveConfigRestore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_SaveConfigRestore.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_SaveConfigRestore.Location = new System.Drawing.Point(499, 6);
+            this.btn_SaveConfigRestore.Name = "btn_SaveConfigRestore";
+            this.btn_SaveConfigRestore.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btn_SaveConfigRestore.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btn_SaveConfigRestore.OverrideDefault.Back.ColorAngle = 45F;
+            this.btn_SaveConfigRestore.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(147)))), ((int)(((byte)(244)))));
+            this.btn_SaveConfigRestore.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btn_SaveConfigRestore.OverrideDefault.Border.ColorAngle = 45F;
+            this.btn_SaveConfigRestore.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_SaveConfigRestore.OverrideDefault.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btn_SaveConfigRestore.OverrideDefault.Border.Rounding = 20;
+            this.btn_SaveConfigRestore.OverrideDefault.Border.Width = 1;
+            this.btn_SaveConfigRestore.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.btn_SaveConfigRestore.Size = new System.Drawing.Size(160, 38);
+            this.btn_SaveConfigRestore.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btn_SaveConfigRestore.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btn_SaveConfigRestore.StateCommon.Back.ColorAngle = 45F;
+            this.btn_SaveConfigRestore.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btn_SaveConfigRestore.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btn_SaveConfigRestore.StateCommon.Border.ColorAngle = 45F;
+            this.btn_SaveConfigRestore.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_SaveConfigRestore.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btn_SaveConfigRestore.StateCommon.Border.Rounding = 20;
+            this.btn_SaveConfigRestore.StateCommon.Border.Width = 1;
+            this.btn_SaveConfigRestore.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btn_SaveConfigRestore.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.btn_SaveConfigRestore.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_SaveConfigRestore.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(145)))), ((int)(((byte)(198)))));
+            this.btn_SaveConfigRestore.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(121)))), ((int)(((byte)(206)))));
+            this.btn_SaveConfigRestore.StatePressed.Back.ColorAngle = 135F;
+            this.btn_SaveConfigRestore.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(145)))), ((int)(((byte)(198)))));
+            this.btn_SaveConfigRestore.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(121)))), ((int)(((byte)(206)))));
+            this.btn_SaveConfigRestore.StatePressed.Border.ColorAngle = 135F;
+            this.btn_SaveConfigRestore.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_SaveConfigRestore.StatePressed.Border.Rounding = 20;
+            this.btn_SaveConfigRestore.StatePressed.Border.Width = 1;
+            this.btn_SaveConfigRestore.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btn_SaveConfigRestore.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btn_SaveConfigRestore.StateTracking.Back.ColorAngle = 45F;
+            this.btn_SaveConfigRestore.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btn_SaveConfigRestore.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btn_SaveConfigRestore.StateTracking.Border.ColorAngle = 45F;
+            this.btn_SaveConfigRestore.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_SaveConfigRestore.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btn_SaveConfigRestore.StateTracking.Border.Rounding = 20;
+            this.btn_SaveConfigRestore.StateTracking.Border.Width = 1;
+            this.btn_SaveConfigRestore.TabIndex = 25;
+            this.btn_SaveConfigRestore.Values.Image = ((System.Drawing.Image)(resources.GetObject("btn_SaveConfigRestore.Values.Image")));
+            this.btn_SaveConfigRestore.Values.Text = " Save Configuration";
+            this.btn_SaveConfigRestore.Click += new System.EventHandler(this.btn_SaveConfigRestore_Click);
             // 
             // image_server_loading
             // 
             this.image_server_loading.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.image_server_loading.BackColor = System.Drawing.Color.Transparent;
             this.image_server_loading.Image = ((System.Drawing.Image)(resources.GetObject("image_server_loading.Image")));
-            this.image_server_loading.Location = new System.Drawing.Point(531, 145);
+            this.image_server_loading.Location = new System.Drawing.Point(531, 143);
             this.image_server_loading.Name = "image_server_loading";
             this.image_server_loading.Size = new System.Drawing.Size(42, 40);
             this.image_server_loading.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -651,147 +792,94 @@
             this.label12.TabIndex = 28;
             this.label12.Text = "Restore Database Setup";
             // 
-            // btn_SaveConfigRestore
-            // 
-            this.btn_SaveConfigRestore.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_SaveConfigRestore.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_SaveConfigRestore.Location = new System.Drawing.Point(510, 326);
-            this.btn_SaveConfigRestore.Name = "btn_SaveConfigRestore";
-            this.btn_SaveConfigRestore.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btn_SaveConfigRestore.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btn_SaveConfigRestore.OverrideDefault.Back.ColorAngle = 45F;
-            this.btn_SaveConfigRestore.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(147)))), ((int)(((byte)(244)))));
-            this.btn_SaveConfigRestore.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btn_SaveConfigRestore.OverrideDefault.Border.ColorAngle = 45F;
-            this.btn_SaveConfigRestore.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btn_SaveConfigRestore.OverrideDefault.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btn_SaveConfigRestore.OverrideDefault.Border.Rounding = 20;
-            this.btn_SaveConfigRestore.OverrideDefault.Border.Width = 1;
-            this.btn_SaveConfigRestore.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.btn_SaveConfigRestore.Size = new System.Drawing.Size(160, 37);
-            this.btn_SaveConfigRestore.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btn_SaveConfigRestore.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btn_SaveConfigRestore.StateCommon.Back.ColorAngle = 45F;
-            this.btn_SaveConfigRestore.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btn_SaveConfigRestore.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btn_SaveConfigRestore.StateCommon.Border.ColorAngle = 45F;
-            this.btn_SaveConfigRestore.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btn_SaveConfigRestore.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btn_SaveConfigRestore.StateCommon.Border.Rounding = 20;
-            this.btn_SaveConfigRestore.StateCommon.Border.Width = 1;
-            this.btn_SaveConfigRestore.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btn_SaveConfigRestore.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.btn_SaveConfigRestore.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_SaveConfigRestore.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(145)))), ((int)(((byte)(198)))));
-            this.btn_SaveConfigRestore.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(121)))), ((int)(((byte)(206)))));
-            this.btn_SaveConfigRestore.StatePressed.Back.ColorAngle = 135F;
-            this.btn_SaveConfigRestore.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(145)))), ((int)(((byte)(198)))));
-            this.btn_SaveConfigRestore.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(121)))), ((int)(((byte)(206)))));
-            this.btn_SaveConfigRestore.StatePressed.Border.ColorAngle = 135F;
-            this.btn_SaveConfigRestore.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btn_SaveConfigRestore.StatePressed.Border.Rounding = 20;
-            this.btn_SaveConfigRestore.StatePressed.Border.Width = 1;
-            this.btn_SaveConfigRestore.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btn_SaveConfigRestore.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btn_SaveConfigRestore.StateTracking.Back.ColorAngle = 45F;
-            this.btn_SaveConfigRestore.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btn_SaveConfigRestore.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btn_SaveConfigRestore.StateTracking.Border.ColorAngle = 45F;
-            this.btn_SaveConfigRestore.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btn_SaveConfigRestore.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btn_SaveConfigRestore.StateTracking.Border.Rounding = 20;
-            this.btn_SaveConfigRestore.StateTracking.Border.Width = 1;
-            this.btn_SaveConfigRestore.TabIndex = 25;
-            this.btn_SaveConfigRestore.Values.Image = ((System.Drawing.Image)(resources.GetObject("btn_SaveConfigRestore.Values.Image")));
-            this.btn_SaveConfigRestore.Values.Text = " Save Configuration";
-            this.btn_SaveConfigRestore.Click += new System.EventHandler(this.btn_SaveConfigRestore_Click);
-            // 
-            // btn_RestoreDatabase
-            // 
-            this.btn_RestoreDatabase.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_RestoreDatabase.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_RestoreDatabase.Location = new System.Drawing.Point(676, 326);
-            this.btn_RestoreDatabase.Name = "btn_RestoreDatabase";
-            this.btn_RestoreDatabase.OverrideDefault.Back.Color1 = System.Drawing.Color.SteelBlue;
-            this.btn_RestoreDatabase.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(124)))), ((int)(((byte)(93)))));
-            this.btn_RestoreDatabase.OverrideDefault.Back.ColorAngle = 45F;
-            this.btn_RestoreDatabase.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(185)))), ((int)(((byte)(200)))));
-            this.btn_RestoreDatabase.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
-            this.btn_RestoreDatabase.OverrideDefault.Border.ColorAngle = 45F;
-            this.btn_RestoreDatabase.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btn_RestoreDatabase.OverrideDefault.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btn_RestoreDatabase.OverrideDefault.Border.Rounding = 20;
-            this.btn_RestoreDatabase.OverrideDefault.Border.Width = 1;
-            this.btn_RestoreDatabase.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.btn_RestoreDatabase.Size = new System.Drawing.Size(160, 37);
-            this.btn_RestoreDatabase.StateCommon.Back.Color1 = System.Drawing.Color.SteelBlue;
-            this.btn_RestoreDatabase.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(124)))), ((int)(((byte)(93)))));
-            this.btn_RestoreDatabase.StateCommon.Back.ColorAngle = 45F;
-            this.btn_RestoreDatabase.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(185)))), ((int)(((byte)(200)))));
-            this.btn_RestoreDatabase.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
-            this.btn_RestoreDatabase.StateCommon.Border.ColorAngle = 45F;
-            this.btn_RestoreDatabase.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btn_RestoreDatabase.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btn_RestoreDatabase.StateCommon.Border.Rounding = 20;
-            this.btn_RestoreDatabase.StateCommon.Border.Width = 1;
-            this.btn_RestoreDatabase.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btn_RestoreDatabase.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.btn_RestoreDatabase.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_RestoreDatabase.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(90)))), ((int)(((byte)(150)))));
-            this.btn_RestoreDatabase.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(70)))), ((int)(((byte)(40)))));
-            this.btn_RestoreDatabase.StatePressed.Back.ColorAngle = 135F;
-            this.btn_RestoreDatabase.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(90)))), ((int)(((byte)(150)))));
-            this.btn_RestoreDatabase.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(70)))), ((int)(((byte)(40)))));
-            this.btn_RestoreDatabase.StatePressed.Border.ColorAngle = 135F;
-            this.btn_RestoreDatabase.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btn_RestoreDatabase.StatePressed.Border.Rounding = 20;
-            this.btn_RestoreDatabase.StatePressed.Border.Width = 1;
-            this.btn_RestoreDatabase.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(124)))), ((int)(((byte)(93)))));
-            this.btn_RestoreDatabase.StateTracking.Back.Color2 = System.Drawing.Color.SteelBlue;
-            this.btn_RestoreDatabase.StateTracking.Back.ColorAngle = 45F;
-            this.btn_RestoreDatabase.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(160)))), ((int)(((byte)(185)))), ((int)(((byte)(200)))));
-            this.btn_RestoreDatabase.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
-            this.btn_RestoreDatabase.StateTracking.Border.ColorAngle = 45F;
-            this.btn_RestoreDatabase.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btn_RestoreDatabase.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btn_RestoreDatabase.StateTracking.Border.Rounding = 20;
-            this.btn_RestoreDatabase.StateTracking.Border.Width = 1;
-            this.btn_RestoreDatabase.TabIndex = 27;
-            this.btn_RestoreDatabase.Values.Image = ((System.Drawing.Image)(resources.GetObject("btn_RestoreDatabase.Values.Image")));
-            this.btn_RestoreDatabase.Values.Text = "  Restore Database";
-            this.btn_RestoreDatabase.Click += new System.EventHandler(this.btn_RestoreDatabase_Click);
-            // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.panel3);
             this.tabPage3.Controls.Add(this.cbYearlyBackup);
             this.tabPage3.Controls.Add(this.cbMonthlyBackup);
             this.tabPage3.Controls.Add(this.cbWeeklyBackup);
             this.tabPage3.Controls.Add(this.cbDailyBackup);
             this.tabPage3.Controls.Add(this.cbBackupLogout);
             this.tabPage3.Controls.Add(this.label20);
-            this.tabPage3.Controls.Add(this.btn_SaveAutoBackupConfig);
             this.tabPage3.Location = new System.Drawing.Point(4, 32);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(840, 412);
+            this.tabPage3.Size = new System.Drawing.Size(828, 400);
             this.tabPage3.TabIndex = 5;
             this.tabPage3.Text = "Automatically Backup Configuration";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.btn_SaveAutoBackupConfig);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 350);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(828, 50);
+            this.panel3.TabIndex = 83;
+            // 
+            // btn_SaveAutoBackupConfig
+            // 
+            this.btn_SaveAutoBackupConfig.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_SaveAutoBackupConfig.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_SaveAutoBackupConfig.Location = new System.Drawing.Point(665, 6);
+            this.btn_SaveAutoBackupConfig.Name = "btn_SaveAutoBackupConfig";
+            this.btn_SaveAutoBackupConfig.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btn_SaveAutoBackupConfig.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btn_SaveAutoBackupConfig.OverrideDefault.Back.ColorAngle = 45F;
+            this.btn_SaveAutoBackupConfig.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(147)))), ((int)(((byte)(244)))));
+            this.btn_SaveAutoBackupConfig.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btn_SaveAutoBackupConfig.OverrideDefault.Border.ColorAngle = 45F;
+            this.btn_SaveAutoBackupConfig.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_SaveAutoBackupConfig.OverrideDefault.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btn_SaveAutoBackupConfig.OverrideDefault.Border.Rounding = 20;
+            this.btn_SaveAutoBackupConfig.OverrideDefault.Border.Width = 1;
+            this.btn_SaveAutoBackupConfig.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
+            this.btn_SaveAutoBackupConfig.Size = new System.Drawing.Size(160, 38);
+            this.btn_SaveAutoBackupConfig.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btn_SaveAutoBackupConfig.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btn_SaveAutoBackupConfig.StateCommon.Back.ColorAngle = 45F;
+            this.btn_SaveAutoBackupConfig.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btn_SaveAutoBackupConfig.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btn_SaveAutoBackupConfig.StateCommon.Border.ColorAngle = 45F;
+            this.btn_SaveAutoBackupConfig.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_SaveAutoBackupConfig.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btn_SaveAutoBackupConfig.StateCommon.Border.Rounding = 20;
+            this.btn_SaveAutoBackupConfig.StateCommon.Border.Width = 1;
+            this.btn_SaveAutoBackupConfig.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
+            this.btn_SaveAutoBackupConfig.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
+            this.btn_SaveAutoBackupConfig.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_SaveAutoBackupConfig.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(145)))), ((int)(((byte)(198)))));
+            this.btn_SaveAutoBackupConfig.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(121)))), ((int)(((byte)(206)))));
+            this.btn_SaveAutoBackupConfig.StatePressed.Back.ColorAngle = 135F;
+            this.btn_SaveAutoBackupConfig.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(145)))), ((int)(((byte)(198)))));
+            this.btn_SaveAutoBackupConfig.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(121)))), ((int)(((byte)(206)))));
+            this.btn_SaveAutoBackupConfig.StatePressed.Border.ColorAngle = 135F;
+            this.btn_SaveAutoBackupConfig.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_SaveAutoBackupConfig.StatePressed.Border.Rounding = 20;
+            this.btn_SaveAutoBackupConfig.StatePressed.Border.Width = 1;
+            this.btn_SaveAutoBackupConfig.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btn_SaveAutoBackupConfig.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btn_SaveAutoBackupConfig.StateTracking.Back.ColorAngle = 45F;
+            this.btn_SaveAutoBackupConfig.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
+            this.btn_SaveAutoBackupConfig.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
+            this.btn_SaveAutoBackupConfig.StateTracking.Border.ColorAngle = 45F;
+            this.btn_SaveAutoBackupConfig.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
+            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
+            this.btn_SaveAutoBackupConfig.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
+            this.btn_SaveAutoBackupConfig.StateTracking.Border.Rounding = 20;
+            this.btn_SaveAutoBackupConfig.StateTracking.Border.Width = 1;
+            this.btn_SaveAutoBackupConfig.TabIndex = 25;
+            this.btn_SaveAutoBackupConfig.Values.Image = ((System.Drawing.Image)(resources.GetObject("btn_SaveAutoBackupConfig.Values.Image")));
+            this.btn_SaveAutoBackupConfig.Values.Text = " Save Configuration";
+            this.btn_SaveAutoBackupConfig.Click += new System.EventHandler(this.btn_SaveAutoBackupConfig_Click);
             // 
             // cbYearlyBackup
             // 
@@ -866,75 +954,12 @@
             this.label20.TabIndex = 26;
             this.label20.Text = "Automatically Backup Setup";
             // 
-            // btn_SaveAutoBackupConfig
-            // 
-            this.btn_SaveAutoBackupConfig.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_SaveAutoBackupConfig.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_SaveAutoBackupConfig.Location = new System.Drawing.Point(680, 330);
-            this.btn_SaveAutoBackupConfig.Name = "btn_SaveAutoBackupConfig";
-            this.btn_SaveAutoBackupConfig.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btn_SaveAutoBackupConfig.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btn_SaveAutoBackupConfig.OverrideDefault.Back.ColorAngle = 45F;
-            this.btn_SaveAutoBackupConfig.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(147)))), ((int)(((byte)(244)))));
-            this.btn_SaveAutoBackupConfig.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btn_SaveAutoBackupConfig.OverrideDefault.Border.ColorAngle = 45F;
-            this.btn_SaveAutoBackupConfig.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btn_SaveAutoBackupConfig.OverrideDefault.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btn_SaveAutoBackupConfig.OverrideDefault.Border.Rounding = 20;
-            this.btn_SaveAutoBackupConfig.OverrideDefault.Border.Width = 1;
-            this.btn_SaveAutoBackupConfig.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.btn_SaveAutoBackupConfig.Size = new System.Drawing.Size(160, 37);
-            this.btn_SaveAutoBackupConfig.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btn_SaveAutoBackupConfig.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btn_SaveAutoBackupConfig.StateCommon.Back.ColorAngle = 45F;
-            this.btn_SaveAutoBackupConfig.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btn_SaveAutoBackupConfig.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btn_SaveAutoBackupConfig.StateCommon.Border.ColorAngle = 45F;
-            this.btn_SaveAutoBackupConfig.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btn_SaveAutoBackupConfig.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btn_SaveAutoBackupConfig.StateCommon.Border.Rounding = 20;
-            this.btn_SaveAutoBackupConfig.StateCommon.Border.Width = 1;
-            this.btn_SaveAutoBackupConfig.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btn_SaveAutoBackupConfig.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.btn_SaveAutoBackupConfig.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_SaveAutoBackupConfig.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(145)))), ((int)(((byte)(198)))));
-            this.btn_SaveAutoBackupConfig.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(121)))), ((int)(((byte)(206)))));
-            this.btn_SaveAutoBackupConfig.StatePressed.Back.ColorAngle = 135F;
-            this.btn_SaveAutoBackupConfig.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(145)))), ((int)(((byte)(198)))));
-            this.btn_SaveAutoBackupConfig.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(121)))), ((int)(((byte)(206)))));
-            this.btn_SaveAutoBackupConfig.StatePressed.Border.ColorAngle = 135F;
-            this.btn_SaveAutoBackupConfig.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btn_SaveAutoBackupConfig.StatePressed.Border.Rounding = 20;
-            this.btn_SaveAutoBackupConfig.StatePressed.Border.Width = 1;
-            this.btn_SaveAutoBackupConfig.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btn_SaveAutoBackupConfig.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btn_SaveAutoBackupConfig.StateTracking.Back.ColorAngle = 45F;
-            this.btn_SaveAutoBackupConfig.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
-            this.btn_SaveAutoBackupConfig.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
-            this.btn_SaveAutoBackupConfig.StateTracking.Border.ColorAngle = 45F;
-            this.btn_SaveAutoBackupConfig.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btn_SaveAutoBackupConfig.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btn_SaveAutoBackupConfig.StateTracking.Border.Rounding = 20;
-            this.btn_SaveAutoBackupConfig.StateTracking.Border.Width = 1;
-            this.btn_SaveAutoBackupConfig.TabIndex = 25;
-            this.btn_SaveAutoBackupConfig.Values.Image = ((System.Drawing.Image)(resources.GetObject("btn_SaveAutoBackupConfig.Values.Image")));
-            this.btn_SaveAutoBackupConfig.Values.Text = " Save Configuration";
-            this.btn_SaveAutoBackupConfig.Click += new System.EventHandler(this.btn_SaveAutoBackupConfig_Click);
-            // 
             // Backup_Restore_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(864, 464);
+            this.ClientSize = new System.Drawing.Size(852, 452);
             this.ControlBox = false;
             this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
@@ -955,9 +980,11 @@
             this.panel8.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.image_server_loading)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.panel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1007,5 +1034,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label btn_LocateFileForDrive;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btn_SaveGoogle;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel3;
     }
 }

@@ -120,4 +120,14 @@
   <metadata name="kryptonPalette1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btn_SaveConfigRestore.Values.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAALdJREFUOE9j
+        GDzg9+/fDUD8Goj3Q4XA4NevX+lAsdY/f/74A+nHQL4xVAoVABXcBSr4D8RnoEJgAOSXA+VmAXEoVP4d
+        VkNwGQAUjweKVSMZAMLXoNIIgGTA4x8/fqgDsRIyBoo3QuX/g9RCtSEAkgEEMW0NgNJ9QNyBhvuAcveA
+        NEED/KBCGAAoB4pKgl5wgQphAJAc7Q0AJpJMUELBgTOhBtyBakMAoEQDyBBiMFBtHVTbgAMGBgATcanC
+        ssm4zgAAAABJRU5ErkJggg==
+</value>
+  </data>
 </root>
