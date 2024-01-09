@@ -225,6 +225,12 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RealTime_Data_Class.cs" />
+    <Compile Include="Receipt_Module\Receipt_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Receipt_Module\Receipt_Form.Designer.cs">
+      <DependentUpon>Receipt_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Regular_User_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -406,6 +412,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Receipt_Module\Receipt_Form.resx">
+      <DependentUpon>Receipt_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Regular_User_Form.resx">
       <DependentUpon>Regular_User_Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -518,8 +527,6 @@
   <ItemGroup>
     <None Include="Resources\BellWithRed.png" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Receipt_Module\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
