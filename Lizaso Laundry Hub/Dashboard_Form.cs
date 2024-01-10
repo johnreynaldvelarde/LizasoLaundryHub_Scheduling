@@ -85,7 +85,8 @@ namespace Lizaso_Laundry_Hub
 
         public void DisplayPendingPayment()
         {
-            openChildPanelSection2(new Dashboard_Widget.Earnings_Widget_Form());
+            //openChildPanelSection2(new Dashboard_Widget.Earnings_Widget_Form());
+            openChildPanelSection2(new Dashboard_Widget.Inventory_Widget_Form());
         }
         public void DisplayCalendarView()
         {

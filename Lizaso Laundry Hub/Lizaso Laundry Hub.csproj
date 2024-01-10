@@ -172,6 +172,12 @@
     <Compile Include="Dashboard_Widget\Earnings_Widget_Form.Designer.cs">
       <DependentUpon>Earnings_Widget_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dashboard_Widget\Inventory_Widget_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard_Widget\Inventory_Widget_Form.Designer.cs">
+      <DependentUpon>Inventory_Widget_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard_Widget\Pending_Widget_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -396,6 +402,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard_Widget\Earnings_Widget_Form.resx">
       <DependentUpon>Earnings_Widget_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard_Widget\Inventory_Widget_Form.resx">
+      <DependentUpon>Inventory_Widget_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard_Widget\Pending_Widget_Form.resx">
       <DependentUpon>Pending_Widget_Form.cs</DependentUpon>
