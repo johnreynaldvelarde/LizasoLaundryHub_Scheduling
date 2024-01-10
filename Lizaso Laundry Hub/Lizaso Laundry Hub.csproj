@@ -160,6 +160,12 @@
     <Compile Include="Dashboard_Widget\Calendar_Widget_Form.Designer.cs">
       <DependentUpon>Calendar_Widget_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dashboard_Widget\CustomerList_Widget_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard_Widget\CustomerList_Widget_Form.Designer.cs">
+      <DependentUpon>CustomerList_Widget_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard_Widget\Delivery_Widget_Form.cs">
       <SubType>Form</SubType>
     </Compile>

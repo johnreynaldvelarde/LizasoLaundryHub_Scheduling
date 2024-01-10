@@ -19,7 +19,6 @@ namespace Lizaso_Laundry_Hub
         private Backup_Data_Class backupData;
         private Update_Data_Class updateData;
         private Account_Class account;
-        //private Main_Form mainForm = new Main_Form(authenticatedUser);
 
         public DropDown_Form(Panel panelUpper)
         {
@@ -54,7 +53,6 @@ namespace Lizaso_Laundry_Hub
                 updateData.Update_UserLastActiveAndStatus(account.User_ID);
                 Application.OpenForms["Main_Form"].Dispose();
                 
-                // Open the Login_Form
                 Login_Form frm = new Login_Form();
                 frm.Show();
             }
@@ -66,7 +64,6 @@ namespace Lizaso_Laundry_Hub
 
         public void DisplayUIBackup()
         {
-            // Get the existing instance of Main_Form
             Main_Form mainForm = Application.OpenForms.OfType<Main_Form>().FirstOrDefault();
 
             if (CheckLogoutAutoBackupSetting())
