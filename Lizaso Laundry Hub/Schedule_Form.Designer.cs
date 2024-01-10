@@ -67,7 +67,6 @@
             this.kryptonDataGridViewButtonColumn2 = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -107,7 +106,6 @@
             // 
             this.tab_Schedule.Controls.Add(this.tabPage1);
             this.tab_Schedule.Controls.Add(this.tabPage2);
-            this.tab_Schedule.Controls.Add(this.tabPage3);
             this.tab_Schedule.Cursor = System.Windows.Forms.Cursors.Hand;
             this.tab_Schedule.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tab_Schedule.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -471,15 +469,6 @@
             this.label2.TabIndex = 0;
             this.label2.Text = "Reserved Schedule";
             // 
-            // tabPage3
-            // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 37);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1152, 469);
-            this.tabPage3.TabIndex = 3;
-            this.tabPage3.Text = "Calendar View";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
@@ -570,7 +559,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView grid_reserved_view;
         private System.Windows.Forms.Panel panel5;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TabPage tabPage3;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView grid_progress_view;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;

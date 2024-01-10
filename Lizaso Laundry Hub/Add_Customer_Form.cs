@@ -33,18 +33,16 @@ namespace Lizaso_Laundry_Hub
             frm = customer;
         }
 
-       
         private void Add_Customer_Form_Load(object sender, EventArgs e)
         {
-            Customer_Text_Status();
-            /*
-            string[] listtypecustomer = new string[] { "Registered Customer", "Guest Customer" };
-
-            for (int i = 0; i < 2; i++)
+            if(btnSave.Text == "Update")
             {
-                cbTypeCustomer.Items.Add(listtypecustomer[i].ToString());
+
             }
-            */
+            else
+            {
+                Customer_Text_Status();
+            }
         }
 
         private void cbTypeCustomer_SelectedIndexChanged(object sender, EventArgs e)
@@ -66,7 +64,6 @@ namespace Lizaso_Laundry_Hub
                     lblEmailAddress.Enabled = true;
                     lblAddress.Enabled = true;
                     
-
                     break;
 
                 case "Guest Customer":
@@ -86,9 +83,7 @@ namespace Lizaso_Laundry_Hub
 
                 default:
 
-
                     break;
-
             }
         }
 
@@ -142,6 +137,11 @@ namespace Lizaso_Laundry_Hub
             }
             else
             {
+                string customerName = txt_CustomerName.Text;
+                string contactNumber = txt_ContactNumber.Text;
+                string emailAddress = txt_EmailAddress.Text;
+                string address = txt_Address.Text;
+
                 string customerType = cbTypeCustomer.SelectedItem.ToString();
 
                 if (customerType == "Registered Customer")
@@ -164,9 +164,11 @@ namespace Lizaso_Laundry_Hub
                     }
                     else
                     {
-                        if(btnSave.Text == "Update")
+                        if (btnSave.Text == "Update")
                         {
-                            //updateData.Update_RegisteredCustomer();
+                            updateData.Update_RegisterCustomer(registerCustomeID, customerName, contactNumber, emailAddress, address);
+                            frm.DisplayRegisterAndGuestCustomer();
+                            this.Dispose();
                         }
                         else
                         {
@@ -200,7 +202,9 @@ namespace Lizaso_Laundry_Hub
                     {
                         if (btnSave.Text == "Update")
                         {
-                            //updateData.Update_GuestsCustomer();
+                            updateData.Update_GuestCustomer(guestCustomerID, customerName);
+                            frm.DisplayRegisterAndGuestCustomer();
+                            this.Dispose();
                         }
                         else
                         {
@@ -218,7 +222,6 @@ namespace Lizaso_Laundry_Hub
                                 MessageBox.Show("Failed to save customer information.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
-                      
                     }
                 }
             }

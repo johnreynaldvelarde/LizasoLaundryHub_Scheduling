@@ -39,7 +39,6 @@
             this.settings_main_panel_dock = new System.Windows.Forms.Panel();
             this.side_panel = new System.Windows.Forms.Panel();
             this.btn_DashboardPreferences = new ComponentFactory.Krypton.Toolkit.KryptonButton();
-            this.btn_DataTimeConfig = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btn_BackUpConfig = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btn_LaundryUnit_Config = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -124,7 +123,6 @@
             // side_panel
             // 
             this.side_panel.Controls.Add(this.btn_DashboardPreferences);
-            this.side_panel.Controls.Add(this.btn_DataTimeConfig);
             this.side_panel.Controls.Add(this.btn_BackUpConfig);
             this.side_panel.Controls.Add(this.btn_LaundryUnit_Config);
             this.side_panel.Dock = System.Windows.Forms.DockStyle.Left;
@@ -202,76 +200,6 @@
             this.btn_DashboardPreferences.Values.Image = ((System.Drawing.Image)(resources.GetObject("btn_DashboardPreferences.Values.Image")));
             this.btn_DashboardPreferences.Values.Text = "Dashboard Preferences";
             this.btn_DashboardPreferences.Click += new System.EventHandler(this.btn_DashboardPreferences_Click);
-            // 
-            // btn_DataTimeConfig
-            // 
-            this.btn_DataTimeConfig.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btn_DataTimeConfig.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_DataTimeConfig.Location = new System.Drawing.Point(12, 236);
-            this.btn_DataTimeConfig.Name = "btn_DataTimeConfig";
-            this.btn_DataTimeConfig.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.btn_DataTimeConfig.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(90)))), ((int)(((byte)(140)))));
-            this.btn_DataTimeConfig.OverrideDefault.Back.ColorAngle = 45F;
-            this.btn_DataTimeConfig.OverrideDefault.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btn_DataTimeConfig.OverrideDefault.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.btn_DataTimeConfig.OverrideDefault.Border.ColorAngle = 45F;
-            this.btn_DataTimeConfig.OverrideDefault.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btn_DataTimeConfig.OverrideDefault.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btn_DataTimeConfig.OverrideDefault.Border.Rounding = 5;
-            this.btn_DataTimeConfig.OverrideDefault.Border.Width = 1;
-            this.btn_DataTimeConfig.OverrideFocus.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(180)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
-            this.btn_DataTimeConfig.OverrideFocus.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(90)))), ((int)(((byte)(140)))));
-            this.btn_DataTimeConfig.OverrideFocus.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
-            this.btn_DataTimeConfig.OverrideFocus.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
-            this.btn_DataTimeConfig.OverrideFocus.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btn_DataTimeConfig.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.ProfessionalSystem;
-            this.btn_DataTimeConfig.Size = new System.Drawing.Size(303, 60);
-            this.btn_DataTimeConfig.StateCommon.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(160)))), ((int)(((byte)(130)))));
-            this.btn_DataTimeConfig.StateCommon.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(120)))), ((int)(((byte)(90)))));
-            this.btn_DataTimeConfig.StateCommon.Back.ColorAngle = 45F;
-            this.btn_DataTimeConfig.StateCommon.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(140)))), ((int)(((byte)(110)))));
-            this.btn_DataTimeConfig.StateCommon.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(120)))), ((int)(((byte)(120)))), ((int)(((byte)(120)))));
-            this.btn_DataTimeConfig.StateCommon.Border.ColorAngle = 45F;
-            this.btn_DataTimeConfig.StateCommon.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btn_DataTimeConfig.StateCommon.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btn_DataTimeConfig.StateCommon.Border.Rounding = 5;
-            this.btn_DataTimeConfig.StateCommon.Border.Width = 1;
-            this.btn_DataTimeConfig.StateCommon.Content.ShortText.Color1 = System.Drawing.Color.White;
-            this.btn_DataTimeConfig.StateCommon.Content.ShortText.Color2 = System.Drawing.Color.White;
-            this.btn_DataTimeConfig.StateCommon.Content.ShortText.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_DataTimeConfig.StatePressed.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(140)))), ((int)(((byte)(110)))));
-            this.btn_DataTimeConfig.StatePressed.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(100)))), ((int)(((byte)(70)))));
-            this.btn_DataTimeConfig.StatePressed.Back.ColorAngle = 135F;
-            this.btn_DataTimeConfig.StatePressed.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(95)))), ((int)(((byte)(100)))), ((int)(((byte)(80)))));
-            this.btn_DataTimeConfig.StatePressed.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
-            this.btn_DataTimeConfig.StatePressed.Border.ColorAngle = 135F;
-            this.btn_DataTimeConfig.StatePressed.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btn_DataTimeConfig.StatePressed.Border.Rounding = 5;
-            this.btn_DataTimeConfig.StatePressed.Border.Width = 1;
-            this.btn_DataTimeConfig.StateTracking.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(120)))), ((int)(((byte)(90)))));
-            this.btn_DataTimeConfig.StateTracking.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(160)))), ((int)(((byte)(130)))));
-            this.btn_DataTimeConfig.StateTracking.Back.ColorAngle = 45F;
-            this.btn_DataTimeConfig.StateTracking.Border.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(120)))), ((int)(((byte)(90)))));
-            this.btn_DataTimeConfig.StateTracking.Border.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(160)))), ((int)(((byte)(130)))));
-            this.btn_DataTimeConfig.StateTracking.Border.ColorAngle = 45F;
-            this.btn_DataTimeConfig.StateTracking.Border.DrawBorders = ((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders)((((ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Top | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Bottom) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Left) 
-            | ComponentFactory.Krypton.Toolkit.PaletteDrawBorders.Right)));
-            this.btn_DataTimeConfig.StateTracking.Border.GraphicsHint = ComponentFactory.Krypton.Toolkit.PaletteGraphicsHint.AntiAlias;
-            this.btn_DataTimeConfig.StateTracking.Border.Rounding = 5;
-            this.btn_DataTimeConfig.StateTracking.Border.Width = 1;
-            this.btn_DataTimeConfig.TabIndex = 23;
-            this.btn_DataTimeConfig.Values.Image = ((System.Drawing.Image)(resources.GetObject("btn_DataTimeConfig.Values.Image")));
-            this.btn_DataTimeConfig.Values.Text = "Date and Time Configuration";
-            this.btn_DataTimeConfig.Click += new System.EventHandler(this.btn_DataTimeConfig_Click);
             // 
             // btn_BackUpConfig
             // 
@@ -476,7 +404,6 @@
         private System.Windows.Forms.Panel side_panel;
         private System.Windows.Forms.Panel settings_main_panel_dock;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btn_LaundryUnit_Config;
-        private ComponentFactory.Krypton.Toolkit.KryptonButton btn_DataTimeConfig;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btn_BackUpConfig;
         private ComponentFactory.Krypton.Toolkit.KryptonButton btn_DashboardPreferences;
     }

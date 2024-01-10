@@ -141,7 +141,6 @@
     <Compile Include="Customer_Form.Designer.cs">
       <DependentUpon>Customer_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dashboard_Data_Class.cs" />
     <Compile Include="Dashboard_Form.cs">
       <SubType>Form</SubType>
     </Compile>

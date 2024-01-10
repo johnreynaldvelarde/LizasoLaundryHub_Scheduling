@@ -758,18 +758,6 @@ namespace Lizaso_Laundry_Hub
                         cmd.Parameters.AddWithValue("@CustomerID", archiveID);
                         cmd.ExecuteNonQuery();
 
-                        /*
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("Customer successfully recycle.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            return true;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Customer not found or update failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        */
                         return true;
                     }
                 }
@@ -780,6 +768,73 @@ namespace Lizaso_Laundry_Hub
                 return false;
             }
         }
+
+        public bool Update_RegisterCustomer(int customerID, string customerName, string contactNumber, string emailAddress, string address)
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+                    connect.Open();
+
+                    // Define the SQL query for updating customer information
+                    string query = "UPDATE Customers SET Customer_Name = @CustomerName, Contact_Number = @ContactNumber, Email_Address = @EmailAddress, Address = @Address, Customer_Type = @CustomerType WHERE Customer_ID = @CustomerID";
+
+                    using (SqlCommand cmd = new SqlCommand(query, connect))
+                    {
+                        // Add parameters to the query to avoid SQL injection
+                        cmd.Parameters.AddWithValue("@CustomerName", customerName);
+                        cmd.Parameters.AddWithValue("@ContactNumber", contactNumber);
+                        cmd.Parameters.AddWithValue("@EmailAddress", emailAddress);
+                        cmd.Parameters.AddWithValue("@Address", address);
+                        cmd.Parameters.AddWithValue("@CustomerType", 0);
+                        cmd.Parameters.AddWithValue("@CustomerID", customerID);
+                        cmd.ExecuteNonQuery();
+                        
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        public bool Update_GuestCustomer(int customerID, string customerName)
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+                    connect.Open();
+
+                    // Define the SQL query for updating customer information
+                    string query = "UPDATE Customers SET Customer_Name = @CustomerName, Customer_Type = @CustomerType WHERE Customer_ID = @CustomerID";
+
+                    using (SqlCommand cmd = new SqlCommand(query, connect))
+                    {
+                        // Add parameters to the query to avoid SQL injection
+                        cmd.Parameters.AddWithValue("@CustomerName", customerName);
+                        cmd.Parameters.AddWithValue("@CustomerType", 1);
+                        cmd.Parameters.AddWithValue("@CustomerID", customerID);
+                        cmd.ExecuteNonQuery();
+
+                        return true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+
+
+
 
         // << INVENTORY_FORM /  Items View tab >>
         // update the item information

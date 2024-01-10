@@ -60,10 +60,12 @@ namespace Lizaso_Laundry_Hub
                 getData.Get_BookingReserved(grid_reserved_view);
 
             }
+            /*
             else if (tab_Schedule.SelectedTab == tabPage3)
             {
                 //DispalyCalendarEventDetails();
             }
+            */
         }
 
         private void Schedule_Form_Load(object sender, EventArgs e)
