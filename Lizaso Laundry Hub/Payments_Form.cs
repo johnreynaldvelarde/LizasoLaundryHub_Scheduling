@@ -15,7 +15,7 @@ namespace Lizaso_Laundry_Hub
     {
         private Get_Data_Class getData;
         private Update_Data_Class updateData;
-        private int bookingID, unitID, customerID;
+        private int bookingID, unitID, customerID, getTransactionID;
         private string customerName, serviceType, weight;
 
         public Payments_Form()
@@ -46,6 +46,45 @@ namespace Lizaso_Laundry_Hub
         private void Payments_Form_Load(object sender, EventArgs e)
         {
             DisplayInPendingList();
+        }
+
+        private void grid_transaction_history_view_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            int count = 0;
+            foreach (DataGridViewRow row in grid_transaction_history_view.Rows)
+            {
+                count++;
+                row.Cells[0].Value = count;
+            }
+        }
+
+        private void grid_transaction_history_view_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string column_history = grid_transaction_history_view.Columns[e.ColumnIndex].Name;
+
+            if (column_history == "View")
+            {
+                DialogResult result = MessageBox.Show("Are you sure you want to view the additional payments?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    
+                }
+            }
+        }
+
+        private void grid_transaction_history_view_SelectionChanged(object sender, EventArgs e)
+        {
+            if (grid_transaction_history_view.CurrentRow != null)
+            {
+                int rowIndex = grid_pending_view.CurrentRow.Index;
+
+                if (int.TryParse(grid_transaction_history_view[1, rowIndex].Value.ToString(), out int selectedTransactionID))
+                {
+                    getTransactionID = selectedTransactionID;
+                }
+            }
+
         }
 
         private void tab_Payments_SelectedIndexChanged(object sender, EventArgs e)
