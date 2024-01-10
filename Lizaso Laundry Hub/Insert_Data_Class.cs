@@ -59,7 +59,7 @@ namespace Lizaso_Laundry_Hub
                         }
 
                         // Insert record into User_Permissions with all permissions set to 1
-                        string permissionsSql = "INSERT INTO User_Permissions (User_ID, Available_Services, Schedule, Customer_Manage, Payments, User_Manage, Inventory, Settings) VALUES (@User_ID, 1, 1, 1, 1, 1, 1, 1)";
+                        string permissionsSql = "INSERT INTO User_Permissions (User_ID, Dashboard, Available_Services, Schedule, Customer_Manage, Payments, User_Manage, Inventory, Settings) VALUES (@User_ID, 1, 1, 1, 1, 1, 1, 1, 1)";
                         using (SqlCommand permissionsCommand = new SqlCommand(permissionsSql, connect))
                         {
                             permissionsCommand.Parameters.AddWithValue("@User_ID", userId);
@@ -654,7 +654,7 @@ namespace Lizaso_Laundry_Hub
 
         // << ADD USER FROM >>
         // Create user acount with permission or not
-        public bool Set_CreateUser(string username, string password, byte _IsSuperUser, byte _services, byte _schedule, byte _customer, byte _payments, byte _user, byte _inventory, byte _settings)
+        public bool Set_CreateUser(string username, string password, byte _IsSuperUser, byte _dashboard, byte _services, byte _schedule, byte _customer, byte _payments, byte _user, byte _inventory, byte _settings)
         {
             try
             {
@@ -687,10 +687,11 @@ namespace Lizaso_Laundry_Hub
                     }
 
                     // Insert record into User_Permissions with specified permissions
-                    string permissionsSql = "INSERT INTO User_Permissions (User_ID, Available_Services, Schedule, Customer_Manage, Payments, User_Manage, Inventory, Settings) VALUES (@User_ID, @Available_Services, @Schedule, @Customer_Manage, @Payments, @User_Manage, @Inventory, @Settings)";
+                    string permissionsSql = "INSERT INTO User_Permissions (User_ID, Dashboard, Available_Services, Schedule, Customer_Manage, Payments, User_Manage, Inventory, Settings) VALUES (@User_ID, @Available_Services, @Schedule, @Customer_Manage, @Payments, @User_Manage, @Inventory, @Settings)";
                     using (SqlCommand permissionsCommand = new SqlCommand(permissionsSql, connect))
                     {
                         permissionsCommand.Parameters.AddWithValue("@User_ID", userId);
+                        permissionsCommand.Parameters.AddWithValue("@Dashboard", _dashboard);
                         permissionsCommand.Parameters.AddWithValue("@Available_Services", _services);
                         permissionsCommand.Parameters.AddWithValue("@Schedule", _schedule);
                         permissionsCommand.Parameters.AddWithValue("@Customer_Manage", _customer);

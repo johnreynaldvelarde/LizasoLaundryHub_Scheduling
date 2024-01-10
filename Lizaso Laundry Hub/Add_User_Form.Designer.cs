@@ -55,6 +55,7 @@
             this.txt_ConfirmPassword = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.btnClear = new ComponentFactory.Krypton.Toolkit.KryptonButton();
             this.btnSave = new ComponentFactory.Krypton.Toolkit.KryptonButton();
+            this.ckDashboard = new ComponentFactory.Krypton.Toolkit.KryptonCheckBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -230,7 +231,7 @@
             // 
             // ckAvailableServices
             // 
-            this.ckAvailableServices.Location = new System.Drawing.Point(474, 160);
+            this.ckAvailableServices.Location = new System.Drawing.Point(474, 192);
             this.ckAvailableServices.Name = "ckAvailableServices";
             this.ckAvailableServices.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
             this.ckAvailableServices.Size = new System.Drawing.Size(414, 27);
@@ -242,7 +243,7 @@
             // 
             // ckSchedule
             // 
-            this.ckSchedule.Location = new System.Drawing.Point(473, 193);
+            this.ckSchedule.Location = new System.Drawing.Point(473, 225);
             this.ckSchedule.Name = "ckSchedule";
             this.ckSchedule.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
             this.ckSchedule.Size = new System.Drawing.Size(337, 27);
@@ -254,7 +255,7 @@
             // 
             // ckPayments
             // 
-            this.ckPayments.Location = new System.Drawing.Point(473, 259);
+            this.ckPayments.Location = new System.Drawing.Point(473, 291);
             this.ckPayments.Name = "ckPayments";
             this.ckPayments.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
             this.ckPayments.Size = new System.Drawing.Size(343, 27);
@@ -266,7 +267,7 @@
             // 
             // ckCustomerManage
             // 
-            this.ckCustomerManage.Location = new System.Drawing.Point(473, 226);
+            this.ckCustomerManage.Location = new System.Drawing.Point(473, 258);
             this.ckCustomerManage.Name = "ckCustomerManage";
             this.ckCustomerManage.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
             this.ckCustomerManage.Size = new System.Drawing.Size(415, 27);
@@ -278,7 +279,7 @@
             // 
             // ckInventory
             // 
-            this.ckInventory.Location = new System.Drawing.Point(473, 325);
+            this.ckInventory.Location = new System.Drawing.Point(473, 357);
             this.ckInventory.Name = "ckInventory";
             this.ckInventory.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
             this.ckInventory.Size = new System.Drawing.Size(337, 27);
@@ -290,7 +291,7 @@
             // 
             // ckUserManage
             // 
-            this.ckUserManage.Location = new System.Drawing.Point(473, 292);
+            this.ckUserManage.Location = new System.Drawing.Point(473, 324);
             this.ckUserManage.Name = "ckUserManage";
             this.ckUserManage.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
             this.ckUserManage.Size = new System.Drawing.Size(370, 27);
@@ -302,7 +303,7 @@
             // 
             // ckSettings
             // 
-            this.ckSettings.Location = new System.Drawing.Point(473, 358);
+            this.ckSettings.Location = new System.Drawing.Point(473, 390);
             this.ckSettings.Name = "ckSettings";
             this.ckSettings.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
             this.ckSettings.Size = new System.Drawing.Size(327, 27);
@@ -483,6 +484,18 @@
             this.btnSave.Values.Text = "Save";
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // ckDashboard
+            // 
+            this.ckDashboard.Location = new System.Drawing.Point(473, 159);
+            this.ckDashboard.Name = "ckDashboard";
+            this.ckDashboard.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
+            this.ckDashboard.Size = new System.Drawing.Size(353, 27);
+            this.ckDashboard.StateCommon.ShortText.Color1 = System.Drawing.Color.Black;
+            this.ckDashboard.StateCommon.ShortText.Color2 = System.Drawing.Color.Black;
+            this.ckDashboard.StateCommon.ShortText.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ckDashboard.TabIndex = 90;
+            this.ckDashboard.Values.Text = "Allow Permissions to Dashboard Module";
+            // 
             // Add_User_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -490,6 +503,7 @@
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(904, 544);
             this.ControlBox = false;
+            this.Controls.Add(this.ckDashboard);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.passhideConfirmPassword);
@@ -555,5 +569,6 @@
         private ComponentFactory.Krypton.Toolkit.KryptonButton btnClear;
         public ComponentFactory.Krypton.Toolkit.KryptonButton btnSave;
         public ComponentFactory.Krypton.Toolkit.KryptonRadioButton rdSuperUser;
+        public ComponentFactory.Krypton.Toolkit.KryptonCheckBox ckDashboard;
     }
 }

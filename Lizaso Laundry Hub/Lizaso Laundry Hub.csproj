@@ -366,11 +366,11 @@
     <Compile Include="User_Form.Designer.cs">
       <DependentUpon>User_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="User_Module\View_Offline_Form.cs">
+    <Compile Include="User_Module\View_Online_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="User_Module\View_Offline_Form.Designer.cs">
-      <DependentUpon>View_Offline_Form.cs</DependentUpon>
+    <Compile Include="User_Module\View_Online_Form.Designer.cs">
+      <DependentUpon>View_Online_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="User_Permissions_Class.cs" />
     <EmbeddedResource Include="Additional_Payment_Form.resx">
@@ -514,8 +514,8 @@
     <EmbeddedResource Include="User_Form.resx">
       <DependentUpon>User_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User_Module\View_Offline_Form.resx">
-      <DependentUpon>View_Offline_Form.cs</DependentUpon>
+    <EmbeddedResource Include="User_Module\View_Online_Form.resx">
+      <DependentUpon>View_Online_Form.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Item_Data.datasource" />

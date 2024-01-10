@@ -82,7 +82,7 @@ namespace Lizaso_Laundry_Hub
                 {
                     if (rdSuperUser.Checked)
                     {
-                        updateData.Update_User(account.User_ID, u_userID, _username, _password, 1, 1, 1, 1, 1, 1, 1, 1);
+                        updateData.Update_User(account.User_ID, u_userID, _username, _password, 1, 1, 1, 1, 1, 1, 1, 1, 1);
                         //MessageBox.Show("Super user account updated successfully.");
                         Get_UpdateAccountUser();
                         this.Dispose();
@@ -90,6 +90,7 @@ namespace Lizaso_Laundry_Hub
                     }
                     else
                     {
+                        byte dashboard = (byte)(ckDashboard.Checked ? 1 : 0);
                         byte availableServices = (byte)(ckAvailableServices.Checked ? 1 : 0);
                         byte schedule = (byte)(ckSchedule.Checked ? 1 : 0);
                         byte customerManage = (byte)(ckCustomerManage.Checked ? 1 : 0);
@@ -98,9 +99,8 @@ namespace Lizaso_Laundry_Hub
                         byte inventory = (byte)(ckInventory.Checked ? 1 : 0);
                         byte settings = (byte)(ckSettings.Checked ? 1 : 0);
 
-                        updateData.Update_User(account.User_ID, u_userID, _username, _password, 0, availableServices, schedule, customerManage, payments, userManage, inventory, settings);
+                        updateData.Update_User(account.User_ID, u_userID, _username, _password, 0, dashboard, availableServices, schedule, customerManage, payments, userManage, inventory, settings);
                         Get_UpdateAccountUser();
-                        //MessageBox.Show("Regular user account updated successfully.");
                         this.Dispose();
                         frm.DisplayUserView();
                     }
@@ -120,7 +120,7 @@ namespace Lizaso_Laundry_Hub
 
                     if (rdSuperUser.Checked)
                     {
-                        insertData.Set_CreateUser(_username, _password, 1, 1, 1, 1, 1, 1, 1, 1);
+                        insertData.Set_CreateUser(_username, _password, 1, 1, 1, 1, 1, 1, 1, 1, 1);
                         MessageBox.Show("Super user account successfully created");
                         Get_CreatedAccountUser();
                         this.Dispose();
@@ -128,6 +128,7 @@ namespace Lizaso_Laundry_Hub
                     }
                     else
                     {
+                        byte dashboard = (byte)(ckDashboard.Checked ? 1 : 0);
                         byte availableServices = (byte)(ckAvailableServices.Checked ? 1 : 0);
                         byte schedule = (byte)(ckSchedule.Checked ? 1 : 0);
                         byte customerManage = (byte)(ckCustomerManage.Checked ? 1 : 0);
@@ -136,7 +137,7 @@ namespace Lizaso_Laundry_Hub
                         byte inventory = (byte)(ckInventory.Checked ? 1 : 0);
                         byte settings = (byte)(ckSettings.Checked ? 1 : 0);
 
-                        insertData.Set_CreateUser(_username, _password, 0, availableServices, schedule, customerManage, payments, userManage, inventory, settings);
+                        insertData.Set_CreateUser(_username, _password, 0, dashboard, availableServices, schedule, customerManage, payments, userManage, inventory, settings);
                         Get_CreatedAccountUser();
                         MessageBox.Show("Regular user account successfully created");
                         this.Dispose();
@@ -161,8 +162,6 @@ namespace Lizaso_Laundry_Hub
                 {
                     EnableAllCheckboxes();
                 }
-                //Console.WriteLine("ETO ANG USERID " + account.User_ID);
-                //Console.WriteLine("ETO ANG USERID ULOL " + u_userID);
             }
             else
             {
@@ -172,6 +171,7 @@ namespace Lizaso_Laundry_Hub
 
         public void DisableAllCheckboxes()
         {
+            ckDashboard.Enabled = false;
             ckAvailableServices.Enabled = false;
             ckSchedule.Enabled = false;
             ckCustomerManage.Enabled = false;
@@ -184,6 +184,7 @@ namespace Lizaso_Laundry_Hub
 
         public void EnableAllCheckboxes()
         {
+            ckDashboard.Enabled = true;
             ckAvailableServices.Enabled = true;
             ckSchedule.Enabled = true;
             ckCustomerManage.Enabled = true;
@@ -224,6 +225,7 @@ namespace Lizaso_Laundry_Hub
         }
         private void All_Unchecked()
         {
+            ckDashboard.Checked = false;
             ckAvailableServices.Checked = false;
             ckSchedule.Checked = false;
             ckCustomerManage.Checked = false;

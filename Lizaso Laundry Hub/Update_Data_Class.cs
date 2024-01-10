@@ -87,7 +87,7 @@ namespace Lizaso_Laundry_Hub
 
         // << USER FORM >>
         // update user account
-        public bool Update_User(int loggedInUserId, int userID, string username, string password, byte _IsSuperUser, byte _services, byte _schedule, byte _customer, byte _payments, byte _user, byte _inventory, byte _settings)
+        public bool Update_User(int loggedInUserId, int userID, string username, string password, byte _IsSuperUser, byte _dashboard, byte _services, byte _schedule, byte _customer, byte _payments, byte _user, byte _inventory, byte _settings)
         {
             try
             {
@@ -145,10 +145,11 @@ namespace Lizaso_Laundry_Hub
                     }
 
                     // Update the permissions in the User_Permissions table
-                    string permissionsSql = "UPDATE User_Permissions SET Available_Services = @Available_Services, Schedule = @Schedule, Customer_Manage = @Customer_Manage, Payments = @Payments, User_Manage = @User_Manage, Inventory = @Inventory, Settings = @Settings WHERE User_ID = @User_ID";
+                    string permissionsSql = "UPDATE User_Permissions SET Dashboard = @Dashboard, Available_Services = @Available_Services, Schedule = @Schedule, Customer_Manage = @Customer_Manage, Payments = @Payments, User_Manage = @User_Manage, Inventory = @Inventory, Settings = @Settings WHERE User_ID = @User_ID";
                     using (SqlCommand permissionsCommand = new SqlCommand(permissionsSql, connect))
                     {
                         permissionsCommand.Parameters.AddWithValue("@User_ID", userID);
+                        permissionsCommand.Parameters.AddWithValue("@Dashboard", _dashboard);
                         permissionsCommand.Parameters.AddWithValue("@Available_Services", _services);
                         permissionsCommand.Parameters.AddWithValue("@Schedule", _schedule);
                         permissionsCommand.Parameters.AddWithValue("@Customer_Manage", _customer);

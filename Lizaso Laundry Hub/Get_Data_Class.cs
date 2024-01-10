@@ -628,6 +628,7 @@ namespace Lizaso_Laundry_Hub
                     // Define your SQL query with a CASE statement to convert bit values to 'Yes' or 'No'
                     // Add a condition to filter out super users
                     string query = @"SELECT UA.User_ID, UA.User_Name,
+                                CASE WHEN UP.Dashboard = 1 THEN 'Yes' ELSE 'No' END AS Dashboard,
                                 CASE WHEN UP.Available_Services = 1 THEN 'Yes' ELSE 'No' END AS Available_Services,
                                 CASE WHEN UP.Schedule = 1 THEN 'Yes' ELSE 'No' END AS Schedule,
                                 CASE WHEN UP.Customer_Manage = 1 THEN 'Yes' ELSE 'No' END AS Customer_Manage,
@@ -650,6 +651,7 @@ namespace Lizaso_Laundry_Hub
                             view_regular_user.Rows.Add(i,
                                 reader["User_ID"],
                                 reader["User_Name"],
+                                reader["Dashboard"],
                                 reader["Available_Services"],
                                 reader["Schedule"],
                                 reader["Customer_Manage"],
@@ -685,6 +687,7 @@ namespace Lizaso_Laundry_Hub
                     // Define your SQL query with a CASE statement to convert bit values to 'Yes' or 'No'
                     // Add a condition to filter out super users
                     string query = @"SELECT UA.User_ID, UA.User_Name,
+                                CASE WHEN UP.Dashboard = 1 THEN 'Yes' ELSE 'No' END AS Dashboard,
                                 CASE WHEN UP.Available_Services = 1 THEN 'Yes' ELSE 'No' END AS Available_Services,
                                 CASE WHEN UP.Schedule = 1 THEN 'Yes' ELSE 'No' END AS Schedule,
                                 CASE WHEN UP.Customer_Manage = 1 THEN 'Yes' ELSE 'No' END AS Customer_Manage,
@@ -707,6 +710,7 @@ namespace Lizaso_Laundry_Hub
                             view_super_user.Rows.Add(i,
                                 reader["User_ID"],
                                 reader["User_Name"],
+                                reader["Dashboard"],
                                 reader["Available_Services"],
                                 reader["Schedule"],
                                 reader["Customer_Manage"],
@@ -1763,13 +1767,48 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
+        public bool Get_UserOnlineorOffline(DataGridView view_user, int accountUserID)
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+                    connect.Open();
 
+                    string query = "SELECT User_ID, User_Name, Last_Active, Status FROM User_Account";
+                    using (SqlCommand cmd = new SqlCommand(query, connect))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            // Clear existing rows in the DataGridView
+                            view_user.Rows.Clear();
 
+                            while (reader.Read())
+                            {
+                                int userId = reader.GetInt32(reader.GetOrdinal("User_ID"));
+                                string userName = reader.GetString(reader.GetOrdinal("User_Name"));
+                                DateTime? lastActive = reader.IsDBNull(reader.GetOrdinal("Last_Active")) ? (DateTime?)null : reader.GetDateTime(reader.GetOrdinal("Last_Active"));
+                                string status = reader.IsDBNull(reader.GetOrdinal("Status")) ? null : reader.GetString(reader.GetOrdinal("Status"));
 
+                                // Exclude the row corresponding to the specified accountUserID
+                                if (userId != accountUserID)
+                                {
+                                    // Add a new row to the DataGridView
+                                    view_user.Rows.Add(0,userId, userName, lastActive, status);
+                                }
+                            }
+                        }
+                    }
+                }
 
-
-
-
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
 
     }
 }

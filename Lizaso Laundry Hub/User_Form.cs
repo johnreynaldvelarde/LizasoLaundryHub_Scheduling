@@ -17,20 +17,15 @@ namespace Lizaso_Laundry_Hub
         private Get_Data_Class getData;
         private Update_Data_Class updateData;
         private Account_Class account;
-        private User_Module.View_Offline_Form offline;
+        private User_Module.View_Online_Form offline;
         private int u_userID, s_userID, getUserIDArchive;
         private string u_username, s_userName;
-        private byte u_services, u_schedule, u_customer, u_payments, u_user, u_inventory, u_settings;
+        private byte u_dashboard, u_services, u_schedule, u_customer, u_payments, u_user, u_inventory, u_settings;
         private byte s_services, s_schedule, s_customer, s_payments, s_user, s_inventory, s_settings;
 
         private void btn_OnlineView_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btn_OfflineView_Click(object sender, EventArgs e)
-        {
-            offline = new User_Module.View_Offline_Form();
+            offline = new User_Module.View_Online_Form();
             offline.ShowDialog();
         }
 
@@ -101,6 +96,7 @@ namespace Lizaso_Laundry_Hub
                 frm.txt_UserName.Text = u_username;
                 frm.txt_Password.Text = getPassword;
                 frm.rdRegularUser.Checked = true;
+                frm.ckDashboard.Checked = (u_dashboard == 1);
                 frm.ckAvailableServices.Checked = (u_services == 1);
                 frm.ckSchedule.Checked = (u_schedule == 1);
                 frm.ckCustomerManage.Checked = (u_customer == 1);
@@ -135,13 +131,14 @@ namespace Lizaso_Laundry_Hub
 
                     // Assuming you have other columns in your DataGridView for username, services, schedule, etc.
                     u_username = grid_regular_user[2, i].Value.ToString();
-                    u_services = Convert.ToByte(grid_regular_user[3, i].Value.ToString() == "Yes");
-                    u_schedule = Convert.ToByte(grid_regular_user[4, i].Value.ToString() == "Yes");
-                    u_customer = Convert.ToByte(grid_regular_user[5, i].Value.ToString() == "Yes");
-                    u_payments = Convert.ToByte(grid_regular_user[6, i].Value.ToString() == "Yes");
-                    u_user = Convert.ToByte(grid_regular_user[7, i].Value.ToString() == "Yes");
-                    u_inventory = Convert.ToByte(grid_regular_user[8, i].Value.ToString() == "Yes");
-                    u_settings = Convert.ToByte(grid_regular_user[9, i].Value.ToString() == "Yes");
+                    u_dashboard = Convert.ToByte(grid_regular_user[3, i].Value.ToString() == "Yes");
+                    u_services = Convert.ToByte(grid_regular_user[4, i].Value.ToString() == "Yes");
+                    u_schedule = Convert.ToByte(grid_regular_user[5, i].Value.ToString() == "Yes");
+                    u_customer = Convert.ToByte(grid_regular_user[6, i].Value.ToString() == "Yes");
+                    u_payments = Convert.ToByte(grid_regular_user[7, i].Value.ToString() == "Yes");
+                    u_user = Convert.ToByte(grid_regular_user[8, i].Value.ToString() == "Yes");
+                    u_inventory = Convert.ToByte(grid_regular_user[9, i].Value.ToString() == "Yes");
+                    u_settings = Convert.ToByte(grid_regular_user[10, i].Value.ToString() == "Yes");
                 }
             }
         }
