@@ -15,13 +15,13 @@ namespace Lizaso_Laundry_Hub
 {
     public partial class Payment_Details_Form : KryptonForm
     {
-        //private Services_Form frm;
         private Additional_Payment_Form additionalPaymentForm;
         private Account_Class account;
         private Insert_Data_Class insertData;
         private Get_Data_Class getData;
         private Payments_Form frm;
         private Receipt_Form receipt;
+        private WithAdditionalPayment_Form withAddtional;
 
         public int UnitID;
         public int BookingID;
@@ -39,14 +39,14 @@ namespace Lizaso_Laundry_Hub
         public Payment_Details_Form(Payments_Form payments)
         {
             InitializeComponent();
-            //frm = services;
             frm = payments;
             account = new Account_Class();
             insertData = new Insert_Data_Class();
             getData = new Get_Data_Class();
             payments = new Payments_Form();
             receipt = new Receipt_Form();
-          
+            withAddtional = new WithAdditionalPayment_Form();
+
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -104,6 +104,11 @@ namespace Lizaso_Laundry_Hub
 
                             //receipt.Get_AdditonalPayment(account.User_Name, _customerName, _serviceType, additionalItems);
                             //receipt.ShowDialog();
+                            string getAddress = getData.Get_CustomerAddressForReceipt(CustomerID);
+
+                            getAddress = string.IsNullOrEmpty(getAddress) ? "None" : getAddress;
+                            withAddtional.Get_AdditonalPayment(account.User_Name, _serviceType, _load, setWeight, TotalServicesPrice.ToString(), totalPaymentText, _customerName, paymentMethod, getAddress, additionalItems);
+                            withAddtional.ShowDialog();
                         }
                         else
                         {

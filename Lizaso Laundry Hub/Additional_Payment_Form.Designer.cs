@@ -44,17 +44,17 @@
             this.lbl_stock = new System.Windows.Forms.Label();
             this.txt_Stock = new ComponentFactory.Krypton.Toolkit.KryptonTextBox();
             this.grid_item_selection = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qyt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tlt_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Remove = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn();
             this.lblAmount = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.btn_Save = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.itemName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qyt = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tlt_price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Remove = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.cbSelectItem)).BeginInit();
             this.panel3.SuspendLayout();
@@ -260,7 +260,7 @@
             this.Column5,
             this.id,
             this.Column7,
-            this.Column1,
+            this.itemName,
             this.qyt,
             this.tlt_price,
             this.Remove});
@@ -282,62 +282,6 @@
             this.grid_item_selection.TabIndex = 61;
             this.grid_item_selection.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_item_selection_CellContentClick);
             this.grid_item_selection.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.grid_item_selection_CellFormatting);
-            // 
-            // Column5
-            // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column5.HeaderText = "#";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Width = 45;
-            // 
-            // id
-            // 
-            this.id.HeaderText = "Item_ID";
-            this.id.Name = "id";
-            this.id.ReadOnly = true;
-            this.id.Visible = false;
-            // 
-            // Column7
-            // 
-            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column7.HeaderText = "Code";
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.Width = 68;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.FillWeight = 147.0588F;
-            this.Column1.HeaderText = "Name";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // qyt
-            // 
-            this.qyt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.qyt.FillWeight = 76.47059F;
-            this.qyt.HeaderText = "Qyt";
-            this.qyt.Name = "qyt";
-            this.qyt.ReadOnly = true;
-            // 
-            // tlt_price
-            // 
-            this.tlt_price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.tlt_price.FillWeight = 76.47059F;
-            this.tlt_price.HeaderText = "Total Price";
-            this.tlt_price.Name = "tlt_price";
-            this.tlt_price.ReadOnly = true;
-            // 
-            // Remove
-            // 
-            this.Remove.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Remove.HeaderText = "";
-            this.Remove.MinimumWidth = 50;
-            this.Remove.Name = "Remove";
-            this.Remove.ReadOnly = true;
-            this.Remove.Width = 50;
             // 
             // lblAmount
             // 
@@ -396,6 +340,62 @@
             this.label4.TabIndex = 76;
             this.label4.Text = "Total Amount:";
             // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column5.HeaderText = "#";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Width = 45;
+            // 
+            // id
+            // 
+            this.id.HeaderText = "Item_ID";
+            this.id.Name = "id";
+            this.id.ReadOnly = true;
+            this.id.Visible = false;
+            // 
+            // Column7
+            // 
+            this.Column7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column7.HeaderText = "Code";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 68;
+            // 
+            // itemName
+            // 
+            this.itemName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.itemName.FillWeight = 147.0588F;
+            this.itemName.HeaderText = "Name";
+            this.itemName.Name = "itemName";
+            this.itemName.ReadOnly = true;
+            // 
+            // qyt
+            // 
+            this.qyt.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.qyt.FillWeight = 76.47059F;
+            this.qyt.HeaderText = "Qyt";
+            this.qyt.Name = "qyt";
+            this.qyt.ReadOnly = true;
+            // 
+            // tlt_price
+            // 
+            this.tlt_price.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.tlt_price.FillWeight = 76.47059F;
+            this.tlt_price.HeaderText = "Total Price";
+            this.tlt_price.Name = "tlt_price";
+            this.tlt_price.ReadOnly = true;
+            // 
+            // Remove
+            // 
+            this.Remove.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Remove.HeaderText = "";
+            this.Remove.MinimumWidth = 50;
+            this.Remove.Name = "Remove";
+            this.Remove.ReadOnly = true;
+            this.Remove.Width = 50;
+            // 
             // Additional_Payment_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -443,17 +443,17 @@
         private System.Windows.Forms.Label label3;
         private ComponentFactory.Krypton.Toolkit.KryptonTextBox txt_EnterQyt;
         private System.Windows.Forms.Button btn_Add;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qyt;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tlt_price;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn Remove;
         private System.Windows.Forms.Label lblAmount;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btn_Save;
         public ComponentFactory.Krypton.Toolkit.KryptonDataGridView grid_item_selection;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qyt;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tlt_price;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn Remove;
     }
 }

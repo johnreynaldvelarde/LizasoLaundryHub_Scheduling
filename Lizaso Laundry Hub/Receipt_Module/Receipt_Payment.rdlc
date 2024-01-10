@@ -332,6 +332,7 @@
                     <Value>Total Amount:</Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>SemiBold</FontWeight>
                       <Color>DarkSlateGray</Color>
                     </Style>
@@ -343,10 +344,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>4.1684in</Top>
-            <Left>2.79369in</Left>
+            <Top>4.0434in</Top>
+            <Left>2.46536in</Left>
             <Height>0.27084in</Height>
-            <Width>1.03252in</Width>
+            <Width>1.19495in</Width>
             <ZIndex>10</ZIndex>
             <Style>
               <Border>
@@ -424,7 +425,7 @@
                   </TextRun>
                 </TextRuns>
                 <Style>
-                  <TextAlign>Left</TextAlign>
+                  <TextAlign>Center</TextAlign>
                 </Style>
               </Paragraph>
             </Paragraphs>
@@ -828,6 +829,7 @@
                     <Value>PHP </Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>SemiBold</FontWeight>
                       <Color>Gray</Color>
                     </Style>
@@ -836,8 +838,9 @@
                     <Value>=Parameters!TA.Value</Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>12pt</FontSize>
                       <FontWeight>SemiBold</FontWeight>
-                      <Color>Gray</Color>
+                      <Color>Red</Color>
                     </Style>
                   </TextRun>
                 </TextRuns>
@@ -847,10 +850,10 @@
               </Paragraph>
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
-            <Top>4.1684in</Top>
-            <Left>3.824in</Left>
+            <Top>4.0434in</Top>
+            <Left>3.66031in</Left>
             <Height>0.27084in</Height>
-            <Width>0.82418in</Width>
+            <Width>1.00126in</Width>
             <ZIndex>25</ZIndex>
             <Style>
               <Border>

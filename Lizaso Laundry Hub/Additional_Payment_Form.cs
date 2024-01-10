@@ -312,12 +312,14 @@ namespace Lizaso_Laundry_Hub
             foreach (DataGridViewRow row in grid_item_selection.Rows)
             {
                 int itemId = Convert.ToInt32(row.Cells["id"].Value);
+                string itemName = row.Cells["itemName"].Value?.ToString();
                 int qty = Convert.ToInt32(row.Cells["qyt"].Value);
                 double amount = Convert.ToDouble(row.Cells["tlt_price"].Value);
 
                 Item_Data item = new Item_Data
                 {
                     ItemId = itemId,
+                    ItemName = itemName,
                     Quantity = qty,
                     Amount = amount
                 };

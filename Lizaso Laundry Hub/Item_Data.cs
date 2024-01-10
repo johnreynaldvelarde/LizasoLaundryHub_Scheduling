@@ -9,6 +9,7 @@ namespace Lizaso_Laundry_Hub
     public class Item_Data
     {
         public int ItemId { get; set; }
+        public string ItemName { get; set; }
         public int Quantity { get; set; }
         public double Amount { get; set; }
     }
