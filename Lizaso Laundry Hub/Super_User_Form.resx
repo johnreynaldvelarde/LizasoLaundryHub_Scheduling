@@ -466,4 +466,55 @@
         LM5hLoop1+jl/w8WWY47UV9OuUsxTyckJFRBKrUEVpVzhwz0kmUAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="button3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAArFJREFUWEft
+        lztrFFEYhtcQjOAlQkynWKhREInRYGUT7UQEUXsba0EQvHSKYhEUm0CiCBb6A7QxRhG8FSrYKdFCUFQQ
+        FYl3vByfd+adZTezMzu7joWQBx5297ucbHbPfHO2MsN/RQhhJR7GB/gaP+NbnMSbeBD7XF4eLLoOr2NR
+        xnGt29uHRTrxNP7CLHpxNW7HM/gGhXpOYqeXaw0aF+JVzMXlVQgtwBP4TXnQp9HtdDFo6MLb6obffmyI
+        W1KQ6sdnUVEIt7DLqeZQPBa1hfDTj5m4pSGkl+DLqDCEEYfzoXAD6r/+gvcwF7dlQskgai2tud7hbCi6
+        huKIXy9Dfae63FJETU2g7FhcHcYdagwFus6F/th8nIXR5cSj9sUuvItVosYmUNaN76KGEFY4nIakhowY
+        9eulqIFzH3fjHNSb2oQXcSxqLAC1Z1EccCgNyWTYbHNIsdm4Fz/gFI7iGqerENObG8KjeAf3OBXBa80J
+        MeFQGpJP45qw3KEqxHpQQ+mHCuAR6qt6jw9RGy1Bo3qzWyN4nXy9kw6lIfkxrgnzHEpBTmP5RlRVj3b5
+        Zdzo0jqIa0+JKYfSkPwU14S5DmVCTe1Vob7c2U++0Bt4Etfk7FRDzVbUkHmFWxzOhJpVKB47lIZkahOW
+        BWsW2oT745pwzqHSYM3z8dJhn0NpSNYNIof/GtYqNogEBRNxXTyKy4C1jsdLhisOZUPRAOowoePWgMNt
+        wxq6GX31mv0O50PhKRQvcLHDLUNv7e142OHmUNyBGipC+2HIqcLQo/tFMisuYYdTxaBBGyc5kul4NYw9
+        TmdCzSLUWfA7itaPZAk0Tj+U6mZ0AXdgH+oGJPV8J+oOqRqhHn2V7R1Ka2ERzf/k6ihCOcfy6bCo5sQh
+        1CHzOepjlnquHybKlf/DZIZ/R6XyB0kQtL8QjZJ0AAAAAElFTkSuQmCC
+</value>
+  </data>
+  <data name="button4.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAn1JREFUWEft
+        lTloVFEUhscshUUSNUoWYhPXpAxIkKAG0rqg2CqIUUEQQYhJEcElaCcigiA2pgqigiC4IUYbbSy0EAtF
+        AkEFRUgT1AQn33/ueeObfQbG7n3w8d4959xz39x5SyohIaFS0un0OnyBP3Eauz1lMD6KH91hD9cOmj7H
+        OM88pdxW/GvRgM77PV0baPjbWv/jl6eUGwuhLEY9XRtoOBP6ZvjsKeUOh1AWhzxdPUxeg73Y4CHFRjHO
+        iKeUa8FvFg18xWbPNaB6rbbiclB4EhdQvMU2Tyl3EG/p6KEMxDZ6Tm7wWDu+Q/EHT1hxMSjQhGjxiKue
+        W2lFwHm9nxYkquV4DeOod+YH5UFywMqyeeI5PYLv8QG2orb9iKvzFXgHVTPtc55iLgPKFYSk/nttVZzL
+        npsNw/Q+1GKfbBTQs6+L2G8jblifcyUMM6h3q3JFoWDCSgNfsAu32SighfTSyWUYdWER2s21qBsy4oIv
+        UxoKh/AAtvu4DbXVb7ART2MuI6icalRr/zXHDlSvIY0LQrIO+/AU6sa5j49xEi/hXlyF9ajafoyjN98W
+        VE41qtUczVUP9VJP9dYaWqvOl7cLUEE55nG7T9GcixYNTHhY8R2o2nI8iiboI1MJt9Ge7wjGndjhQ4Px
+        epzCSujWhGZ8bcPi3MNluBnHUV/DD/gdf/i5HtMz2IOqvYuleIX2ttRFNOFNjH/R4uim3ISLNiqNanQR
+        gzbKR2vcwCZbPA5BvbPPo14oD/E67kHd3cewUo6jvgG7UT3USz3PYY8vVx1M1C5pm8vxEvN/XS2gsXbi
+        LM5hLoop1+jl/w8WWY47UV9OuUsxTyckJFRBKrUEVpVzhwz0kmUAAAAASUVORK5CYII=
+</value>
+  </data>
+  <data name="button5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAv5JREFUWEfN
+        l0uITmEYx+ciaUZTyi2jFKXkMrkmyQYNkks2CJOZhhqZLOSSBkXZWLBQlDDjLtmZaWxkIZuJsGdjEg25
+        lbvP73/OM9985z3n/c4Z8uVXv3o9z/+Z83KO16vsvyaXy63D83gW662cCtnlNnMBN2KltbLD0F78htfw
+        Fv7ARmt7IdNsWc1cwg/4COdaJB3CNaiHb7CSarvwLVZYKQa9SnyHrVZSbSxewc+4ycrFITgTxWgrqTYt
+        LOVqrRSD3vgwkptqpQB+XY738SeOsrIfQsNRO262kmoH8DWWWykGvQrsw/1WUm0i3sbsfwKC8G7Uju/g
+        XVtvsbYXMlstqxk9+CsO7hvoh6F6PIOncKGVUyG7yGba8c/+FggGW7EK9VG2WPnfw8MW42XUO9+JbfgM
+        z+F8i8WgNwNX2VqbHmnrpThP61QInsR+8r9r1gfDUvB+26ycRzX8Zf0d+ACfYiPqOxDH0fsR64c0BbEB
+        LlpLva6wlGeltdRbG5Yy0WRjcWi6D3lh9aH4KagM0BEMAWsdNFnptrE4NHvCTIQpqK/apcvGNDcBD+Fz
+        NTz04jGcbGNxaCZtQO/zcLiMULiB9agDRwfRVXTpRh3TtdhgY3FoJm3gJt4LlxEKN6BXp49vOh5FF50l
+        evh37LGxOGqii47WL+EygrsBMRt9G9BrEoPegA/fBibhEkd9RyXbgD5Y3SUKXYYl28BfvYJ9+DGIFUcX
+        k202prnt+AbTNvAe99hYMgR0husu5+MEVlk8D7VhquMRdDmNOsyqLV4cgg2a8rDCYonQXxPGIqTeJSMw
+        oHuAj1kWi0GvGnXg6FKiA+k6tlitxmLpEK5DH+MsFoOeDptOXIAjzDmow6zOYukQHoNJ6LQbYrEY6lkm
+        ifwFNxXCOtN1bLq8sogXMrrEuOhnea/ziTDwMhiN8tjaXsg8CaMReq2dHYZ0k3Xx/1tukNEt2uWhtbPD
+        UP/pVki7tb2Q6QijETqtnR2GNuMNx+DCWQwyq50Zmf0/JKWlrOw3ckI9z1sPZZIAAAAASUVORK5CYII=
+</value>
+  </data>
 </root>

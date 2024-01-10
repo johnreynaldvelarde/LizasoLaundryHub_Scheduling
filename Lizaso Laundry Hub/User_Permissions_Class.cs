@@ -8,6 +8,7 @@ namespace Lizaso_Laundry_Hub
 {
     public class User_Permissions_Class
     {
+        public bool Dashboard { get; set; }
         public bool Available_Services { get; set; }
         public bool Schedule { get; set; }
         public bool Customer_Manage { get; set; }

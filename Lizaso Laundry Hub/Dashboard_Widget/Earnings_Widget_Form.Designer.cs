@@ -68,7 +68,7 @@
             this.kryptonPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.kryptonPanel1.Location = new System.Drawing.Point(5, 5);
             this.kryptonPanel1.Name = "kryptonPanel1";
-            this.kryptonPanel1.Size = new System.Drawing.Size(389, 256);
+            this.kryptonPanel1.Size = new System.Drawing.Size(385, 252);
             this.kryptonPanel1.StateCommon.Color1 = System.Drawing.Color.DarkSlateGray;
             this.kryptonPanel1.StateCommon.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(110)))), ((int)(((byte)(121)))));
             this.kryptonPanel1.StateCommon.ColorAngle = 45F;
@@ -79,9 +79,9 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Transparent;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 232);
+            this.panel1.Location = new System.Drawing.Point(0, 228);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(389, 24);
+            this.panel1.Size = new System.Drawing.Size(385, 24);
             this.panel1.TabIndex = 11;
             // 
             // lblMonthly
@@ -200,7 +200,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Inherit;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(399, 266);
+            this.ClientSize = new System.Drawing.Size(395, 262);
             this.ControlBox = false;
             this.Controls.Add(this.kryptonPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

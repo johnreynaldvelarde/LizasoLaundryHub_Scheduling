@@ -50,31 +50,35 @@ namespace Lizaso_Laundry_Hub
         }
         public void CheckEnableButton()
         {
-            if (btnService.Enabled)
+            if (btn_Dashboard.Enabled)
+            {
+                openChildPanel(new Dashboard_Form());
+            }
+            else if (btn_Services.Enabled)
             {
                 openChildPanel(new Services_Form());
             }
-            else if (btnSchedule.Enabled)
+            else if (btn_Schedule.Enabled)
             {
                 openChildPanel(new Schedule_Form());
             }
-            else if (btnCustomer.Enabled)
+            else if (btn_Customer.Enabled)
             {
                 openChildPanel(new Customer_Form());
             }
-            else if (btnPayments.Enabled)
+            else if (btn_Payments.Enabled)
             {
                 openChildPanel(new Payments_Form());
             }
-            else if (btnUserManage.Enabled)
+            else if (btn_UserManage.Enabled)
             {
                 openChildPanel(new User_Form());
             }
-            else if (btnInventory.Enabled)
+            else if (btn_Inventory.Enabled)
             {
                 openChildPanel(new Inventory_Form());
             }
-            else if (btnSettings.Enabled)
+            else if (btn_Settings.Enabled)
             {
                 openChildPanel(new Settings_Form());
             }
@@ -83,8 +87,6 @@ namespace Lizaso_Laundry_Hub
                 btnNotification.Enabled = false;
                 MessageBox.Show("No available permissions found for this user account. The user may not have been assigned any permissions or is marked as a super user.", "No Permissions", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-
-
         }
 
         // main panel dock
@@ -108,52 +110,55 @@ namespace Lizaso_Laundry_Hub
             User_Permissions_Class permissions = getData.GetUserPermissions(AuthenticatedUser.User_ID);
 
             // Enable or disable buttons based on user permissions
-            btnService.Enabled = permissions.Available_Services;
-            btnSchedule.Enabled = permissions.Schedule;
-            btnCustomer.Enabled = permissions.Customer_Manage;
-            btnPayments.Enabled = permissions.Payments;
-            btnUserManage.Enabled = permissions.User_Manage;
-            btnInventory.Enabled = permissions.Inventory;
-            btnSettings.Enabled = permissions.Settings;
+            btn_Dashboard.Enabled = permissions.Dashboard;
+            btn_Services.Enabled = permissions.Available_Services;
+            btn_Schedule.Enabled = permissions.Schedule;
+            btn_Customer.Enabled = permissions.Customer_Manage;
+            btn_Payments.Enabled = permissions.Payments;
+            btn_UserManage.Enabled = permissions.User_Manage;
+            btn_Inventory.Enabled = permissions.Inventory;
+            btn_Settings.Enabled = permissions.Settings;
+        }
+        private void btn_Dashboard_Click(object sender, EventArgs e)
+        {
+            openChildPanel(new Dashboard_Form());
         }
 
-        private void btnService_Click(object sender, EventArgs e)
+        private void btn_Services_Click(object sender, EventArgs e)
         {
             openChildPanel(new Services_Form());
         }
 
-        private void btnSchedule_Click(object sender, EventArgs e)
-        {
-            openChildPanel(new Schedule_Form());
-        }
-
-        private void btnCustomer_Click(object sender, EventArgs e)
-        {
-            openChildPanel(new Customer_Form());
-        }
-
-        private void btnPayments_Click(object sender, EventArgs e)
+        private void btn_Payments_Click(object sender, EventArgs e)
         {
             openChildPanel(new Payments_Form());
         }
 
-        private void btnUserManage_Click(object sender, EventArgs e)
+        private void btn_Schedule_Click(object sender, EventArgs e)
+        {
+            openChildPanel(new Schedule_Form());
+        }
+
+        private void btn_Customer_Click(object sender, EventArgs e)
+        {
+            openChildPanel(new Customer_Form());
+        }
+
+        private void btn_UserManage_Click(object sender, EventArgs e)
         {
             openChildPanel(new User_Form());
         }
 
-        private void btnInventory_Click(object sender, EventArgs e)
+        private void btn_Inventory_Click(object sender, EventArgs e)
         {
             openChildPanel(new Inventory_Form());
         }
 
-        private void btnSettings_Click(object sender, EventArgs e)
+        private void btn_Settings_Click(object sender, EventArgs e)
         {
-            //openChildPanel(new Settings_Form());
-            Super_User_Form frm = new Super_User_Form();
-            frm.Show();
+            openChildPanel(new Settings_Form());
         }
-
+     
         private void btnLogOut_Click(object sender, EventArgs e)
         {
             DialogResult res;
@@ -170,7 +175,8 @@ namespace Lizaso_Laundry_Hub
                 this.Show();
             }
         }
-
+        
+       
 
        
     }

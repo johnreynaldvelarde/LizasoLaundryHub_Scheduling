@@ -579,7 +579,7 @@ namespace Lizaso_Laundry_Hub
                     connect.Open();
 
                     // Fetch user permissions from User_Permissions table
-                    string sql = "SELECT Available_Services, Schedule, Customer_Manage, Payments, User_Manage, Inventory, Settings FROM Permissions_View WHERE User_ID = @UserId";
+                    string sql = "SELECT Dashboard, Available_Services, Schedule, Customer_Manage, Payments, User_Manage, Inventory, Settings FROM Permissions_View WHERE User_ID = @UserId";
 
                     using (SqlCommand command = new SqlCommand(sql, connect))
                     {
@@ -591,6 +591,7 @@ namespace Lizaso_Laundry_Hub
                         {
                             return new User_Permissions_Class
                             {
+                                Dashboard = reader.GetBoolean(reader.GetOrdinal("Dashboard")),
                                 Available_Services = reader.GetBoolean(reader.GetOrdinal("Available_Services")),
                                 Schedule = reader.GetBoolean(reader.GetOrdinal("Schedule")),
                                 Customer_Manage = reader.GetBoolean(reader.GetOrdinal("Customer_Manage")),
@@ -600,8 +601,7 @@ namespace Lizaso_Laundry_Hub
                                 Settings = reader.GetBoolean(reader.GetOrdinal("Settings"))
                             };
                         }
-
-                        return new User_Permissions_Class(); // Return default permissions if not found
+                        return new User_Permissions_Class(); 
                     }
                 }
             }
