@@ -184,6 +184,12 @@
     <Compile Include="Dashboard_Widget\Pending_Widget_Form.Designer.cs">
       <DependentUpon>Pending_Widget_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dashboard_Widget\Stats_Widget_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard_Widget\Stats_Widget_Form.Designer.cs">
+      <DependentUpon>Stats_Widget_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="DB_Connection.cs" />
     <Compile Include="DropDown_Form.cs">
       <SubType>Form</SubType>
@@ -408,6 +414,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard_Widget\Pending_Widget_Form.resx">
       <DependentUpon>Pending_Widget_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard_Widget\Stats_Widget_Form.resx">
+      <DependentUpon>Stats_Widget_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="DropDown_Form.resx">
       <DependentUpon>DropDown_Form.cs</DependentUpon>

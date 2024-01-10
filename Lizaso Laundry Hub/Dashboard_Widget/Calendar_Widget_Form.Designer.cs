@@ -29,14 +29,23 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
             this.calendar1 = new Calendar.NET.Calendar();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.grid_activity_view = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_activity_view)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPalette1
@@ -55,7 +64,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(5, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(491, 45);
+            this.panel1.Size = new System.Drawing.Size(487, 45);
             this.panel1.TabIndex = 4;
             // 
             // label5
@@ -77,16 +86,8 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(5, 50);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(491, 344);
+            this.panel2.Size = new System.Drawing.Size(487, 344);
             this.panel2.TabIndex = 5;
-            // 
-            // panel3
-            // 
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(5, 394);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(491, 155);
-            this.panel3.TabIndex = 6;
             // 
             // calendar1
             // 
@@ -109,16 +110,106 @@
             this.calendar1.ShowDisabledEvents = false;
             this.calendar1.ShowEventTooltips = true;
             this.calendar1.ShowTodayButton = true;
-            this.calendar1.Size = new System.Drawing.Size(491, 344);
+            this.calendar1.Size = new System.Drawing.Size(487, 344);
             this.calendar1.TabIndex = 0;
             this.calendar1.TodayFont = new System.Drawing.Font("Arial", 10F, System.Drawing.FontStyle.Bold);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.grid_activity_view);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(5, 394);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(487, 151);
+            this.panel3.TabIndex = 6;
+            // 
+            // grid_activity_view
+            // 
+            this.grid_activity_view.AllowUserToAddRows = false;
+            this.grid_activity_view.AllowUserToDeleteRows = false;
+            this.grid_activity_view.AllowUserToResizeColumns = false;
+            this.grid_activity_view.AllowUserToResizeRows = false;
+            this.grid_activity_view.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grid_activity_view.ColumnHeadersHeight = 30;
+            this.grid_activity_view.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.grid_activity_view.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn8,
+            this.dataGridViewTextBoxColumn9,
+            this.Column1});
+            this.grid_activity_view.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.grid_activity_view.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grid_activity_view.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Mixed;
+            this.grid_activity_view.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonLowProfile;
+            this.grid_activity_view.Location = new System.Drawing.Point(0, 0);
+            this.grid_activity_view.Name = "grid_activity_view";
+            this.grid_activity_view.ReadOnly = true;
+            this.grid_activity_view.RowHeadersVisible = false;
+            this.grid_activity_view.RowHeadersWidth = 50;
+            this.grid_activity_view.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.grid_activity_view.RowTemplate.Height = 30;
+            this.grid_activity_view.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grid_activity_view.Size = new System.Drawing.Size(487, 151);
+            this.grid_activity_view.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonLowProfile;
+            this.grid_activity_view.StateCommon.DataCell.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.grid_activity_view.StateCommon.DataCell.Content.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.grid_activity_view.StateCommon.DataCell.Content.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grid_activity_view.StateCommon.HeaderColumn.Back.Color1 = System.Drawing.Color.DarkSlateGray;
+            this.grid_activity_view.StateCommon.HeaderColumn.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(110)))), ((int)(((byte)(121)))));
+            this.grid_activity_view.StateCommon.HeaderColumn.Back.ColorAngle = 45F;
+            this.grid_activity_view.StateCommon.HeaderColumn.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.HalfCut;
+            this.grid_activity_view.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.White;
+            this.grid_activity_view.StateCommon.HeaderColumn.Content.Color2 = System.Drawing.Color.White;
+            this.grid_activity_view.StateCommon.HeaderColumn.Content.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grid_activity_view.TabIndex = 11;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn6.FillWeight = 20.59005F;
+            this.dataGridViewTextBoxColumn6.HeaderText = "#";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            this.dataGridViewTextBoxColumn6.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.HeaderText = "Booking_ID";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.FillWeight = 59.3658F;
+            this.dataGridViewTextBoxColumn8.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn9.FillWeight = 68.05792F;
+            this.dataGridViewTextBoxColumn9.HeaderText = "Time";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.Column1.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Column1.FillWeight = 255.6451F;
+            this.Column1.HeaderText = "Description";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // Calendar_Widget_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(501, 554);
+            this.ClientSize = new System.Drawing.Size(497, 550);
             this.ControlBox = false;
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel2);
@@ -134,6 +225,8 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grid_activity_view)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -146,5 +239,11 @@
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private Calendar.NET.Calendar calendar1;
+        private ComponentFactory.Krypton.Toolkit.KryptonDataGridView grid_activity_view;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
     }
 }
