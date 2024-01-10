@@ -48,34 +48,30 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.label2 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.grid_transaction_history_view = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.panel6 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.kryptonDataGridViewButtonColumn2 = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn();
-            this.kryptonDataGridViewButtonColumn1 = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn();
-            this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.grid_transaction_history_view = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
+            this.dataGridViewTextBoxColumn18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kryptonDataGridViewButtonColumn1 = new ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn();
             this.grid_transaction_view.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_pending_view)).BeginInit();
             this.panel5.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.grid_transaction_history_view)).BeginInit();
             this.panel6.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grid_transaction_history_view)).BeginInit();
             this.SuspendLayout();
             // 
             // kryptonPalette1
@@ -282,6 +278,45 @@
             this.tabPage2.Text = "Transaction History";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // grid_transaction_history_view
+            // 
+            this.grid_transaction_history_view.AllowUserToAddRows = false;
+            this.grid_transaction_history_view.AllowUserToDeleteRows = false;
+            this.grid_transaction_history_view.AllowUserToResizeColumns = false;
+            this.grid_transaction_history_view.AllowUserToResizeRows = false;
+            this.grid_transaction_history_view.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.grid_transaction_history_view.ColumnHeadersHeight = 40;
+            this.grid_transaction_history_view.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.grid_transaction_history_view.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn7,
+            this.dataGridViewTextBoxColumn18,
+            this.Column1,
+            this.dataGridViewTextBoxColumn21,
+            this.dataGridViewTextBoxColumn22,
+            this.dataGridViewTextBoxColumn23,
+            this.dataGridViewTextBoxColumn26,
+            this.kryptonDataGridViewButtonColumn1});
+            this.grid_transaction_history_view.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grid_transaction_history_view.Location = new System.Drawing.Point(0, 80);
+            this.grid_transaction_history_view.Name = "grid_transaction_history_view";
+            this.grid_transaction_history_view.Palette = this.kryptonPalette1;
+            this.grid_transaction_history_view.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
+            this.grid_transaction_history_view.ReadOnly = true;
+            this.grid_transaction_history_view.RowHeadersVisible = false;
+            this.grid_transaction_history_view.RowHeadersWidth = 50;
+            this.grid_transaction_history_view.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.grid_transaction_history_view.RowTemplate.Height = 80;
+            this.grid_transaction_history_view.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.grid_transaction_history_view.Size = new System.Drawing.Size(1152, 389);
+            this.grid_transaction_history_view.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
+            this.grid_transaction_history_view.StateCommon.DataCell.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.grid_transaction_history_view.StateCommon.DataCell.Content.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.grid_transaction_history_view.StateCommon.DataCell.Content.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grid_transaction_history_view.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
+            this.grid_transaction_history_view.StateCommon.HeaderColumn.Content.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
+            this.grid_transaction_history_view.StateCommon.HeaderColumn.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.grid_transaction_history_view.TabIndex = 10;
+            // 
             // panel6
             // 
             this.panel6.Controls.Add(this.label3);
@@ -342,15 +377,58 @@
             this.panel2.Size = new System.Drawing.Size(1160, 50);
             this.panel2.TabIndex = 6;
             // 
-            // kryptonDataGridViewButtonColumn2
+            // dataGridViewTextBoxColumn7
             // 
-            this.kryptonDataGridViewButtonColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.kryptonDataGridViewButtonColumn2.HeaderText = "Cancel";
-            this.kryptonDataGridViewButtonColumn2.MinimumWidth = 50;
-            this.kryptonDataGridViewButtonColumn2.Name = "kryptonDataGridViewButtonColumn2";
-            this.kryptonDataGridViewButtonColumn2.ReadOnly = true;
-            this.kryptonDataGridViewButtonColumn2.Visible = false;
-            this.kryptonDataGridViewButtonColumn2.Width = 53;
+            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn7.HeaderText = "#";
+            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.ReadOnly = true;
+            this.dataGridViewTextBoxColumn7.Width = 48;
+            // 
+            // dataGridViewTextBoxColumn18
+            // 
+            this.dataGridViewTextBoxColumn18.HeaderText = "Transaction_ID";
+            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
+            this.dataGridViewTextBoxColumn18.ReadOnly = true;
+            this.dataGridViewTextBoxColumn18.Visible = false;
+            // 
+            // Column1
+            // 
+            this.Column1.FillWeight = 65.03758F;
+            this.Column1.HeaderText = "Staff Manage";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn21
+            // 
+            this.dataGridViewTextBoxColumn21.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn21.FillWeight = 95.79753F;
+            this.dataGridViewTextBoxColumn21.HeaderText = "Customer Name";
+            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
+            this.dataGridViewTextBoxColumn21.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn22
+            // 
+            this.dataGridViewTextBoxColumn22.FillWeight = 87.19431F;
+            this.dataGridViewTextBoxColumn22.HeaderText = "Transaction Date";
+            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
+            this.dataGridViewTextBoxColumn22.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn23
+            // 
+            this.dataGridViewTextBoxColumn23.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn23.FillWeight = 79.65049F;
+            this.dataGridViewTextBoxColumn23.HeaderText = "Payment Method";
+            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            this.dataGridViewTextBoxColumn23.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn26
+            // 
+            this.dataGridViewTextBoxColumn26.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.dataGridViewTextBoxColumn26.FillWeight = 66.37086F;
+            this.dataGridViewTextBoxColumn26.HeaderText = "Total Amount";
+            this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
+            this.dataGridViewTextBoxColumn26.ReadOnly = true;
             // 
             // kryptonDataGridViewButtonColumn1
             // 
@@ -360,125 +438,6 @@
             this.kryptonDataGridViewButtonColumn1.Name = "kryptonDataGridViewButtonColumn1";
             this.kryptonDataGridViewButtonColumn1.ReadOnly = true;
             this.kryptonDataGridViewButtonColumn1.Width = 57;
-            // 
-            // dataGridViewTextBoxColumn26
-            // 
-            this.dataGridViewTextBoxColumn26.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn26.FillWeight = 61.45513F;
-            this.dataGridViewTextBoxColumn26.HeaderText = "Total Amount";
-            this.dataGridViewTextBoxColumn26.Name = "dataGridViewTextBoxColumn26";
-            this.dataGridViewTextBoxColumn26.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn24
-            // 
-            this.dataGridViewTextBoxColumn24.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn24.FillWeight = 68.72277F;
-            this.dataGridViewTextBoxColumn24.HeaderText = "Additional Payment";
-            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
-            this.dataGridViewTextBoxColumn24.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn23
-            // 
-            this.dataGridViewTextBoxColumn23.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn23.FillWeight = 73.75121F;
-            this.dataGridViewTextBoxColumn23.HeaderText = "Payment Method";
-            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
-            this.dataGridViewTextBoxColumn23.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn22
-            // 
-            this.dataGridViewTextBoxColumn22.FillWeight = 80.73631F;
-            this.dataGridViewTextBoxColumn22.HeaderText = "Transaction Date";
-            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
-            this.dataGridViewTextBoxColumn22.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn21
-            // 
-            this.dataGridViewTextBoxColumn21.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.dataGridViewTextBoxColumn21.FillWeight = 88.70233F;
-            this.dataGridViewTextBoxColumn21.HeaderText = "Customer Name";
-            this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
-            this.dataGridViewTextBoxColumn21.ReadOnly = true;
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column1.FillWeight = 94.90286F;
-            this.Column1.HeaderText = "Staff Manage";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn20
-            // 
-            this.dataGridViewTextBoxColumn20.HeaderText = "User_ID";
-            this.dataGridViewTextBoxColumn20.Name = "dataGridViewTextBoxColumn20";
-            this.dataGridViewTextBoxColumn20.ReadOnly = true;
-            this.dataGridViewTextBoxColumn20.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.HeaderText = "Booking_ID";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.ReadOnly = true;
-            this.dataGridViewTextBoxColumn19.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn18
-            // 
-            this.dataGridViewTextBoxColumn18.HeaderText = "Transaction_ID";
-            this.dataGridViewTextBoxColumn18.Name = "dataGridViewTextBoxColumn18";
-            this.dataGridViewTextBoxColumn18.ReadOnly = true;
-            this.dataGridViewTextBoxColumn18.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn7
-            // 
-            this.dataGridViewTextBoxColumn7.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn7.HeaderText = "#";
-            this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
-            this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 48;
-            // 
-            // grid_transaction_history_view
-            // 
-            this.grid_transaction_history_view.AllowUserToAddRows = false;
-            this.grid_transaction_history_view.AllowUserToDeleteRows = false;
-            this.grid_transaction_history_view.AllowUserToResizeColumns = false;
-            this.grid_transaction_history_view.AllowUserToResizeRows = false;
-            this.grid_transaction_history_view.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.grid_transaction_history_view.ColumnHeadersHeight = 40;
-            this.grid_transaction_history_view.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.grid_transaction_history_view.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn7,
-            this.dataGridViewTextBoxColumn18,
-            this.dataGridViewTextBoxColumn19,
-            this.dataGridViewTextBoxColumn20,
-            this.Column1,
-            this.dataGridViewTextBoxColumn21,
-            this.dataGridViewTextBoxColumn22,
-            this.dataGridViewTextBoxColumn23,
-            this.dataGridViewTextBoxColumn24,
-            this.dataGridViewTextBoxColumn26,
-            this.kryptonDataGridViewButtonColumn1,
-            this.kryptonDataGridViewButtonColumn2});
-            this.grid_transaction_history_view.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grid_transaction_history_view.Location = new System.Drawing.Point(0, 80);
-            this.grid_transaction_history_view.Name = "grid_transaction_history_view";
-            this.grid_transaction_history_view.Palette = this.kryptonPalette1;
-            this.grid_transaction_history_view.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
-            this.grid_transaction_history_view.ReadOnly = true;
-            this.grid_transaction_history_view.RowHeadersVisible = false;
-            this.grid_transaction_history_view.RowHeadersWidth = 50;
-            this.grid_transaction_history_view.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            this.grid_transaction_history_view.RowTemplate.Height = 80;
-            this.grid_transaction_history_view.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grid_transaction_history_view.Size = new System.Drawing.Size(1152, 389);
-            this.grid_transaction_history_view.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
-            this.grid_transaction_history_view.StateCommon.DataCell.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.grid_transaction_history_view.StateCommon.DataCell.Content.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.grid_transaction_history_view.StateCommon.DataCell.Content.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grid_transaction_history_view.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
-            this.grid_transaction_history_view.StateCommon.HeaderColumn.Content.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
-            this.grid_transaction_history_view.StateCommon.HeaderColumn.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grid_transaction_history_view.TabIndex = 10;
             // 
             // Payments_Form
             // 
@@ -504,12 +463,12 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.grid_transaction_history_view)).EndInit();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.grid_transaction_history_view)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -543,15 +502,11 @@
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView grid_transaction_history_view;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn kryptonDataGridViewButtonColumn1;
-        private ComponentFactory.Krypton.Toolkit.KryptonDataGridViewButtonColumn kryptonDataGridViewButtonColumn2;
     }
 }

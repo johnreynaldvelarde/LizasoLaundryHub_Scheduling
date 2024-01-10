@@ -780,11 +780,6 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
-
-
-
-
-
         // << INVENTORY_FORM /  Items View tab >>
         // update the item information
         public bool Update_InventoryItem(int itemID, string itemName, string categoryItem, decimal itemPrice)
@@ -961,17 +956,23 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
-
-
-        public bool Now4()
+        // << PAYMENTS FORM / In-Pending Payments >>
+        // method to cancel the pending status in laundry bookings and change the status to cancel
+        public bool Update_CancelPendingPayments(int bookingID)
         {
             try
             {
                 using (SqlConnection connect = new SqlConnection(database.MyConnection()))
                 {
+                    connect.Open();
 
+                    string updateQuery = "UPDATE Laundry_Bookings SET Bookings_Status = 'Canceled' WHERE Booking_ID = @BookingID";
 
-
+                    using (SqlCommand cmd = new SqlCommand(updateQuery, connect))
+                    {
+                        cmd.Parameters.AddWithValue("@BookingID", bookingID);
+                        cmd.ExecuteNonQuery();
+                    }
 
                     return true;
                 }
@@ -982,6 +983,7 @@ namespace Lizaso_Laundry_Hub
                 return false;
             }
         }
+
 
 
         public bool Now5()

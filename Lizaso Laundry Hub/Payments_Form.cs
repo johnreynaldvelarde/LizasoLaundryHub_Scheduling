@@ -14,6 +14,7 @@ namespace Lizaso_Laundry_Hub
     public partial class Payments_Form : KryptonForm
     {
         private Get_Data_Class getData;
+        private Update_Data_Class updateData;
         private int bookingID, unitID, customerID;
         private string customerName, serviceType, weight;
 
@@ -21,6 +22,7 @@ namespace Lizaso_Laundry_Hub
         {
             InitializeComponent();
             getData = new Get_Data_Class();
+            updateData = new Update_Data_Class();
         }
 
         public void DisplayInPendingList()
@@ -78,7 +80,13 @@ namespace Lizaso_Laundry_Hub
             }
             else if (column_pending == "Cancel")
             {
-                // Handle delete action if needed
+                DialogResult result = MessageBox.Show("Are you sure you want to cancel this pending payments?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    updateData.Update_CancelPendingPayments(bookingID);
+                    DisplayInPendingList();
+                }
             }
         }
 

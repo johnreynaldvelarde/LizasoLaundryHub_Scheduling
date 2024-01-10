@@ -1284,6 +1284,58 @@ namespace Lizaso_Laundry_Hub
             {
                 using (SqlConnection connect = new SqlConnection(database.MyConnection()))
                 {
+                    connect.Open();
+
+                    string query = @"SELECT T.Transaction_ID, U.User_Name, T.Amount, T.Transaction_Date, T.Payment_Method, C.Customer_Name
+                                     FROM Transaction_View T
+                                     JOIN Bookings_View L ON T.Booking_ID = L.Booking_ID
+                                     JOIN Customers_View C ON L.Customer_ID = C.Customer_ID
+                                     JOIN User_View U ON T.User_ID = U.User_ID
+                                     ORDER BY T.Transaction_Date DESC";
+
+                    using (SqlCommand cmd = new SqlCommand(query, connect))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            // Clear existing rows in the DataGridView
+                            view_transaction_history.Rows.Clear();
+
+                            // Read data from the SqlDataReader and add rows to the DataGridView
+                            while (reader.Read())
+                            {
+                                int transactionID = reader.GetInt32(reader.GetOrdinal("Transaction_ID"));
+                                //int bookingID = reader.GetInt32(reader.GetOrdinal("Booking_ID"));
+                                //int userID = reader.GetInt32(reader.GetOrdinal("User_ID"));
+                                string userName = reader.GetString(reader.GetOrdinal("User_Name"));
+                                decimal amount = reader.GetDecimal(reader.GetOrdinal("Amount"));
+                                DateTime transactionDate = reader.GetDateTime(reader.GetOrdinal("Transaction_Date"));
+                                string paymentMethod = reader.GetString(reader.GetOrdinal("Payment_Method"));
+                                string customerName = reader.IsDBNull(reader.GetOrdinal("Customer_Name")) ? string.Empty : reader.GetString(reader.GetOrdinal("Customer_Name"));
+
+                                // Add a new row to the DataGridView
+                                view_transaction_history.Rows.Add(0, transactionID,  userName, customerName, transactionDate, paymentMethod, amount );
+                            }
+
+                            return true;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+
+
+        public bool Get_TransactionHistossry(DataGridView view_transaction_history)
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
 
 
 
