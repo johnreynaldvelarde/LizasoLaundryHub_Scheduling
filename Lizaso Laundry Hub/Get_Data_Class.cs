@@ -1665,25 +1665,59 @@ namespace Lizaso_Laundry_Hub
             return notificationLogs;
         }
 
-        /*
-        public bool Get_NotificationLog(int userID)
+        // << PAYMENT DETAILS FORM / Receipt Form >>
+        // method to get customer address based on customer id
+        public string Get_CustomerAddressForReceipt(int customerID)
         {
             try
             {
                 using (SqlConnection connect = new SqlConnection(database.MyConnection()))
                 {
+                    connect.Open();
 
+                    string query = "SELECT Address FROM Customers WHERE Customer_ID = @CustomerID";
+                    using (SqlCommand cmd = new SqlCommand(query, connect))
+                    {
+                        cmd.Parameters.AddWithValue("@CustomerID", customerID);
 
-                    return true;
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                // Check if the 'Address' column is not DBNull.Value before retrieving it
+                                int addressOrdinal = reader.GetOrdinal("Address");
+                                if (!reader.IsDBNull(addressOrdinal))
+                                {
+                                    string address = reader.GetString(addressOrdinal);
+                                    return address;
+                                }
+                                else
+                                {
+                                    // If the address is DBNull.Value (NULL) in the database, return "None"
+                                    return "None";
+                                }
+                            }
+                        }
+                    }
+
+                    // If no address found, return "None"
+                    return "None";
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                return "None";
             }
         }
-        */
+
+
+
+
+
+
+
+
 
     }
 }

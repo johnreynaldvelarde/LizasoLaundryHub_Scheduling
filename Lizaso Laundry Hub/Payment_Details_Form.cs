@@ -118,7 +118,6 @@ namespace Lizaso_Laundry_Hub
                 }
                 else
                 {
-                    //int transactionID = insertData.Set_PendingDetails(UnitID, BookingID, account.User_ID, amount, paymentMethod);
                     TransactionID = insertData.Set_PendingDetails(UnitID, BookingID, account.User_ID, amount, paymentMethod);
 
                     if (TransactionID != -1)
@@ -133,14 +132,17 @@ namespace Lizaso_Laundry_Hub
                         this.Dispose();
                         frm.DisplayInPendingList();
 
-                        receipt.GetPaymentDetails(account.User_Name, _serviceType, _load, setWeight, TotalServicesPrice.ToString(),totalPaymentText, _customerName, paymentMethod);
+                        
+                        string getAddress = getData.Get_CustomerAddressForReceipt(CustomerID);
+
+                        getAddress = string.IsNullOrEmpty(getAddress) ? "None" : getAddress;
+                        receipt.GetPaymentDetails(account.User_Name, _serviceType, _load, setWeight, TotalServicesPrice.ToString(),totalPaymentText, _customerName, paymentMethod, getAddress);
                         receipt.ShowDialog();
                     }
                     else
                     {
                         MessageBox.Show("Error setting payment details");
                     }
-                  
                 }
             }
         }

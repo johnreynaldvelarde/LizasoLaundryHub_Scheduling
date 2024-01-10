@@ -25,10 +25,10 @@ namespace Lizaso_Laundry_Hub.Receipt_Module
             //this.reportViewer1.
         }
 
-        public bool GetPaymentDetails(string _userName, string _serviceType, string _load, string _weight, string _amount, string _totalAmount, string _customerName, string _paymentMethod)
+        public bool GetPaymentDetails(string _userName, string _serviceType, string _load, string _weight, string _amount, string _totalAmount, string _customerName, string _paymentMethod, string _address)
         {
 
-            ReportParameter[] parameters = new ReportParameter[9];
+            ReportParameter[] parameters = new ReportParameter[10];
             parameters[0] = new ReportParameter("StaffName", _userName);
             parameters[1] = new ReportParameter("Date", DateTime.Now.ToShortDateString());
             parameters[2] = new ReportParameter("ServicesType", _serviceType);
@@ -38,6 +38,7 @@ namespace Lizaso_Laundry_Hub.Receipt_Module
             parameters[6] = new ReportParameter("TA", _totalAmount);
             parameters[7] = new ReportParameter("CustomerName", _customerName);
             parameters[8] = new ReportParameter("PaymentMethod", _paymentMethod);
+            parameters[9] = new ReportParameter("Address", _address);
 
             reportViewer1.LocalReport.DataSources.Clear();
             reportViewer1.LocalReport.SetParameters(parameters);

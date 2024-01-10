@@ -272,7 +272,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
             <Top>1.6441in</Top>
-            <Left>3.93858in</Left>
+            <Left>3.81358in</Left>
             <Height>0.27084in</Height>
             <Width>0.5846in</Width>
             <ZIndex>8</ZIndex>
@@ -296,7 +296,7 @@
                     <Value>=Parameters!ServicesType.Value</Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
-                      <FontWeight>Medium</FontWeight>
+                      <FontWeight>SemiBold</FontWeight>
                       <Color>Gray</Color>
                     </Style>
                   </TextRun>
@@ -502,7 +502,7 @@
             </Paragraphs>
             <rd:DefaultName>Textbox1</rd:DefaultName>
             <Top>2.1684in</Top>
-            <Left>3.93858in</Left>
+            <Left>3.81358in</Left>
             <Height>0.27084in</Height>
             <Width>0.84799in</Width>
             <ZIndex>15</ZIndex>
@@ -739,7 +739,7 @@
               <Paragraph>
                 <TextRuns>
                   <TextRun>
-                    <Value>Services Type</Value>
+                    <Value>=Parameters!Address.Value</Value>
                     <Style>
                       <FontFamily>Segoe UI</FontFamily>
                       <FontWeight>SemiBold</FontWeight>
@@ -756,7 +756,7 @@
             <Top>3.15452in</Top>
             <Left>0.81261in</Left>
             <Height>0.27084in</Height>
-            <Width>0.94918in</Width>
+            <Width>2.7011in</Width>
             <ZIndex>22</ZIndex>
             <Style>
               <Border>
@@ -792,7 +792,7 @@
             <Top>3.49829in</Top>
             <Left>1.37375in</Left>
             <Height>0.27084in</Height>
-            <Width>1.38668in</Width>
+            <Width>2.13996in</Width>
             <ZIndex>23</ZIndex>
             <Style>
               <Border>
@@ -913,6 +913,11 @@
       <DataType>String</DataType>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
+    <ReportParameter Name="Address">
+      <DataType>String</DataType>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>ReportParameter1</Prompt>
+    </ReportParameter>
   </ReportParameters>
   <ReportParametersLayout>
     <GridLayoutDefinition>
@@ -963,6 +968,11 @@
           <ColumnIndex>0</ColumnIndex>
           <RowIndex>2</RowIndex>
           <ParameterName>PaymentMethod</ParameterName>
+        </CellDefinition>
+        <CellDefinition>
+          <ColumnIndex>1</ColumnIndex>
+          <RowIndex>2</RowIndex>
+          <ParameterName>Address</ParameterName>
         </CellDefinition>
       </CellDefinitions>
     </GridLayoutDefinition>
