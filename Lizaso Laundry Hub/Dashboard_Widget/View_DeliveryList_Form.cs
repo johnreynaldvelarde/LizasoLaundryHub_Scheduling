@@ -11,14 +11,19 @@ using ComponentFactory.Krypton.Toolkit;
 
 namespace Lizaso_Laundry_Hub.Dashboard_Widget
 {
-    public partial class Stats_Widget_Form : KryptonForm
+    public partial class View_DeliveryList_Form : KryptonForm
     {
         private Get_Data_Class getData;
 
-        public Stats_Widget_Form()
+        public View_DeliveryList_Form()
         {
             InitializeComponent();
             getData = new Get_Data_Class();
+        }
+
+        private void View_DeliveryList_Form_Deactivate(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

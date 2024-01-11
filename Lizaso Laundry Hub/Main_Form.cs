@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Lizaso_Laundry_Hub
 {
@@ -20,6 +21,7 @@ namespace Lizaso_Laundry_Hub
         private Backup_Data_Class backupData;
         private Update_Data_Class updateData;
         private Get_Data_Class getData;
+        private Activity_Log_Class activityLogger;
 
         public Account_Class AuthenticatedUser { get; set; }
         private DropDown_Form dropDownForm;
@@ -35,6 +37,7 @@ namespace Lizaso_Laundry_Hub
             getData = new Get_Data_Class();
             updateData = new Update_Data_Class();
             backupData = new Backup_Data_Class();
+            activityLogger = new Activity_Log_Class();
 
             //Panel panelUpper = panel_upper; 
             //dropDownForm = new DropDown_Form(panelUpper);
@@ -50,12 +53,30 @@ namespace Lizaso_Laundry_Hub
                 User_Name = AuthenticatedUser.User_Name;
 
                 updateData.Update_UserToOnline(User_ID);
+                UserActivityLog(User_Name);
             }
 
-            Count_Pending_Timer.Interval = 1000; // Set the interval to 1000 milliseconds (1 second)
+            Count_Pending_Timer.Interval = 1000; 
             Count_Pending_Timer.Tick += Count_Pending_Timer_Tick;
             Count_Pending_Timer.Start();
 
+        }
+
+        public bool UserActivityLog(string userName)
+        {
+            try
+            {
+                string activityType = "Login";
+                string loginDescription = $"{userName} logged into the system at {DateTime.Now}.";
+                activityLogger.LogActivity(activityType, loginDescription);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error logging user activity: {ex.Message}");
+                return false; // Indicate logging failure
+            }
         }
 
         private void DropDownForm_BtnSettingsClick(object sender, EventArgs e)

@@ -9,16 +9,13 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 
-namespace Lizaso_Laundry_Hub.Dashboard_Widget
+namespace Lizaso_Laundry_Hub.Payments_Module
 {
-    public partial class Stats_Widget_Form : KryptonForm
+    public partial class View_AdditionalItem_Form : KryptonForm
     {
-        private Get_Data_Class getData;
-
-        public Stats_Widget_Form()
+        public View_AdditionalItem_Form()
         {
             InitializeComponent();
-            getData = new Get_Data_Class();
         }
     }
 }

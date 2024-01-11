@@ -20,6 +20,12 @@ namespace Lizaso_Laundry_Hub
     public class Get_Data_Class
     {
         private DB_Connection database = new DB_Connection();
+        private Activity_Log_Class activityLogger;
+
+        public Get_Data_Class()
+        {
+            activityLogger = new Activity_Log_Class();
+        }
 
         // << DASHBOARD FROM / Delivery Widget Form >>
         // method to get delivery list in table Delivires in database
@@ -43,8 +49,6 @@ namespace Lizaso_Laundry_Hub
                     SqlDataReader reader = command.ExecuteReader();
 
                     view_delivery_list.Rows.Clear();
-
-                   
 
                     while (reader.Read())
                     {
@@ -237,6 +241,40 @@ namespace Lizaso_Laundry_Hub
                             }
                         }
                     }
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        // << DASHBOARD FORM / Stats Widget Form >> 
+        // method to get the most visited customer in store
+        public bool Get_ChartMostVisitedCustomer(DataGridView grid_delivery_view)
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        public bool Get_AllDeliveryList(DataGridView grid_delivery_view)
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
                     return true;
                 }
             }
@@ -449,6 +487,7 @@ namespace Lizaso_Laundry_Hub
                             };
                         }
 
+                       
                         return null; 
                     }
                 }

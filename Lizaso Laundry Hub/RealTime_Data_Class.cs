@@ -22,7 +22,6 @@ namespace Lizaso_Laundry_Hub
 
         public RealTime_Data_Class()
         {
-            // Initialize the ActivityLogger instance
             activityLogger = new Activity_Log_Class();
         }
 

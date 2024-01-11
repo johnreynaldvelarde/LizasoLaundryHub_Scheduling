@@ -17,8 +17,6 @@ namespace Lizaso_Laundry_Hub.Dashboard_Widget
         private Get_Data_Class getData;
         private Update_Data_Class updateData;
         private int getDeliveryID;
-        private int deliveryCount;
-        private bool updatingCheckboxes = false;
 
         public Delivery_Widget_Form()
         {
@@ -26,33 +24,9 @@ namespace Lizaso_Laundry_Hub.Dashboard_Widget
             getData = new Get_Data_Class();
             updateData = new Update_Data_Class();
         }
-        /*
-        private void ResetCounting()
-        {
-            deliveryCount = 0;
-            UpdateRowNumbers();
-        }
-        private void UpdateRowNumbers()
-        {
-            foreach (DataGridViewRow row in grid_delivery_view.Rows)
-            {
-                deliveryCount++;
-                row.Cells[0].Value = deliveryCount;
-            }
-        }
-        private void UpdateRowNumbersFromIndex(int startIndex)
-        {
-            for (int i = startIndex; i < grid_delivery_view.Rows.Count; i++)
-            {
-                deliveryCount++;
-                grid_delivery_view.Rows[i].Cells[0].Value = deliveryCount;
-            }
-        }
-        */
 
         public void DisplayDeliveryStatus()
         {
-            //getData.Get_DashboardDeliveryList(grid_delivery_view, ckInTransit.Checked, ckCompleted.Checked, ckCancel.Checked);
             getData.Get_DashboardDeliveryList(grid_delivery_view);
         }
 
@@ -100,74 +74,6 @@ namespace Lizaso_Laundry_Hub.Dashboard_Widget
             }
         }
 
-        /*
-        private void ckInTransit_CheckedChanged(object sender, EventArgs e)
-        {
-            if (ckInTransit.Checked)
-            {
-                ResetCounting();
-                DisplayDeliveryStatus();
-            }
-            else
-            {
-                DisplayDeliveryStatus();
-            }
-            /*
-            if (ckInTransit.Checked)
-            {
-                ResetCounting();
-                DisplayDeliveryStatus();
-            }
-            //DisplayDeliveryStatus();
-            
-        }
-
-        private void ckCompleted_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!updatingCheckboxes && ckCompleted.Checked)
-            {
-                updatingCheckboxes = true;
-                ResetCounting();
-                DisplayDeliveryStatus();
-                updatingCheckboxes = false;
-            }
-            else
-            {
-                DisplayDeliveryStatus();
-            }
-            /*
-            if (ckCompleted.Checked)
-            {
-                ResetCounting();
-                DisplayDeliveryStatus();
-            }
-            //DisplayDeliveryStatus();
-            I
-        }
-
-        private void ckCancel_CheckedChanged(object sender, EventArgs e)
-        {
-            if (!updatingCheckboxes && ckCancel.Checked)
-            {
-                updatingCheckboxes = true;
-                ResetCounting();
-                DisplayDeliveryStatus();
-                updatingCheckboxes = false;
-            }
-            else
-            {
-                DisplayDeliveryStatus();
-            }
-            /*
-            if (ckCancel.Checked)
-            {
-                ResetCounting();
-                DisplayDeliveryStatus();
-            }
-
-        }
-            */
-
         private void grid_delivery_view_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             int count = 0;
@@ -176,31 +82,12 @@ namespace Lizaso_Laundry_Hub.Dashboard_Widget
                 count++;
                 row.Cells[0].Value = count;
             }
-            /*
-            if (!updatingCheckboxes)
-            {
-                deliveryCount = e.RowIndex + 1;
-                grid_delivery_view.Rows[e.RowIndex].Cells[0].Value = deliveryCount;
-            }
-            
-            if (!ckInTransit.Checked && !ckCompleted.Checked && !ckCancel.Checked)
-            {
-                deliveryCount = e.RowIndex + 1;
-                grid_delivery_view.Rows[e.RowIndex].Cells[0].Value = deliveryCount;
-            }
-            /*
-            int count = 0;
-            foreach (DataGridViewRow row in grid_delivery_view.Rows)
-            {
-                count++;
-                row.Cells[0].Value = count;
-            }
-            */
         }
 
         private void btn_ClickDeliveryList_Click(object sender, EventArgs e)
         {
-
+            View_DeliveryList_Form delivery = new View_DeliveryList_Form();
+            delivery.Show();
         }
     }
 }

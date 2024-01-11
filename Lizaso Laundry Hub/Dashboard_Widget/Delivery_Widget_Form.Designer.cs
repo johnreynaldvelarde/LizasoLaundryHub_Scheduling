@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Delivery_Widget_Form));
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Label_LastBackUpInfo = new System.Windows.Forms.Label();
+            this.btn_ClickDeliveryList = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.grid_delivery_view = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
@@ -45,7 +45,6 @@
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cancel = new System.Windows.Forms.DataGridViewImageColumn();
             this.Complete = new System.Windows.Forms.DataGridViewImageColumn();
-            this.btn_ClickDeliveryList = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.grid_delivery_view)).BeginInit();
@@ -64,26 +63,28 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.btn_ClickDeliveryList);
-            this.panel1.Controls.Add(this.Label_LastBackUpInfo);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(5, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(770, 45);
+            this.panel1.Size = new System.Drawing.Size(766, 45);
             this.panel1.TabIndex = 2;
             // 
-            // Label_LastBackUpInfo
+            // btn_ClickDeliveryList
             // 
-            this.Label_LastBackUpInfo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.Label_LastBackUpInfo.AutoSize = true;
-            this.Label_LastBackUpInfo.Font = new System.Drawing.Font("Poppins SemiBold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Label_LastBackUpInfo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(35)))), ((int)(((byte)(30)))));
-            this.Label_LastBackUpInfo.Location = new System.Drawing.Point(262, 9);
-            this.Label_LastBackUpInfo.Name = "Label_LastBackUpInfo";
-            this.Label_LastBackUpInfo.Size = new System.Drawing.Size(22, 28);
-            this.Label_LastBackUpInfo.TabIndex = 6;
-            this.Label_LastBackUpInfo.Text = "0";
+            this.btn_ClickDeliveryList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_ClickDeliveryList.AutoSize = true;
+            this.btn_ClickDeliveryList.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_ClickDeliveryList.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ClickDeliveryList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(138)))), ((int)(((byte)(97)))));
+            this.btn_ClickDeliveryList.Location = new System.Drawing.Point(550, 10);
+            this.btn_ClickDeliveryList.Name = "btn_ClickDeliveryList";
+            this.btn_ClickDeliveryList.Size = new System.Drawing.Size(213, 21);
+            this.btn_ClickDeliveryList.TabIndex = 20;
+            this.btn_ClickDeliveryList.Text = " Click to view all delivery list";
+            this.btn_ClickDeliveryList.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_ClickDeliveryList.Click += new System.EventHandler(this.btn_ClickDeliveryList_Click);
             // 
             // label5
             // 
@@ -104,7 +105,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(5, 50);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(770, 375);
+            this.panel2.Size = new System.Drawing.Size(766, 371);
             this.panel2.TabIndex = 3;
             // 
             // grid_delivery_view
@@ -138,7 +139,7 @@
             this.grid_delivery_view.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.grid_delivery_view.RowTemplate.Height = 50;
             this.grid_delivery_view.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grid_delivery_view.Size = new System.Drawing.Size(770, 375);
+            this.grid_delivery_view.Size = new System.Drawing.Size(766, 371);
             this.grid_delivery_view.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonLowProfile;
             this.grid_delivery_view.StateCommon.DataCell.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.grid_delivery_view.StateCommon.DataCell.Content.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
@@ -229,28 +230,12 @@
             this.Complete.Name = "Complete";
             this.Complete.ReadOnly = true;
             // 
-            // btn_ClickDeliveryList
-            // 
-            this.btn_ClickDeliveryList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_ClickDeliveryList.AutoSize = true;
-            this.btn_ClickDeliveryList.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_ClickDeliveryList.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_ClickDeliveryList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(138)))), ((int)(((byte)(97)))));
-            this.btn_ClickDeliveryList.Location = new System.Drawing.Point(554, 10);
-            this.btn_ClickDeliveryList.Name = "btn_ClickDeliveryList";
-            this.btn_ClickDeliveryList.Size = new System.Drawing.Size(213, 21);
-            this.btn_ClickDeliveryList.TabIndex = 20;
-            this.btn_ClickDeliveryList.Text = " Click to view all delivery list";
-            this.btn_ClickDeliveryList.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.btn_ClickDeliveryList.Click += new System.EventHandler(this.btn_ClickDeliveryList_Click);
-            // 
             // Delivery_Widget_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(780, 430);
+            this.ClientSize = new System.Drawing.Size(776, 426);
             this.ControlBox = false;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
@@ -275,7 +260,6 @@
 
         private ComponentFactory.Krypton.Toolkit.KryptonPalette kryptonPalette1;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Label Label_LastBackUpInfo;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel2;
         private ComponentFactory.Krypton.Toolkit.KryptonDataGridView grid_delivery_view;
