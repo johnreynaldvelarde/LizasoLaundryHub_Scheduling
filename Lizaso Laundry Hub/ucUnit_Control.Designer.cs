@@ -214,7 +214,7 @@
             // 
             // image_unit
             // 
-            this.image_unit.Image = global::Lizaso_Laundry_Hub.Properties.Resources.Available;
+            this.image_unit.Image = global::Lizaso_Laundry_Hub.Properties.Resources.Not_Available;
             this.image_unit.Location = new System.Drawing.Point(54, 61);
             this.image_unit.Name = "image_unit";
             this.image_unit.Size = new System.Drawing.Size(189, 178);

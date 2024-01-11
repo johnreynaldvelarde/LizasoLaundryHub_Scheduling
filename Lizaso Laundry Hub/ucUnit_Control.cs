@@ -56,7 +56,8 @@ namespace Lizaso_Laundry_Hub
             }
             else if (unitStatus == 2)
             {
-              
+                image_unit.Image = Properties.Resources.Not_Available;
+               
             }
             else
             {
@@ -113,6 +114,26 @@ namespace Lizaso_Laundry_Hub
             rbWashDryFold.Enabled = false;
 
             btnSelect.Enabled = false;
+        }
+
+
+        public void UnitNotAvailable()
+        {
+            Color buttonColorNotAvailable1 = Color.FromArgb(245, 81, 95);
+            Color buttonColorNotAvailable2 = Color.FromArgb(161, 5, 29);
+
+            btnSelect.StateCommon.Back.Color1 = buttonColorNotAvailable1;
+            btnSelect.StateCommon.Back.Color2 = buttonColorNotAvailable2;
+            btnSelect.StateCommon.Border.Color1 = buttonColorNotAvailable1;
+            btnSelect.StateCommon.Border.Color2 = buttonColorNotAvailable2;
+            btnSelect.Values.Text = "Not Available";
+
+            btnReserved.Visible = false;
+            btnSelect.Enabled = false;
+
+            rbWash.Enabled = false;
+            rbWashDry.Enabled = false;
+            rbWashDryFold.Enabled = false;
         }
 
         public string SelectedService()

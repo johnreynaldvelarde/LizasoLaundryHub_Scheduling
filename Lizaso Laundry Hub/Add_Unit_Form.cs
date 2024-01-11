@@ -49,7 +49,8 @@ namespace Lizaso_Laundry_Hub
             {
                 if (btnSave.Text == "Update")
                 {
-                    int unitStatusIndex = cbStatus.SelectedIndex;
+                    //int unitStatusIndex = cbStatus.SelectedIndex;
+                    int unitStatusIndex = (cbStatus.SelectedIndex == 0) ? 0 : 2;
 
                     if (unitStatusIndex >= 0)
                     {
@@ -82,7 +83,8 @@ namespace Lizaso_Laundry_Hub
                 }
                 else
                 {
-                    int _status = cbStatus.SelectedIndex;
+                    //int _status = cbStatus.SelectedIndex;
+                    int _status = (cbStatus.SelectedIndex == 0) ? 0 : 2;
 
                     insertData.Set_Unit(_status);
                     insertData.Set_ActivityLog(account.User_ID, account.User_Name, activityType, description);
@@ -95,44 +97,6 @@ namespace Lizaso_Laundry_Hub
 
         }
 
-        /*
-        // Method to show success message using Side_Notification_Form
-        private void ShowSuccessNotification(string message)
-        {
-            // Create an instance of Side_Notification_Form if not created yet
-            if (sideNotificationForm == null)
-            {
-                sideNotificationForm = new Side_Notification_Form();
-            }
-
-            // Set the label text to the success message
-            sideNotificationForm.label_show_string.Text = message;
-
-            // Show the Side_Notification_Form
-            sideNotificationForm.Show();
-        }
-
-        // Method to show error message using Side_Notification_Form
-        private void ShowErrorNotification(string message)
-        {
-            // Create an instance of Side_Notification_Form if not created yet
-            if (sideNotificationForm == null)
-            {
-                sideNotificationForm = new Side_Notification_Form();
-            }
-
-            // Set the label text to the error message
-            sideNotificationForm.label_show_string.Text = message;
-
-            // Set the label color to indicate an error (optional)
-            sideNotificationForm.label_show_string.ForeColor = Color.Red;
-
-            // Show the Side_Notification_Form
-            sideNotificationForm.Show();
-        }
-
-        */
-
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Dispose();
@@ -140,19 +104,11 @@ namespace Lizaso_Laundry_Hub
 
         private void Add_Unit_Form_Load(object sender, EventArgs e)
         {
-           
-            /*
-            string[] ListofStatus = new string[] { "Available",
-                                                   "Occupied",
-                                                   "Reserved",
-                                                   "Not Available" };
-            */
 
             string[] ListofStatus = new string[] { "Available",
-                                                   "Occupied",
                                                    "Not Available" };
 
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < 2; i++)
             {
                 cbStatus.Items.Add(ListofStatus[i].ToString());
             }
@@ -171,19 +127,11 @@ namespace Lizaso_Laundry_Hub
                     image_unit.Image = Properties.Resources.Available;
 
                     break;
-                case "Occupied":
-                    image_unit.Image = Properties.Resources.Occupied;
-                    break;
 
-                case "Reserved":
-                    image_unit.Image = Properties.Resources.Washing_Reserved;
-                    break;
                 case "Not Available":
-                    MessageBox.Show("No image yet");
+                    image_unit.Image = Properties.Resources.Not_Available;
                     break;
                 default:
-
-
                     break;
             }
         }
