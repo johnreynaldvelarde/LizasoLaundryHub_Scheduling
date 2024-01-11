@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Data.SqlClient;
 using ComponentFactory.Krypton.Toolkit;
 using Lizaso_Laundry_Hub.Receipt_Module;
+using Lizaso_Laundry_Hub.Dashboard_Widget;
+
 
 namespace Lizaso_Laundry_Hub
 {
@@ -19,7 +21,7 @@ namespace Lizaso_Laundry_Hub
         private Account_Class account;
         private Insert_Data_Class insertData;
         private Get_Data_Class getData;
-        private Payments_Form frm;
+        
         private Receipt_Form receipt;
         private WithAdditionalPayment_Form withAddtional;
 
@@ -36,10 +38,15 @@ namespace Lizaso_Laundry_Hub
 
         private int TransactionID;
 
-        public Payment_Details_Form(Payments_Form payments)
+        private Payments_Form frm;
+        private Pending_Widget_Form widget;
+
+        public Payment_Details_Form(Payments_Form payments, Pending_Widget_Form pendingWidget)
         {
             InitializeComponent();
             frm = payments;
+            widget = pendingWidget;
+
             account = new Account_Class();
             insertData = new Insert_Data_Class();
             getData = new Get_Data_Class();
@@ -69,7 +76,6 @@ namespace Lizaso_Laundry_Hub
                 string _customerName = txt_CustomerName.Text;
                 string _serviceType = txt_ServiceType.Text;
                 string _load = txtNumberLoad.Text;
-                //string _weight =
                 string paymentMethod = GetSelectedPaymentMethod();
                 string totalPaymentText = lblTotalPayment.Text;
                 totalPaymentText = totalPaymentText.Replace("PHP", "").Trim();
@@ -91,8 +97,7 @@ namespace Lizaso_Laundry_Hub
 
                         if (success)
                         {
-
-                            MessageBox.Show("Transaction with additional payment added successfully");
+                            //MessageBox.Show("Transaction with additional payment added successfully");
 
                             if (ckFreeShipping.Checked)
                             {
@@ -100,10 +105,9 @@ namespace Lizaso_Laundry_Hub
                             }
 
                             this.Dispose();
-                            frm.DisplayInPendingList();
 
-                            //receipt.Get_AdditonalPayment(account.User_Name, _customerName, _serviceType, additionalItems);
-                            //receipt.ShowDialog();
+                            CallMethodsFromPaymentandWidgetForm();
+
                             string getAddress = getData.Get_CustomerAddressForReceipt(CustomerID);
 
                             getAddress = string.IsNullOrEmpty(getAddress) ? "None" : getAddress;
@@ -127,7 +131,7 @@ namespace Lizaso_Laundry_Hub
 
                     if (TransactionID != -1)
                     {
-                        MessageBox.Show("Transaction payment added successfully");
+                        //MessageBox.Show("Transaction payment added successfully");
 
                         if (ckFreeShipping.Checked)
                         {
@@ -135,9 +139,9 @@ namespace Lizaso_Laundry_Hub
                         }
 
                         this.Dispose();
-                        frm.DisplayInPendingList();
 
-                        
+                        CallMethodsFromPaymentandWidgetForm();
+
                         string getAddress = getData.Get_CustomerAddressForReceipt(CustomerID);
 
                         getAddress = string.IsNullOrEmpty(getAddress) ? "None" : getAddress;
@@ -151,7 +155,23 @@ namespace Lizaso_Laundry_Hub
                 }
             }
         }
-      
+
+        public void CallMethodsFromPaymentandWidgetForm()
+        {
+            // Check if frm is not null
+            if (frm != null)
+            {
+                frm.DisplayInPendingList();
+            }
+
+            // Check if widget is not null
+            if (widget != null)
+            {
+                widget.DisplayCustomerPending();
+            }
+        }
+
+
         private string GetSelectedPaymentMethod()
         {
             //  return the selected payment method
@@ -227,7 +247,8 @@ namespace Lizaso_Laundry_Hub
                     }
 
                     TotalServicesPrice = totalPayment;
-                    // Incorporate the additionalPayment and additionalAmount into the total payment
+
+                    // pagsamahin the additionalPayment and additionalAmount into the total payment
                     totalPayment += (int)additionalPayment + (int)additionalAmount; // If TotalAmount is int
                     
                     // Display the total payment in lblTotalPayment
@@ -255,7 +276,6 @@ namespace Lizaso_Laundry_Hub
             {
                 if (int.TryParse(txtNumberLoad.Text, out int numberOfLoads))
                 {
-                    // Call the CalculateTotalPayment method with the current TotalAmount and 0 as additional amount
                     CalculateTotalPayment(TotalAmount, double.Parse(getAdditionalAmount));
                     lblServicePrice.Text = TotalServicesPrice.ToString();
                 }
@@ -332,11 +352,6 @@ namespace Lizaso_Laundry_Hub
         public void EnableViewDetails()
         {
             btnViewDetails.Enabled = true;
-        }
-
-        public void Get_InfoResereved()
-        {
-
         }
 
         private void Payment_Details_Form_Load(object sender, EventArgs e)

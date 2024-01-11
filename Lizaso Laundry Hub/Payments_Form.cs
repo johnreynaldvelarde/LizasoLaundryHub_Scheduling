@@ -8,6 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
+using Lizaso_Laundry_Hub.Dashboard_Widget;
+using static Lizaso_Laundry_Hub.Payments_Form;
 
 namespace Lizaso_Laundry_Hub
 {
@@ -40,7 +42,6 @@ namespace Lizaso_Laundry_Hub
             {
               
             }
-           
         }
 
         private void Payments_Form_Load(object sender, EventArgs e)
@@ -77,14 +78,13 @@ namespace Lizaso_Laundry_Hub
         {
             if (grid_transaction_history_view.CurrentRow != null)
             {
-                int rowIndex = grid_pending_view.CurrentRow.Index;
+                int rowIndex = grid_transaction_history_view.CurrentRow.Index;
 
                 if (int.TryParse(grid_transaction_history_view[1, rowIndex].Value.ToString(), out int selectedTransactionID))
                 {
                     getTransactionID = selectedTransactionID;
                 }
             }
-
         }
 
         private void tab_Payments_SelectedIndexChanged(object sender, EventArgs e)
@@ -108,7 +108,9 @@ namespace Lizaso_Laundry_Hub
 
             if (column_pending == "Pay")
             {
-                Payment_Details_Form frm = new Payment_Details_Form(this);
+                Pending_Widget_Form widgetInstance = new Pending_Widget_Form();
+
+                Payment_Details_Form frm = new Payment_Details_Form(this, widgetInstance);
                 frm.CustomerID = customerID;
                 frm.UnitID = unitID;
                 frm.BookingID = bookingID;
@@ -137,20 +139,19 @@ namespace Lizaso_Laundry_Hub
 
                 if (int.TryParse(grid_pending_view[1, rowIndex].Value.ToString(), out int selectedBookingID))
                 {
-                    // Assuming the other columns contain the relevant data
                     int selectedUnitID = Convert.ToInt32(grid_pending_view[2, rowIndex].Value);
                     int selectedCustomerID = Convert.ToInt32(grid_pending_view[3, rowIndex].Value);
                     string selectedCustomerName = grid_pending_view[4, rowIndex].Value.ToString();
                     string selectedServiceType = grid_pending_view[6, rowIndex].Value.ToString();
                     string selectedWeight = grid_pending_view[7, rowIndex].Value.ToString();
-                    // Assign the values to the class properties
+
+
                     bookingID = selectedBookingID;
                     unitID = selectedUnitID;
                     customerID = selectedCustomerID;
                     customerName = selectedCustomerName;
                     serviceType = selectedServiceType;
                     weight = selectedWeight;
-                    // Now you can use bookingID, unitID, customerID, customerName, and serviceType as needed
                 }
             }
         }
