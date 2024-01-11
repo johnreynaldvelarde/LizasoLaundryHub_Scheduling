@@ -123,9 +123,9 @@
             this.panel_upper.Name = "panel_upper";
             this.panel_upper.PanelBackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.HeaderCustom1;
             this.panel_upper.Size = new System.Drawing.Size(1200, 50);
-            this.panel_upper.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
-            this.panel_upper.StateCommon.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
-            this.panel_upper.StateCommon.ColorAngle = 0F;
+            this.panel_upper.StateCommon.Color1 = System.Drawing.Color.DarkSlateGray;
+            this.panel_upper.StateCommon.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(110)))), ((int)(((byte)(121)))));
+            this.panel_upper.StateCommon.ColorAngle = 45F;
             this.panel_upper.TabIndex = 0;
             // 
             // lbl_ShowAutoBackup
@@ -219,8 +219,8 @@
             this.kryptonPanel1.Location = new System.Drawing.Point(0, 525);
             this.kryptonPanel1.Name = "kryptonPanel1";
             this.kryptonPanel1.Size = new System.Drawing.Size(1200, 75);
-            this.kryptonPanel1.StateCommon.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
-            this.kryptonPanel1.StateCommon.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
+            this.kryptonPanel1.StateCommon.Color1 = System.Drawing.Color.DarkSlateGray;
+            this.kryptonPanel1.StateCommon.Color2 = System.Drawing.Color.DarkSlateGray;
             this.kryptonPanel1.TabIndex = 5;
             // 
             // btn_Settings
