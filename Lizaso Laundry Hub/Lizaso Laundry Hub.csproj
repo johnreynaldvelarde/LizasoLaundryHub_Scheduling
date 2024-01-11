@@ -203,7 +203,6 @@
       <DependentUpon>DropDown_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Get_Data_Class.cs" />
-    <Compile Include="GraphicsExtension.cs" />
     <Compile Include="Insert_Data_Class.cs" />
     <Compile Include="Inventory_Form.cs">
       <SubType>Form</SubType>
