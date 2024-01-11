@@ -128,77 +128,7 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
-
-
-        // backup database every second
-        /*
-        public void BackupDatabaseEveryLogout()
-        {
-            try
-            {
-                DateTime dateRecord = DateTime.Now;
-                string dbName = "DB_Laundry";
-                string backupFileName = $"DB_Backup_{dateRecord:yyyyMMdd_HHmmss}.bak";
-
-                // Specify the base folder path on the C: drive
-                string baseFolderPath = @"C:\Lizaso Laundry Hub";
-                string databaseBackupPath = Path.Combine(baseFolderPath, "Database Backup");
-                string autoBackupPath = Path.Combine(databaseBackupPath, "Auto Backup");
-
-                // Ensure the base folder (Lizaso Laundry Hub), database backup directory, and auto backup directory exist or create them
-                if (!Directory.Exists(baseFolderPath))
-                {
-                    Directory.CreateDirectory(baseFolderPath);
-                }
-
-                if (!Directory.Exists(databaseBackupPath))
-                {
-                    Directory.CreateDirectory(databaseBackupPath);
-                }
-
-                if (!Directory.Exists(autoBackupPath))
-                {
-                    Directory.CreateDirectory(autoBackupPath);
-                }
-
-                string connectionString = database.MyConnection();
-
-                using (SqlConnection connection = new SqlConnection(connectionString))
-                {
-                    connection.Open();
-
-                    // Set the database context
-                    string useDatabaseCommand = $"USE {dbName};";
-                    using (SqlCommand useDatabaseCmd = new SqlCommand(useDatabaseCommand, connection))
-                    {
-                        useDatabaseCmd.ExecuteNonQuery();
-                    }
-
-                    // Create a backup command
-                    string backupCommand = "BACKUP DATABASE " + dbName +
-                                          " TO DISK = '" + Path.Combine(autoBackupPath, backupFileName) +
-                                          "' WITH FORMAT ,MEDIANAME = 'Z_SQLServerBackups', NAME = ' Full Backup of " + dbName + "';";
-
-                    using (SqlCommand command = new SqlCommand(backupCommand, connection))
-                    {
-                        // Execute the backup command
-                        command.ExecuteNonQuery();
-                    }
-                }
-
-                // MessageBox.Show("Database backup successful.", "Backup Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            }
-            catch (SqlException sqlEx)
-            {
-                MessageBox.Show($"SQL Server Error during database backup: {sqlEx.Message}", "Backup Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error during database backup: {ex.Message}", "Backup Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        */
-
+        // For every logout
         public void BackupDatabaseEveryLogout()
         {
             try
@@ -406,152 +336,62 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
-
-        /*
-        public void CreateLizasoLaundryHubFolder()
+        // For daily backup
+        public void DailyBackup()
         {
             try
             {
-                // the base folder path is on the C: drive
-                string baseFolderPath = @"C:\Lizaso Laundry Hub";
-                string backupFolderPath = Path.Combine(baseFolderPath, "Database Backup");
-                string manuallyBackupFolderPath = Path.Combine(backupFolderPath, "Manually Backup");
-                string autoBackupFolderPath = Path.Combine(backupFolderPath, "Auto Backup");
-                string userProfileFolderPath = Path.Combine(baseFolderPath, "User Profile");
-                string customerRecipientFolderPath = Path.Combine(baseFolderPath, "Customer Recipient");
-                string systemSettingsFolderPath = Path.Combine(baseFolderPath, "System Settings");
+                DateTime dateRecord = DateTime.Now;
+                string dbName = "DB_Laundry";
+                string backupFileName = $"DB_Backup_{dateRecord:yyyyMMdd_HHmmss}.bak";
 
-                // Check if the base folder (Lizaso Laundry Hub) is already exists
+                // the base folder path on the C: drive
+                string baseFolderPath = @"C:\Lizaso Laundry Hub";
+                string databaseBackupPath = Path.Combine(baseFolderPath, "Database Backup");
+                string autoBackupPath = Path.Combine(databaseBackupPath, "Auto Backup");
+                string logoutUserBackupPath = Path.Combine(autoBackupPath, "Daily Backup");
+
                 if (!Directory.Exists(baseFolderPath))
                 {
-                    // Create Lizaso Laundry Hub folder
                     Directory.CreateDirectory(baseFolderPath);
-
-                    // Create Database Backup folder
-                    Directory.CreateDirectory(backupFolderPath);
-
-                    // Create Manually Backup folder within Database Backup
-                    Directory.CreateDirectory(manuallyBackupFolderPath);
-
-                    // Create Auto Backup folder within Database Backup
-                    Directory.CreateDirectory(autoBackupFolderPath);
-
-                    // Create User Profile folder
-                    Directory.CreateDirectory(userProfileFolderPath);
-
-                    // Create Customer Recipient folder
-                    Directory.CreateDirectory(customerRecipientFolderPath);
-
-                    // Create System Settings folder
-                    Directory.CreateDirectory(systemSettingsFolderPath);
-                }
-                else
-                {
-                    // Optionally handle the case where the folder already exists
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error during folder creation: {ex.Message}", "Folder Creation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        */
-
-
-        /*
-        public bool RestoreDatabase(string locationPath, string serverName, string databaseName)
-        {
-            try
-            {
-                string connectionString = $"Data Source={serverName};Initial Catalog=master;Integrated Security=True";
-
-                // Connect to master database
-                using (SqlConnection masterConnection = new SqlConnection(connectionString))
-                {
-                    masterConnection.Open();
-
-                    // Set the database context to master
-                    string useDatabaseCommand = "USE master;";
-                    using (SqlCommand useDatabaseCmd = new SqlCommand(useDatabaseCommand, masterConnection))
-                    {
-                        useDatabaseCmd.ExecuteNonQuery();
-                    }
-
-                    // Construct the RESTORE DATABASE command
-                    string restoreCommand = $"RESTORE DATABASE {databaseName} FROM DISK = '{locationPath}' WITH REPLACE;";
-                    using (SqlCommand restoreCmd = new SqlCommand(restoreCommand, masterConnection))
-                    {
-                        restoreCmd.ExecuteNonQuery();
-                    }
                 }
 
-                return true; // Indicates successful database restore
-            }
-            catch (SqlException sqlEx)
-            {
-                MessageBox.Show($"SQL Server Error during database restore: {sqlEx.Message}", "Restore Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false; // Indicates failure
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Error during database restore: {ex.Message}", "Restore Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false; // Indicates failure
-            }
-        }
-
-        */
-
-
-
-
-
-
-
-
-
-
-
-
-
-        /*
-        public bool BackupDatabase_Manually(string folderPath, int numberFiles, string databaseName)
-        {
-            try
-            {
-                // Ensure the specified folder path exists
-                if (!Directory.Exists(folderPath))
+                if (!Directory.Exists(databaseBackupPath))
                 {
-                    MessageBox.Show("Backup folder does not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return false;
+                    Directory.CreateDirectory(databaseBackupPath);
+                }
+
+                if (!Directory.Exists(autoBackupPath))
+                {
+                    Directory.CreateDirectory(autoBackupPath);
+                }
+
+                if (!Directory.Exists(logoutUserBackupPath))
+                {
+                    Directory.CreateDirectory(logoutUserBackupPath);
                 }
 
                 string connectionString = database.MyConnection();
 
-                using (SqlConnection connect = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    connect.Open();
+                    connection.Open();
 
                     // Set the database context
-                    string useDatabaseCommand = $"USE {databaseName};";
-                    using (SqlCommand useDatabaseCmd = new SqlCommand(useDatabaseCommand, connect))
+                    string useDatabaseCommand = $"USE {dbName};";
+                    using (SqlCommand useDatabaseCmd = new SqlCommand(useDatabaseCommand, connection))
                     {
                         useDatabaseCmd.ExecuteNonQuery();
                     }
 
-                    // Create a backup command
-                    string backupFileName = $"DB_Backup_{DateTime.Now:yyyyMMdd_HHmmss}.bak";
-                    string backupFilePath = Path.Combine(folderPath, backupFileName);
+                    string backupCommand = "BACKUP DATABASE " + dbName +
+                                          " TO DISK = '" + Path.Combine(logoutUserBackupPath, backupFileName) +
+                                          "' WITH FORMAT ,MEDIANAME = 'Z_SQLServerBackups', NAME = ' Full Backup of " + dbName + "';";
 
-                    string backupCommand = $"BACKUP DATABASE {databaseName} TO DISK = '{backupFilePath}' WITH FORMAT, MEDIANAME = 'Z_SQLServerBackups', NAME = 'Full Backup of {databaseName}';";
-
-                    using (SqlCommand command = new SqlCommand(backupCommand, connect))
+                    using (SqlCommand command = new SqlCommand(backupCommand, connection))
                     {
-                        // Execute the backup command
                         command.ExecuteNonQuery();
                     }
-
-                    MessageBox.Show("Database backup successful.", "Backup Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    return true;
                 }
             }
             catch (SqlException sqlEx)
@@ -562,212 +402,210 @@ namespace Lizaso_Laundry_Hub
             {
                 MessageBox.Show($"Error during database backup: {ex.Message}", "Backup Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-
-            return false;
         }
 
-        
-        public bool BackupDatabase_Manually(string folderPath, int numberFiles, string databaseName)
+        // For weekly backup
+        public void WeeklyBackup()
         {
             try
             {
+                DateTime dateRecord = DateTime.Now;
+                string dbName = "DB_Laundry";
+                string backupFileName = $"DB_Backup_{dateRecord:yyyyMMdd_HHmmss}.bak";
+
+                // the base folder path on the C: drive
+                string baseFolderPath = @"C:\Lizaso Laundry Hub";
+                string databaseBackupPath = Path.Combine(baseFolderPath, "Database Backup");
+                string autoBackupPath = Path.Combine(databaseBackupPath, "Auto Backup");
+                string logoutUserBackupPath = Path.Combine(autoBackupPath, "Weekly Backup");
+
+                if (!Directory.Exists(baseFolderPath))
+                {
+                    Directory.CreateDirectory(baseFolderPath);
+                }
+
+                if (!Directory.Exists(databaseBackupPath))
+                {
+                    Directory.CreateDirectory(databaseBackupPath);
+                }
+
+                if (!Directory.Exists(autoBackupPath))
+                {
+                    Directory.CreateDirectory(autoBackupPath);
+                }
+
+                if (!Directory.Exists(logoutUserBackupPath))
+                {
+                    Directory.CreateDirectory(logoutUserBackupPath);
+                }
+
                 string connectionString = database.MyConnection();
 
-                using (SqlConnection connect = new SqlConnection(connectionString))
+                using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    connect.Open();
+                    connection.Open();
 
                     // Set the database context
-                    string useDatabaseCommand = $"USE {databaseName};";
-                    using (SqlCommand useDatabaseCmd = new SqlCommand(useDatabaseCommand, connect))
+                    string useDatabaseCommand = $"USE {dbName};";
+                    using (SqlCommand useDatabaseCmd = new SqlCommand(useDatabaseCommand, connection))
                     {
                         useDatabaseCmd.ExecuteNonQuery();
                     }
 
-                    // Create a backup command
-                    string backupCommand = "BACKUP DATABASE " + databaseName +
-                                          " TO DISK = '" + Path.Combine(autoBackupPath, backupFileName) +
-                                          "' WITH FORMAT ,MEDIANAME = 'Z_SQLServerBackups', NAME = ' Full Backup of " + databaseName + "';";
+                    string backupCommand = "BACKUP DATABASE " + dbName +
+                                          " TO DISK = '" + Path.Combine(logoutUserBackupPath, backupFileName) +
+                                          "' WITH FORMAT ,MEDIANAME = 'Z_SQLServerBackups', NAME = ' Full Backup of " + dbName + "';";
 
-                    using (SqlCommand command = new SqlCommand(backupCommand, connect))
+                    using (SqlCommand command = new SqlCommand(backupCommand, connection))
                     {
-                        // Execute the backup command
                         command.ExecuteNonQuery();
                     }
-
-
                 }
             }
-            catch
+            catch (SqlException sqlEx)
             {
-
-            }
-        }
-        */
-
-
-
-        /*
-       public void BackupDatabaseEveryLogout()
-       {
-           try
-           {
-               DateTime dateRecored = DateTime.Now;
-               string dbName = "DB_Laundry";
-               string backupFileName = "DB_Backup.bak";
-
-               // Specify the base folder path on the C: drive
-               string baseFolderPath = @"C:\Lizaso Laundry Hub";
-               string backupPath = Path.Combine(baseFolderPath, "Database Backup");
-
-               // Ensure the base folder (Lizaso Laundry Hub) and backup directory exist or create them
-               if (!Directory.Exists(baseFolderPath))
-               {
-                   Directory.CreateDirectory(baseFolderPath);
-               }
-
-               if (!Directory.Exists(backupPath))
-               {
-                   Directory.CreateDirectory(backupPath);
-               }
-
-               string connectionString = database.MyConnection(); // Adjust this according to your connection method
-
-               using (SqlConnection connection = new SqlConnection(connectionString))
-               {
-                   connection.Open();
-
-                   // Set the database context
-                   string useDatabaseCommand = $"USE {dbName};";
-                   using (SqlCommand useDatabaseCmd = new SqlCommand(useDatabaseCommand, connection))
-                   {
-                       useDatabaseCmd.ExecuteNonQuery();
-                   }
-
-                   // Create a backup command
-                   string backupCommand = "BACKUP DATABASE " + dbName +
-                                         " TO DISK = '" + Path.Combine(backupPath, backupFileName) +
-                                         "' WITH FORMAT ,MEDIANAME = 'Z_SQLServerBackups', NAME = ' Full Backup of " + dbName + "';";
-
-                   using (SqlCommand command = new SqlCommand(backupCommand, connection))
-                   {
-                       // Execute the backup command
-                       command.ExecuteNonQuery();
-                   }
-               }
-
-               //MessageBox.Show("Database backup successful.", "Backup Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-           }
-           catch (SqlException sqlEx)
-           {
-               MessageBox.Show($"SQL Server Error during database backup: {sqlEx.Message}", "Backup Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-           }
-           catch (Exception ex)
-           {
-               MessageBox.Show($"Error during database backup: {ex.Message}", "Backup Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-           }
-       }
-
-
-
-       public void CreateLizasoLaundryHubFolder()
-       {
-           try
-           {
-               // the base folder path is on the C: drive
-               string baseFolderPath = @"C:\Lizaso Laundry Hub";
-               string backupFolderPath = Path.Combine(baseFolderPath, "Database Backup");
-               string userProfileFolderPath = Path.Combine(baseFolderPath, "User Profile");
-               string customerRecipientFolderPath = Path.Combine(baseFolderPath, "Customer Recipient");
-               string systemSettingsFolderPath = Path.Combine(baseFolderPath, "System Settings");
-
-               // Check if the base folder (Lizaso Laundry Hub) is already exists
-               if (!Directory.Exists(baseFolderPath))
-               {
-                   // Create Lizaso Laundry Hub folder
-                   Directory.CreateDirectory(baseFolderPath);
-
-                   // Create Database Backup folder
-                   Directory.CreateDirectory(backupFolderPath);
-
-                   // Create User Profile folder
-                   Directory.CreateDirectory(userProfileFolderPath);
-
-                   // Create Customer Recipient folder
-                   Directory.CreateDirectory(customerRecipientFolderPath);
-
-                   // Create System Settings folder
-                   Directory.CreateDirectory(systemSettingsFolderPath);
-               }
-               else
-               {
-                   // Optionally handle the case where the folder already exists
-               }
-           }
-           catch (Exception ex)
-           {
-               MessageBox.Show($"Error during folder creation: {ex.Message}", "Folder Creation Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-           }
-       }
-       */
-        public bool Now5()
-        {
-            try
-            {
-                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
-                {
-                    /*
-               using (SqlCommand command = connection.CreateCommand(backupCommand, connection))
-               {
-                   // Use the 'WITH INIT' option to overwrite the existing backup file
-                   //command.CommandText = $"BACKUP DATABASE [{dbName}] TO DISK='{Path.Combine(backupPath, backupFileName)}'";
-
-                   // Execute the backup command
-                   command.ExecuteNonQuery();
-               }
-               */
-
-
-
-                    return true;
-                }
+                MessageBox.Show($"SQL Server Error during database backup: {sqlEx.Message}", "Backup Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
+                MessageBox.Show($"Error during database backup: {ex.Message}", "Backup Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-        /*
-        public void BackupDatabaseEveryLogoutsasass()
+        // For monthly backup
+        public void MonthlyBackup()
         {
-            if (MessageBox.Show("Do you want to backup your database? ", "Backup the database", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            try
             {
+                DateTime dateRecord = DateTime.Now;
+                string dbName = "DB_Laundry";
+                string backupFileName = $"DB_Backup_{dateRecord:yyyyMMdd_HHmmss}.bak";
 
-                DateTime d = DateTime.Now;
-                string dd = d.Day + " - " + d.Month;
+                // the base folder path on the C: drive
+                string baseFolderPath = @"C:\Lizaso Laundry Hub";
+                string databaseBackupPath = Path.Combine(baseFolderPath, "Database Backup");
+                string autoBackupPath = Path.Combine(databaseBackupPath, "Auto Backup");
+                string logoutUserBackupPath = Path.Combine(autoBackupPath, "Monthly Backup");
 
-                string servname = "LENOVO-PC\\SQLEXPRESS";
-                string dbname = "DB_Laundry";
+                if (!Directory.Exists(baseFolderPath))
+                {
+                    Directory.CreateDirectory(baseFolderPath);
+                }
 
-                string dbconn = @"Data Source=" + servname + ";Initial Catalog=" + dbname + ";Integrated Security=True";
-                SqlConnection connect = new SqlConnection(dbconn);
+                if (!Directory.Exists(databaseBackupPath))
+                {
+                    Directory.CreateDirectory(databaseBackupPath);
+                }
 
-                connect.Open();
-                string str = "USE " + dbname + ";";
-                string str1 = "BACKUP DATABASE " + dbname +
-                          " TO DISK = 'C:\\BackupDB\\" + dbname + "_" + dd +
-                          ".Bak' WITH FORMAT ,MEDIANAME = 'Z_SQLServerBackups', NAME = ' Full Backup of " + dbname + "';";
-                SqlCommand cmd1 = new SqlCommand(str, connect);
-                SqlCommand cmd2 = new SqlCommand(str1, connect);
-                cmd1.ExecuteNonQuery();
-                cmd2.ExecuteNonQuery();
-                MessageBox.Show("Successfully Complete Backup. You can find this file " + dbname + ".Bak in your Disk C:\\BackupDB.... never edit this file name.");
-                connect.Close();
+                if (!Directory.Exists(autoBackupPath))
+                {
+                    Directory.CreateDirectory(autoBackupPath);
+                }
 
+                if (!Directory.Exists(logoutUserBackupPath))
+                {
+                    Directory.CreateDirectory(logoutUserBackupPath);
+                }
+
+                string connectionString = database.MyConnection();
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // Set the database context
+                    string useDatabaseCommand = $"USE {dbName};";
+                    using (SqlCommand useDatabaseCmd = new SqlCommand(useDatabaseCommand, connection))
+                    {
+                        useDatabaseCmd.ExecuteNonQuery();
+                    }
+
+                    string backupCommand = "BACKUP DATABASE " + dbName +
+                                          " TO DISK = '" + Path.Combine(logoutUserBackupPath, backupFileName) +
+                                          "' WITH FORMAT ,MEDIANAME = 'Z_SQLServerBackups', NAME = ' Full Backup of " + dbName + "';";
+
+                    using (SqlCommand command = new SqlCommand(backupCommand, connection))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show($"SQL Server Error during database backup: {sqlEx.Message}", "Backup Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error during database backup: {ex.Message}", "Backup Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
-        */
+
+        // For yearly backup
+        public void YearlyBackup()
+        {
+            try
+            {
+                DateTime dateRecord = DateTime.Now;
+                string dbName = "DB_Laundry";
+                string backupFileName = $"DB_Backup_{dateRecord:yyyyMMdd_HHmmss}.bak";
+
+                // the base folder path on the C: drive
+                string baseFolderPath = @"C:\Lizaso Laundry Hub";
+                string databaseBackupPath = Path.Combine(baseFolderPath, "Database Backup");
+                string autoBackupPath = Path.Combine(databaseBackupPath, "Auto Backup");
+                string logoutUserBackupPath = Path.Combine(autoBackupPath, "Yearly Backup");
+
+                if (!Directory.Exists(baseFolderPath))
+                {
+                    Directory.CreateDirectory(baseFolderPath);
+                }
+
+                if (!Directory.Exists(databaseBackupPath))
+                {
+                    Directory.CreateDirectory(databaseBackupPath);
+                }
+
+                if (!Directory.Exists(autoBackupPath))
+                {
+                    Directory.CreateDirectory(autoBackupPath);
+                }
+
+                if (!Directory.Exists(logoutUserBackupPath))
+                {
+                    Directory.CreateDirectory(logoutUserBackupPath);
+                }
+
+                string connectionString = database.MyConnection();
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    connection.Open();
+
+                    // Set the database context
+                    string useDatabaseCommand = $"USE {dbName};";
+                    using (SqlCommand useDatabaseCmd = new SqlCommand(useDatabaseCommand, connection))
+                    {
+                        useDatabaseCmd.ExecuteNonQuery();
+                    }
+
+                    string backupCommand = "BACKUP DATABASE " + dbName +
+                                          " TO DISK = '" + Path.Combine(logoutUserBackupPath, backupFileName) +
+                                          "' WITH FORMAT ,MEDIANAME = 'Z_SQLServerBackups', NAME = ' Full Backup of " + dbName + "';";
+
+                    using (SqlCommand command = new SqlCommand(backupCommand, connection))
+                    {
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show($"SQL Server Error during database backup: {sqlEx.Message}", "Backup Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error during database backup: {ex.Message}", "Backup Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }

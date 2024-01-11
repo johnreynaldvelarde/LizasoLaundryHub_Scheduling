@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,12 +14,16 @@ namespace Lizaso_Laundry_Hub
 {
     public partial class Main_Form : Form
     {
+        private Timer timer;
+
         private Form activeForm = null;
+        private Backup_Data_Class backupData;
+        private Update_Data_Class updateData;
+        private Get_Data_Class getData;
+
         public Account_Class AuthenticatedUser { get; set; }
         private DropDown_Form dropDownForm;
         private Notify_Module.DropDown_Notification_Form dropNoti;
-        private Update_Data_Class updateData;
-        private Get_Data_Class getData;
         public int User_ID;
         public string User_Name;
 
@@ -29,6 +34,8 @@ namespace Lizaso_Laundry_Hub
             InitializeComponent();
             getData = new Get_Data_Class();
             updateData = new Update_Data_Class();
+            backupData = new Backup_Data_Class();
+
             AuthenticatedUser = authenticatedUser;
 
             if (AuthenticatedUser != null)
@@ -44,6 +51,7 @@ namespace Lizaso_Laundry_Hub
             Count_Pending_Timer.Interval = 1000; // Set the interval to 1000 milliseconds (1 second)
             Count_Pending_Timer.Tick += Count_Pending_Timer_Tick;
             Count_Pending_Timer.Start();
+
         }
 
         public void ShowImageDatabase()
@@ -94,42 +102,11 @@ namespace Lizaso_Laundry_Hub
             childPanel.Show();
         }
 
-        private void btn_Services_Click(object sender, EventArgs e)
+        private async void Main_Form_Load(object sender, EventArgs e)
         {
-            Services_Form servicesForm = new Services_Form();
-            openChildPanel(servicesForm);
-        }
-
-        private void btn_Customer_Click(object sender, EventArgs e)
-        {
-            openChildPanel(new Customer_Form());
-        }
-
-        private void btn_StaffMembers_Click(object sender, EventArgs e)
-        {
-            openChildPanel(new User_Form());
-        }
-
-        private void btn_Inventory_Click(object sender, EventArgs e)
-        {
-            openChildPanel(new Inventory_Form());
-        }
-
-        private void btn_Schedule2_Click(object sender, EventArgs e)
-        {
-            openChildPanel(new Schedule_Form());
-        }
-
-        private void btn_Payments_Click(object sender, EventArgs e)
-        {
-            openChildPanel(new Payments_Form());
-        }
-
-        private void Main_Form_Load(object sender, EventArgs e)
-        {
-            //Services_Form servicesForm = new Services_Form();
-            //openChildPanel(servicesForm);
             openChildPanel(new Dashboard_Form());
+
+            await StartPeriodicTask();
             lblUpperTime.Text = DateTime.Now.ToLongTimeString();
             //DisplayCountPending();
         }
@@ -208,12 +185,10 @@ namespace Lizaso_Laundry_Hub
 
             if (dropNoti == null || dropNoti.IsDisposed)
             {
-                // Create a new instance if it doesn't exist or is disposed
                 dropNoti = new Notify_Module.DropDown_Notification_Form(panel_upper);
             }
             else
             {
-                // Toggle the visibility if the form is already instantiated
                 if (dropNoti.Visible)
                     dropNoti.Close();
                 else
@@ -261,30 +236,139 @@ namespace Lizaso_Laundry_Hub
             openChildPanel(new Settings_Form());
         }
 
-       
 
-
-
-
-
-
-
-        // main panel dock
-        /*
-        private void openChildPanel(Form childPanel)
+        private async Task StartPeriodicTask()
         {
-            if (activeForm != null)
+            try
+            {
+                while (true)
+                {
+                    // Wait for one second before running the task again
+                    await Task.Delay(1000);
 
-            activeForm.Close();
-            childPanel.TopLevel = false;
-            childPanel.FormBorderStyle = FormBorderStyle.FixedSingle;
-            childPanel.Dock = DockStyle.Fill;
-            main_panelDock.Controls.Add(childPanel);
-            main_panelDock.Tag = childPanel;
-            childPanel.BringToFront();
-            childPanel.Show();
+                    // Execute your task in the background
+                    await Task.Run(() => AutoCheckBaseonTime());
+                }
+            }
+            catch (Exception ex)
+            {
+                // Handle exceptions if needed
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-        */
 
+        public void AutoCheckBaseonTime()
+        {
+            // Check if it's near 12:00 AM for Daily Auto Backup
+            if (IsNearMidnight())
+            {
+                if (CheckAutoBackupSettings("Daily Auto Backup"))
+                {
+                    backupData.DailyBackup();
+                }
+            }
+
+            // Check if it's near the end of Sunday for Weekly Auto Backup
+            if (IsNearEndOfWeek(DayOfWeek.Sunday))
+            {
+                if (CheckAutoBackupSettings("Weekly Auto Backup"))
+                {
+                    backupData.WeeklyBackup();
+                }
+            }
+
+            // Check if it's near the end of the month for Monthly Auto Backup
+            if (IsNearEndOfMonth())
+            {
+                if (CheckAutoBackupSettings("Monthly Auto Backup"))
+                {
+                    backupData.MonthlyBackup();
+                }
+            }
+
+            // Check if it's near the end of the year for Yearly Auto Backup
+            if (IsNearEndOfYear())
+            {
+                if (CheckAutoBackupSettings("Yearly Auto Backup"))
+                {
+                    backupData.YearlyBackup();
+                }
+            }
+        }
+
+        private bool IsNearMidnight()
+        {
+            TimeSpan currentTime = DateTime.Now.TimeOfDay;
+            return currentTime >= TimeSpan.FromHours(23) && currentTime <= TimeSpan.FromHours(24);
+        }
+
+        private bool IsNearEndOfWeek(DayOfWeek day)
+        {
+            DateTime now = DateTime.Now;
+            return now.DayOfWeek == day && now.TimeOfDay >= TimeSpan.FromHours(23);
+        }
+
+        private bool IsNearEndOfMonth()
+        {
+            DateTime now = DateTime.Now;
+            DateTime endOfMonth = new DateTime(now.Year, now.Month, DateTime.DaysInMonth(now.Year, now.Month), 23, 59, 59);
+            return (endOfMonth - now).TotalDays < 2;
+        }
+
+        private bool IsNearEndOfYear()
+        {
+            DateTime now = DateTime.Now;
+            DateTime endOfYear = new DateTime(now.Year, 12, 31, 23, 59, 59);
+            return (endOfYear - now).TotalDays < 7; 
+        }
+
+        private bool CheckAutoBackupSettings(string settingKey)
+        {
+            string filePath = Path.Combine(@"C:\Lizaso Laundry Hub\System Settings", "Auto Backup Configuration.txt");
+
+            // Check if the file exists before proceeding
+            if (!File.Exists(filePath))
+            {
+                return false;
+            }
+
+            try
+            {
+                // Read the content of the file
+                string[] lines = File.ReadAllLines(filePath);
+
+                // Process each line
+                foreach (string line in lines)
+                {
+                    // Split the line into key and value
+                    string[] parts = line.Split(':');
+                    if (parts.Length == 2)
+                    {
+                        // Trim to remove extra whitespaces
+                        string key = parts[0].Trim();
+
+                        // Check the key and value for the specified setting
+                        if (key.Equals(settingKey, StringComparison.OrdinalIgnoreCase))
+                        {
+                            string value = parts[1].Trim();
+                            if (bool.TryParse(value, out bool autoBackupSetting))
+                            {
+                                return autoBackupSetting;
+                            }
+                            else
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                // Log or handle the exception
+                MessageBox.Show($"Error loading configuration: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            return false; // Default to false if any errors occur
+        }
     }
 }

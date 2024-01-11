@@ -78,6 +78,8 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
+
+
         private bool CheckLogoutAutoBackupSetting()
         {
             string filePath = Path.Combine(@"C:\Lizaso Laundry Hub\System Settings", "Auto Backup Configuration.txt");
