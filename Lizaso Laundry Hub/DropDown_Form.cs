@@ -53,7 +53,7 @@ namespace Lizaso_Laundry_Hub
             try
             {
                 DisplayUIBackup();
-                await Task.Delay(1000);
+                await Task.Delay(1500);
                 UserActivityLog(account.User_Name);
                 this.Dispose();
                 updateData.Update_UserLastActiveAndStatus(account.User_ID);

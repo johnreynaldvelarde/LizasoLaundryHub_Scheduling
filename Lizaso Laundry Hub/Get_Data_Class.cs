@@ -1710,7 +1710,7 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    string query = "SELECT Log_ID, Log_Date, User_Name, Activity_Type, Description FROM Activity_Log " +
+                    string query = "SELECT Log_ID, Log_Date, User_Name, Activity_Type, Description FROM Log_View " +
                                    "WHERE User_ID = @UserID AND Status = 1 AND Activity_Type = 'Notifications'";
 
                     using (SqlCommand cmd = new SqlCommand(query, connect))
@@ -1744,6 +1744,32 @@ namespace Lizaso_Laundry_Hub
             return notificationLogs;
         }
 
+        // << MAIN FORM / REGULAR USER FORM >>
+        // method to get count of log active to a certain user
+        public bool GetActivityLogCount(int userID)
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+                    connect.Open();
+
+                    string query = "SELECT COUNT(*) FROM Log_View WHERE User_ID = @UserID AND Activity_Type = 'Notifications' AND Status = 1";
+                    using (SqlCommand cmd = new SqlCommand(query, connect))
+                    {
+                        cmd.Parameters.AddWithValue("@UserID", userID);
+                        int count = (int)cmd.ExecuteScalar();
+                        return count > 0;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
         // << PAYMENT DETAILS FORM / Receipt Form >>
         // method to get customer address based on customer id
         public string Get_CustomerAddressForReceipt(int customerID)
@@ -1754,7 +1780,7 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    string query = "SELECT Address FROM Customers WHERE Customer_ID = @CustomerID";
+                    string query = "SELECT Address FROM Customers_View WHERE Customer_ID = @CustomerID";
                     using (SqlCommand cmd = new SqlCommand(query, connect))
                     {
                         cmd.Parameters.AddWithValue("@CustomerID", customerID);
@@ -1763,7 +1789,6 @@ namespace Lizaso_Laundry_Hub
                         {
                             if (reader.Read())
                             {
-                                // Check if the 'Address' column is not DBNull.Value before retrieving it
                                 int addressOrdinal = reader.GetOrdinal("Address");
                                 if (!reader.IsDBNull(addressOrdinal))
                                 {
@@ -1772,14 +1797,11 @@ namespace Lizaso_Laundry_Hub
                                 }
                                 else
                                 {
-                                    // If the address is DBNull.Value (NULL) in the database, return "None"
                                     return "None";
                                 }
                             }
                         }
                     }
-
-                    // If no address found, return "None"
                     return "None";
                 }
             }
@@ -1798,7 +1820,7 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    string query = "SELECT User_ID, User_Name, Last_Active, Status FROM User_Account";
+                    string query = "SELECT User_ID, User_Name, Last_Active, Status FROM User_View";
                     using (SqlCommand cmd = new SqlCommand(query, connect))
                     {
                         using (SqlDataReader reader = cmd.ExecuteReader())
@@ -1845,8 +1867,8 @@ namespace Lizaso_Laundry_Hub
 
                     // SQL query to get customer details for the reserved unit
                     string query = @"SELECT C.Customer_Name, LB.Start_Time, LB.End_Time
-                             FROM Laundry_Bookings LB
-                             INNER JOIN Customers C ON LB.Customer_ID = C.Customer_ID
+                             FROM Bookings_View LB
+                             INNER JOIN Customers_View C ON LB.Customer_ID = C.Customer_ID
                              WHERE LB.Unit_ID = @UnitID AND LB.Bookings_Status = 'Reserved'";
 
                     using (SqlCommand cmd = new SqlCommand(query, connect))
@@ -1881,6 +1903,56 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
+        // << PAYMENTS FORM / Transaction History Tab >>
+        // method get the additional item based on transactionID
+        public bool Get_AdditionalItems(int transactionID, DataGridView gridAdditionalItem)
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+                    connect.Open();
+
+                    string query = "SELECT i.Item_Name, ti.Item_Quantity, ti.Amount " +
+                                   "FROM TransactionItem_View ti " +
+                                   "JOIN Item_View i ON ti.Item_ID = i.Item_ID " +
+                                   "WHERE ti.Transaction_ID = @TransactionID";
+
+                    using (SqlCommand cmd = new SqlCommand(query, connect))
+                    {
+                        cmd.Parameters.AddWithValue("@TransactionID", transactionID);
+
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            if (reader.HasRows)
+                            {
+                                while (reader.Read())
+                                {
+                                    // Retrieve values from the reader
+                                    string itemName = reader.GetString(0);
+                                    int itemQuantity = reader.GetInt32(1);
+                                    decimal amount = reader.GetDecimal(2);
+
+                                    // Use the retrieved values as needed, for example, add them to a DataGridView
+                                    gridAdditionalItem.Rows.Add(0, itemName, itemQuantity, amount);
+                                }
+
+                                return true;
+                            }
+                            else
+                            {
+                                return false;
+                            }
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
 
         /*
         public bool Get_WhoCustomerReserveds(int unitID, Label customerName, Label startTime, Label endTime)

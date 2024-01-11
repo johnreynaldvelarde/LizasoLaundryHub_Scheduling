@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using Lizaso_Laundry_Hub.Dashboard_Widget;
+using Lizaso_Laundry_Hub.Payments_Module;
 using static Lizaso_Laundry_Hub.Payments_Form;
 
 namespace Lizaso_Laundry_Hub
@@ -65,12 +66,9 @@ namespace Lizaso_Laundry_Hub
 
             if (column_history == "View")
             {
-                DialogResult result = MessageBox.Show("Are you sure you want to view the additional payments?", "Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (result == DialogResult.Yes)
-                {
-                    
-                }
+                View_AdditionalItem_Form item = new View_AdditionalItem_Form();
+                item.setTransctionID = getTransactionID;
+                item.Show();
             }
         }
 

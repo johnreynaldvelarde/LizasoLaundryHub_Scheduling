@@ -14,9 +14,12 @@ namespace Lizaso_Laundry_Hub
     public partial class Regular_User_Form : Form
     {
         public Account_Class AuthenticatedUser { get; set; }
+        private Notify_Module.DropDown_Notification_Form dropNoti;
         private Account_Class account;
         private Activity_Log_Class activityLogger;
         private Get_Data_Class getData;
+
+        private Timer notificationTimer;
         private Form activeForm = null;
         
         public int User_ID;
@@ -40,7 +43,14 @@ namespace Lizaso_Laundry_Hub
                 UserActivityLog(User_Name);
             }
             InitializeButtons();
-           
+
+            // for notification
+            notificationTimer = new Timer();
+            notificationTimer.Interval = 1000; 
+            notificationTimer.Tick += async (sender, e) => await NotificationTimer_TickAsync();
+
+            // Start the timer
+            notificationTimer.Start();
         }
 
         public bool UserActivityLog(string userName)
@@ -220,7 +230,51 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
+        private void btnNotification_Click(object sender, EventArgs e)
+        {
+            if (dropNoti == null || dropNoti.IsDisposed)
+            {
+                dropNoti = new Notify_Module.DropDown_Notification_Form(panel_upper);
+            }
+            else
+            {
+                if (dropNoti.Visible)
+                    dropNoti.Close();
+                else
+                    dropNoti.Show();
+            }
+        }
 
 
+        private async Task NotificationTimer_TickAsync()
+        {
+            await Task.Run(() => RunNotification());
+        }
+
+        public void RunNotification()
+        {
+            bool hasTrueNotifications = getData.GetActivityLogCount(account.User_ID);
+
+            if (hasTrueNotifications)
+            {
+                UpdateNotificationImage(Properties.Resources.BellWithRed);
+            }
+            else
+            {
+                UpdateNotificationImage(Properties.Resources.BellWhite);
+            }
+        }
+
+        public void UpdateNotificationImage(Image image)
+        {
+            if (btnNotification.InvokeRequired)
+            {
+                btnNotification.Invoke(new Action(() => btnNotification.Image = image));
+            }
+            else
+            {
+                btnNotification.Image = image;
+            }
+        }
     }
 }

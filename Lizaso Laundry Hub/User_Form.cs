@@ -26,7 +26,7 @@ namespace Lizaso_Laundry_Hub
         private void btn_OnlineView_Click(object sender, EventArgs e)
         {
             offline = new User_Module.View_Online_Form();
-            offline.ShowDialog();
+            offline.Show();
         }
 
         private string getPassword;
@@ -160,15 +160,6 @@ namespace Lizaso_Laundry_Hub
                 frm.txt_Password.Text = getPassword;
                 frm.rdSuperUser.Checked = true;
                 frm.ShowDialog();
-                /*
-                frm.ckAvailableServices.Checked = (s_services == 1);
-                frm.ckSchedule.Checked = (s_schedule == 1);
-                frm.ckCustomerManage.Checked = (s_customer == 1);
-                frm.ckPayments.Checked = (s_payments == 1);
-                frm.ckUserManage.Checked = (s_user == 1);
-                frm.ckInventory.Checked = (s_inventory == 1);
-                frm.ckSettings.Checked = (s_settings == 1);
-                */
 
             }
             else if (column_superuser == "Delete3")

@@ -36,16 +36,16 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
-            this.regular_panel_dock = new System.Windows.Forms.Panel();
-            this.btn_Services = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_Dashboard = new System.Windows.Forms.Button();
-            this.btn_Payments = new System.Windows.Forms.Button();
-            this.btn_Schedule = new System.Windows.Forms.Button();
-            this.btn_Customer = new System.Windows.Forms.Button();
-            this.btn_UserManage = new System.Windows.Forms.Button();
-            this.btn_Inventory = new System.Windows.Forms.Button();
             this.btn_Settings = new System.Windows.Forms.Button();
+            this.btn_Inventory = new System.Windows.Forms.Button();
+            this.btn_UserManage = new System.Windows.Forms.Button();
+            this.btn_Customer = new System.Windows.Forms.Button();
+            this.btn_Schedule = new System.Windows.Forms.Button();
+            this.btn_Payments = new System.Windows.Forms.Button();
+            this.btn_Dashboard = new System.Windows.Forms.Button();
+            this.btn_Services = new System.Windows.Forms.Button();
+            this.regular_panel_dock = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.panel_upper)).BeginInit();
             this.panel_upper.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -85,6 +85,7 @@
             this.btnNotification.Size = new System.Drawing.Size(33, 50);
             this.btnNotification.TabIndex = 7;
             this.btnNotification.UseVisualStyleBackColor = false;
+            this.btnNotification.Click += new System.EventHandler(this.btnNotification_Click);
             // 
             // btnLogOut
             // 
@@ -165,150 +166,26 @@
             this.kryptonPanel1.StateCommon.ColorAngle = 45F;
             this.kryptonPanel1.TabIndex = 19;
             // 
-            // regular_panel_dock
+            // btn_Settings
             // 
-            this.regular_panel_dock.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.regular_panel_dock.Location = new System.Drawing.Point(93, 50);
-            this.regular_panel_dock.Name = "regular_panel_dock";
-            this.regular_panel_dock.Padding = new System.Windows.Forms.Padding(0, 10, 5, 10);
-            this.regular_panel_dock.Size = new System.Drawing.Size(1107, 550);
-            this.regular_panel_dock.TabIndex = 20;
-            // 
-            // btn_Services
-            // 
-            this.btn_Services.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.btn_Settings.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Services.BackColor = System.Drawing.Color.Transparent;
-            this.btn_Services.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Services.FlatAppearance.BorderSize = 0;
-            this.btn_Services.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Services.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Services.ForeColor = System.Drawing.Color.White;
-            this.btn_Services.Image = ((System.Drawing.Image)(resources.GetObject("btn_Services.Image")));
-            this.btn_Services.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_Services.Location = new System.Drawing.Point(12, 85);
-            this.btn_Services.Name = "btn_Services";
-            this.btn_Services.Size = new System.Drawing.Size(48, 48);
-            this.btn_Services.TabIndex = 26;
-            this.btn_Services.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Services.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btn_Services.UseVisualStyleBackColor = false;
-            this.btn_Services.Click += new System.EventHandler(this.btn_Services_Click);
-            // 
-            // panel1
-            // 
-            this.panel1.Controls.Add(this.kryptonPanel1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 50);
-            this.panel1.Name = "panel1";
-            this.panel1.Padding = new System.Windows.Forms.Padding(10);
-            this.panel1.Size = new System.Drawing.Size(93, 550);
-            this.panel1.TabIndex = 21;
-            // 
-            // btn_Dashboard
-            // 
-            this.btn_Dashboard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Dashboard.BackColor = System.Drawing.Color.Transparent;
-            this.btn_Dashboard.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Dashboard.FlatAppearance.BorderSize = 0;
-            this.btn_Dashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Dashboard.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Dashboard.ForeColor = System.Drawing.Color.White;
-            this.btn_Dashboard.Image = ((System.Drawing.Image)(resources.GetObject("btn_Dashboard.Image")));
-            this.btn_Dashboard.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_Dashboard.Location = new System.Drawing.Point(12, 21);
-            this.btn_Dashboard.Name = "btn_Dashboard";
-            this.btn_Dashboard.Size = new System.Drawing.Size(48, 48);
-            this.btn_Dashboard.TabIndex = 27;
-            this.btn_Dashboard.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Dashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btn_Dashboard.UseVisualStyleBackColor = false;
-            this.btn_Dashboard.Click += new System.EventHandler(this.btn_Dashboard_Click);
-            // 
-            // btn_Payments
-            // 
-            this.btn_Payments.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Payments.BackColor = System.Drawing.Color.Transparent;
-            this.btn_Payments.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Payments.FlatAppearance.BorderSize = 0;
-            this.btn_Payments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Payments.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Payments.ForeColor = System.Drawing.Color.White;
-            this.btn_Payments.Image = ((System.Drawing.Image)(resources.GetObject("btn_Payments.Image")));
-            this.btn_Payments.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_Payments.Location = new System.Drawing.Point(12, 149);
-            this.btn_Payments.Name = "btn_Payments";
-            this.btn_Payments.Size = new System.Drawing.Size(48, 48);
-            this.btn_Payments.TabIndex = 28;
-            this.btn_Payments.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Payments.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btn_Payments.UseVisualStyleBackColor = false;
-            this.btn_Payments.Click += new System.EventHandler(this.btn_Payments_Click);
-            // 
-            // btn_Schedule
-            // 
-            this.btn_Schedule.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Schedule.BackColor = System.Drawing.Color.Transparent;
-            this.btn_Schedule.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Schedule.FlatAppearance.BorderSize = 0;
-            this.btn_Schedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Schedule.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Schedule.ForeColor = System.Drawing.Color.White;
-            this.btn_Schedule.Image = ((System.Drawing.Image)(resources.GetObject("btn_Schedule.Image")));
-            this.btn_Schedule.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_Schedule.Location = new System.Drawing.Point(12, 212);
-            this.btn_Schedule.Name = "btn_Schedule";
-            this.btn_Schedule.Size = new System.Drawing.Size(48, 48);
-            this.btn_Schedule.TabIndex = 29;
-            this.btn_Schedule.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Schedule.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btn_Schedule.UseVisualStyleBackColor = false;
-            this.btn_Schedule.Click += new System.EventHandler(this.btn_Schedule_Click);
-            // 
-            // btn_Customer
-            // 
-            this.btn_Customer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Customer.BackColor = System.Drawing.Color.Transparent;
-            this.btn_Customer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Customer.FlatAppearance.BorderSize = 0;
-            this.btn_Customer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Customer.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Customer.ForeColor = System.Drawing.Color.White;
-            this.btn_Customer.Image = ((System.Drawing.Image)(resources.GetObject("btn_Customer.Image")));
-            this.btn_Customer.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_Customer.Location = new System.Drawing.Point(12, 280);
-            this.btn_Customer.Name = "btn_Customer";
-            this.btn_Customer.Size = new System.Drawing.Size(48, 48);
-            this.btn_Customer.TabIndex = 30;
-            this.btn_Customer.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Customer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btn_Customer.UseVisualStyleBackColor = false;
-            this.btn_Customer.Click += new System.EventHandler(this.btn_Customer_Click);
-            // 
-            // btn_UserManage
-            // 
-            this.btn_UserManage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_UserManage.BackColor = System.Drawing.Color.Transparent;
-            this.btn_UserManage.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_UserManage.FlatAppearance.BorderSize = 0;
-            this.btn_UserManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_UserManage.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_UserManage.ForeColor = System.Drawing.Color.White;
-            this.btn_UserManage.Image = ((System.Drawing.Image)(resources.GetObject("btn_UserManage.Image")));
-            this.btn_UserManage.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_UserManage.Location = new System.Drawing.Point(12, 343);
-            this.btn_UserManage.Name = "btn_UserManage";
-            this.btn_UserManage.Size = new System.Drawing.Size(48, 48);
-            this.btn_UserManage.TabIndex = 31;
-            this.btn_UserManage.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_UserManage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btn_UserManage.UseVisualStyleBackColor = false;
-            this.btn_UserManage.Click += new System.EventHandler(this.btn_UserManage_Click);
+            this.btn_Settings.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Settings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Settings.FlatAppearance.BorderSize = 0;
+            this.btn_Settings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Settings.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Settings.ForeColor = System.Drawing.Color.White;
+            this.btn_Settings.Image = ((System.Drawing.Image)(resources.GetObject("btn_Settings.Image")));
+            this.btn_Settings.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_Settings.Location = new System.Drawing.Point(12, 471);
+            this.btn_Settings.Name = "btn_Settings";
+            this.btn_Settings.Size = new System.Drawing.Size(48, 48);
+            this.btn_Settings.TabIndex = 33;
+            this.btn_Settings.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Settings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_Settings.UseVisualStyleBackColor = false;
+            this.btn_Settings.Click += new System.EventHandler(this.btn_Settings_Click);
             // 
             // btn_Inventory
             // 
@@ -331,26 +208,150 @@
             this.btn_Inventory.UseVisualStyleBackColor = false;
             this.btn_Inventory.Click += new System.EventHandler(this.btn_Inventory_Click);
             // 
-            // btn_Settings
+            // btn_UserManage
             // 
-            this.btn_Settings.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.btn_UserManage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btn_Settings.BackColor = System.Drawing.Color.Transparent;
-            this.btn_Settings.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Settings.FlatAppearance.BorderSize = 0;
-            this.btn_Settings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btn_Settings.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btn_Settings.ForeColor = System.Drawing.Color.White;
-            this.btn_Settings.Image = ((System.Drawing.Image)(resources.GetObject("btn_Settings.Image")));
-            this.btn_Settings.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btn_Settings.Location = new System.Drawing.Point(12, 471);
-            this.btn_Settings.Name = "btn_Settings";
-            this.btn_Settings.Size = new System.Drawing.Size(48, 48);
-            this.btn_Settings.TabIndex = 33;
-            this.btn_Settings.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btn_Settings.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.btn_Settings.UseVisualStyleBackColor = false;
-            this.btn_Settings.Click += new System.EventHandler(this.btn_Settings_Click);
+            this.btn_UserManage.BackColor = System.Drawing.Color.Transparent;
+            this.btn_UserManage.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_UserManage.FlatAppearance.BorderSize = 0;
+            this.btn_UserManage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_UserManage.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_UserManage.ForeColor = System.Drawing.Color.White;
+            this.btn_UserManage.Image = ((System.Drawing.Image)(resources.GetObject("btn_UserManage.Image")));
+            this.btn_UserManage.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_UserManage.Location = new System.Drawing.Point(12, 343);
+            this.btn_UserManage.Name = "btn_UserManage";
+            this.btn_UserManage.Size = new System.Drawing.Size(48, 48);
+            this.btn_UserManage.TabIndex = 31;
+            this.btn_UserManage.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_UserManage.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_UserManage.UseVisualStyleBackColor = false;
+            this.btn_UserManage.Click += new System.EventHandler(this.btn_UserManage_Click);
+            // 
+            // btn_Customer
+            // 
+            this.btn_Customer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Customer.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Customer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Customer.FlatAppearance.BorderSize = 0;
+            this.btn_Customer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Customer.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Customer.ForeColor = System.Drawing.Color.White;
+            this.btn_Customer.Image = ((System.Drawing.Image)(resources.GetObject("btn_Customer.Image")));
+            this.btn_Customer.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_Customer.Location = new System.Drawing.Point(12, 280);
+            this.btn_Customer.Name = "btn_Customer";
+            this.btn_Customer.Size = new System.Drawing.Size(48, 48);
+            this.btn_Customer.TabIndex = 30;
+            this.btn_Customer.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Customer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_Customer.UseVisualStyleBackColor = false;
+            this.btn_Customer.Click += new System.EventHandler(this.btn_Customer_Click);
+            // 
+            // btn_Schedule
+            // 
+            this.btn_Schedule.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Schedule.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Schedule.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Schedule.FlatAppearance.BorderSize = 0;
+            this.btn_Schedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Schedule.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Schedule.ForeColor = System.Drawing.Color.White;
+            this.btn_Schedule.Image = ((System.Drawing.Image)(resources.GetObject("btn_Schedule.Image")));
+            this.btn_Schedule.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_Schedule.Location = new System.Drawing.Point(12, 212);
+            this.btn_Schedule.Name = "btn_Schedule";
+            this.btn_Schedule.Size = new System.Drawing.Size(48, 48);
+            this.btn_Schedule.TabIndex = 29;
+            this.btn_Schedule.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Schedule.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_Schedule.UseVisualStyleBackColor = false;
+            this.btn_Schedule.Click += new System.EventHandler(this.btn_Schedule_Click);
+            // 
+            // btn_Payments
+            // 
+            this.btn_Payments.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Payments.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Payments.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Payments.FlatAppearance.BorderSize = 0;
+            this.btn_Payments.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Payments.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Payments.ForeColor = System.Drawing.Color.White;
+            this.btn_Payments.Image = ((System.Drawing.Image)(resources.GetObject("btn_Payments.Image")));
+            this.btn_Payments.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_Payments.Location = new System.Drawing.Point(12, 149);
+            this.btn_Payments.Name = "btn_Payments";
+            this.btn_Payments.Size = new System.Drawing.Size(48, 48);
+            this.btn_Payments.TabIndex = 28;
+            this.btn_Payments.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Payments.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_Payments.UseVisualStyleBackColor = false;
+            this.btn_Payments.Click += new System.EventHandler(this.btn_Payments_Click);
+            // 
+            // btn_Dashboard
+            // 
+            this.btn_Dashboard.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Dashboard.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Dashboard.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Dashboard.FlatAppearance.BorderSize = 0;
+            this.btn_Dashboard.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Dashboard.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Dashboard.ForeColor = System.Drawing.Color.White;
+            this.btn_Dashboard.Image = ((System.Drawing.Image)(resources.GetObject("btn_Dashboard.Image")));
+            this.btn_Dashboard.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_Dashboard.Location = new System.Drawing.Point(12, 21);
+            this.btn_Dashboard.Name = "btn_Dashboard";
+            this.btn_Dashboard.Size = new System.Drawing.Size(48, 48);
+            this.btn_Dashboard.TabIndex = 27;
+            this.btn_Dashboard.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Dashboard.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_Dashboard.UseVisualStyleBackColor = false;
+            this.btn_Dashboard.Click += new System.EventHandler(this.btn_Dashboard_Click);
+            // 
+            // btn_Services
+            // 
+            this.btn_Services.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_Services.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Services.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Services.FlatAppearance.BorderSize = 0;
+            this.btn_Services.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Services.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Services.ForeColor = System.Drawing.Color.White;
+            this.btn_Services.Image = ((System.Drawing.Image)(resources.GetObject("btn_Services.Image")));
+            this.btn_Services.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btn_Services.Location = new System.Drawing.Point(12, 85);
+            this.btn_Services.Name = "btn_Services";
+            this.btn_Services.Size = new System.Drawing.Size(48, 48);
+            this.btn_Services.TabIndex = 26;
+            this.btn_Services.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btn_Services.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.btn_Services.UseVisualStyleBackColor = false;
+            this.btn_Services.Click += new System.EventHandler(this.btn_Services_Click);
+            // 
+            // regular_panel_dock
+            // 
+            this.regular_panel_dock.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.regular_panel_dock.Location = new System.Drawing.Point(93, 50);
+            this.regular_panel_dock.Name = "regular_panel_dock";
+            this.regular_panel_dock.Padding = new System.Windows.Forms.Padding(0, 10, 5, 10);
+            this.regular_panel_dock.Size = new System.Drawing.Size(1107, 550);
+            this.regular_panel_dock.TabIndex = 20;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.kryptonPanel1);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel1.Location = new System.Drawing.Point(0, 50);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(10);
+            this.panel1.Size = new System.Drawing.Size(93, 550);
+            this.panel1.TabIndex = 21;
             // 
             // Regular_User_Form
             // 

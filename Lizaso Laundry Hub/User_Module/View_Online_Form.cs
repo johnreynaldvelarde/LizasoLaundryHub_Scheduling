@@ -42,5 +42,10 @@ namespace Lizaso_Laundry_Hub.User_Module
                 row.Cells[0].Value = count;
             }
         }
+
+        private void View_Online_Form_Deactivate(object sender, EventArgs e)
+        {
+            this.Dispose();
+        }
     }
 }

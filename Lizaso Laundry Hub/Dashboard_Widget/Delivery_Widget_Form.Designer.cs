@@ -67,7 +67,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(5, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(766, 45);
+            this.panel1.Size = new System.Drawing.Size(762, 45);
             this.panel1.TabIndex = 2;
             // 
             // btn_ClickDeliveryList
@@ -78,12 +78,13 @@
             this.btn_ClickDeliveryList.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_ClickDeliveryList.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_ClickDeliveryList.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(2)))), ((int)(((byte)(138)))), ((int)(((byte)(97)))));
-            this.btn_ClickDeliveryList.Location = new System.Drawing.Point(550, 10);
+            this.btn_ClickDeliveryList.Location = new System.Drawing.Point(546, 10);
             this.btn_ClickDeliveryList.Name = "btn_ClickDeliveryList";
             this.btn_ClickDeliveryList.Size = new System.Drawing.Size(213, 21);
             this.btn_ClickDeliveryList.TabIndex = 20;
             this.btn_ClickDeliveryList.Text = " Click to view all delivery list";
             this.btn_ClickDeliveryList.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.btn_ClickDeliveryList.Visible = false;
             this.btn_ClickDeliveryList.Click += new System.EventHandler(this.btn_ClickDeliveryList_Click);
             // 
             // label5
@@ -105,7 +106,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(5, 50);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(766, 371);
+            this.panel2.Size = new System.Drawing.Size(762, 367);
             this.panel2.TabIndex = 3;
             // 
             // grid_delivery_view
@@ -139,7 +140,7 @@
             this.grid_delivery_view.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.grid_delivery_view.RowTemplate.Height = 50;
             this.grid_delivery_view.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grid_delivery_view.Size = new System.Drawing.Size(766, 371);
+            this.grid_delivery_view.Size = new System.Drawing.Size(762, 367);
             this.grid_delivery_view.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonLowProfile;
             this.grid_delivery_view.StateCommon.DataCell.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.grid_delivery_view.StateCommon.DataCell.Content.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
@@ -235,7 +236,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(776, 426);
+            this.ClientSize = new System.Drawing.Size(772, 422);
             this.ControlBox = false;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

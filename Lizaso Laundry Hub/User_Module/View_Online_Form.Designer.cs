@@ -32,9 +32,9 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(View_Online_Form));
             this.kryptonPalette1 = new ComponentFactory.Krypton.Toolkit.KryptonPalette(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
-            this.grid_user_view = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.btnClose = new System.Windows.Forms.Button();
             this.lbtitleCustomer = new System.Windows.Forms.Label();
+            this.grid_user_view = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,8 +62,34 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(20, 20);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(756, 44);
+            this.panel1.Size = new System.Drawing.Size(752, 44);
             this.panel1.TabIndex = 1;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnClose.FlatAppearance.BorderSize = 0;
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
+            this.btnClose.Location = new System.Drawing.Point(715, 8);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(23, 29);
+            this.btnClose.TabIndex = 78;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // lbtitleCustomer
+            // 
+            this.lbtitleCustomer.AutoSize = true;
+            this.lbtitleCustomer.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbtitleCustomer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.lbtitleCustomer.Location = new System.Drawing.Point(14, 8);
+            this.lbtitleCustomer.Name = "lbtitleCustomer";
+            this.lbtitleCustomer.Size = new System.Drawing.Size(149, 28);
+            this.lbtitleCustomer.TabIndex = 77;
+            this.lbtitleCustomer.Text = "User account list";
             // 
             // grid_user_view
             // 
@@ -89,7 +115,7 @@
             this.grid_user_view.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.grid_user_view.RowTemplate.Height = 50;
             this.grid_user_view.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grid_user_view.Size = new System.Drawing.Size(756, 362);
+            this.grid_user_view.Size = new System.Drawing.Size(752, 358);
             this.grid_user_view.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             this.grid_user_view.StateCommon.DataCell.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.grid_user_view.StateCommon.DataCell.Content.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
@@ -99,32 +125,6 @@
             this.grid_user_view.StateCommon.HeaderColumn.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grid_user_view.TabIndex = 9;
             this.grid_user_view.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.grid_user_view_CellFormatting);
-            // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnClose.FlatAppearance.BorderSize = 0;
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(719, 8);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(23, 29);
-            this.btnClose.TabIndex = 78;
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // lbtitleCustomer
-            // 
-            this.lbtitleCustomer.AutoSize = true;
-            this.lbtitleCustomer.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbtitleCustomer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.lbtitleCustomer.Location = new System.Drawing.Point(14, 8);
-            this.lbtitleCustomer.Name = "lbtitleCustomer";
-            this.lbtitleCustomer.Size = new System.Drawing.Size(149, 28);
-            this.lbtitleCustomer.TabIndex = 77;
-            this.lbtitleCustomer.Text = "User account list";
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -168,7 +168,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(796, 446);
+            this.ClientSize = new System.Drawing.Size(792, 442);
             this.ControlBox = false;
             this.Controls.Add(this.grid_user_view);
             this.Controls.Add(this.panel1);
@@ -180,6 +180,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Deactivate += new System.EventHandler(this.View_Online_Form_Deactivate);
             this.Load += new System.EventHandler(this.View_Online_Form_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

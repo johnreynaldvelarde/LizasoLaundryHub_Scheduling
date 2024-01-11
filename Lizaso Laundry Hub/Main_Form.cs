@@ -16,6 +16,7 @@ namespace Lizaso_Laundry_Hub
     public partial class Main_Form : Form
     {
         private Timer timer;
+        private Timer notificationTimer;
 
         private Form activeForm = null;
         private Backup_Data_Class backupData;
@@ -24,6 +25,7 @@ namespace Lizaso_Laundry_Hub
         private Activity_Log_Class activityLogger;
 
         public Account_Class AuthenticatedUser { get; set; }
+        private Account_Class account;
         private DropDown_Form dropDownForm;
         private Notify_Module.DropDown_Notification_Form dropNoti;
         public int User_ID;
@@ -37,6 +39,7 @@ namespace Lizaso_Laundry_Hub
             getData = new Get_Data_Class();
             updateData = new Update_Data_Class();
             backupData = new Backup_Data_Class();
+            account = new Account_Class();
             activityLogger = new Activity_Log_Class();
 
             //Panel panelUpper = panel_upper; 
@@ -60,6 +63,13 @@ namespace Lizaso_Laundry_Hub
             Count_Pending_Timer.Tick += Count_Pending_Timer_Tick;
             Count_Pending_Timer.Start();
 
+            // for notification
+            notificationTimer = new Timer();
+            notificationTimer.Interval = 1000; 
+            notificationTimer.Tick += async (sender, e) => await NotificationTimer_TickAsync();
+
+            notificationTimer.Start();
+
         }
 
         public bool UserActivityLog(string userName)
@@ -75,7 +85,38 @@ namespace Lizaso_Laundry_Hub
             catch (Exception ex)
             {
                 Console.WriteLine($"Error logging user activity: {ex.Message}");
-                return false; // Indicate logging failure
+                return false; 
+            }
+        }
+
+        private async Task NotificationTimer_TickAsync()
+        {
+            await Task.Run(() => RunNotification());
+        }
+
+        public void RunNotification()
+        {
+            bool hasTrueNotifications = getData.GetActivityLogCount(account.User_ID);
+
+            if (hasTrueNotifications)
+            {
+                UpdateNotificationImage(Properties.Resources.BellWithRed);
+            }
+            else
+            {
+                UpdateNotificationImage(Properties.Resources.BellWhite);
+            }
+        }
+
+        public void UpdateNotificationImage(Image image)
+        {
+            if (btnNotification.InvokeRequired)
+            {
+                btnNotification.Invoke(new Action(() => btnNotification.Image = image));
+            }
+            else
+            {
+                btnNotification.Image = image;
             }
         }
 
@@ -212,7 +253,6 @@ namespace Lizaso_Laundry_Hub
 
         private void btnNotification_Click(object sender, EventArgs e)
         {
-
             if (dropNoti == null || dropNoti.IsDisposed)
             {
                 dropNoti = new Notify_Module.DropDown_Notification_Form(panel_upper);
