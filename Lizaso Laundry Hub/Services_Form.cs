@@ -16,7 +16,6 @@ namespace Lizaso_Laundry_Hub
     {
         private DB_Connection database = new DB_Connection();
         private RealTime_Data_Class realTime;
-       
         private Get_Data_Class getData;
         
         private Select_Unit_Form selectUnitForm;
