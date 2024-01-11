@@ -36,6 +36,10 @@ namespace Lizaso_Laundry_Hub
             updateData = new Update_Data_Class();
             backupData = new Backup_Data_Class();
 
+            //Panel panelUpper = panel_upper; 
+            //dropDownForm = new DropDown_Form(panelUpper);
+            //dropDownForm.BtnSettingsClick += DropDownForm_BtnSettingsClick;
+
             AuthenticatedUser = authenticatedUser;
 
             if (AuthenticatedUser != null)
@@ -52,6 +56,11 @@ namespace Lizaso_Laundry_Hub
             Count_Pending_Timer.Tick += Count_Pending_Timer_Tick;
             Count_Pending_Timer.Start();
 
+        }
+
+        private void DropDownForm_BtnSettingsClick(object sender, EventArgs e)
+        {
+            openChildPanel(new Settings_Form());
         }
 
         public void ShowImageDatabase()

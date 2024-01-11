@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
+using Lizaso_Laundry_Hub.Settings_Module;
 
 namespace Lizaso_Laundry_Hub
 {
@@ -19,6 +20,8 @@ namespace Lizaso_Laundry_Hub
         private Backup_Data_Class backupData;
         private Update_Data_Class updateData;
         private Account_Class account;
+
+        public event EventHandler BtnSettingsClick;
 
         public DropDown_Form(Panel panelUpper)
         {
@@ -77,7 +80,6 @@ namespace Lizaso_Laundry_Hub
                 backupData.BackupDatabaseEveryLogout();
             }
         }
-
 
 
         private bool CheckLogoutAutoBackupSetting()
@@ -173,6 +175,17 @@ namespace Lizaso_Laundry_Hub
 
         
          */
+        }
+
+        private void btn_Settings_Click(object sender, EventArgs e)
+        {
+            BtnSettingsClick?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void btn_BackupRestore_Click(object sender, EventArgs e)
+        {
+            Backup_Restore_Form backup = new Backup_Restore_Form();
+            backup.ShowDialog();
         }
     }
 }

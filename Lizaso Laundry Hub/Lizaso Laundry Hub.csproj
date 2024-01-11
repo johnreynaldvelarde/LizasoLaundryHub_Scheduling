@@ -296,6 +296,12 @@
     <Compile Include="Services_Form.Designer.cs">
       <DependentUpon>Services_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Services_Module\ReservedBy_PopUp_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Services_Module\ReservedBy_PopUp_Form.Designer.cs">
+      <DependentUpon>ReservedBy_PopUp_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Settings_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -408,6 +414,9 @@
     <EmbeddedResource Include="Dashboard_Widget\Calendar_Widget_Form.resx">
       <DependentUpon>Calendar_Widget_Form.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard_Widget\CustomerList_Widget_Form.resx">
+      <DependentUpon>CustomerList_Widget_Form.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Dashboard_Widget\Delivery_Widget_Form.resx">
       <DependentUpon>Delivery_Widget_Form.cs</DependentUpon>
     </EmbeddedResource>
@@ -479,6 +488,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Services_Form.resx">
       <DependentUpon>Services_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Services_Module\ReservedBy_PopUp_Form.resx">
+      <DependentUpon>ReservedBy_PopUp_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings_Form.resx">
       <DependentUpon>Settings_Form.cs</DependentUpon>

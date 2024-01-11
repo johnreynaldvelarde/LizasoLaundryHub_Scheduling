@@ -210,6 +210,7 @@
             this.btnReserved.StateTracking.Border.Width = 1;
             this.btnReserved.TabIndex = 19;
             this.btnReserved.Values.Text = "Reserved";
+            this.btnReserved.Click += new System.EventHandler(this.btnReserved_Click);
             // 
             // image_unit
             // 

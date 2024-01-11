@@ -51,12 +51,13 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(181, 40);
+            this.panel2.Size = new System.Drawing.Size(179, 40);
             this.panel2.TabIndex = 0;
             // 
             // btn_Settings
             // 
             this.btn_Settings.AutoSize = true;
+            this.btn_Settings.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_Settings.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Settings.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.btn_Settings.Location = new System.Drawing.Point(16, 10);
@@ -64,6 +65,7 @@
             this.btn_Settings.Size = new System.Drawing.Size(70, 21);
             this.btn_Settings.TabIndex = 2;
             this.btn_Settings.Text = "Settings";
+            this.btn_Settings.Click += new System.EventHandler(this.btn_Settings_Click);
             // 
             // panel1
             // 
@@ -75,7 +77,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(5, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(181, 124);
+            this.panel1.Size = new System.Drawing.Size(179, 122);
             this.panel1.TabIndex = 0;
             // 
             // panel7
@@ -84,7 +86,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(0, 82);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(181, 40);
+            this.panel7.Size = new System.Drawing.Size(179, 40);
             this.panel7.TabIndex = 5;
             // 
             // btn_Logout
@@ -106,7 +108,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 81);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(181, 1);
+            this.panel4.Size = new System.Drawing.Size(179, 1);
             this.panel4.TabIndex = 2;
             // 
             // panel6
@@ -115,12 +117,13 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel6.Location = new System.Drawing.Point(0, 41);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(181, 40);
+            this.panel6.Size = new System.Drawing.Size(179, 40);
             this.panel6.TabIndex = 4;
             // 
             // btn_BackupRestore
             // 
             this.btn_BackupRestore.AutoSize = true;
+            this.btn_BackupRestore.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_BackupRestore.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_BackupRestore.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.btn_BackupRestore.Location = new System.Drawing.Point(16, 10);
@@ -128,6 +131,7 @@
             this.btn_BackupRestore.Size = new System.Drawing.Size(155, 21);
             this.btn_BackupRestore.TabIndex = 3;
             this.btn_BackupRestore.Text = "Backup and Restore";
+            this.btn_BackupRestore.Click += new System.EventHandler(this.btn_BackupRestore_Click);
             // 
             // panel3
             // 
@@ -135,7 +139,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel3.Location = new System.Drawing.Point(0, 40);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(181, 1);
+            this.panel3.Size = new System.Drawing.Size(179, 1);
             this.panel3.TabIndex = 1;
             // 
             // kryptonPalette1
@@ -153,7 +157,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(191, 134);
+            this.ClientSize = new System.Drawing.Size(189, 132);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;

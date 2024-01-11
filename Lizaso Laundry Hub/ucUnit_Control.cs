@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lizaso_Laundry_Hub.Services_Module;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -114,47 +115,6 @@ namespace Lizaso_Laundry_Hub
             btnSelect.Enabled = false;
         }
 
-
-        /*
-        private void InitializeUI()
-        {
-            int unitId = Unit.Unit_ID;
-            label_unit.Text = Unit.Unit_Name;
-            Console.WriteLine($"Unit_ID: {Unit.Unit_ID}");
-            Console.WriteLine($"Unit_Name: {Unit.Unit_Name}");
-
-
-            if (Unit.Unit_Image != null && Unit.Unit_Image.Length > 0)
-            {
-                try
-                {
-                    using (MemoryStream ms = new MemoryStream(Unit.Unit_Image))
-                    {
-                        image_unit.Image = Image.FromStream(ms);
-                    }
-                }
-                catch (Exception ex)
-                {
-                    // Handle exception (e.g., error converting byte array to image)
-                    Console.WriteLine($"Error loading image: {ex.Message}");
-                }
-            }
-
-            switch (Unit.Availability_Status)
-            {
-                case 1: // Assuming 1 represents "Wash" in the database
-                    rbWash.Checked = true;
-                    break;
-                case 2: // Assuming 2 represents "Wash/Dry" in the database
-                    rbWashDry.Checked = true;
-                    break;
-                case 3: // Assuming 3 represents "Wash/Dry/Fold" in the database
-                    rbWashDryFold.Checked = true;
-                    break;
-                    // Handle other cases if needed
-            }
-        }
-        */
         public string SelectedService()
         {
             if (rbWash.Checked)
@@ -200,6 +160,14 @@ namespace Lizaso_Laundry_Hub
             rbWash.Checked = false;
             rbWashDry.Checked = false;
             rbWashDryFold.Checked = false;
+        }
+
+        private void btnReserved_Click(object sender, EventArgs e)
+        {
+            ReservedBy_PopUp_Form reserved = new ReservedBy_PopUp_Form();
+            reserved.getUnitID = Unit.Unit_ID;
+            reserved.Label_ReservedTitle.Text = $"This {Unit.Unit_Name} is reserved by customer";
+            reserved.Show();
         }
     }
 }
