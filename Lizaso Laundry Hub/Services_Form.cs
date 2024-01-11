@@ -522,5 +522,21 @@ namespace Lizaso_Laundry_Hub
         {
             DisplayReserved();
         }
+
+        private bool isPanel1Moved = false;
+
+        private void btn_PanelMove_Click(object sender, EventArgs e)
+        {
+            if (isPanel1Moved)
+            {
+                splitContainer1.SplitterDistance = 960;
+            }
+            else
+            {
+                splitContainer1.SplitterDistance = splitContainer1.Width;
+            }
+
+            isPanel1Moved = !isPanel1Moved;
+        }
     }
 }

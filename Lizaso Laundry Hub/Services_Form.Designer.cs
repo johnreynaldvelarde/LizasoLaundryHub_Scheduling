@@ -48,6 +48,7 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.btnReserve = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
+            this.btn_PanelMove = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -82,6 +83,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.btn_PanelMove);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label3);
@@ -297,6 +299,22 @@
             this.label6.TabIndex = 2;
             this.label6.Text = "Reserved Unit List";
             // 
+            // btn_PanelMove
+            // 
+            this.btn_PanelMove.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btn_PanelMove.BackColor = System.Drawing.Color.Transparent;
+            this.btn_PanelMove.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_PanelMove.FlatAppearance.BorderSize = 0;
+            this.btn_PanelMove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_PanelMove.Image = ((System.Drawing.Image)(resources.GetObject("btn_PanelMove.Image")));
+            this.btn_PanelMove.Location = new System.Drawing.Point(1117, 2);
+            this.btn_PanelMove.Name = "btn_PanelMove";
+            this.btn_PanelMove.Size = new System.Drawing.Size(40, 41);
+            this.btn_PanelMove.TabIndex = 7;
+            this.btn_PanelMove.UseVisualStyleBackColor = false;
+            this.btn_PanelMove.Click += new System.EventHandler(this.btn_PanelMove_Click);
+            // 
             // Services_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -349,5 +367,6 @@
         private System.Windows.Forms.Button btnReserve;
         public System.Windows.Forms.FlowLayoutPanel flow_panel_progress;
         public System.Windows.Forms.FlowLayoutPanel flow_panel_reserved;
+        private System.Windows.Forms.Button btn_PanelMove;
     }
 }

@@ -121,6 +121,24 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="btn_PanelMove.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAALnSURBVFhHtZfLaxNRFMazcSGKO1//gStBuhJcFMF0ZuoDBFEUxZULpehCqJLia6FbdxJbOjNp
+        lZpmZqylpXYhghRpxUhT0ofFWpW2Riv0JW3aMNdzMwenvTlJZ5LpB79Fcs/5vklm7r1zQ34Vjpl7ZM0K
+        y6pxQ9bNeo6iW9cV1TwmN8d3Y1mwqmkx9iuqcU/WzDGAlULRzBFJt+4qanwftpevk40de2XNiIJxVgzy
+        APQYUe6Bdv4kxcwjYJIRTMvhp6Sbh9HWm+BvvAaNa4JRJaxJunEV7UsL7vVFaLAFgyCwwfs8xtCSm82j
+        ULgqNAbJqqRa1Ri3UXJr9y4omBEatoKp6nh8J8a6UnTzEVHsmXNtXexyooccK0C3HmCsI2e6mYsFhR6p
+        73nHVtZyzLZtpifTZI3AwoZFC764LxT44v33abZezwdHyTqBOxifn3YjRIFnWj8NY7SrttSmF5HKh/Nl
+        lhj0BewFrHd8EqNdWelxvjSTPYDN9xX+8B0nBn3DgzpHv2C0q66xieIXoVtyCHa1Omrw4dt+NrWwxBaz
+        q55ZAigVux18xQ1JmtVADLD5lSy2Vy4buNROTtEIeQGcueUVpzsA5WB6XnjRXZABRIregobePjbwY4Yl
+        pzOeGc78wUhX/Nc/6R8s8OfkbwF/EKhBv5x+9oqlM7NOKoovTI/7kmS9gxUOZBqeaulgH6cyGOvq6UCK
+        rEecacgFf0VFC1H70GeMdNX4YYisXYezEHHBh4gw6AtxKW7aPJxJqnkL4/9vRgtikVfqOt+w2b/LLJvL
+        FX3gBOYL3qAVzbpNFHqmFpbjE7GX5BjBTYx1FY693gFP5TeiOFAUzZg4E49vx9iNkvTEQXiVXqIaA2Iu
+        rCYOYBwt/uIIhVvyUirrxlmMKS3cIecFg0qYq9GMWrT3plrNqoJz3yRh5pevsp44hLb+VBWNboMH8wqY
+        /BZMvfCL93IPtCtf/KDp93Ba9plwMwV7PA+F/gFkGJ3Vtep7iwAAAABJRU5ErkJggg==
+</value>
+  </data>
   <data name="label5.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29m
