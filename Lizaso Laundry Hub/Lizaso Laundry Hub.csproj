@@ -129,12 +129,6 @@
     </Compile>
     <Compile Include="Backup_Data_Class.cs" />
     <Compile Include="CalendarEvent_Class.cs" />
-    <Compile Include="Calendar_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Calendar_Form.Designer.cs">
-      <DependentUpon>Calendar_Form.cs</DependentUpon>
-    </Compile>
     <Compile Include="Customer_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -410,9 +404,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Add_Unit_Form.resx">
       <DependentUpon>Add_Unit_Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Calendar_Form.resx">
-      <DependentUpon>Calendar_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Customer_Form.resx">
       <DependentUpon>Customer_Form.cs</DependentUpon>

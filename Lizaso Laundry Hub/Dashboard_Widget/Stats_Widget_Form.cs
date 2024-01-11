@@ -20,5 +20,15 @@ namespace Lizaso_Laundry_Hub.Dashboard_Widget
             InitializeComponent();
             getData = new Get_Data_Class();
         }
+
+        public void DisplayMostVisitedCustomer()
+        {
+            getData.Get_ChartMostVisitedCustomer(chartVisitedCustomer);
+        }
+
+        private void Stats_Widget_Form_Load(object sender, EventArgs e)
+        {
+            DisplayMostVisitedCustomer();
+        }
     }
 }

@@ -14,15 +14,20 @@ namespace Lizaso_Laundry_Hub
     public partial class Regular_User_Form : Form
     {
         public Account_Class AuthenticatedUser { get; set; }
+        private Account_Class account;
+        private Activity_Log_Class activityLogger;
         private Get_Data_Class getData;
         private Form activeForm = null;
         
         public int User_ID;
+        public string User_Name;
 
         public Regular_User_Form(Account_Class authenticatedUser)
         {
             InitializeComponent();
             getData = new Get_Data_Class();
+            account = new Account_Class();
+            activityLogger = new Activity_Log_Class();
             AuthenticatedUser = authenticatedUser;
 
             if (AuthenticatedUser != null)
@@ -30,9 +35,29 @@ namespace Lizaso_Laundry_Hub
                 lblUserName.Text = "Welcome, " + AuthenticatedUser.User_Name;
                 lblUserName.Width = CalculateLabelWidth(lblUserName.Text);
                 User_ID = AuthenticatedUser.User_ID;
+                User_Name = AuthenticatedUser.User_Name;
+
+                UserActivityLog(User_Name);
             }
             InitializeButtons();
            
+        }
+
+        public bool UserActivityLog(string userName)
+        {
+            try
+            {
+                string activityType = "Login";
+                string loginDescription = $"{userName} logged into the system at {DateTime.Now}.";
+                activityLogger.LogActivity(activityType, loginDescription);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error logging user activity: {ex.Message}");
+                return false; 
+            }
         }
 
         private int CalculateLabelWidth(string text)
@@ -166,6 +191,7 @@ namespace Lizaso_Laundry_Hub
 
             if (res == DialogResult.Yes)
             {
+                UserActivityLogout(account.User_Name);
                 this.Dispose();
                 Login_Form frm = new Login_Form();
                 frm.Show();
@@ -175,9 +201,26 @@ namespace Lizaso_Laundry_Hub
                 this.Show();
             }
         }
-        
-       
 
-       
+        public bool UserActivityLogout(string userName)
+        {
+            try
+            {
+                string activityType = "Logout";
+                string logoutDescription = $"{userName} logged out of the system at {DateTime.Now}.";
+
+                activityLogger.LogActivity(activityType, logoutDescription);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error logging user activity: {ex.Message}");
+                return false; // Indicate logging failure
+            }
+        }
+
+
+
     }
 }

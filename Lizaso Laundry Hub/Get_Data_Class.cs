@@ -14,6 +14,7 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
 using System.Diagnostics;
 using Lizaso_Laundry_Hub.Notify_Module;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Lizaso_Laundry_Hub
 {
@@ -253,7 +254,62 @@ namespace Lizaso_Laundry_Hub
 
         // << DASHBOARD FORM / Stats Widget Form >> 
         // method to get the most visited customer in store
-        public bool Get_ChartMostVisitedCustomer(DataGridView grid_delivery_view)
+        public bool Get_ChartMostVisitedCustomer(Chart visited_customer_chart)
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+                    connect.Open();
+
+                    // SQL query to get the most visited customers based on completed bookings
+                    string query = @"SELECT TOP 5 C.Customer_ID, C.Customer_Name, COUNT(LB.Booking_ID) AS VisitCount
+                                     FROM Customers_View C
+                                     JOIN Bookings_View LB ON C.Customer_ID = LB.Customer_ID
+                                     WHERE LB.Bookings_Status = 'Completed'
+                                     GROUP BY C.Customer_ID, C.Customer_Name
+                                     ORDER BY VisitCount DESC";
+
+                    SqlCommand command = new SqlCommand(query, connect);
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    // Clear existing data in the chart
+                    visited_customer_chart.Series.Clear();
+
+                    // Add a new series to the chart
+                    Series series = visited_customer_chart.Series.Add("Most Visited Customers");
+                    series.ChartType = SeriesChartType.Bar;
+
+                    // Populate data from the database
+                    while (reader.Read())
+                    {
+                        string customerName = reader["Customer_Name"].ToString();
+                        int visitCount = Convert.ToInt32(reader["VisitCount"]);
+
+                        // Add data points to the chart series
+                        series.Points.AddXY(customerName, visitCount);
+                    }
+
+                    // Customize chart appearance if needed
+                    visited_customer_chart.ChartAreas[0].AxisX.Title = "Customers";
+                    visited_customer_chart.ChartAreas[0].AxisY.Title = "Visit Count";
+
+                    // Close database connection
+                    connect.Close();
+
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+
+
+        public bool Get_ChartMostVisitedCustsassaomer(Chart visited_customer_chart)
         {
             try
             {

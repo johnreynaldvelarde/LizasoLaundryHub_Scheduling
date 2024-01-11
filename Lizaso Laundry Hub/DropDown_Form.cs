@@ -19,6 +19,7 @@ namespace Lizaso_Laundry_Hub
         private Panel panel_upper;
         private Backup_Data_Class backupData;
         private Update_Data_Class updateData;
+        private Activity_Log_Class activityLogger;
         private Account_Class account;
 
         public event EventHandler BtnSettingsClick;
@@ -28,6 +29,7 @@ namespace Lizaso_Laundry_Hub
             InitializeComponent();
             backupData = new Backup_Data_Class();
             updateData = new Update_Data_Class();
+            activityLogger = new Activity_Log_Class();
             account = new Account_Class();
             this.panel_upper = panelUpper;
 
@@ -51,7 +53,8 @@ namespace Lizaso_Laundry_Hub
             try
             {
                 DisplayUIBackup();
-                await Task.Delay(2000);
+                await Task.Delay(1000);
+                UserActivityLog(account.User_Name);
                 this.Dispose();
                 updateData.Update_UserLastActiveAndStatus(account.User_ID);
                 Application.OpenForms["Main_Form"].Dispose();
@@ -80,7 +83,6 @@ namespace Lizaso_Laundry_Hub
                 backupData.BackupDatabaseEveryLogout();
             }
         }
-
 
         private bool CheckLogoutAutoBackupSetting()
         {
@@ -125,56 +127,27 @@ namespace Lizaso_Laundry_Hub
             return false; // Default to false if any errors occur
         }
 
+        public bool UserActivityLog(string userName)
+        {
+            try
+            {
+                string activityType = "Logout";
+                string logoutDescription = $"{userName} logged out of the system at {DateTime.Now}.";
 
+                activityLogger.LogActivity(activityType, logoutDescription);
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error logging user activity: {ex.Message}");
+                return false; // Indicate logging failure
+            }
+        }
 
         private void DropDown_Form_Deactivate(object sender, EventArgs e)
         {
             this.Dispose();
-            /*
-          try
-          {
-              Account_Class authenticatedUser = new Account_Class(); // Replace this with your actual instance
-
-              // Pass authenticatedUser as a parameter to Main_Form constructor
-              Main_Form frm2 = new Main_Form(authenticatedUser);
-              frm2.ShowImageDatabase();
-              //DisplayUIBackup();
-
-              // Introduce a 5-second delay
-              await Task.Delay(2000);
-              this.Dispose();
-              Application.OpenForms["Main_Form"].Dispose();
-
-              Login_Form frm = new Login_Form();
-              frm.Show();
-          }
-          catch (Exception ex)
-          {
-              MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-          }
-             DialogResult res;
-         res = MessageBox.Show("Do you want to logout", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-         if (res == DialogResult.Yes)
-         {
-             /
-             this.Dispose();
-             Application.OpenForms["Main_Form"].Dispose();
-             Login_Form frm = new Login_Form();
-             frm.Show();
-         }
-         else
-         {
-             backupData.BackupDatabaseEveryLogout();
-             this.Dispose();
-             Application.OpenForms["Main_Form"].Dispose();
-             Login_Form frm = new Login_Form();
-             frm.Show();
-
-         }
-
-        
-         */
         }
 
         private void btn_Settings_Click(object sender, EventArgs e)
