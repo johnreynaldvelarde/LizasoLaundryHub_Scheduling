@@ -32,9 +32,6 @@ namespace Lizaso_Laundry_Hub
             label_unit.Text = Unit.Unit_Name;
             string reserved = Unit.Reserved;
 
-            //Console.WriteLine($"Unit_Status: {Unit.Avail_Status}");
-           //Console.WriteLine($"Unit_ID: {Unit.Unit_ID}");
-
             if (unitStatus == 0)
             {
                 image_unit.Image = Properties.Resources.Available;
@@ -57,6 +54,7 @@ namespace Lizaso_Laundry_Hub
             else if (unitStatus == 2)
             {
                 image_unit.Image = Properties.Resources.Not_Available;
+                UnitNotAvailable();
                
             }
             else
@@ -119,13 +117,16 @@ namespace Lizaso_Laundry_Hub
 
         public void UnitNotAvailable()
         {
-            Color buttonColorNotAvailable1 = Color.FromArgb(245, 81, 95);
-            Color buttonColorNotAvailable2 = Color.FromArgb(161, 5, 29);
+            Color buttonColorNotAvailable1 = Color.FromArgb(98, 98, 98);
+            Color buttonColorNotAvailable2 = Color.FromArgb(128, 128, 128);
 
             btnSelect.StateCommon.Back.Color1 = buttonColorNotAvailable1;
             btnSelect.StateCommon.Back.Color2 = buttonColorNotAvailable2;
             btnSelect.StateCommon.Border.Color1 = buttonColorNotAvailable1;
             btnSelect.StateCommon.Border.Color2 = buttonColorNotAvailable2;
+
+            btnSelect.Location = new Point(80, 301);
+            btnSelect.Size = new Size(140, 42);
             btnSelect.Values.Text = "Not Available";
 
             btnReserved.Visible = false;
