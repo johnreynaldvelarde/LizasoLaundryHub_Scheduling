@@ -62,7 +62,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(20, 20);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(752, 44);
+            this.panel1.Size = new System.Drawing.Size(748, 44);
             this.panel1.TabIndex = 1;
             // 
             // btnClose
@@ -73,7 +73,7 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(715, 8);
+            this.btnClose.Location = new System.Drawing.Point(711, 8);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(23, 29);
             this.btnClose.TabIndex = 78;
@@ -115,7 +115,7 @@
             this.grid_user_view.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.grid_user_view.RowTemplate.Height = 50;
             this.grid_user_view.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grid_user_view.Size = new System.Drawing.Size(752, 358);
+            this.grid_user_view.Size = new System.Drawing.Size(748, 354);
             this.grid_user_view.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
             this.grid_user_view.StateCommon.DataCell.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.grid_user_view.StateCommon.DataCell.Content.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
@@ -151,7 +151,7 @@
             // 
             // Column1
             // 
-            this.Column1.HeaderText = "Active Time";
+            this.Column1.HeaderText = "Last Time Active";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             // 
@@ -168,7 +168,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(792, 442);
+            this.ClientSize = new System.Drawing.Size(788, 438);
             this.ControlBox = false;
             this.Controls.Add(this.grid_user_view);
             this.Controls.Add(this.panel1);

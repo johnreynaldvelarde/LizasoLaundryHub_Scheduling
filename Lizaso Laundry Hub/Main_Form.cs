@@ -28,7 +28,6 @@ namespace Lizaso_Laundry_Hub
 
         public Account_Class AuthenticatedUser { get; set; }
         private Account_Class account;
-        private DropDown_Form dropDownForm;
         private Notify_Module.DropDown_Notification_Form dropNoti;
         public int User_ID;
         public string User_Name;
@@ -208,50 +207,14 @@ namespace Lizaso_Laundry_Hub
             }
             finally
             {
-                // Enable the timer after the asynchronous operation is complete
                 Count_Pending_Timer.Enabled = true;
-            }
-        }
-
-        public async Task DisplayNotification()
-        {
-            try 
-            { 
-            
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            finally
-            {
-                // Enable the timer after the asynchronous operation is complete
-                //Count_Pending_Timer.Enabled = true;
             }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblUpperTime.Text = DateTime.Now.ToString("MMMM dd, yyyy   hh:mm:ss tt");
-
             timer1.Start();
-        }
-
-        private void btnDrosasap_Click(object sender, EventArgs e)
-        {
-            if (dropDownForm == null || dropDownForm.IsDisposed)
-            {
-                // Create a new instance if it doesn't exist or is disposed
-                dropDownForm = new DropDown_Form(panel_upper);
-            }
-            else
-            {
-                // Toggle the visibility if the form is already instantiated
-                if (dropDownForm.Visible)
-                    dropDownForm.Close();
-                else
-                    dropDownForm.Show();
-            }
         }
 
         private void btnNotification_Click(object sender, EventArgs e)
@@ -316,16 +279,13 @@ namespace Lizaso_Laundry_Hub
             {
                 while (true)
                 {
-                    // Wait for one second before running the task again
                     await Task.Delay(1000);
 
-                    // Execute your task in the background
                     await Task.Run(() => AutoCheckBaseonTime());
                 }
             }
             catch (Exception ex)
             {
-                // Handle exceptions if needed
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -399,7 +359,6 @@ namespace Lizaso_Laundry_Hub
         {
             string filePath = Path.Combine(@"C:\Lizaso Laundry Hub\System Settings", "Auto Backup Configuration.txt");
 
-            // Check if the file exists before proceeding
             if (!File.Exists(filePath))
             {
                 return false;
@@ -407,20 +366,15 @@ namespace Lizaso_Laundry_Hub
 
             try
             {
-                // Read the content of the file
                 string[] lines = File.ReadAllLines(filePath);
 
-                // Process each line
                 foreach (string line in lines)
                 {
-                    // Split the line into key and value
                     string[] parts = line.Split(':');
                     if (parts.Length == 2)
                     {
-                        // Trim to remove extra whitespaces
                         string key = parts[0].Trim();
 
-                        // Check the key and value for the specified setting
                         if (key.Equals(settingKey, StringComparison.OrdinalIgnoreCase))
                         {
                             string value = parts[1].Trim();
@@ -438,10 +392,9 @@ namespace Lizaso_Laundry_Hub
             }
             catch (Exception ex)
             {
-                // Log or handle the exception
                 MessageBox.Show($"Error loading configuration: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            return false; // Default to false if any errors occur
+            return false; 
         }
 
         private void btnLogout_Click(object sender, EventArgs e)
