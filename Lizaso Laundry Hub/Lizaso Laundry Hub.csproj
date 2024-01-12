@@ -189,6 +189,12 @@
     <Compile Include="Dashboard_Widget\Stats_Widget_Form.Designer.cs">
       <DependentUpon>Stats_Widget_Form.cs</DependentUpon>
     </Compile>
+    <Compile Include="Dashboard_Widget\View_AllInventory_Form.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Dashboard_Widget\View_AllInventory_Form.Designer.cs">
+      <DependentUpon>View_AllInventory_Form.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard_Widget\View_DeliveryList_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -433,6 +439,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard_Widget\Stats_Widget_Form.resx">
       <DependentUpon>Stats_Widget_Form.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dashboard_Widget\View_AllInventory_Form.resx">
+      <DependentUpon>View_AllInventory_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard_Widget\View_DeliveryList_Form.resx">
       <DependentUpon>View_DeliveryList_Form.cs</DependentUpon>

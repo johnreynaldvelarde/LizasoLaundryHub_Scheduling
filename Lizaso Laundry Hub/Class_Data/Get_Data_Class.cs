@@ -197,7 +197,7 @@ namespace Lizaso_Laundry_Hub
                 return false;
             }
         }
-        // << DASHBOARD FORM / Dashboard Widget Form / CustomerList Widget Form >>
+        // << DASHBOARD FORM / Dashboard Widget/ CustomerList Widget Form >>
         // method get all customer data 
         public bool Get_AllCustomerNameandItsCustomerType(DataGridView view_allcustomer)
         {
@@ -251,6 +251,61 @@ namespace Lizaso_Laundry_Hub
                 return false;
             }
         }
+
+        // << DASHBOARD FORM / Dashboard Widget/  Inventory Widget Form / 
+        // method to get all item name and quantity
+        public bool Get_AllItem(DataGridView grid_view_item)
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+                    connect.Open();
+
+                    string query = "SELECT Item_Name, Quantity FROM Item_View";
+                    SqlCommand cmd = new SqlCommand(query, connect);
+
+                    using (SqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        grid_view_item.Rows.Clear(); // Clear existing rows in the DataGridView
+
+                        while (reader.Read())
+                        {
+                            // Retrieve data from the reader
+                            string itemName = reader["Item_Name"].ToString();
+                            int quantity = Convert.ToInt32(reader["Quantity"]);
+
+                            grid_view_item.Rows.Add(0, itemName, quantity);
+                        }
+                    }
+
+                    return true;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        /*
+        public bool Get_AllCountItemQytAndLoss()
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+        */
 
         // << DASHBOARD FORM / Stats Widget Form >> 
         // method to get the most visited customer in store
