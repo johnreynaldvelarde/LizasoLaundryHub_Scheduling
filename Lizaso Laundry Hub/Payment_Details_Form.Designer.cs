@@ -479,6 +479,7 @@
             this.lblServicePrice.Size = new System.Drawing.Size(19, 21);
             this.lblServicePrice.TabIndex = 78;
             this.lblServicePrice.Text = "0";
+            this.lblServicePrice.Visible = false;
             // 
             // Payment_Details_Form
             // 

@@ -16,8 +16,7 @@ namespace Lizaso_Laundry_Hub
 {
     public partial class Add_Customer_Form : KryptonForm
     {
-        DB_Connection database = new DB_Connection();
-        Customer_Form frm;
+        private Customer_Form frm;
 
         private Insert_Data_Class insertData;
         private Update_Data_Class updateData;
@@ -104,9 +103,7 @@ namespace Lizaso_Laundry_Hub
         {
             if(btnSave.Text == "Update" && cbTypeCustomer.Text == "Guest Customer")
             {
-                //txt_ContactNumber.PasswordChar = '*';
-                //txt_EmailAddress.PasswordChar = '*';
-                //txt_Address.PasswordChar = '*';
+               
             }
             else
             {
@@ -226,52 +223,5 @@ namespace Lizaso_Laundry_Hub
                 }
             }
         } 
-
-
-
-        public void SetCustomerInformation()
-        {
-            using (SqlConnection connect = new SqlConnection(database.MyConnection()))
-            {
-                connect.Open();
-
-                byte customerType = (byte)cbTypeCustomer.SelectedIndex;
-
-                string sql = "INSERT INTO Customers (Customer_Name, Contact_Number, Email_Address, Address, Customer_Type, Date_Added, Archive) " +
-                               "VALUES (@CustomerName, @ContactNumber, @EmailAddress, @Address, @CustomerType, @DateAdded, @Archive)";
-
-                using (SqlCommand cmd = new SqlCommand(sql, connect))
-                {
-                    cmd.Parameters.AddWithValue("@CustomerName", txt_CustomerName.Text);
-                    cmd.Parameters.AddWithValue("@ContactNumber", txt_ContactNumber.Text);
-                    cmd.Parameters.AddWithValue("@EmailAddress", txt_EmailAddress.Text);
-                    cmd.Parameters.AddWithValue("@Address", txt_Address.Text);
-                    cmd.Parameters.AddWithValue("@CustomerType", customerType);
-                    cmd.Parameters.AddWithValue("@DateAdded", DateTime.Now);
-                    cmd.Parameters.AddWithValue("@Archive", 0);
-
-                    int rowsAffected = cmd.ExecuteNonQuery();
-
-                    if (rowsAffected > 0)
-                    {
-                        MessageBox.Show("Customer information saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.Dispose();
-                        //frm.Show_Register_Customer();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Failed to save customer information.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-            }
-            try
-            {
-                
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message);
-            }
-        }
     }
 }

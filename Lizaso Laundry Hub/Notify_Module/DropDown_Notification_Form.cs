@@ -79,31 +79,5 @@ namespace Lizaso_Laundry_Hub.Notify_Module
             update.Update_MarkasAllRead(account.User_ID);
             LoadNotification();
         }
-
-
-        /*
-        public void LoadNotification()
-        {
-            try
-            {
-                notification_flow_panel.Controls.Clear();
-
-                List<NotificationLog> notificationLogs = getData.GetNotificationLog(account.User_ID);
-
-                foreach (var noti in notificationLogs)
-                {
-                    ucNotification_Control reservedNotify = new ucNotification_Control(noti);
-                    notification_flow_panel.Controls.Add(reservedNotify);
-                }
-                
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"An error occurred in Load_Unit: {ex.Message}");
-            }
-        }
-        */
-
-
     }
 }

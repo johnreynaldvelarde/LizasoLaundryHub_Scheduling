@@ -11,7 +11,6 @@ using ComponentFactory.Krypton.Toolkit;
 using System.Data.SqlClient;
 using System.Runtime.Remoting.Contexts;
 
-
 namespace Lizaso_Laundry_Hub
 {
     public partial class Additional_Payment_Form : KryptonForm
@@ -57,7 +56,6 @@ namespace Lizaso_Laundry_Hub
                             while (reader.Read())
                             {
                                 string itemName = reader.GetString(0);
-                                // Assuming cbSelectItem is the name of your ComboBox
                                 cbSelectItem.Items.Add(itemName);
                             }
                         }
@@ -81,7 +79,6 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    // Assuming your database has a column named 'Item_Name' to match the selected item
                     string sql = "SELECT Item_ID, Item_Code, Quantity FROM Item WHERE Item_Name = @ItemName";
 
                     using (SqlCommand command = new SqlCommand(sql, connect))
@@ -92,21 +89,14 @@ namespace Lizaso_Laundry_Hub
                         {
                             if (reader.Read())
                             {
-                                // Get the values from the reader
                                 int itemID = reader.GetInt32(0);
                                 string itemCode = reader.GetString(1);
                                 int quantity = reader.GetInt32(2);
 
-                                // Display the values in your controls (e.g., text boxes)
                                 txt_Stock.Text = quantity.ToString();
-                                // You can use itemID and itemCode as needed in your application
-
-                                // For example, if you want to display Item_ID in a TextBox named txt_ItemID
-                                // txt_ItemID.Text = itemID.ToString();
                             }
                             else
                             {
-                                // Handle the case where the item is not found in the database
                                 MessageBox.Show("Item not found in the database.");
                             }
                         }
@@ -163,31 +153,25 @@ namespace Lizaso_Laundry_Hub
                                         int itemID = reader.GetInt32(0);
                                         string itemCode = reader.GetString(1);
                                         string itemName = reader.GetString(2);
-                                        //int stockQuantity = reader.GetInt32(3);
                                         decimal price = reader.GetDecimal(4);
 
-                                        // Calculate the total price by multiplying price and quantity
                                         decimal totalPrice = price * enter_quantity;
 
                                         bool itemExists = false;
 
                                         foreach (DataGridViewRow row in grid_item_selection.Rows)
                                         {
-                                            // Assuming that the itemID is in the first column (index 0) of the DataGridView
                                             int existingItemID = Convert.ToInt32(row.Cells["id"].Value);
 
                                             if (existingItemID == itemID)
                                             {
-                                                // Item already exists in the DataGridView
                                                 itemExists = true;
 
-                                                // If needed, you can update the existing row with the new quantity and total price
                                                 int existingQuantity = Convert.ToInt32(row.Cells["qyt"].Value);
                                                 decimal existingTotalPrice = Convert.ToDecimal(row.Cells["tlt_price"].Value);
 
                                                 int newTotalQuantity = existingQuantity + enter_quantity;
 
-                                                // Check if the new total quantity exceeds the stock limit
                                                 if (newTotalQuantity > stockQuantity)
                                                 {
                                                     MessageBox.Show("Adding this quantity will exceed the stock limit.", "Stock Exceeded", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -197,14 +181,12 @@ namespace Lizaso_Laundry_Hub
                                                 row.Cells["qyt"].Value = newTotalQuantity;
                                                 row.Cells["tlt_price"].Value = existingTotalPrice + totalPrice;
 
-                                                break; // Exit the loop since find the item
+                                                break; 
                                             }
                                         }
 
-                                        // Add the data to the DataGridView if the item doesn't exist
                                         if (!itemExists)
                                         {
-                                            // Check if the new total quantity exceeds the stock limit
                                             if (enter_quantity > stockQuantity)
                                             {
                                                 MessageBox.Show("Adding this quantity will exceed the stock limit.", "Stock Exceeded", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -245,7 +227,7 @@ namespace Lizaso_Laundry_Hub
                 }
             }
             lblAmount.Text = total.ToString();
-            return total;  // Return the calculated total
+            return total;  
         }
 
 
@@ -291,8 +273,8 @@ namespace Lizaso_Laundry_Hub
             }
             else
             {
-                double total = Get_Total();  // Get the total from the method
-                TotalAmount = total;         // Update TotalAmount
+                double total = Get_Total();  
+                TotalAmount = total;         
 
                 this.Hide();
 
@@ -300,8 +282,7 @@ namespace Lizaso_Laundry_Hub
                 paymentDetailsForm.DisableAdditonalPaymentButton();
                 paymentDetailsForm.EnableViewDetails();
                
-                // Pass the total amount to the CalculateTotalPayment method in Payment_Details_Form
-                paymentDetailsForm.CalculateTotalPayment(TotalAmount, 0); // Pass 0 as additional amount
+                paymentDetailsForm.CalculateTotalPayment(TotalAmount, 0); 
             }
         }
 

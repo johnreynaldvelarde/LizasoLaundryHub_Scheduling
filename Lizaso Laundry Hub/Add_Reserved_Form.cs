@@ -173,7 +173,6 @@ namespace Lizaso_Laundry_Hub
                         int customerID = reader.GetInt32(0);
                         string customerName = reader["Customer_Name"].ToString();
 
-                        // ComboBoxItem to store both Customer_ID and Customer_Name
                         ComboBoxItem item = new ComboBoxItem(customerID, customerName);
 
                         cbSelectCustomer.Items.Add(item);
@@ -216,7 +215,6 @@ namespace Lizaso_Laundry_Hub
                 DateTime startTime = DateTime.ParseExact(lblReservedStartTime.Text, "h:mm:ss tt", CultureInfo.InvariantCulture);
                 DateTime endTime = DateTime.ParseExact(lblReservedEndTime.Text, "h:mm:ss tt", CultureInfo.InvariantCulture);
 
-                // Format the DateTime objects into the desired format
                 string formattedStartTime = startTime.ToString("MM/dd/yyyy h:mm:ss tt");
                 string formattedEndTime = endTime.ToString("MM/dd/yyyy h:mm:ss tt");
 
@@ -229,7 +227,6 @@ namespace Lizaso_Laundry_Hub
                     
                     if (success)
                     {
-                        // The reservation was successful, you can add additional logic here
                         Console.WriteLine("Reservation successful");
                         this.Dispose();
                         frm.Load_Unit();
@@ -237,7 +234,6 @@ namespace Lizaso_Laundry_Hub
                     }
                     else
                     {
-                        // There was an issue with the reservation, handle accordingly
                         Console.WriteLine("Reservation failed");
                     }
                 }
@@ -265,7 +261,6 @@ namespace Lizaso_Laundry_Hub
             DisplayAvailableSelectedTime();
         }
 
-        // Helper class to store Customer_ID and Customer_Name in ComboBox
         public class ComboBoxItem
         {
             public int CustomerID { get; set; }

@@ -83,7 +83,6 @@ namespace Lizaso_Laundry_Hub
                     if (rdSuperUser.Checked)
                     {
                         updateData.Update_User(account.User_ID, u_userID, _username, _password, 1, 1, 1, 1, 1, 1, 1, 1, 1);
-                        //MessageBox.Show("Super user account updated successfully.");
                         Get_UpdateAccountUser();
                         this.Dispose();
                         frm.DisplayUserView();
@@ -284,30 +283,24 @@ namespace Lizaso_Laundry_Hub
 
         private void passhidePassword_CheckedChanged(object sender, EventArgs e)
         {
-            // Toggle password visibility
             if (txt_Password.PasswordChar == '\0')
             {
-                // If currently visible, hide the password
-                txt_Password.PasswordChar = '*'; // or any other character you prefer
+                txt_Password.PasswordChar = '*'; 
             }
             else
             {
-                // If currently hidden, show the password
                 txt_Password.PasswordChar = '\0';
             }
         }
 
         private void passhideConfirmPassword_CheckedChanged(object sender, EventArgs e)
         {
-            // Toggle password visibility
             if (txt_ConfirmPassword.PasswordChar == '\0')
             {
-                // If currently visible, hide the password
-                txt_ConfirmPassword.PasswordChar = '*'; // or any other character you prefer
+                txt_ConfirmPassword.PasswordChar = '*'; 
             }
             else
             {
-                // If currently hidden, show the password
                 txt_ConfirmPassword.PasswordChar = '\0';
             }
         }

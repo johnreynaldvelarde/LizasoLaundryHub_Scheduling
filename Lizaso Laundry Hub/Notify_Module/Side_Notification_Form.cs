@@ -93,14 +93,12 @@ namespace Lizaso_Laundry_Hub.Notify_Module
 
         private void AnimationTimer_Tick(object sender, EventArgs e)
         {
-            // Increase the opacity gradually until it reaches 1
             if (this.Opacity < 1)
             {
                 this.Opacity += 0.05; // Adjust the increment as needed for smoothness
             }
             else
             {
-                // Stop the timer once the form is fully visible
                 ((Timer)sender).Stop();
             }
         }

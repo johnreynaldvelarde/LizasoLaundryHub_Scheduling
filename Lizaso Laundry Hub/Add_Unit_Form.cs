@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
-//using Lizaso_Laundry_Hub.Notify_Module;
 
 namespace Lizaso_Laundry_Hub
 {
@@ -30,7 +29,6 @@ namespace Lizaso_Laundry_Hub
             account = new Account_Class();
             insertData = new Insert_Data_Class();
             updateData = new Update_Data_Class();
-            //sideNotificationForm = new Side_Notification_Form();
             frm = unit;
         }
 
@@ -49,12 +47,10 @@ namespace Lizaso_Laundry_Hub
             {
                 if (btnSave.Text == "Update")
                 {
-                    //int unitStatusIndex = cbStatus.SelectedIndex;
                     int unitStatusIndex = (cbStatus.SelectedIndex == 0) ? 0 : 2;
 
                     if (unitStatusIndex >= 0)
                     {
-                        // Assuming unitStatus is an integer representing the selected index
                         int unitStatus = unitStatusIndex;
 
                         bool updateSuccessful = updateData.Update_Unit(getunitID, txt_UnitName.Text, unitStatus);
@@ -70,20 +66,17 @@ namespace Lizaso_Laundry_Hub
                         }
                         else
                         {
-                            // Update failed or was canceled
                             MessageBox.Show("Failed to update unit. Please try again.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
                         }
                     }
                     else
                     {
-                        // Handle the case where no item is selected
                         MessageBox.Show("No unit status selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    //int _status = cbStatus.SelectedIndex;
                     int _status = (cbStatus.SelectedIndex == 0) ? 0 : 2;
 
                     insertData.Set_Unit(_status);
@@ -91,8 +84,6 @@ namespace Lizaso_Laundry_Hub
                     this.Dispose();
                     frm.DisplayUnit();
                 }
-
-                //frm2.Load_Unit();
             }
 
         }
@@ -113,9 +104,6 @@ namespace Lizaso_Laundry_Hub
                 cbStatus.Items.Add(ListofStatus[i].ToString());
             }
         }
-
-       
-      
 
         private void cbStatus_SelectedIndexChanged(object sender, EventArgs e)
         {

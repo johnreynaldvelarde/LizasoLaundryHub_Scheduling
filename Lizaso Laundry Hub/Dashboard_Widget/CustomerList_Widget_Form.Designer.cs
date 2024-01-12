@@ -77,7 +77,7 @@
             this.grid_allcustomer_view.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.grid_allcustomer_view.RowTemplate.Height = 30;
             this.grid_allcustomer_view.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grid_allcustomer_view.Size = new System.Drawing.Size(766, 371);
+            this.grid_allcustomer_view.Size = new System.Drawing.Size(762, 367);
             this.grid_allcustomer_view.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonLowProfile;
             this.grid_allcustomer_view.StateCommon.DataCell.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.grid_allcustomer_view.StateCommon.DataCell.Content.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
@@ -129,7 +129,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(5, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(766, 45);
+            this.panel1.Size = new System.Drawing.Size(762, 45);
             this.panel1.TabIndex = 11;
             // 
             // label5
@@ -150,7 +150,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(776, 426);
+            this.ClientSize = new System.Drawing.Size(772, 422);
             this.ControlBox = false;
             this.Controls.Add(this.grid_allcustomer_view);
             this.Controls.Add(this.panel1);

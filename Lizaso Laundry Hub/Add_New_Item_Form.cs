@@ -50,46 +50,23 @@ namespace Lizaso_Laundry_Hub
             this.Dispose();
         }
 
-        private void Add_New_Item_Form_Load(object sender, EventArgs e)
-        {
-           
-        }
-
         private void btnSave_Click(object sender, EventArgs e)
         {
-            Notify_Module.Side_Notification_Form notify = new Notify_Module.Side_Notification_Form();
-
             if (String.IsNullOrEmpty(txt_ItemName.Text))
             {
-                //MessageBox.Show("Please enter the Item Name.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                notify.colorStatus = 1;
-                notify.lbl_Title.Text = "Missing Information";
-                notify.messageSent = "Please enter the Item Name.";
-                notify.Show();
+                MessageBox.Show("Please enter the Item Name.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (String.IsNullOrEmpty(txt_Quantity.Text))
             {
-                //MessageBox.Show("Please enter the Quantity.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                notify.colorStatus = 1;
-                notify.lbl_Title.Text = "Missing Information";
-                notify.messageSent = "Please enter the Quantity.";
-                notify.Show();
+                MessageBox.Show("Please enter the Quantity.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (String.IsNullOrEmpty(txt_Price.Text))
             {
-                //MessageBox.Show("Please enter the Price.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                notify.colorStatus = 1;
-                notify.lbl_Title.Text = "Missing Information";
-                notify.messageSent = "Please enter the Price.";
-                notify.Show();
+                MessageBox.Show("Please enter the Price.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else if (cb_Category.SelectedIndex == -1)
             {
-                //MessageBox.Show("Please select a category.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                notify.colorStatus = 1;
-                notify.lbl_Title.Text = "Missing Information";
-                notify.messageSent = "Please select a category.";
-                notify.Show();
+                MessageBox.Show("Please select a category.", "Missing Information", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {

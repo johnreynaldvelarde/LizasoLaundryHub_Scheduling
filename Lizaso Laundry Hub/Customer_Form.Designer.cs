@@ -64,8 +64,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.grid_customer_archive = new ComponentFactory.Krypton.Toolkit.KryptonDataGridView();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,6 +72,8 @@
             this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Recycle = new System.Windows.Forms.DataGridViewImageColumn();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel4.SuspendLayout();
             this.tab_Customer.SuspendLayout();
@@ -250,10 +250,10 @@
             this.Edit,
             this.Delete});
             this.grid_register_customer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grid_register_customer.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Mixed;
+            this.grid_register_customer.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonLowProfile;
             this.grid_register_customer.Location = new System.Drawing.Point(0, 80);
             this.grid_register_customer.Name = "grid_register_customer";
-            this.grid_register_customer.Palette = this.kryptonPalette1;
-            this.grid_register_customer.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.Custom;
             this.grid_register_customer.ReadOnly = true;
             this.grid_register_customer.RowHeadersVisible = false;
             this.grid_register_customer.RowHeadersWidth = 50;
@@ -261,12 +261,16 @@
             this.grid_register_customer.RowTemplate.Height = 50;
             this.grid_register_customer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grid_register_customer.Size = new System.Drawing.Size(1148, 385);
-            this.grid_register_customer.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
+            this.grid_register_customer.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonLowProfile;
             this.grid_register_customer.StateCommon.DataCell.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.grid_register_customer.StateCommon.DataCell.Content.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.grid_register_customer.StateCommon.DataCell.Content.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grid_register_customer.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
-            this.grid_register_customer.StateCommon.HeaderColumn.Content.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
+            this.grid_register_customer.StateCommon.HeaderColumn.Back.Color1 = System.Drawing.Color.DarkSlateGray;
+            this.grid_register_customer.StateCommon.HeaderColumn.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(110)))), ((int)(((byte)(121)))));
+            this.grid_register_customer.StateCommon.HeaderColumn.Back.ColorAngle = 45F;
+            this.grid_register_customer.StateCommon.HeaderColumn.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.HalfCut;
+            this.grid_register_customer.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.White;
+            this.grid_register_customer.StateCommon.HeaderColumn.Content.Color2 = System.Drawing.Color.White;
             this.grid_register_customer.StateCommon.HeaderColumn.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grid_register_customer.TabIndex = 4;
             this.grid_register_customer.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_register_customer_CellContentClick);
@@ -392,6 +396,8 @@
             this.Edit2,
             this.Delete2});
             this.grid_guest_customer.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grid_guest_customer.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Mixed;
+            this.grid_guest_customer.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonLowProfile;
             this.grid_guest_customer.Location = new System.Drawing.Point(0, 80);
             this.grid_guest_customer.Name = "grid_guest_customer";
             this.grid_guest_customer.Palette = this.kryptonPalette1;
@@ -403,12 +409,16 @@
             this.grid_guest_customer.RowTemplate.Height = 50;
             this.grid_guest_customer.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grid_guest_customer.Size = new System.Drawing.Size(1148, 385);
-            this.grid_guest_customer.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
+            this.grid_guest_customer.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonLowProfile;
             this.grid_guest_customer.StateCommon.DataCell.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.grid_guest_customer.StateCommon.DataCell.Content.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.grid_guest_customer.StateCommon.DataCell.Content.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grid_guest_customer.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
-            this.grid_guest_customer.StateCommon.HeaderColumn.Content.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
+            this.grid_guest_customer.StateCommon.HeaderColumn.Back.Color1 = System.Drawing.Color.DarkSlateGray;
+            this.grid_guest_customer.StateCommon.HeaderColumn.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(110)))), ((int)(((byte)(121)))));
+            this.grid_guest_customer.StateCommon.HeaderColumn.Back.ColorAngle = 45F;
+            this.grid_guest_customer.StateCommon.HeaderColumn.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.HalfCut;
+            this.grid_guest_customer.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.White;
+            this.grid_guest_customer.StateCommon.HeaderColumn.Content.Color2 = System.Drawing.Color.White;
             this.grid_guest_customer.StateCommon.HeaderColumn.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grid_guest_customer.TabIndex = 5;
             this.grid_guest_customer.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_guest_customer_CellContentClick);
@@ -539,6 +549,8 @@
             this.dataGridViewTextBoxColumn20,
             this.Recycle});
             this.grid_customer_archive.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grid_customer_archive.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Mixed;
+            this.grid_customer_archive.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonLowProfile;
             this.grid_customer_archive.Location = new System.Drawing.Point(0, 80);
             this.grid_customer_archive.Name = "grid_customer_archive";
             this.grid_customer_archive.Palette = this.kryptonPalette1;
@@ -550,36 +562,20 @@
             this.grid_customer_archive.RowTemplate.Height = 50;
             this.grid_customer_archive.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grid_customer_archive.Size = new System.Drawing.Size(1148, 385);
-            this.grid_customer_archive.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
+            this.grid_customer_archive.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonLowProfile;
             this.grid_customer_archive.StateCommon.DataCell.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.grid_customer_archive.StateCommon.DataCell.Content.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.grid_customer_archive.StateCommon.DataCell.Content.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grid_customer_archive.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
-            this.grid_customer_archive.StateCommon.HeaderColumn.Content.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
+            this.grid_customer_archive.StateCommon.HeaderColumn.Back.Color1 = System.Drawing.Color.DarkSlateGray;
+            this.grid_customer_archive.StateCommon.HeaderColumn.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(110)))), ((int)(((byte)(121)))));
+            this.grid_customer_archive.StateCommon.HeaderColumn.Back.ColorAngle = 45F;
+            this.grid_customer_archive.StateCommon.HeaderColumn.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.HalfCut;
+            this.grid_customer_archive.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.White;
+            this.grid_customer_archive.StateCommon.HeaderColumn.Content.Color2 = System.Drawing.Color.White;
             this.grid_customer_archive.StateCommon.HeaderColumn.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grid_customer_archive.TabIndex = 7;
             this.grid_customer_archive.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_customer_archive_CellContentClick);
             this.grid_customer_archive.SelectionChanged += new System.EventHandler(this.grid_customer_archive_SelectionChanged);
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.label3);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1148, 80);
-            this.panel5.TabIndex = 6;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Poppins SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.label3.Location = new System.Drawing.Point(15, 23);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(99, 37);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Archive";
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -644,6 +640,26 @@
             this.Recycle.ReadOnly = true;
             this.Recycle.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.Recycle.Width = 85;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.label3);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1148, 80);
+            this.panel5.TabIndex = 6;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Poppins SemiBold", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.label3.Location = new System.Drawing.Point(15, 23);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(99, 37);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "Archive";
             // 
             // Customer_Form
             // 

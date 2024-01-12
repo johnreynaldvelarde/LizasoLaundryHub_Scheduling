@@ -36,7 +36,6 @@ namespace Lizaso_Laundry_Hub
             if (tab_Inventory.SelectedTab == tabPage2)
             {
                 getData.Get_InventoryDeleted(grid_inventory_archive);
-
             }
         }
 
@@ -129,7 +128,7 @@ namespace Lizaso_Laundry_Hub
                 case "Detergent":
                     return 1;
                 default:
-                    // Handle unknown status or return a default value
+
                     return -1;
             }
         }

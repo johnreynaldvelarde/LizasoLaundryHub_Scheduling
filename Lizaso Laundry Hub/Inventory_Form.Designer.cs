@@ -238,6 +238,8 @@
             this.Edit,
             this.Delete});
             this.grid_item_inventory.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grid_item_inventory.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Mixed;
+            this.grid_item_inventory.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonLowProfile;
             this.grid_item_inventory.Location = new System.Drawing.Point(0, 80);
             this.grid_item_inventory.Name = "grid_item_inventory";
             this.grid_item_inventory.Palette = this.kryptonPalette1;
@@ -249,12 +251,16 @@
             this.grid_item_inventory.RowTemplate.Height = 50;
             this.grid_item_inventory.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grid_item_inventory.Size = new System.Drawing.Size(1152, 389);
-            this.grid_item_inventory.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
+            this.grid_item_inventory.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonLowProfile;
             this.grid_item_inventory.StateCommon.DataCell.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.grid_item_inventory.StateCommon.DataCell.Content.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.grid_item_inventory.StateCommon.DataCell.Content.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grid_item_inventory.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
-            this.grid_item_inventory.StateCommon.HeaderColumn.Content.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
+            this.grid_item_inventory.StateCommon.HeaderColumn.Back.Color1 = System.Drawing.Color.DarkSlateGray;
+            this.grid_item_inventory.StateCommon.HeaderColumn.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(110)))), ((int)(((byte)(121)))));
+            this.grid_item_inventory.StateCommon.HeaderColumn.Back.ColorAngle = 45F;
+            this.grid_item_inventory.StateCommon.HeaderColumn.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.HalfCut;
+            this.grid_item_inventory.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.White;
+            this.grid_item_inventory.StateCommon.HeaderColumn.Content.Color2 = System.Drawing.Color.White;
             this.grid_item_inventory.StateCommon.HeaderColumn.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grid_item_inventory.TabIndex = 4;
             this.grid_item_inventory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.grid_item_inventory_CellContentClick);
@@ -394,6 +400,8 @@
             this.Recyle,
             this.dataGridViewImageColumn3});
             this.grid_inventory_archive.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grid_inventory_archive.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Mixed;
+            this.grid_inventory_archive.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonLowProfile;
             this.grid_inventory_archive.Location = new System.Drawing.Point(0, 80);
             this.grid_inventory_archive.Name = "grid_inventory_archive";
             this.grid_inventory_archive.Palette = this.kryptonPalette1;
@@ -405,12 +413,16 @@
             this.grid_inventory_archive.RowTemplate.Height = 50;
             this.grid_inventory_archive.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.grid_inventory_archive.Size = new System.Drawing.Size(1152, 389);
-            this.grid_inventory_archive.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
+            this.grid_inventory_archive.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonLowProfile;
             this.grid_inventory_archive.StateCommon.DataCell.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.grid_inventory_archive.StateCommon.DataCell.Content.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.grid_inventory_archive.StateCommon.DataCell.Content.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grid_inventory_archive.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
-            this.grid_inventory_archive.StateCommon.HeaderColumn.Content.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
+            this.grid_inventory_archive.StateCommon.HeaderColumn.Back.Color1 = System.Drawing.Color.DarkSlateGray;
+            this.grid_inventory_archive.StateCommon.HeaderColumn.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(110)))), ((int)(((byte)(121)))));
+            this.grid_inventory_archive.StateCommon.HeaderColumn.Back.ColorAngle = 45F;
+            this.grid_inventory_archive.StateCommon.HeaderColumn.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.HalfCut;
+            this.grid_inventory_archive.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.White;
+            this.grid_inventory_archive.StateCommon.HeaderColumn.Content.Color2 = System.Drawing.Color.White;
             this.grid_inventory_archive.StateCommon.HeaderColumn.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grid_inventory_archive.TabIndex = 6;
             // 
