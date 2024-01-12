@@ -20,6 +20,7 @@ namespace Lizaso_Laundry_Hub
         private Get_Data_Class getData;
         private Update_Data_Class updateData;
         private Account_Class account;
+        private Activity_Log_Class activityLogger;
 
         private User_Form frm;
         public int u_userID;
@@ -33,6 +34,7 @@ namespace Lizaso_Laundry_Hub
             getData = new Get_Data_Class();
             updateData = new Update_Data_Class();
             account = new Account_Class();
+            activityLogger = new Activity_Log_Class();
             frm = user;
            
         }
@@ -83,6 +85,7 @@ namespace Lizaso_Laundry_Hub
                     if (rdSuperUser.Checked)
                     {
                         updateData.Update_User(account.User_ID, u_userID, _username, _password, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+                        UserActivityLogUpdate(_username);
                         Get_UpdateAccountUser();
                         this.Dispose();
                         frm.DisplayUserView();
@@ -99,6 +102,7 @@ namespace Lizaso_Laundry_Hub
                         byte settings = (byte)(ckSettings.Checked ? 1 : 0);
 
                         updateData.Update_User(account.User_ID, u_userID, _username, _password, 0, dashboard, availableServices, schedule, customerManage, payments, userManage, inventory, settings);
+                        UserActivityLogUpdate(_username);
                         Get_UpdateAccountUser();
                         this.Dispose();
                         frm.DisplayUserView();
@@ -120,6 +124,7 @@ namespace Lizaso_Laundry_Hub
                     if (rdSuperUser.Checked)
                     {
                         insertData.Set_CreateUser(_username, _password, 1, 1, 1, 1, 1, 1, 1, 1, 1);
+                        UserActivityLogSave(_username);
                         MessageBox.Show("Super user account successfully created");
                         Get_CreatedAccountUser();
                         this.Dispose();
@@ -137,6 +142,7 @@ namespace Lizaso_Laundry_Hub
                         byte settings = (byte)(ckSettings.Checked ? 1 : 0);
 
                         insertData.Set_CreateUser(_username, _password, 0, dashboard, availableServices, schedule, customerManage, payments, userManage, inventory, settings);
+                        UserActivityLogSave(_username);
                         Get_CreatedAccountUser();
                         MessageBox.Show("Regular user account successfully created");
                         this.Dispose();
@@ -145,6 +151,23 @@ namespace Lizaso_Laundry_Hub
                 }
             }
 
+        }
+
+        public bool UserActivityLogSave(string userName)
+        {
+            string activityType = "New Created";
+            string createdDescription = $"{userName} has been successfully added to the system as a new user account as of {DateTime.Now}.";
+            activityLogger.LogActivity(activityType, createdDescription);
+
+            return true;
+        }
+        public bool UserActivityLogUpdate(string userName)
+        {
+            string activityType = "Updated";
+            string updateDescription = $"{userName}'s information has been updated as of {DateTime.Now}.";
+            activityLogger.LogActivity(activityType, updateDescription);
+
+            return true;
         }
 
         private void Add_User_Form_Load(object sender, EventArgs e)
