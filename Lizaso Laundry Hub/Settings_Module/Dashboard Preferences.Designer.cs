@@ -86,7 +86,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(10, 10);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(852, 50);
+            this.panel1.Size = new System.Drawing.Size(848, 50);
             this.panel1.TabIndex = 2;
             // 
             // btnDefault
@@ -94,7 +94,7 @@
             this.btnDefault.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btnDefault.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDefault.Location = new System.Drawing.Point(575, 7);
+            this.btnDefault.Location = new System.Drawing.Point(571, 7);
             this.btnDefault.Name = "btnDefault";
             this.btnDefault.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(160)))), ((int)(((byte)(130)))));
             this.btnDefault.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(120)))), ((int)(((byte)(90)))));
@@ -157,7 +157,7 @@
             this.btn_SaveConfigRestore.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.btn_SaveConfigRestore.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_SaveConfigRestore.Location = new System.Drawing.Point(687, 7);
+            this.btn_SaveConfigRestore.Location = new System.Drawing.Point(683, 7);
             this.btn_SaveConfigRestore.Name = "btn_SaveConfigRestore";
             this.btn_SaveConfigRestore.OverrideDefault.Back.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(6)))), ((int)(((byte)(174)))), ((int)(((byte)(244)))));
             this.btn_SaveConfigRestore.OverrideDefault.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(142)))), ((int)(((byte)(254)))));
@@ -238,7 +238,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(10, 60);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(852, 402);
+            this.panel2.Size = new System.Drawing.Size(848, 398);
             this.panel2.TabIndex = 3;
             // 
             // panelUpper2
@@ -248,7 +248,7 @@
             this.panelUpper2.Location = new System.Drawing.Point(282, 0);
             this.panelUpper2.Name = "panelUpper2";
             this.panelUpper2.Padding = new System.Windows.Forms.Padding(5);
-            this.panelUpper2.Size = new System.Drawing.Size(309, 182);
+            this.panelUpper2.Size = new System.Drawing.Size(305, 178);
             this.panelUpper2.TabIndex = 3;
             // 
             // panel3
@@ -261,7 +261,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(5, 5);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(299, 172);
+            this.panel3.Size = new System.Drawing.Size(295, 168);
             this.panel3.TabIndex = 0;
             // 
             // rdInventoryMonitor
@@ -269,12 +269,12 @@
             this.rdInventoryMonitor.Location = new System.Drawing.Point(23, 94);
             this.rdInventoryMonitor.Name = "rdInventoryMonitor";
             this.rdInventoryMonitor.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
-            this.rdInventoryMonitor.Size = new System.Drawing.Size(227, 27);
+            this.rdInventoryMonitor.Size = new System.Drawing.Size(245, 27);
             this.rdInventoryMonitor.StateCommon.ShortText.Color1 = System.Drawing.Color.Black;
             this.rdInventoryMonitor.StateCommon.ShortText.Color2 = System.Drawing.Color.Black;
             this.rdInventoryMonitor.StateCommon.ShortText.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdInventoryMonitor.TabIndex = 77;
-            this.rdInventoryMonitor.Values.Text = "Enable Inventory Monitor";
+            this.rdInventoryMonitor.Values.Text = "Enable Inventory Summary";
             // 
             // label3
             // 
@@ -306,7 +306,7 @@
             this.panelUpper1.Location = new System.Drawing.Point(0, 0);
             this.panelUpper1.Name = "panelUpper1";
             this.panelUpper1.Padding = new System.Windows.Forms.Padding(5);
-            this.panelUpper1.Size = new System.Drawing.Size(282, 182);
+            this.panelUpper1.Size = new System.Drawing.Size(282, 178);
             this.panelUpper1.TabIndex = 2;
             // 
             // panel6
@@ -319,7 +319,7 @@
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel6.Location = new System.Drawing.Point(5, 5);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(272, 172);
+            this.panel6.Size = new System.Drawing.Size(272, 168);
             this.panel6.TabIndex = 1;
             // 
             // rdCustomerList
@@ -361,10 +361,10 @@
             // 
             this.panelUpper.Controls.Add(this.panel4);
             this.panelUpper.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelUpper.Location = new System.Drawing.Point(0, 182);
+            this.panelUpper.Location = new System.Drawing.Point(0, 178);
             this.panelUpper.Name = "panelUpper";
             this.panelUpper.Padding = new System.Windows.Forms.Padding(5);
-            this.panelUpper.Size = new System.Drawing.Size(591, 220);
+            this.panelUpper.Size = new System.Drawing.Size(587, 220);
             this.panelUpper.TabIndex = 1;
             // 
             // panel4
@@ -377,7 +377,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(5, 5);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(581, 210);
+            this.panel4.Size = new System.Drawing.Size(577, 210);
             this.panel4.TabIndex = 1;
             // 
             // rdPendingList
@@ -419,10 +419,10 @@
             // 
             this.btn_SaveConfig.Controls.Add(this.panel5);
             this.btn_SaveConfig.Dock = System.Windows.Forms.DockStyle.Right;
-            this.btn_SaveConfig.Location = new System.Drawing.Point(591, 0);
+            this.btn_SaveConfig.Location = new System.Drawing.Point(587, 0);
             this.btn_SaveConfig.Name = "btn_SaveConfig";
             this.btn_SaveConfig.Padding = new System.Windows.Forms.Padding(5);
-            this.btn_SaveConfig.Size = new System.Drawing.Size(261, 402);
+            this.btn_SaveConfig.Size = new System.Drawing.Size(261, 398);
             this.btn_SaveConfig.TabIndex = 0;
             // 
             // panel5
@@ -435,7 +435,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(5, 5);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(251, 392);
+            this.panel5.Size = new System.Drawing.Size(251, 388);
             this.panel5.TabIndex = 1;
             // 
             // rdStatsView
@@ -443,12 +443,12 @@
             this.rdStatsView.Location = new System.Drawing.Point(29, 94);
             this.rdStatsView.Name = "rdStatsView";
             this.rdStatsView.PaletteMode = ComponentFactory.Krypton.Toolkit.PaletteMode.SparkleBlue;
-            this.rdStatsView.Size = new System.Drawing.Size(201, 27);
+            this.rdStatsView.Size = new System.Drawing.Size(174, 27);
             this.rdStatsView.StateCommon.ShortText.Color1 = System.Drawing.Color.Black;
             this.rdStatsView.StateCommon.ShortText.Color2 = System.Drawing.Color.Black;
             this.rdStatsView.StateCommon.ShortText.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rdStatsView.TabIndex = 76;
-            this.rdStatsView.Values.Text = "Enable Top Customer";
+            this.rdStatsView.Values.Text = "Enable Chart View";
             // 
             // rdCalendarView
             // 
@@ -478,7 +478,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(872, 472);
+            this.ClientSize = new System.Drawing.Size(868, 468);
             this.ControlBox = false;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

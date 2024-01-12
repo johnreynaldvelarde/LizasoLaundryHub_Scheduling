@@ -26,9 +26,15 @@ namespace Lizaso_Laundry_Hub.Dashboard_Widget
             getData.Get_ChartMostVisitedCustomer(chartVisitedCustomer);
         }
 
+        public void DisplayMostBusiestDay()
+        {
+            getData.Get_ChartMostBusiestDays(chartBusiestDay);
+        }
+
         private void Stats_Widget_Form_Load(object sender, EventArgs e)
         {
             DisplayMostVisitedCustomer();
+            DisplayMostBusiestDay();
         }
     }
 }

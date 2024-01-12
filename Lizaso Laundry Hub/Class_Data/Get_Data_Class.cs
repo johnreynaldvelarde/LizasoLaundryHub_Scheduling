@@ -345,7 +345,6 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    // SQL query to get the most visited customers based on completed bookings
                     string query = @"SELECT TOP 5 C.Customer_ID, C.Customer_Name, COUNT(LB.Booking_ID) AS VisitCount
                                      FROM Customers_View C
                                      JOIN Bookings_View LB ON C.Customer_ID = LB.Customer_ID
@@ -356,28 +355,22 @@ namespace Lizaso_Laundry_Hub
                     SqlCommand command = new SqlCommand(query, connect);
                     SqlDataReader reader = command.ExecuteReader();
 
-                    // Clear existing data in the chart
                     visited_customer_chart.Series.Clear();
 
-                    // Add a new series to the chart
                     Series series = visited_customer_chart.Series.Add("Most Visited Customers");
                     series.ChartType = SeriesChartType.Bar;
 
-                    // Populate data from the database
                     while (reader.Read())
                     {
                         string customerName = reader["Customer_Name"].ToString();
                         int visitCount = Convert.ToInt32(reader["VisitCount"]);
 
-                        // Add data points to the chart series
                         series.Points.AddXY(customerName, visitCount);
                     }
 
-                    // Customize chart appearance if needed
                     visited_customer_chart.ChartAreas[0].AxisX.Title = "Customers";
                     visited_customer_chart.ChartAreas[0].AxisY.Title = "Visit Count";
 
-                    // Close database connection
                     connect.Close();
 
                     return true;
@@ -390,13 +383,44 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
-        public bool Get_ChartMostVisitedCustsassaomer(Chart visited_customer_chart)
+        // << DASHBOARD FORM / Stats Widget Form >> 
+        // method to get the most busiest day and post it to chart
+        public bool Get_ChartMostBusiestDays(Chart busiest_day_chart)
         {
             try
             {
                 using (SqlConnection connect = new SqlConnection(database.MyConnection()))
                 {
-                    return true;
+                    connect.Open();
+
+                    // Query to find the top 5 busiest days of the week based on completed bookings
+                    string sql = "SELECT TOP 5 DATEPART(WEEKDAY, Start_Time) AS BusiestDay, COUNT(*) AS BookingCount " +
+                                 "FROM Laundry_Bookings " +
+                                 "WHERE Bookings_Status = 'Completed' " +
+                                 "GROUP BY DATEPART(WEEKDAY, Start_Time) " +
+                                 "ORDER BY BookingCount DESC";
+
+                    using (SqlCommand command = new SqlCommand(sql, connect))
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                int busiestDay = Convert.ToInt32(reader["BusiestDay"]);
+                                int bookingCount = Convert.ToInt32(reader["BookingCount"]);
+
+                                string seriesName = "BookingCount";
+                                if (!busiest_day_chart.Series.Any(s => s.Name == seriesName))
+                                {
+                                    busiest_day_chart.Series.Add(seriesName);
+                                    busiest_day_chart.Series[seriesName].ChartType = SeriesChartType.Column;
+                                }
+
+                                busiest_day_chart.Series[seriesName].Points.AddXY(GetDayOfWeek(busiestDay), bookingCount);
+                            }
+                            return true;
+                        }
+                    }
                 }
             }
             catch (Exception ex)
@@ -404,6 +428,12 @@ namespace Lizaso_Laundry_Hub
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return false;
             }
+        }
+
+        // Helper method to convert day of week number to string
+        private string GetDayOfWeek(int dayOfWeek)
+        {
+            return Enum.GetName(typeof(DayOfWeek), dayOfWeek - 1);
         }
 
         // << DASHBOARD FORM / Calendar Widget Form >> 
@@ -496,22 +526,6 @@ namespace Lizaso_Laundry_Hub
             {
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return null; 
-            }
-        }
-
-        public bool Get_AllDeliveryList(DataGridView grid_delivery_view)
-        {
-            try
-            {
-                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
-                {
-                    return true;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
             }
         }
 
