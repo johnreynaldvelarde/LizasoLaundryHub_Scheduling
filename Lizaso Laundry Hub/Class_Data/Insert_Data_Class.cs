@@ -14,6 +14,7 @@ namespace Lizaso_Laundry_Hub
     {
         private DB_Connection database = new DB_Connection();
         Notify_Module.Side_Notification_Form notify = new Notify_Module.Side_Notification_Form();
+
         // << LOGIN MODULE >>
         // Create superuser when the user table in database is empty
         public void Automatic_Create_Super_User()
@@ -29,14 +30,11 @@ namespace Lizaso_Laundry_Hub
 
                     if (userCount == 0)
                     {
-                        // Create a new superuser account
                         string username = "Admin";
                         string password = "secret12345";
 
-                        // Hash the password (you may want to use a secure hashing algorithm)
                         byte[] passwordHash = HashPassword(password);
 
-                        // Insert the new superuser account into the User_Account table
                         string userSql = "INSERT INTO User_Account (User_Name, Super_User, Password_Hash, Date_Added, Last_Active, Status, Archive) VALUES (@User_Name, 1,  @Password_Hash,  @Date_Added, @Last_Active, @Status, @Archive)";
                         using (SqlCommand userCommand = new SqlCommand(userSql, connect))
                         {
@@ -49,7 +47,6 @@ namespace Lizaso_Laundry_Hub
                             userCommand.ExecuteNonQuery();
                         }
 
-                        // Get the User_ID of the newly created superuser
                         string getUserIdSql = "SELECT User_ID FROM User_Account WHERE User_Name = @User_Name";
                         int userId;
                         using (SqlCommand getUserIdCommand = new SqlCommand(getUserIdSql, connect))
@@ -58,7 +55,6 @@ namespace Lizaso_Laundry_Hub
                             userId = (int)getUserIdCommand.ExecuteScalar();
                         }
 
-                        // Insert record into User_Permissions with all permissions set to 1
                         string permissionsSql = "INSERT INTO User_Permissions (User_ID, Dashboard, Available_Services, Schedule, Customer_Manage, Payments, User_Manage, Inventory, Settings) VALUES (@User_ID, 1, 1, 1, 1, 1, 1, 1, 1)";
                         using (SqlCommand permissionsCommand = new SqlCommand(permissionsSql, connect))
                         {
@@ -66,7 +62,6 @@ namespace Lizaso_Laundry_Hub
                             permissionsCommand.ExecuteNonQuery();
                         }
 
-                        //MessageBox.Show("Superuser account created successfully!");
                     }
                 }
             }
@@ -111,7 +106,6 @@ namespace Lizaso_Laundry_Hub
 
                         if (rowsAffected > 0)
                         {
-                            // Update Laundry_Unit status (assuming a condition, replace with your logic)
                             string sqlUpdateUnit = "UPDATE Laundry_Unit SET Unit_Status = 1 WHERE Unit_ID = @Unit_ID";
                             using (SqlCommand commandUpdateStatus = new SqlCommand(sqlUpdateUnit, connect))
                             {
@@ -142,15 +136,12 @@ namespace Lizaso_Laundry_Hub
             {
                 connect.Open();
 
-                // Retrieve the current maximum unit number
                 string getMaxUnitNumberSql = "SELECT ISNULL(MAX(CONVERT(INT, SUBSTRING(Unit_Name, 6, LEN(Unit_Name) - 5))), 0) + 1 FROM Laundry_Unit";
                 SqlCommand getMaxUnitNumberCommand = new SqlCommand(getMaxUnitNumberSql, connect);
 
-                // Check if the table is empty
                 object result = getMaxUnitNumberCommand.ExecuteScalar();
                 int maxUnitNumber = result == DBNull.Value ? 1 : Convert.ToInt32(result);
 
-                // Construct the new Unit_Name
                 string newUnitName = "Unit " + maxUnitNumber;
 
                 string sql = "INSERT INTO Laundry_Unit (Unit_Name, Unit_Status, Archive) " +
@@ -186,10 +177,8 @@ namespace Lizaso_Laundry_Hub
                     object result = getmaxcommand.ExecuteScalar();
                     int maxItemNumber = result == DBNull.Value ? 1 : Convert.ToInt32(result);
 
-                    // Construct the new Item_Code
                     string newItemCode = "ITM" + maxItemNumber.ToString("0000");
 
-                    // Insert the new item into the database
                     string insertQuery = "INSERT INTO Item (Item_Code, Item_Name, Category_Type, Price, Quantity, Date_Added, Archive) VALUES (@Item_Code, @Item_Name, @Category_Type, @Price, @Quantity, @Date_Added, @Archive)";
                     SqlCommand insertCommand = new SqlCommand(insertQuery, connect);
 
@@ -226,13 +215,12 @@ namespace Lizaso_Laundry_Hub
 
         public int Set_PaymentDetails(int _unitID, int _bookingID, int _userID, decimal _amount, string _paymentMethod)
         {
-            int transactionID = -1; // Initialize with an invalid value
+            int transactionID = -1; 
 
             using (SqlConnection connect = new SqlConnection(database.MyConnection()))
             {
                 connect.Open();
 
-                // Find all records with Booking_Status as "Reserved" based on Unit_ID
                 List<int> reservedBookingIDs = new List<int>();
 
                 string findReservedBookingsCmdText = "SELECT Booking_ID FROM Laundry_Bookings WHERE Unit_ID = @UnitID AND Bookings_Status = 'Reserved'";
@@ -249,19 +237,6 @@ namespace Lizaso_Laundry_Hub
                     }
                 }
 
-                /*
-                // Update Booking_Status to 'In-Progress' for each record
-                foreach (int bookingID in reservedBookingIDs)
-                {
-                    using (SqlCommand updateBookingCmd = new SqlCommand("UPDATE Laundry_Bookings SET Bookings_Status = 'In-Progress' WHERE Booking_ID = @BookingID", connect))
-                    {
-                        updateBookingCmd.Parameters.AddWithValue("@BookingID", bookingID);
-                        updateBookingCmd.ExecuteNonQuery();
-                    }
-                }
-                */
-
-                // Insert payment details into Transactions table and retrieve Transaction_ID
                 string insertCmdText = "INSERT INTO Transactions (Booking_ID, User_ID, Amount, Transaction_Date, Payment_Method) " +
                                        "VALUES (@BookingID, @UserID, @Amount, GETDATE(), @PaymentMethod); SELECT SCOPE_IDENTITY()";
 
@@ -272,7 +247,6 @@ namespace Lizaso_Laundry_Hub
                     insertCmd.Parameters.AddWithValue("@Amount", _amount);
                     insertCmd.Parameters.AddWithValue("@PaymentMethod", _paymentMethod);
 
-                    // Execute the query and retrieve the new Transaction_ID
                     var result = insertCmd.ExecuteScalar();
 
                     if (result != null && result != DBNull.Value)
@@ -281,14 +255,12 @@ namespace Lizaso_Laundry_Hub
                     }
                 }
 
-                // Update Booking_Status to 'Completed' in Laundry_Bookings table
                 using (SqlCommand updateBookingCmd = new SqlCommand("UPDATE Laundry_Bookings SET Bookings_Status = 'Completed' WHERE Booking_ID = @BookingID", connect))
                 {
                     updateBookingCmd.Parameters.AddWithValue("@BookingID", _bookingID);
                     updateBookingCmd.ExecuteNonQuery();
                 }
 
-                // Update Unit_Status based on whether there are reserved bookings
                 int unitStatus = (reservedBookingIDs.Count > 0) ? 1 : 0;
                 using (SqlCommand updateUnitCmd = new SqlCommand("UPDATE Laundry_Unit SET Unit_Status = @UnitStatus WHERE Unit_ID = @UnitID", connect))
                 {
@@ -305,13 +277,12 @@ namespace Lizaso_Laundry_Hub
         // method for payment transaction
         public int Set_PendingDetails(int _unitID, int _bookingID, int _userID, decimal _amount, string _paymentMethod)
         {
-            int transactionID = -1; // Initialize with an invalid value
+            int transactionID = -1;
 
             using (SqlConnection connect = new SqlConnection(database.MyConnection()))
             {
                 connect.Open();
 
-                // Insert payment details into Transactions table and retrieve Transaction_ID
                 string insertCmdText = "INSERT INTO Transactions (Booking_ID, User_ID, Amount, Transaction_Date, Payment_Method) " +
                                        "VALUES (@BookingID, @UserID, @Amount, GETDATE(), @PaymentMethod); SELECT SCOPE_IDENTITY()";
 
@@ -322,7 +293,6 @@ namespace Lizaso_Laundry_Hub
                     insertCmd.Parameters.AddWithValue("@Amount", _amount);
                     insertCmd.Parameters.AddWithValue("@PaymentMethod", _paymentMethod);
 
-                    // Execute the query and retrieve the new Transaction_ID
                     var result = insertCmd.ExecuteScalar();
 
                     if (result != null && result != DBNull.Value)
@@ -331,7 +301,6 @@ namespace Lizaso_Laundry_Hub
                     }
                 }
 
-                // Update Booking_Status to 'Completed' in Laundry_Bookings table
                 using (SqlCommand updateBookingCmd = new SqlCommand("UPDATE Laundry_Bookings SET Bookings_Status = 'Completed' WHERE Booking_ID = @BookingID", connect))
                 {
                     updateBookingCmd.Parameters.AddWithValue("@BookingID", _bookingID);
@@ -350,10 +319,8 @@ namespace Lizaso_Laundry_Hub
             {
                 connect.Open();
 
-                // Iterate through additional items
                 foreach (Item_Data item in additionalItems)
                 {
-                    // Insert into Transaction_Item table
                     string insertItemQuery = "INSERT INTO Transaction_Item (Transaction_ID, Item_ID, Item_Quantity, Amount) " +
                                              "VALUES (@TransactionID, @ItemID, @ItemQuantity, @Amount)";
 
@@ -367,7 +334,6 @@ namespace Lizaso_Laundry_Hub
                         itemCmd.ExecuteNonQuery();
                     }
 
-                    // Subtract the quantity from the Item table
                     string updateItemQuery = "UPDATE Item SET Quantity = Quantity - @ItemQuantity WHERE Item_ID = @ItemID";
 
                     using (SqlCommand updateItemCmd = new SqlCommand(updateItemQuery, connect))
@@ -392,7 +358,6 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    // Retrieve the Delivery_Address from the Customer's Address column
                     string query = "SELECT C.Address FROM Transactions T " +
                                    "INNER JOIN Laundry_Bookings LB ON T.Booking_ID = LB.Booking_ID " +
                                    "INNER JOIN Customers C ON LB.Customer_ID = C.Customer_ID " +
@@ -402,14 +367,12 @@ namespace Lizaso_Laundry_Hub
                     {
                         cmd.Parameters.AddWithValue("@TransactionID", transactionID);
 
-                        // Execute the query to get the Delivery_Address
                         object result = cmd.ExecuteScalar();
 
                         if (result != null)
                         {
                             string deliveryAddress = result.ToString();
 
-                            // Insert the delivery information into the Deliveries table
                             query = "INSERT INTO Deliveries (Transaction_ID, Delivery_Address, Delivery_Date, Delivery_Status) " +
                                     "VALUES (@TransactionID, @DeliveryAddress, GETDATE(), 'In Transit')";
 
@@ -418,7 +381,6 @@ namespace Lizaso_Laundry_Hub
                                 insertCmd.Parameters.AddWithValue("@TransactionID", transactionID);
                                 insertCmd.Parameters.AddWithValue("@DeliveryAddress", deliveryAddress);
 
-                                // Execute the insert query
                                 insertCmd.ExecuteNonQuery();
                             }
 
@@ -449,10 +411,8 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    // Hash the password (you may want to use a secure hashing algorithm)
                     byte[] passwordHash = HashPassword(password);
 
-                    // Insert the new user account into the User_Account table
                     string userSql = "INSERT INTO User_Account (User_Name, Super_User, Password_Hash, Date_Added, Archive) VALUES (@User_Name, @Super_User,  @Password_Hash,  @Date_Added, @Archive)";
                     using (SqlCommand userCommand = new SqlCommand(userSql, connect))
                     {
@@ -464,7 +424,6 @@ namespace Lizaso_Laundry_Hub
                         userCommand.ExecuteNonQuery();
                     }
 
-                    // Get the User_ID of the newly created user
                     string getUserIdSql = "SELECT User_ID FROM User_Account WHERE User_Name = @User_Name";
                     int userId;
                     using (SqlCommand getUserIdCommand = new SqlCommand(getUserIdSql, connect))
@@ -473,7 +432,6 @@ namespace Lizaso_Laundry_Hub
                         userId = (int)getUserIdCommand.ExecuteScalar();
                     }
 
-                    // Insert record into User_Permissions with specified permissions
                     string permissionsSql = "INSERT INTO User_Permissions (User_ID, Dashboard, Available_Services, Schedule, Customer_Manage, Payments, User_Manage, Inventory, Settings) VALUES (@User_ID, @Available_Services, @Schedule, @Customer_Manage, @Payments, @User_Manage, @Inventory, @Settings)";
                     using (SqlCommand permissionsCommand = new SqlCommand(permissionsSql, connect))
                     {
@@ -509,7 +467,6 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    // Assuming "Reserved" as the booking status for reserved units
                     string bookingStatus = "Reserved";
 
                     string sql = "INSERT INTO Laundry_Bookings (Unit_ID, Customer_ID, Services_Type, Weight, Start_Time, End_Time, Bookings_Status) " +
@@ -603,31 +560,5 @@ namespace Lizaso_Laundry_Hub
                 return false;
             }
         }
-
-        public bool Now4()
-        {
-            try
-            {
-                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
-                {
-
-
-
-
-                    return true;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-        }
-
-
-
-
-
-
     }
 }

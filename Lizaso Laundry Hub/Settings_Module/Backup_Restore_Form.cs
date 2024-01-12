@@ -520,20 +520,33 @@ namespace Lizaso_Laundry_Hub.Settings_Module
         {
             UserCredential credential;
 
-            string credentialsPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "credentials.json");
+            string credentialsPath = Path.Combine(Application.StartupPath, "credentials.json");
 
-            using (var stream = new FileStream(credentialsPath, FileMode.Open, FileAccess.Read))
+            try
             {
-                string credPath = "token.json";
-                credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
-                    GoogleClientSecrets.Load(stream).Secrets,
-                    new[] { DriveService.Scope.DriveFile },
-                    txt_EmailAddress.Text, // Use txt_EmailAddress text
-                    CancellationToken.None,
-                    new FileDataStore(credPath, true));
-            }
+                using (var stream = new FileStream(credentialsPath, FileMode.Open, FileAccess.Read))
+                {
+                    string credPath = "token.json";
+                    credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
+                        GoogleClientSecrets.Load(stream).Secrets,
+                        new[] { DriveService.Scope.DriveFile },
+                        txt_EmailAddress.Text, // Use txt_EmailAddress text
+                        CancellationToken.None,
+                        new FileDataStore(credPath, true));
+                }
 
-            return credential;
+                return credential;
+            }
+            catch (FileNotFoundException)
+            {
+                MessageBox.Show("The 'credentials.json' file was not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred while loading 'credentials.json': {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null;
+            }
         }
 
         private async Task UploadFileToDrive(DriveService service, string filePath)

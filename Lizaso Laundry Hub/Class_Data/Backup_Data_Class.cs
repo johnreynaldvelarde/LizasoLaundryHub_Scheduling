@@ -19,7 +19,6 @@ namespace Lizaso_Laundry_Hub
         {
             try
             {
-                // the base folder path is on the C: drive
                 string baseFolderPath = @"C:\Lizaso Laundry Hub";
                 string backupFolderPath = Path.Combine(baseFolderPath, "Database Backup");
                 string manuallyBackupFolderPath = Path.Combine(backupFolderPath, "Manually Backup");
@@ -28,7 +27,6 @@ namespace Lizaso_Laundry_Hub
                 string customerRecipientFolderPath = Path.Combine(baseFolderPath, "Customer Recipient");
                 string systemSettingsFolderPath = Path.Combine(baseFolderPath, "System Settings");
 
-                // Check if the base folder (Lizaso Laundry Hub) is already exists
                 if (!Directory.Exists(baseFolderPath))
                 {
                     // Create Lizaso Laundry Hub folder
@@ -70,7 +68,7 @@ namespace Lizaso_Laundry_Hub
                 }
                 else
                 {
-                    // Optionally handle the case where the folder already exists
+
                 }
             }
             catch (Exception ex)
@@ -107,12 +105,10 @@ namespace Lizaso_Laundry_Hub
             bool monthlyBackup = false;
             bool yearlyBackup = false;
 
-            // Define the path for the notepad file
             string filePath = Path.Combine(@"C:\Lizaso Laundry Hub\System Settings", "Auto Backup Configuration.txt");
 
             try
             {
-                // Write the details to the notepad file
                 using (StreamWriter sw = new StreamWriter(filePath))
                 {
                     sw.WriteLine($"Logout Auto Backup: {logoutBackup}");
@@ -137,13 +133,11 @@ namespace Lizaso_Laundry_Hub
                 string dbName = "DB_Laundry";
                 string backupFileName = $"DB_Backup_{dateRecord:yyyyMMdd_HHmmss}.bak";
 
-                // Specify the base folder path on the C: drive
                 string baseFolderPath = @"C:\Lizaso Laundry Hub";
                 string databaseBackupPath = Path.Combine(baseFolderPath, "Database Backup");
                 string autoBackupPath = Path.Combine(databaseBackupPath, "Auto Backup");
                 string logoutUserBackupPath = Path.Combine(autoBackupPath, "Logout User Backup");
 
-                // Ensure the base folder (Lizaso Laundry Hub), database backup directory, auto backup directory, and Logout User Backup directory exist or create them
                 if (!Directory.Exists(baseFolderPath))
                 {
                     Directory.CreateDirectory(baseFolderPath);
@@ -170,26 +164,22 @@ namespace Lizaso_Laundry_Hub
                 {
                     connection.Open();
 
-                    // Set the database context
                     string useDatabaseCommand = $"USE {dbName};";
                     using (SqlCommand useDatabaseCmd = new SqlCommand(useDatabaseCommand, connection))
                     {
                         useDatabaseCmd.ExecuteNonQuery();
                     }
 
-                    // Create a backup command
                     string backupCommand = "BACKUP DATABASE " + dbName +
                                           " TO DISK = '" + Path.Combine(logoutUserBackupPath, backupFileName) +
                                           "' WITH FORMAT ,MEDIANAME = 'Z_SQLServerBackups', NAME = ' Full Backup of " + dbName + "';";
 
                     using (SqlCommand command = new SqlCommand(backupCommand, connection))
                     {
-                        // Execute the backup command
                         command.ExecuteNonQuery();
                     }
                 }
 
-                // MessageBox.Show("Database backup successful.", "Backup Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (SqlException sqlEx)
             {
@@ -207,14 +197,12 @@ namespace Lizaso_Laundry_Hub
         {
             try
             {
-                // Ensure the specified folder path exists
                 if (!Directory.Exists(folderPath))
                 {
                     MessageBox.Show("Backup folder does not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return false;
                 }
 
-                // Clean up old backup files before creating new ones
                 CleanUpOldBackups(folderPath);
 
                 string connectionString = database.MyConnection();
@@ -223,14 +211,12 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    // Set the database context
                     string useDatabaseCommand = $"USE {databaseName};";
                     using (SqlCommand useDatabaseCmd = new SqlCommand(useDatabaseCommand, connect))
                     {
                         useDatabaseCmd.ExecuteNonQuery();
                     }
 
-                    // Create a backup command
                     for (int i = 0; i < numberFiles; i++)
                     {
                         string backupFileName = $"DB_Backup_{i + 1}_{DateTime.Now:yyyyMMdd_HHmmss}.bak";
@@ -240,7 +226,6 @@ namespace Lizaso_Laundry_Hub
 
                         using (SqlCommand command = new SqlCommand(backupCommand, connect))
                         {
-                            // Execute the backup command
                             command.ExecuteNonQuery();
                         }
                     }
@@ -265,10 +250,8 @@ namespace Lizaso_Laundry_Hub
         {
             try
             {
-                // Get all backup files in the folder
                 string[] backupFiles = Directory.GetFiles(folderPath, "DB_Backup_*.bak");
 
-                // Delete all old backup files
                 foreach (var file in backupFiles)
                 {
                     File.Delete(file);
@@ -284,36 +267,30 @@ namespace Lizaso_Laundry_Hub
         {
             try
             {
-                // Construct connection string to master database
                 string masterConnectionString = $"Data Source={serverName};Initial Catalog=master;Integrated Security=True";
 
-                // Connect to master database
                 using (SqlConnection masterConnection = new SqlConnection(masterConnectionString))
                 {
                     masterConnection.Open();
 
-                    // Set the database context to master
                     string useDatabaseCommand = "USE master;";
                     using (SqlCommand useDatabaseCmd = new SqlCommand(useDatabaseCommand, masterConnection))
                     {
                         useDatabaseCmd.ExecuteNonQuery();
                     }
 
-                    // Put the target database into single-user mode
                     string singleUserCommand = $"ALTER DATABASE {databaseName} SET SINGLE_USER WITH ROLLBACK IMMEDIATE;";
                     using (SqlCommand singleUserCmd = new SqlCommand(singleUserCommand, masterConnection))
                     {
                         singleUserCmd.ExecuteNonQuery();
                     }
 
-                    // Construct the RESTORE DATABASE command
                     string restoreCommand = $"RESTORE DATABASE {databaseName} FROM DISK = '{locationPath}' WITH REPLACE;";
                     using (SqlCommand restoreCmd = new SqlCommand(restoreCommand, masterConnection))
                     {
                         restoreCmd.ExecuteNonQuery();
                     }
 
-                    // Put the database back into multi-user mode
                     string multiUserCommand = $"ALTER DATABASE {databaseName} SET MULTI_USER;";
                     using (SqlCommand multiUserCmd = new SqlCommand(multiUserCommand, masterConnection))
                     {
@@ -322,17 +299,17 @@ namespace Lizaso_Laundry_Hub
                 }
 
                 MessageBox.Show("Database restore successful.", "Restore Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return true; // Indicates successful database restore
+                return true; 
             }
             catch (SqlException sqlEx)
             {
                 MessageBox.Show($"SQL Server Error during database restore: {sqlEx.Message}", "Restore Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false; // Indicates failure
+                return false; 
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error during database restore: {ex.Message}", "Restore Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false; // Indicates failure
+                return false;
             }
         }
 
@@ -345,7 +322,6 @@ namespace Lizaso_Laundry_Hub
                 string dbName = "DB_Laundry";
                 string backupFileName = $"DB_Backup_{dateRecord:yyyyMMdd_HHmmss}.bak";
 
-                // the base folder path on the C: drive
                 string baseFolderPath = @"C:\Lizaso Laundry Hub";
                 string databaseBackupPath = Path.Combine(baseFolderPath, "Database Backup");
                 string autoBackupPath = Path.Combine(databaseBackupPath, "Auto Backup");
@@ -377,7 +353,6 @@ namespace Lizaso_Laundry_Hub
                 {
                     connection.Open();
 
-                    // Set the database context
                     string useDatabaseCommand = $"USE {dbName};";
                     using (SqlCommand useDatabaseCmd = new SqlCommand(useDatabaseCommand, connection))
                     {
@@ -413,7 +388,6 @@ namespace Lizaso_Laundry_Hub
                 string dbName = "DB_Laundry";
                 string backupFileName = $"DB_Backup_{dateRecord:yyyyMMdd_HHmmss}.bak";
 
-                // the base folder path on the C: drive
                 string baseFolderPath = @"C:\Lizaso Laundry Hub";
                 string databaseBackupPath = Path.Combine(baseFolderPath, "Database Backup");
                 string autoBackupPath = Path.Combine(databaseBackupPath, "Auto Backup");
@@ -445,7 +419,6 @@ namespace Lizaso_Laundry_Hub
                 {
                     connection.Open();
 
-                    // Set the database context
                     string useDatabaseCommand = $"USE {dbName};";
                     using (SqlCommand useDatabaseCmd = new SqlCommand(useDatabaseCommand, connection))
                     {
@@ -481,7 +454,6 @@ namespace Lizaso_Laundry_Hub
                 string dbName = "DB_Laundry";
                 string backupFileName = $"DB_Backup_{dateRecord:yyyyMMdd_HHmmss}.bak";
 
-                // the base folder path on the C: drive
                 string baseFolderPath = @"C:\Lizaso Laundry Hub";
                 string databaseBackupPath = Path.Combine(baseFolderPath, "Database Backup");
                 string autoBackupPath = Path.Combine(databaseBackupPath, "Auto Backup");
@@ -549,7 +521,6 @@ namespace Lizaso_Laundry_Hub
                 string dbName = "DB_Laundry";
                 string backupFileName = $"DB_Backup_{dateRecord:yyyyMMdd_HHmmss}.bak";
 
-                // the base folder path on the C: drive
                 string baseFolderPath = @"C:\Lizaso Laundry Hub";
                 string databaseBackupPath = Path.Combine(baseFolderPath, "Database Backup");
                 string autoBackupPath = Path.Combine(databaseBackupPath, "Auto Backup");
@@ -581,7 +552,6 @@ namespace Lizaso_Laundry_Hub
                 {
                     connection.Open();
 
-                    // Set the database context
                     string useDatabaseCommand = $"USE {dbName};";
                     using (SqlCommand useDatabaseCmd = new SqlCommand(useDatabaseCommand, connection))
                     {

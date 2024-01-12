@@ -92,10 +92,10 @@ namespace Lizaso_Laundry_Hub.Class_Data
             {
                 if (form.Name == formName)
                 {
-                    return true; // Form is open
+                    return true; 
                 }
             }
-            return false; // Form is not open
+            return false; 
         }
 
         // method to check if the auto backup is true in textfile
@@ -103,19 +103,15 @@ namespace Lizaso_Laundry_Hub.Class_Data
         {
             string filePath = Path.Combine(@"C:\Lizaso Laundry Hub\System Settings", "Auto Backup Configuration.txt");
 
-            // Check if the file exists before proceeding
             if (!File.Exists(filePath))
             {
-                // Handle the case when the file doesn't exist
                 return false;
             }
 
             try
             {
-                // Read the details from the configuration file
                 using (StreamReader sr = new StreamReader(filePath))
                 {
-                    // Read each line and look for "Logout Auto Backup"
                     string line;
                     while ((line = sr.ReadLine()) != null)
                     {
@@ -125,7 +121,6 @@ namespace Lizaso_Laundry_Hub.Class_Data
                             string settingName = parts[0].Trim();
                             bool settingValue = Convert.ToBoolean(parts[1].Trim());
 
-                            // Check if it is "Logout Auto Backup"
                             if (settingName == "Logout Auto Backup")
                             {
                                 return settingValue;

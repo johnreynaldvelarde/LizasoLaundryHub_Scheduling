@@ -108,9 +108,8 @@ namespace Lizaso_Laundry_Hub
                 // Update the UI periodically
                 while (true)
                 {
-                    await Task.Delay(1000); // Update every second
+                    await Task.Delay(1000); 
 
-                    // Reload the progress list and update the UI
                     progress = await RetrieveProgressListAsync();
 
                     foreach (Control control in flow_progress.Controls)
@@ -119,25 +118,19 @@ namespace Lizaso_Laundry_Hub
                         {
                             progressListControl.UpdateTimeLeft();
 
-                            // Check if the time left is 0, and update the status to 'Pending'
-
                             if (progressListControl.TimeLeft == "0 seconds")
                             {
                                 if (progressListControl.Status == "In-Progress")
                                 {
-                                    // Update the database
                                     await UpdateBookingStatusToPendingAsync(progressListControl.BookingID, progressListControl.UnitID);
 
-                                    // Check the booking status again
                                     await CheckBookingStatusReservedAsync(progressListControl.UnitID);
 
-                                    // Reload unit and display in-progress bookings
                                     servicesForm.Load_Unit();
                                     await servicesForm.DisplayInProgress();
                                 }
                                 else if (progressListControl.Status == "Pending")
                                 {
-                                    // Reload unit and display in-progress bookings
                                     servicesForm.Load_Unit();
                                     await servicesForm.DisplayInProgress();
                                 }
@@ -148,7 +141,6 @@ namespace Lizaso_Laundry_Hub
             }
             catch (Exception ex)
             {
-                // Handle the exception (log, display a message, etc.)
                 Console.WriteLine($"An error occurred: {ex.Message}");
             }
         }
@@ -163,32 +155,26 @@ namespace Lizaso_Laundry_Hub
             catch (Exception ex)
             {
                 Console.WriteLine($"An error occurred: {ex.Message}");
-                // Handle the exception as needed
             }
         }
 
         private async Task UpdateBookingStatusAsync(int bookingID, int unitID)
         {
-            // Use a lock to ensure thread safety
             lock (updateBookingLockPending)
             {
                 using (SqlConnection connect = new SqlConnection(database.MyConnection()))
                 {
-                    connect.Open(); // Use synchronous Open here
+                    connect.Open(); 
 
                     string updateBookingQuery = @"UPDATE Laundry_Bookings SET Bookings_Status = 'Pending' WHERE Booking_ID = @BookingID;";
-                    //string updateUnitQuery = @"UPDATE Laundry_Unit SET Unit_Status = 0 WHERE Unit_ID = (SELECT Unit_ID FROM Laundry_Bookings WHERE Booking_ID = @BookingID);";
                     string updateUnitQuery = @"UPDATE Laundry_Unit SET Unit_Status = 0 WHERE Unit_ID = @UnitID;";
 
                     using (SqlCommand updateBookingCommand = new SqlCommand(updateBookingQuery, connect))
                     using (SqlCommand updateUnitCommand = new SqlCommand(updateUnitQuery, connect))
                     {
                         updateBookingCommand.Parameters.AddWithValue("@BookingID", bookingID);
-                        //updateUnitCommand.Parameters.AddWithValue("@BookingID", bookingID);
                         updateUnitCommand.Parameters.AddWithValue("@UnitID", unitID);
 
-
-                        // Execute the update queries within a transaction to ensure consistency
                         SqlTransaction transaction = connect.BeginTransaction();
 
                         try
@@ -199,16 +185,14 @@ namespace Lizaso_Laundry_Hub
                             updateBookingCommand.ExecuteNonQuery();
                             updateUnitCommand.ExecuteNonQuery();
 
-                            // Commit the transaction if both updates are successful
                             transaction.Commit();
 
                             Get_CustomerNameUnitNameInProgress(bookingID, unitID);
                         }
                         catch (Exception)
                         {
-                            // Handle exceptions and roll back the transaction if an error occurs
                             transaction.Rollback();
-                            throw; // Rethrow the exception
+                            throw; 
                         }
                     }
                 }
@@ -227,7 +211,6 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    // Query to retrieve Customer_Name and Unit_Name based on Booking_ID and Unit_ID
                     string query = @"SELECT C.Customer_Name, U.Unit_Name
                              FROM Laundry_Bookings B
                              INNER JOIN Customers C ON B.Customer_ID = C.Customer_ID
@@ -246,16 +229,12 @@ namespace Lizaso_Laundry_Hub
                                 string customerName = reader["Customer_Name"].ToString();
                                 string unitName = reader["Unit_Name"].ToString();
 
-                                // Form the description string
-                                //Description = $"The laundry booking of {customerName} is finished, and {unitName} is now available.";
                                 Description = $"{customerName}'s laundry is done! {unitName} is ready for the next booking.";
 
-                                // Log the activity with the formed description
                                 activityLogger.LogActivity(activityType, Description);
                             }
                             else
                             {
-                                // Handle the case where no matching records are found
                                 Description = "No matching records found for the provided Booking_ID and Unit_ID.";
                                 activityLogger.LogActivity(activityType, Description);
                             }
@@ -311,7 +290,6 @@ namespace Lizaso_Laundry_Hub
                             }
                         }
 
-                        // Update Booking_Status to 'In-Progress' for each record
                         foreach (int bookingID in reservedBookingIDs)
                         {
                             using (SqlCommand updateBookingCmd = new SqlCommand("UPDATE Laundry_Bookings SET Bookings_Status = 'In-Progress' WHERE Booking_ID = @BookingID", connect, transaction))
@@ -321,10 +299,8 @@ namespace Lizaso_Laundry_Hub
                             }
                         }
 
-                        // Determine the unit status based on the presence of reserved bookings
                         int unitStatus = (reservedBookingIDs.Count > 0) ? 1 : 0;
 
-                        // Update Unit_Status for the specified UnitID
                         using (SqlCommand updateUnitCmd = new SqlCommand("UPDATE Laundry_Unit SET Unit_Status = @UnitStatus WHERE Unit_ID = @UnitID", connect, transaction))
                         {
                             updateUnitCmd.Parameters.AddWithValue("@UnitID", reservedunitID);
@@ -332,7 +308,6 @@ namespace Lizaso_Laundry_Hub
                             updateUnitCmd.ExecuteNonQuery();
                         }
 
-                        // Commit the transaction if everything is successful
                         transaction.Commit();
 
                         foreach (int bookingID in reservedBookingIDs)
@@ -340,13 +315,11 @@ namespace Lizaso_Laundry_Hub
                             Get_CustomerNameUnitNameInReserved(bookingID, reservedunitID);
                         }
 
-                        //Get_CustomerNameUnitNameInReserved(bookingID, reservedunitID);    
                     }
                     catch (Exception)
                     {
-                        // Roll back the transaction if an error occurs
                         transaction.Rollback();
-                        throw; // Rethrow the exception
+                        throw;
                     }
                 }
             }
@@ -356,7 +329,6 @@ namespace Lizaso_Laundry_Hub
             }
             finally
             {
-                // Release the semaphore in a finally block
                 semaphore.Release();
             }
         }
@@ -373,7 +345,6 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    // Query to retrieve Customer_Name and Unit_Name based on Booking_ID and Unit_ID
                     string query = @"SELECT C.Customer_Name, U.Unit_Name
                              FROM Laundry_Bookings B
                              INNER JOIN Customers C ON B.Customer_ID = C.Customer_ID
@@ -392,15 +363,12 @@ namespace Lizaso_Laundry_Hub
                                 string customerName = reader["Customer_Name"].ToString();
                                 string unitName = reader["Unit_Name"].ToString();
 
-                                // Form the description string
                                 Description = $"{customerName}'s unit reserved is now in progress! {unitName} is currently occupied";
 
-                                // Log the activity with the formed description
                                 activityLogger.LogActivity(activityType, Description);
                             }
                             else
                             {
-                                // Handle the case where no matching records are found
                                 Description = "No matching records found for the provided Booking_ID and Unit_ID.";
                                 activityLogger.LogActivity(activityType, Description);
                             }
@@ -440,7 +408,6 @@ namespace Lizaso_Laundry_Hub
                         }
                     }
 
-                    // Update Booking_Status to 'In-Progress' for each record
                     foreach (int bookingID in reservedBookingIDs)
                     {
                         using (SqlCommand updateBookingCmd = new SqlCommand("UPDATE Laundry_Bookings SET Bookings_Status = 'In-Progress' WHERE Booking_ID = @BookingID", connect, transaction))
@@ -450,10 +417,8 @@ namespace Lizaso_Laundry_Hub
                         }
                     }
 
-                    // Determine the unit status based on the presence of reserved bookings
                     int unitStatus = (reservedBookingIDs.Count > 0) ? 1 : 0;
 
-                    // Update Unit_Status for the specified UnitID
                     using (SqlCommand updateUnitCmd = new SqlCommand("UPDATE Laundry_Unit SET Unit_Status = @UnitStatus WHERE Unit_ID = @UnitID", connect, transaction))
                     {
                         updateUnitCmd.Parameters.AddWithValue("@UnitID", UnitID);
@@ -461,14 +426,12 @@ namespace Lizaso_Laundry_Hub
                         updateUnitCmd.ExecuteNonQuery();
                     }
 
-                    // Commit the transaction if everything is successful
                     transaction.Commit();
                 }
                 catch (Exception)
                 {
-                    // Roll back the transaction if an error occurs
                     transaction.Rollback();
-                    throw; // Rethrow the exception
+                    throw;
                 }
             }
         }
