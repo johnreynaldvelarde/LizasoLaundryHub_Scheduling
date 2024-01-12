@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
-//using Calendar.NET;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ProgressBar;
 using System.Runtime.InteropServices.ComTypes;
 
@@ -18,10 +17,12 @@ namespace Lizaso_Laundry_Hub
     {
         private Get_Data_Class getData;
         private Update_Data_Class updateData;
+        private Activity_Log_Class activityLogger;
         private int counts = 0;
 
         private int selectedBookingID;
         private int selectedUnitID;
+        private string getCustomerName;
 
         public Schedule_Form()
         {
@@ -29,6 +30,7 @@ namespace Lizaso_Laundry_Hub
             
             getData = new Get_Data_Class();
             updateData = new Update_Data_Class();
+            activityLogger = new Activity_Log_Class();
         }
 
         public void DisplayInProgressandReserved()
@@ -74,11 +76,9 @@ namespace Lizaso_Laundry_Hub
 
         private void grid_progress_view_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            /*
 
             if (e.RowIndex >= 0)
             {
-                // Adjust the column index based on your actual column index for the "Start Time" and "End Time"
                 int timeRangeColumnIndex = 8;
 
                 if (e.ColumnIndex == timeRangeColumnIndex)
@@ -94,50 +94,17 @@ namespace Lizaso_Laundry_Hub
                         }
                     }
                 }
-                else if (e.ColumnIndex == 0)  // Assuming count is in the first column
+                else if (e.ColumnIndex == 0)  
                 {
-                    // Set formatting for the count column
-                    // e.CellStyle.ForeColor = Color.Green;  // Change the color as needed
+                    // e.CellStyle.ForeColor = Color.Green;  
 
-                    // Set the count value based on the existing count
-                    //e.Value = counts + 1;
-                }
-                Grid_ProgressCount();
-            }
-            */
-
-            if (e.RowIndex >= 0)
-            {
-                // Adjust the column index based on your actual column index for the "Start Time" and "End Time"
-                int timeRangeColumnIndex = 8;
-
-                if (e.ColumnIndex == timeRangeColumnIndex)
-                {
-                    string cellValue = e.Value?.ToString();
-
-                    if (cellValue != null)
-                    {
-                        if (cellValue.StartsWith("Start Time:") || cellValue.StartsWith("End Time:"))
-                        {
-                            // Set red color for "Start Time:" and "End Time:"
-                            e.CellStyle.ForeColor = Color.Red;
-                        }
-                    }
-                }
-                else if (e.ColumnIndex == 0)  // Assuming count is in the first column
-                {
-                    // Set formatting for the count column
-                    // e.CellStyle.ForeColor = Color.Green;  // Change the color as needed
-
-                    // Set the count value based on the existing count
                     // e.Value = counts + 1;
                 }
-                else if (e.ColumnIndex == 11)  // Assuming the button column is at index 9
+                else if (e.ColumnIndex == 11)  
                 {
                     
                 }
 
-                // Assuming Grid_ProgressCount is a method to update some count in your grid
                 Grid_ProgressCount();
             }
         }
@@ -151,7 +118,6 @@ namespace Lizaso_Laundry_Hub
         {
             if (e.RowIndex >= 0)
             {
-                // Adjust the column index based on your actual column index for the "Start Time" and "End Time"
                 int timeRangeColumnIndex = 8;
 
                 if (e.ColumnIndex == timeRangeColumnIndex)
@@ -162,17 +128,14 @@ namespace Lizaso_Laundry_Hub
                     {
                         if (cellValue.StartsWith("Reservation start time:") || cellValue.StartsWith("Reservation end time:"))
                         {
-                            // Set red color for "Start Time:" and "End Time:"
                             e.CellStyle.ForeColor = Color.Red;
                         }
                     }
                 }
-                else if (e.ColumnIndex == 0)  // Assuming count is in the first column
+                else if (e.ColumnIndex == 0)  
                 {
-                    // Set formatting for the count column
                     // e.CellStyle.ForeColor = Color.Green;  // Change the color as needed
 
-                    // Set the count value based on the existing count
                     //e.Value = counts + 1;
                 }
                 Grid_ReservedCount();
@@ -194,28 +157,34 @@ namespace Lizaso_Laundry_Hub
                 if (result == DialogResult.Yes)
                 {
                     updateData.Update_BookingStatusToCanceled(selectedBookingID, selectedUnitID);
+                    UserActivityLog(getCustomerName);
                     DisplayInProgressandReserved();
                 }
             }
         }
 
+        public void UserActivityLog(string customerName)
+        {
+            string activityType = "Canceled";
+            string CancelDescription = $"{customerName}'s in-progress laundry booking has been canceled as of {DateTime.Now}.";
+            activityLogger.LogActivity(activityType, CancelDescription);
+        }
+
         private void grid_progress_view_SelectionChanged(object sender, EventArgs e)
         {
-            // Check if there's a selected row
             if (grid_progress_view.SelectedRows.Count > 0)
             {
                 DataGridViewRow selectedRow = grid_progress_view.SelectedRows[0];
 
-                // Assuming the Booking_ID and Unit_ID columns are at index 0 and 1, respectively
                 if (selectedRow.Cells.Count > 1 &&
                     int.TryParse(selectedRow.Cells[1].Value.ToString(), out selectedBookingID) &&
                     int.TryParse(selectedRow.Cells[2].Value.ToString(), out selectedUnitID))
+                    
                 {
-                    // Now selectedBookingID and selectedUnitID have the values you need
+                    getCustomerName = selectedRow.Cells[4].Value.ToString();
                 }
                 else
                 {
-                    // Handle the case where parsing fails
                     MessageBox.Show("Unable to retrieve Booking ID and Unit ID from the selected row.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }

@@ -17,13 +17,13 @@ namespace Lizaso_Laundry_Hub
 {
     public partial class Payment_Details_Form : KryptonForm
     {
-        private Additional_Payment_Form additionalPaymentForm;
-        private Account_Class account;
-        private Insert_Data_Class insertData;
-        private Get_Data_Class getData;
-        
         private Receipt_Form receipt;
+        private Account_Class account;
+        private Get_Data_Class getData;
+        private Insert_Data_Class insertData;
+        private Activity_Log_Class activityLogger;
         private WithAdditionalPayment_Form withAddtional;
+        private Additional_Payment_Form additionalPaymentForm;
 
         public int UnitID;
         public int BookingID;
@@ -47,11 +47,12 @@ namespace Lizaso_Laundry_Hub
             frm = payments;
             widget = pendingWidget;
 
+            receipt = new Receipt_Form();
             account = new Account_Class();
-            insertData = new Insert_Data_Class();
             getData = new Get_Data_Class();
             payments = new Payments_Form();
-            receipt = new Receipt_Form();
+            insertData = new Insert_Data_Class();
+            activityLogger = new Activity_Log_Class();
             withAddtional = new WithAdditionalPayment_Form();
 
         }
@@ -89,16 +90,12 @@ namespace Lizaso_Laundry_Hub
 
                     TransactionID = insertData.Set_PendingDetails(UnitID, BookingID, account.User_ID, amount, paymentMethod);
 
-                    // check if SetPaymentDetails was successful before proceeding
                     if (TransactionID != -1)
                     {
-                        // call the SetAdditionalPayment with the obtained Transaction_ID
                         bool success = insertData.Set_AdditionalPayment(TransactionID, additionalItems, totalAmount);
 
                         if (success)
                         {
-                            //MessageBox.Show("Transaction with additional payment added successfully");
-
                             if (ckFreeShipping.Checked)
                             {
                                 insertData.Set_Delivery(TransactionID);
@@ -131,8 +128,6 @@ namespace Lizaso_Laundry_Hub
 
                     if (TransactionID != -1)
                     {
-                        //MessageBox.Show("Transaction payment added successfully");
-
                         if (ckFreeShipping.Checked)
                         {
                             insertData.Set_Delivery(TransactionID);
@@ -146,6 +141,7 @@ namespace Lizaso_Laundry_Hub
 
                         getAddress = string.IsNullOrEmpty(getAddress) ? "None" : getAddress;
                         receipt.GetPaymentDetails(account.User_Name, _serviceType, _load, setWeight, TotalServicesPrice.ToString(),totalPaymentText, _customerName, paymentMethod, getAddress);
+                        UserActivityLog(_customerName);
                         receipt.ShowDialog();
                     }
                     else
@@ -156,25 +152,30 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
+        public bool UserActivityLog(string customerName)
+        {
+            string activityType = "Payment";
+            string PrintDescription = $"{customerName} has successfully completed a laundry booking. The payment process for the services rendered has been finalized as of {DateTime.Now}.";
+            activityLogger.LogActivity(activityType, PrintDescription);
+
+            return true;
+        }
+
         public void CallMethodsFromPaymentandWidgetForm()
         {
-            // Check if frm is not null
             if (frm != null)
             {
                 frm.DisplayInPendingList();
             }
 
-            // Check if widget is not null
             if (widget != null)
             {
                 widget.DisplayCustomerPending();
             }
         }
 
-
         private string GetSelectedPaymentMethod()
         {
-            //  return the selected payment method
             if (rbCash.Checked)
             {
                 return "Cash";
@@ -201,21 +202,20 @@ namespace Lizaso_Laundry_Hub
             }
             else
             {
-                // Get the current day of the week
+                // get the current day of the week
                 DayOfWeek currentDay = DateTime.Now.DayOfWeek;
 
-                // Parse the number of loads
                 if (int.TryParse(txtNumberLoad.Text, out int numberOfLoads))
                 {
-                    // Get the selected service type
+                    // get the selected service type
                     string serviceType = txt_ServiceType.Text.Trim().ToLower();
 
-                    // Set default prices
+                    // set default prices
                     int washPrice = 0;
                     int dryPrice = 0;
                     int foldPrice = 30; // Default fold price
 
-                    // Check if it's a promo day (Monday, Tuesday, or Wednesday)
+                    // check if it's a promo day (Monday, Tuesday, or Wednesday)
                     if (currentDay == DayOfWeek.Monday || currentDay == DayOfWeek.Tuesday || currentDay == DayOfWeek.Wednesday)
                     {
                         washPrice = 55;
@@ -227,7 +227,7 @@ namespace Lizaso_Laundry_Hub
                         dryPrice = 60;
                     }
 
-                    // Calculate the total payment based on the service type and number of loads
+                    // calculate the total payment based on the service type and number of loads
                     double totalPayment = 0;
 
                     switch (serviceType)
@@ -256,7 +256,6 @@ namespace Lizaso_Laundry_Hub
                 }
                 else
                 {
-                    // Clear lblTotalPayment and set it back to 0 if the entered value is not a valid number
                     lblTotalPayment.Text = $"PHP {0}";
                 }
             }

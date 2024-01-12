@@ -31,12 +31,12 @@ namespace Lizaso_Laundry_Hub
                 if (servicesForm == null || servicesForm.IsDisposed)
                 {
                     servicesForm = (Services_Form)childPanel;
-                    servicesForm.FormClosed += (s, args) => servicesForm = null; // Reset the reference when the form is closed
+                    servicesForm.FormClosed += (s, args) => servicesForm = null; 
                 }
                 else
                 {
                     servicesForm.BringToFront();
-                    return; // Don't proceed with the rest of the method
+                    return; 
                 }
             }
 
@@ -71,9 +71,6 @@ namespace Lizaso_Laundry_Hub
         {
             lblTitle.Text = "Date and Time Configuration";
             openChildPanel(new Settings_Module.DateTime_Configuration());
-            //Notify_Module.Side_Notification_Form notify = new Notify_Module.Side_Notification_Form();
-            //notify.Show();
-
         }
 
         private void Settings_Form_Load(object sender, EventArgs e)
@@ -81,7 +78,5 @@ namespace Lizaso_Laundry_Hub
             lblTitle.Text = "Laundry Unit Configuration";
             openChildPanel(new Settings_Module.LaundryUnit_Configuration_Form());
         }
-
-        
     }
 }

@@ -53,18 +53,14 @@ namespace Lizaso_Laundry_Hub
                     string _services = txt_Service.Text;
                     decimal weight = ParseWeight(cbWeight.SelectedItem.ToString());
 
-                    // Assuming lblStartTime.Text and lblEndTime.Text contain the time strings like "8:36:41 PM"
                     string startTimeText = lblStartTime.Text;
                     string endTimeText = lblEndTime.Text;
 
-                    // Assuming you want to use the current date (you can change it to any desired date)
                     DateTime currentDate = DateTime.Now.Date;
 
-                    // Combine the date and time strings and parse them into DateTime objects
                     DateTime startTime = DateTime.Parse($"{currentDate.ToShortDateString()} {startTimeText}");
                     DateTime endTime = DateTime.Parse($"{currentDate.ToShortDateString()} {endTimeText}");
 
-                    // Format the DateTime objects as strings in the desired format
                     string sendStartTime = startTime.ToString("MM/dd/yyyy h:mm:ss tt");
                     string sendEndTime = endTime.ToString("MM/dd/yyyy h:mm:ss tt");
 
@@ -78,7 +74,6 @@ namespace Lizaso_Laundry_Hub
                     this.Dispose();
                     frm.Load_Unit();
                     await frm.DisplayInProgress();
-                   
 
                 }
                 catch (Exception ex)
@@ -207,7 +202,6 @@ namespace Lizaso_Laundry_Hub
                         int customerID = reader.GetInt32(0);
                         string customerName = reader["Customer_Name"].ToString();
 
-                        // ComboBoxItem to store both Customer_ID and Customer_Name
                         ComboBoxItem item = new ComboBoxItem(customerID, customerName);
 
                         cbSelectCustomer.Items.Add(item);
@@ -253,7 +247,6 @@ namespace Lizaso_Laundry_Hub
             DisplayAvailableSelectedTime();
         }
 
-        // Helper class to store Customer_ID and Customer_Name in ComboBox
         public class ComboBoxItem
         {
             public int CustomerID { get; set; }
@@ -270,7 +263,5 @@ namespace Lizaso_Laundry_Hub
                 return CustomerName;
             }
         }
-
-
     }
 }

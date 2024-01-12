@@ -18,6 +18,7 @@ namespace Lizaso_Laundry_Hub
     {
         private Get_Data_Class getData;
         private Update_Data_Class updateData;
+        private Activity_Log_Class activityLogger;
         private int bookingID, unitID, customerID, getTransactionID;
         private string customerName, serviceType, weight;
 
@@ -26,6 +27,7 @@ namespace Lizaso_Laundry_Hub
             InitializeComponent();
             getData = new Get_Data_Class();
             updateData = new Update_Data_Class();
+            activityLogger = new Activity_Log_Class();
         }
 
         public void DisplayInPendingList()
@@ -124,9 +126,19 @@ namespace Lizaso_Laundry_Hub
                 if (result == DialogResult.Yes)
                 {
                     updateData.Update_CancelPendingPayments(bookingID);
+                    UserActivityLog(customerName);
                     DisplayInPendingList();
                 }
             }
+        }
+
+        public bool UserActivityLog(string customerName)
+        {
+            string activityType = "Canceled";
+            string CancelDescription = $"{customerName}'s pending laundry booking has been canceled as of {DateTime.Now}. Any associated payments have been voided.";
+            activityLogger.LogActivity(activityType, CancelDescription);
+
+            return true;
         }
 
         private void grid_pending_view_SelectionChanged(object sender, EventArgs e)

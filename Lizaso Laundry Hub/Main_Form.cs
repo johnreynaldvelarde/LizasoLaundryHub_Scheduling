@@ -140,7 +140,7 @@ namespace Lizaso_Laundry_Hub
             using (Graphics g = lblUserName.CreateGraphics())
             {
                 SizeF size = g.MeasureString(text, lblUserName.Font);
-                return (int)size.Width + 0; // Add some padding to the width
+                return (int)size.Width + 0; 
             }
         }
 
@@ -154,12 +154,12 @@ namespace Lizaso_Laundry_Hub
                 if (servicesForm == null || servicesForm.IsDisposed)
                 {
                     servicesForm = (Services_Form)childPanel;
-                    servicesForm.FormClosed += (s, args) => servicesForm = null; // Reset the reference when the form is closed
+                    servicesForm.FormClosed += (s, args) => servicesForm = null; 
                 }
                 else
                 {
                     servicesForm.BringToFront();
-                    return; // Don't proceed with the rest of the method
+                    return; 
                 }
             }
 
@@ -177,7 +177,6 @@ namespace Lizaso_Laundry_Hub
             openChildPanel(new Dashboard_Form());
 
             await StartPeriodicTask();
-            //lblUpperTime.Text = DateTime.Now.ToLongTimeString();
             lblUpperTime.Text = DateTime.Now.ToString("MMMM dd, yyyy hh:mm:ss tt");
 
             //DisplayCountPending();
