@@ -289,17 +289,14 @@ namespace Lizaso_Laundry_Hub.Settings_Module
             }
             else
             {
-                // Get the values to be saved
                 string locationDirectory = Label_ClickLocateBackup.Text;
                 string serverName = txt_ServerName.Text;
                 string databasNameRestore = txt_RestoreDatabaseName.Text;
 
-                // Define the path for the notepad file
                 string filePath = Path.Combine(@"C:\Lizaso Laundry Hub\System Settings", "Restore Configuration.txt");
 
                 try
                 {
-                    // Write the details to the notepad file
                     using (StreamWriter sw = new StreamWriter(filePath))
                     {
                         sw.WriteLine($"Location Path: {locationDirectory}");
@@ -467,7 +464,7 @@ namespace Lizaso_Laundry_Hub.Settings_Module
             }
         }
 
-        private void btn_SaveGoogle_Click(object sender, EventArgs e)
+        private async void btn_SaveGoogle_Click(object sender, EventArgs e)
         {
             if (IsInternetAvailable())
             {
