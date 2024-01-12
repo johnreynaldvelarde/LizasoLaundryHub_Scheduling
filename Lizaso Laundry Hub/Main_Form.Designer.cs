@@ -39,7 +39,7 @@
             this.lbl_ShowAutoBackup = new System.Windows.Forms.Label();
             this.image_database_save = new System.Windows.Forms.PictureBox();
             this.btnNotification = new System.Windows.Forms.Button();
-            this.btnDrop = new System.Windows.Forms.Button();
+            this.btnLogout = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.Count_Pending_Timer = new System.Windows.Forms.Timer(this.components);
             this.kryptonPanel1 = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
@@ -113,7 +113,7 @@
             this.panel_upper.Controls.Add(this.lbl_ShowAutoBackup);
             this.panel_upper.Controls.Add(this.image_database_save);
             this.panel_upper.Controls.Add(this.btnNotification);
-            this.panel_upper.Controls.Add(this.btnDrop);
+            this.panel_upper.Controls.Add(this.btnLogout);
             this.panel_upper.Controls.Add(this.pictureBox1);
             this.panel_upper.Controls.Add(this.label1);
             this.panel_upper.Controls.Add(this.lblUserName);
@@ -171,21 +171,21 @@
             this.btnNotification.UseVisualStyleBackColor = false;
             this.btnNotification.Click += new System.EventHandler(this.btnNotification_Click);
             // 
-            // btnDrop
+            // btnLogout
             // 
-            this.btnDrop.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.btnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDrop.BackColor = System.Drawing.Color.Transparent;
-            this.btnDrop.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnDrop.FlatAppearance.BorderSize = 0;
-            this.btnDrop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDrop.Image = ((System.Drawing.Image)(resources.GetObject("btnDrop.Image")));
-            this.btnDrop.Location = new System.Drawing.Point(1157, 0);
-            this.btnDrop.Name = "btnDrop";
-            this.btnDrop.Size = new System.Drawing.Size(31, 50);
-            this.btnDrop.TabIndex = 10;
-            this.btnDrop.UseVisualStyleBackColor = false;
-            this.btnDrop.Click += new System.EventHandler(this.btnDrop_Click);
+            this.btnLogout.BackColor = System.Drawing.Color.Transparent;
+            this.btnLogout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogout.FlatAppearance.BorderSize = 0;
+            this.btnLogout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLogout.Image = ((System.Drawing.Image)(resources.GetObject("btnLogout.Image")));
+            this.btnLogout.Location = new System.Drawing.Point(1157, 0);
+            this.btnLogout.Name = "btnLogout";
+            this.btnLogout.Size = new System.Drawing.Size(31, 50);
+            this.btnLogout.TabIndex = 10;
+            this.btnLogout.UseVisualStyleBackColor = false;
+            this.btnLogout.Click += new System.EventHandler(this.btnLogout_Click);
             // 
             // pictureBox1
             // 
@@ -846,7 +846,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel panel_upper;
         private System.Windows.Forms.Button btnNotification;
-        private System.Windows.Forms.Button btnDrop;
+        private System.Windows.Forms.Button btnLogout;
         private System.Windows.Forms.Timer Count_Pending_Timer;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel1;
         private System.Windows.Forms.Panel main_panelDock;

@@ -129,6 +129,7 @@
     </Compile>
     <Compile Include="Class_Data\Backup_Data_Class.cs" />
     <Compile Include="Class_Data\CalendarEvent_Class.cs" />
+    <Compile Include="Class_Data\Logout_Class.cs" />
     <Compile Include="Customer_Form.cs">
       <SubType>Form</SubType>
     </Compile>

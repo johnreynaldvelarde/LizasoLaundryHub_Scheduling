@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lizaso_Laundry_Hub.Class_Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,6 +24,7 @@ namespace Lizaso_Laundry_Hub
         private Update_Data_Class updateData;
         private Get_Data_Class getData;
         private Activity_Log_Class activityLogger;
+        private Logout_Class logout;
 
         public Account_Class AuthenticatedUser { get; set; }
         private Account_Class account;
@@ -36,15 +38,13 @@ namespace Lizaso_Laundry_Hub
         public Main_Form(Account_Class authenticatedUser)
         {
             InitializeComponent();
+            logout = new Logout_Class();
+            account = new Account_Class();
             getData = new Get_Data_Class();
             updateData = new Update_Data_Class();
             backupData = new Backup_Data_Class();
-            account = new Account_Class();
             activityLogger = new Activity_Log_Class();
-
-            //Panel panelUpper = panel_upper; 
-            //dropDownForm = new DropDown_Form(panelUpper);
-            //dropDownForm.BtnSettingsClick += DropDownForm_BtnSettingsClick;
+         
 
             AuthenticatedUser = authenticatedUser;
 
@@ -234,7 +234,7 @@ namespace Lizaso_Laundry_Hub
             timer1.Start();
         }
 
-        private void btnDrop_Click(object sender, EventArgs e)
+        private void btnDrosasap_Click(object sender, EventArgs e)
         {
             if (dropDownForm == null || dropDownForm.IsDisposed)
             {
@@ -439,6 +439,16 @@ namespace Lizaso_Laundry_Hub
                 MessageBox.Show($"Error loading configuration: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return false; // Default to false if any errors occur
+        }
+
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Logout Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                logout.MethodToLogoutUser();
+            }
         }
     }
 }
