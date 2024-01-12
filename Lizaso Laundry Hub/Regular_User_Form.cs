@@ -23,9 +23,9 @@ namespace Lizaso_Laundry_Hub
         private Account_Class account;
         private Get_Data_Class getData;
         private Activity_Log_Class activityLogger;
-        
 
         private Timer notificationTimer;
+        private Services_Form servicesForm;
         private Form activeForm = null;
         
         public int User_ID;
@@ -147,6 +147,34 @@ namespace Lizaso_Laundry_Hub
         private void openChildPanel(Form childPanel)
         {
             if (activeForm != null)
+                activeForm.Close();
+
+            if (childPanel is Services_Form)
+            {
+                if (servicesForm == null || servicesForm.IsDisposed)
+                {
+                    servicesForm = (Services_Form)childPanel;
+                    servicesForm.FormClosed += (s, args) => servicesForm = null; // Reset the reference when the form is closed
+                }
+                else
+                {
+                    servicesForm.BringToFront();
+                    return; // Don't proceed with the rest of the method
+                }
+            }
+
+            childPanel.TopLevel = false;
+            childPanel.FormBorderStyle = FormBorderStyle.FixedSingle;
+            childPanel.Dock = DockStyle.Fill;
+            main_panelDock.Controls.Add(childPanel);
+            main_panelDock.Tag = childPanel;
+            childPanel.BringToFront();
+            childPanel.Show();
+        }
+        /*
+        private void openChildPanel(Form childPanel)
+        {
+            if (activeForm != null)
 
             activeForm.Close();
             childPanel.TopLevel = false;
@@ -157,6 +185,7 @@ namespace Lizaso_Laundry_Hub
             childPanel.BringToFront();
             childPanel.Show();
         }
+        */
 
         private void InitializeButtons()
         {
@@ -180,7 +209,9 @@ namespace Lizaso_Laundry_Hub
 
         private void btn_Services_Click(object sender, EventArgs e)
         {
-            openChildPanel(new Services_Form());
+            Services_Form servicesForm = new Services_Form();
+            openChildPanel(servicesForm);
+            //openChildPanel(new Services_Form());
         }
 
         private void btn_Payments_Click(object sender, EventArgs e)

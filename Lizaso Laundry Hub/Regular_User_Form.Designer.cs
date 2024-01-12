@@ -46,7 +46,7 @@
             this.btn_Payments = new System.Windows.Forms.Button();
             this.btn_Dashboard = new System.Windows.Forms.Button();
             this.btn_Services = new System.Windows.Forms.Button();
-            this.regular_panel_dock = new System.Windows.Forms.Panel();
+            this.main_panelDock = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.panel_upper)).BeginInit();
             this.panel_upper.SuspendLayout();
@@ -366,14 +366,14 @@
             this.btn_Services.UseVisualStyleBackColor = false;
             this.btn_Services.Click += new System.EventHandler(this.btn_Services_Click);
             // 
-            // regular_panel_dock
+            // main_panelDock
             // 
-            this.regular_panel_dock.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.regular_panel_dock.Location = new System.Drawing.Point(93, 50);
-            this.regular_panel_dock.Name = "regular_panel_dock";
-            this.regular_panel_dock.Padding = new System.Windows.Forms.Padding(0, 10, 5, 10);
-            this.regular_panel_dock.Size = new System.Drawing.Size(1107, 550);
-            this.regular_panel_dock.TabIndex = 20;
+            this.main_panelDock.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.main_panelDock.Location = new System.Drawing.Point(93, 50);
+            this.main_panelDock.Name = "main_panelDock";
+            this.main_panelDock.Padding = new System.Windows.Forms.Padding(0, 10, 5, 10);
+            this.main_panelDock.Size = new System.Drawing.Size(1107, 550);
+            this.main_panelDock.TabIndex = 20;
             // 
             // panel1
             // 
@@ -392,7 +392,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(238)))), ((int)(((byte)(238)))), ((int)(((byte)(238)))));
             this.ClientSize = new System.Drawing.Size(1200, 600);
             this.ControlBox = false;
-            this.Controls.Add(this.regular_panel_dock);
+            this.Controls.Add(this.main_panelDock);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel_upper);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -421,7 +421,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label1;
         private ComponentFactory.Krypton.Toolkit.KryptonPanel kryptonPanel1;
-        private System.Windows.Forms.Panel regular_panel_dock;
+        private System.Windows.Forms.Panel main_panelDock;
         private System.Windows.Forms.Button btn_Services;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button btn_Dashboard;

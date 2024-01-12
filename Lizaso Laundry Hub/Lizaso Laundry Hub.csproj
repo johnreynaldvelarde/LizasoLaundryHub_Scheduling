@@ -346,12 +346,6 @@
       <DependentUpon>LaundryUnit_Configuration_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="Staff_Form.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Staff_Form.Designer.cs">
-      <DependentUpon>Staff_Form.cs</DependentUpon>
-    </Compile>
     <Compile Include="Super_User_Form.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -525,9 +519,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Settings_Module\LaundryUnit_Configuration_Form.resx">
       <DependentUpon>LaundryUnit_Configuration_Form.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Staff_Form.resx">
-      <DependentUpon>Staff_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Super_User_Form.resx">
       <DependentUpon>Super_User_Form.cs</DependentUpon>

@@ -1394,7 +1394,7 @@ namespace Lizaso_Laundry_Hub
                 {
                     int i = 0;
                     connect.Open();
-                    string query = "SELECT Log_ID, User_ID, Log_Date, User_Name, Activity_Type, Description, Status FROM Log_View";
+                    string query = "SELECT Log_ID, User_ID, Log_Date, User_Name, Activity_Type, Description, Status FROM Log_View ORDER BY Log_Date DESC";
 
                     using (SqlCommand cmd = new SqlCommand(query, connect))
                     {

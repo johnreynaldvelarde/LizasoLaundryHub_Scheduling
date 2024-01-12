@@ -9,30 +9,31 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using System.Data.SqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Lizaso_Laundry_Hub
 {
     public partial class Select_Unit_Form : KryptonForm
     {
-        DB_Connection database = new DB_Connection();
         private Services_Form frm;
-
         private Insert_Data_Class insertData;
+        private Activity_Log_Class activityLogger;
+        private DB_Connection database = new DB_Connection();
 
-        public ucUnit_Control ucUnit { get; set; }
+       
         public int unitID;
+        public ucUnit_Control ucUnit { get; set; }
 
         public Select_Unit_Form(Services_Form services)
         {
             InitializeComponent();
             insertData = new Insert_Data_Class();
+            activityLogger = new Activity_Log_Class();
             frm = services;
-            //timer1.Start();
         }
 
         private async void btnProceed_Click(object sender, EventArgs e)
         {
-
             if (cbCustomer_Type.SelectedIndex == -1)
             {
                 MessageBox.Show("Please select a customer type");
@@ -73,9 +74,11 @@ namespace Lizaso_Laundry_Hub
                         int customer_ID = selectedCustomerItem.CustomerID;
                         insertData.Set_LaundryBookings(unitID, customer_ID, _services, weight, sendStartTime, sendEndTime);
                     }
+                    UserActivityLog();
                     this.Dispose();
                     frm.Load_Unit();
                     await frm.DisplayInProgress();
+                   
 
                 }
                 catch (Exception ex)
@@ -83,6 +86,13 @@ namespace Lizaso_Laundry_Hub
                     MessageBox.Show("Error: " + ex.Message);
                 }
             }
+        }
+
+        public void UserActivityLog()
+        {
+            string activityType = "Selected";
+            string UnitDescription = $"{txt_UnitName.Text} has been selected for a laundry booking as of {DateTime.Now}.";
+            activityLogger.LogActivity(activityType, UnitDescription);
         }
 
         private decimal ParseWeight(string weightString)
@@ -132,7 +142,6 @@ namespace Lizaso_Laundry_Hub
         // method show the second is running
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //lblStartTime.Text = DateTime.Now.ToLongTimeString();
             DisplayAvailableSelectedTime();
         }
 
