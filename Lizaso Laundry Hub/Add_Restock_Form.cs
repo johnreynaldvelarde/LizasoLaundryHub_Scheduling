@@ -15,12 +15,15 @@ namespace Lizaso_Laundry_Hub
     {
         private Inventory_Form frm;
         private Update_Data_Class updateData;
+        private Activity_Log_Class activityLogger;
         public int getItemID;
+        public string getitemName;
 
         public Add_Restock_Form(Inventory_Form inventory)
         {
             InitializeComponent();
             updateData = new Update_Data_Class();
+            activityLogger = new Activity_Log_Class();
             frm = inventory;
         }
 
@@ -39,9 +42,17 @@ namespace Lizaso_Laundry_Hub
             {
                 int itemQuantity = int.Parse(txt_QytRestock.Text);
                 updateData.Update_ItemStock(getItemID, itemQuantity);
+                UserActivityLog(getitemName);
                 frm.DisplayInventory();
                 this.Dispose();
             }
+        }
+
+        public void UserActivityLog(string itemName)
+        {
+            string activityType = "Restock";
+            string restockDescription = $"{itemName} has been restocked as of {DateTime.Now}.";
+            activityLogger.LogActivity(activityType, restockDescription);
         }
 
         private void txt_QytRestock_KeyPress(object sender, KeyPressEventArgs e)

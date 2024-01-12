@@ -21,6 +21,7 @@ namespace Lizaso_Laundry_Hub
         
         private Insert_Data_Class insertData;
         private Get_Data_Class getData;
+        private Activity_Log_Class activityLogger;
         Services_Form frm;
 
         public Add_Reserved_Form(Services_Form services)
@@ -28,6 +29,7 @@ namespace Lizaso_Laundry_Hub
             InitializeComponent();
             insertData = new Insert_Data_Class();
             getData = new Get_Data_Class();
+            activityLogger = new Activity_Log_Class();
             frm = services;
         }
 
@@ -227,6 +229,7 @@ namespace Lizaso_Laundry_Hub
                     
                     if (success)
                     {
+                        UserActivityLog(cbSelectCustomer.Text);
                         Console.WriteLine("Reservation successful");
                         this.Dispose();
                         frm.Load_Unit();
@@ -239,6 +242,14 @@ namespace Lizaso_Laundry_Hub
                 }
 
             }
+        }
+        public bool UserActivityLog(string customerName)
+        {
+            string activityType = "Reserved";
+            string reservedDescription = $"Reserved bookings have been created for {customerName} as of {DateTime.Now}.";
+            activityLogger.LogActivity(activityType, reservedDescription);
+
+            return true;
         }
 
         private void rd2hourDefaultTime_CheckedChanged(object sender, EventArgs e)

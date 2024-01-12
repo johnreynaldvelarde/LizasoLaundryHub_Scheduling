@@ -16,6 +16,7 @@ namespace Lizaso_Laundry_Hub
         private Inventory_Form frm;
         private Insert_Data_Class insertData;
         private Update_Data_Class updateData;
+        private Activity_Log_Class activityLogger;
         public int setItemID;
 
         public Add_New_Item_Form(Inventory_Form inventory)
@@ -23,6 +24,7 @@ namespace Lizaso_Laundry_Hub
             InitializeComponent();
             insertData = new Insert_Data_Class();
             updateData = new Update_Data_Class();
+            activityLogger = new Activity_Log_Class();
             frm = inventory;
         }
         public void Clear()
@@ -75,6 +77,7 @@ namespace Lizaso_Laundry_Hub
                     string itemCategory = cb_Category.Text;
                     decimal itemPrice = decimal.Parse(txt_Price.Text);
                     updateData.Update_InventoryItem(setItemID, txt_ItemName.Text, itemCategory, itemPrice);
+                    UserActivityLogUpdate(txt_ItemName.Text);
                     frm.DisplayInventory();
                     this.Dispose();
                 }
@@ -88,6 +91,7 @@ namespace Lizaso_Laundry_Hub
                         int _qyt = int.Parse(txt_Quantity.Text);
 
                         insertData.Set_ItemDetails(_itemName, _categoryItem, _itemPrice, _qyt);
+                        UserActivityLogSave(_itemName);
                         this.Dispose();
                         frm.DisplayInventory();
                     }
@@ -98,6 +102,24 @@ namespace Lizaso_Laundry_Hub
                 }
             }
         }
+
+        public bool UserActivityLogSave(string itemName)
+        {
+            string activityType = "New Created";
+            string createdDescription = $"{itemName} has been successfully added to the system as a new item as of {DateTime.Now}.";
+            activityLogger.LogActivity(activityType, createdDescription);
+
+            return true;
+        }
+        public bool UserActivityLogUpdate(string itemName)
+        {
+            string activityType = "Updated";
+            string updateDescription = $"{itemName}'s information has been updated as of {DateTime.Now}.";
+            activityLogger.LogActivity(activityType, updateDescription);
+
+            return true;
+        }
+
         private void btnClear_Click(object sender, EventArgs e)
         {
             Clear();

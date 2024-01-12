@@ -63,6 +63,7 @@ namespace Lizaso_Laundry_Hub
             {
                 Add_Restock_Form restock = new Add_Restock_Form(this);
                 restock.getItemID = getItemID;
+                restock.getitemName = getItemName;
                 restock.txt_RemaningStock.Text = getQuantity;
                 restock.txt_QytRestock.Focus();
                 restock.ShowDialog();

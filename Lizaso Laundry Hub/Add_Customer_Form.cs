@@ -20,6 +20,7 @@ namespace Lizaso_Laundry_Hub
 
         private Insert_Data_Class insertData;
         private Update_Data_Class updateData;
+        private Activity_Log_Class activityLogger;
 
         public int registerCustomeID;
         public int guestCustomerID;
@@ -29,6 +30,7 @@ namespace Lizaso_Laundry_Hub
             InitializeComponent();
             insertData = new Insert_Data_Class();
             updateData = new Update_Data_Class();
+            activityLogger = new Activity_Log_Class();
             frm = customer;
         }
 
@@ -164,6 +166,7 @@ namespace Lizaso_Laundry_Hub
                         if (btnSave.Text == "Update")
                         {
                             updateData.Update_RegisterCustomer(registerCustomeID, customerName, contactNumber, emailAddress, address);
+                            UserActivityLogUpdate(customerName);
                             frm.DisplayRegisterAndGuestCustomer();
                             this.Dispose();
                         }
@@ -174,6 +177,7 @@ namespace Lizaso_Laundry_Hub
 
                             if (check)
                             {
+                                UserActivityLogSave(customerName);
                                 MessageBox.Show("Registered customer information saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 frm.DisplayRegisterAndGuestCustomer();
                                 this.Dispose();
@@ -200,6 +204,7 @@ namespace Lizaso_Laundry_Hub
                         if (btnSave.Text == "Update")
                         {
                             updateData.Update_GuestCustomer(guestCustomerID, customerName);
+                            UserActivityLogUpdate(customerName);
                             frm.DisplayRegisterAndGuestCustomer();
                             this.Dispose();
                         }
@@ -210,7 +215,9 @@ namespace Lizaso_Laundry_Hub
 
                             if (check)
                             {
+                                UserActivityLogSave(customerName);
                                 MessageBox.Show("Guest customer information saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                               
                                 frm.DisplayRegisterAndGuestCustomer();
                                 this.Dispose();
                             }
@@ -222,6 +229,25 @@ namespace Lizaso_Laundry_Hub
                     }
                 }
             }
-        } 
+        }
+
+        public bool UserActivityLogSave(string customerName)
+        {
+            string activityType = "New Created";
+            string createdDescription = $"{customerName} has been successfully added to the system as a new customer as of {DateTime.Now}.";
+            activityLogger.LogActivity(activityType, createdDescription);
+
+            return true;
+        }
+        public bool UserActivityLogUpdate(string customerName)
+        {
+            string activityType = "Updated";
+            string updateDescription = $"{customerName}'s information has been updated as of {DateTime.Now}.";
+            activityLogger.LogActivity(activityType, updateDescription);
+
+            return true;
+        }
+
+
     }
 }
