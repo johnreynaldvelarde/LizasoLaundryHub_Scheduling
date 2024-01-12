@@ -16,10 +16,14 @@ namespace Lizaso_Laundry_Hub.Settings_Module
     public partial class Backup_Restore_Form : KryptonForm
     {
         private Backup_Data_Class backupData;
+        private Activity_Log_Class activityLogger;
+        private Account_Class account;
         public Backup_Restore_Form()
         {
             InitializeComponent();
             backupData = new Backup_Data_Class();
+            activityLogger = new Activity_Log_Class();
+            account = new Account_Class();
         }
 
         private void Backup_Restore_Form_Load(object sender, EventArgs e)
@@ -31,7 +35,6 @@ namespace Lizaso_Laundry_Hub.Settings_Module
         {
             if (tab_BackupRestore.SelectedTab == tabPage1)
             {
-                //DisplayDateModified();
                 Get_ManuallyBackupConfig();
             }
             else if (tab_BackupRestore.SelectedTab == tabPage2)
@@ -54,18 +57,38 @@ namespace Lizaso_Laundry_Hub.Settings_Module
             string databaseName = txt_DatabaseName.Text;
 
             backupData.BackupDatabase_Manually(saveDirectory, filesToKeep, databaseName);
+            UserActivityLogBackupManully(account.User_Name);
+        }
+
+        public void UserActivityLogBackupManully(string userName)
+        {
+            string activityType = "Backup Database";
+            string backupDescription = $"A database backup has been performed by {userName} as of {DateTime.Now}.";
+            activityLogger.LogActivity(activityType, backupDescription);
+        }
+
+        public void UserActivityLogRestore(string userName)
+        {
+            string activityType = "Restore Database";
+            string restoreDescription = $"A database restore has been performed by {userName} as of {DateTime.Now}.";
+            activityLogger.LogActivity(activityType, restoreDescription);
+        }
+
+        public void UserActivityLogSaveConfig(string userName)
+        {
+            string activityType = "Save Configuration";
+            string configurationDescription = $"{userName} has saved the system configuration as of {DateTime.Now}.";
+            activityLogger.LogActivity(activityType, configurationDescription);
         }
 
         private void Label_ClickPath_Click(object sender, EventArgs e)
         {
-            // Open a FolderBrowserDialog to let the user choose a directory
             using (FolderBrowserDialog folderDialog = new FolderBrowserDialog())
             {
                 DialogResult result = folderDialog.ShowDialog();
 
                 if (result == DialogResult.OK && !string.IsNullOrWhiteSpace(folderDialog.SelectedPath))
                 {
-                    // Update the Label_ClickPath with the selected directory path
                     Label_ClickPath.Text = folderDialog.SelectedPath;
                 }
             }
@@ -92,17 +115,14 @@ namespace Lizaso_Laundry_Hub.Settings_Module
             }
             else
             {
-                // Get the values to be saved
                 string saveDirectory = Label_ClickPath.Text;
                 string filesToKeep = txt_NoFiles.Text;
                 string databaseName = txt_DatabaseName.Text;
 
-                // Define the path for the notepad file
                 string filePath = Path.Combine(@"C:\Lizaso Laundry Hub\System Settings", "Manually Backup Configuration.txt");
 
                 try
                 {
-                    // Write the details to the notepad file
                     using (StreamWriter sw = new StreamWriter(filePath))
                     {
                         sw.WriteLine($"Save Directory Path: {saveDirectory}");
@@ -110,6 +130,7 @@ namespace Lizaso_Laundry_Hub.Settings_Module
                         sw.WriteLine($"Database Name: {databaseName}");
                     }
 
+                    UserActivityLogSaveConfig(account.User_Name);
                     MessageBox.Show("Configuration saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Get_ManuallyBackupConfig();
                 }
@@ -123,10 +144,8 @@ namespace Lizaso_Laundry_Hub.Settings_Module
         // manually configuration
         public void Get_ManuallyBackupConfig()
         {
-            // Define the path for the notepad file
             string filePath = Path.Combine(@"C:\Lizaso Laundry Hub\System Settings", "Manually Backup Configuration.txt");
 
-            // Check if the file exists before proceeding
             if (!File.Exists(filePath))
             {
               
@@ -135,10 +154,8 @@ namespace Lizaso_Laundry_Hub.Settings_Module
             {
                 try
                 {
-                    // Read the details from the notepad file
                     using (StreamReader sr = new StreamReader(filePath))
                     {
-                        // Read each line and update the corresponding controls
                         Label_ClickPath.Text = sr.ReadLine()?.Replace("Save Directory Path: ", "");
                         txt_NoFiles.Text = sr.ReadLine()?.Replace("No of Files to Keep: ", "");
                         txt_DatabaseName.Text = sr.ReadLine()?.Replace("Database Name: ", "");
@@ -153,10 +170,8 @@ namespace Lizaso_Laundry_Hub.Settings_Module
 
         public void Get_RestoreConfig()
         {
-            // Define the path for the notepad file
             string filePath = Path.Combine(@"C:\Lizaso Laundry Hub\System Settings", "Restore Configuration.txt");
 
-            // Check if the file exists before proceeding
             if (!File.Exists(filePath))
             {
 
@@ -165,32 +180,24 @@ namespace Lizaso_Laundry_Hub.Settings_Module
             {
                 try
                 {
-                    // Read the details from the notepad file
                     using (StreamReader sr = new StreamReader(filePath))
                     {
                         string locationPathLine = sr.ReadLine();
                         string serverNameLine = sr.ReadLine();
                         string databaseNameLine = sr.ReadLine();
 
-                        // Check if the lines are not null before extracting values
                         if (locationPathLine != null)
                         {
                             Label_ClickLocateBackup.Text = locationPathLine.Replace("Location Path: ", "");
                         }
 
-                        // Ignore the Server Name and proceed to read the Database Name
                         sr.ReadLine();
 
                         if (databaseNameLine != null)
                         {
                             txt_RestoreDatabaseName.Text = databaseNameLine.Replace("Database Name: ", "");
                         }
-                        /*
-                        // Read each line and update the corresponding controls
-                        Label_ClickLocateBackup.Text = sr.ReadLine()?.Replace("Location Path: ", "");
-                        txt_ServerName.Text = sr.ReadLine()?.Replace("Server Name: ", "");
-                        txt_RestoreDatabaseName.Text = sr.ReadLine()?.Replace("Database Name: ", "");
-                        */
+                        
                     }
                 }
                 catch (Exception ex)
@@ -203,26 +210,20 @@ namespace Lizaso_Laundry_Hub.Settings_Module
         // restore configuration
         private void Label_ClickLocateBackup_Click(object sender, EventArgs e)
         {
-            // Create an OpenFileDialog
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
-            // Set initial directory, title, and filter
             openFileDialog.InitialDirectory = @"C:\Lizaso Laundry Hub\Database Backup";
             openFileDialog.Title = "Select .bak File";
             openFileDialog.Filter = "BAK files (*.bak)|*.bak";
             openFileDialog.FilterIndex = 1;
             openFileDialog.RestoreDirectory = true;
 
-            // Display the OpenFileDialog
             DialogResult result = openFileDialog.ShowDialog();
 
-            // Process the selected file
             if (result == DialogResult.OK)
             {
-                // Update the Label_ClickLocateBackup with the selected file's full path
                 Label_ClickLocateBackup.Text = openFileDialog.FileName;
 
-                // Optionally, you can display the selected .bak file's full path
                 Console.WriteLine("Selected .bak file: " + openFileDialog.FileName);
             }
         }
@@ -231,18 +232,14 @@ namespace Lizaso_Laundry_Hub.Settings_Module
         {
             try
             {
-                // Set a temporary message while retrieving the server name
                 textBox.Text = "Retrieving...";
                
-                // Run the server name retrieval in a separate thread
                 string sqlInstanceName = await Task.Run(() => GetSqlInstanceName());
                 image_server_loading.Visible = false;
-                // Set the text property of the provided TextBox with the SQL Server instance name
                 textBox.Text = sqlInstanceName;
             }
             catch (Exception ex)
             {
-                // Handle any exceptions that may occur during the process
                 MessageBox.Show($"Error getting SQL Server instance name: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
@@ -257,7 +254,6 @@ namespace Lizaso_Laundry_Hub.Settings_Module
                 string instanceName = row["InstanceName"] as string;
                 string server = row["ServerName"] as string;
 
-                // Assuming that you want the first available SQL Server instance
                 if (!string.IsNullOrEmpty(instanceName))
                 {
                     return $"{server}\\{instanceName}";
@@ -305,6 +301,7 @@ namespace Lizaso_Laundry_Hub.Settings_Module
                         sw.WriteLine($"Database Name: {databasNameRestore}");
                     }
 
+                    UserActivityLogSaveConfig(account.User_Name);
                     MessageBox.Show("Configuration saved successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Get_RestoreConfig();
                 }
@@ -341,6 +338,7 @@ namespace Lizaso_Laundry_Hub.Settings_Module
                 string databaseName = txt_RestoreDatabaseName.Text;
 
                 backupData.RestoreDatabase(LocationPath, serverName, databaseName);
+                UserActivityLogRestore(account.User_Name);
             }
         }
 
@@ -358,12 +356,10 @@ namespace Lizaso_Laundry_Hub.Settings_Module
             bool monthlyBackup = cbMonthlyBackup.Checked;
             bool yearlyBackup = cbYearlyBackup.Checked;
 
-            // Define the path for the notepad file
             string filePath = Path.Combine(@"C:\Lizaso Laundry Hub\System Settings", "Auto Backup Configuration.txt");
 
             try
             {
-                // Write the details to the notepad file
                 using (StreamWriter sw = new StreamWriter(filePath))
                 {
                     sw.WriteLine($"Logout Auto Backup: {logoutBackup}");
@@ -384,10 +380,8 @@ namespace Lizaso_Laundry_Hub.Settings_Module
 
         public void Get_AutoBackupConfig()
         {
-            // Define the path for the notepad file
             string filePath = Path.Combine(@"C:\Lizaso Laundry Hub\System Settings", "Auto Backup Configuration.txt");
 
-            // Check if the file exists before proceeding
             if (!File.Exists(filePath))
             {
 
@@ -396,10 +390,8 @@ namespace Lizaso_Laundry_Hub.Settings_Module
             {
                 try
                 {
-                    // Read the details from the configuration file
                     using (StreamReader sr = new StreamReader(filePath))
                     {
-                        // Read each line and update the corresponding controls
                         string line;
                         while ((line = sr.ReadLine()) != null)
                         {
@@ -409,7 +401,6 @@ namespace Lizaso_Laundry_Hub.Settings_Module
                                 string settingName = parts[0].Trim();
                                 bool settingValue = Convert.ToBoolean(parts[1].Trim());
 
-                                // Update controls based on the setting name
                                 UpdateControlBasedOnSetting(settingName, settingValue);
                             }
                         }
@@ -441,7 +432,7 @@ namespace Lizaso_Laundry_Hub.Settings_Module
                 case "Yearly Auto Backup":
                     cbYearlyBackup.Checked = settingValue;
                     break;
-                // Add more cases for additional settings if needed
+
                 default:
                     break;
             }
@@ -449,26 +440,20 @@ namespace Lizaso_Laundry_Hub.Settings_Module
 
         private void btn_LocateFileForDrive_Click(object sender, EventArgs e)
         {
-            // Create an OpenFileDialog
             OpenFileDialog openFileDialog = new OpenFileDialog();
 
-            // Set initial directory, title, and filter
             openFileDialog.InitialDirectory = @"C:\Lizaso Laundry Hub\Database Backup";
             openFileDialog.Title = "Select .bak File";
             openFileDialog.Filter = "BAK files (*.bak)|*.bak";
             openFileDialog.FilterIndex = 1;
             openFileDialog.RestoreDirectory = true;
 
-            // Display the OpenFileDialog
             DialogResult result = openFileDialog.ShowDialog();
 
-            // Process the selected file
             if (result == DialogResult.OK)
             {
-                // Update the Label_ClickLocateBackup with the selected file's full path
                 btn_LocateFileForDrive.Text = openFileDialog.FileName;
 
-                // Optionally, you can display the selected .bak file's full path
                 Console.WriteLine("Selected .bak file: " + openFileDialog.FileName);
             }
         }

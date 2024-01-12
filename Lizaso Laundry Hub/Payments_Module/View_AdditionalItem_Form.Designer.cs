@@ -37,10 +37,10 @@
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.LabelAmount = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.lbtitleCustomer = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.LabelAmount = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.grid_additional_view)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -70,6 +70,8 @@
             this.Column1,
             this.dataGridViewTextBoxColumn9});
             this.grid_additional_view.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grid_additional_view.GridStyles.Style = ComponentFactory.Krypton.Toolkit.DataGridViewStyle.Mixed;
+            this.grid_additional_view.GridStyles.StyleBackground = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonLowProfile;
             this.grid_additional_view.Location = new System.Drawing.Point(20, 64);
             this.grid_additional_view.Name = "grid_additional_view";
             this.grid_additional_view.ReadOnly = true;
@@ -78,13 +80,17 @@
             this.grid_additional_view.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.grid_additional_view.RowTemplate.Height = 50;
             this.grid_additional_view.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.grid_additional_view.Size = new System.Drawing.Size(748, 354);
-            this.grid_additional_view.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.GridBackgroundList;
+            this.grid_additional_view.Size = new System.Drawing.Size(744, 350);
+            this.grid_additional_view.StateCommon.BackStyle = ComponentFactory.Krypton.Toolkit.PaletteBackStyle.ButtonLowProfile;
             this.grid_additional_view.StateCommon.DataCell.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.grid_additional_view.StateCommon.DataCell.Content.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
             this.grid_additional_view.StateCommon.DataCell.Content.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.grid_additional_view.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
-            this.grid_additional_view.StateCommon.HeaderColumn.Content.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(62)))), ((int)(((byte)(71)))));
+            this.grid_additional_view.StateCommon.HeaderColumn.Back.Color1 = System.Drawing.Color.DarkSlateGray;
+            this.grid_additional_view.StateCommon.HeaderColumn.Back.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(110)))), ((int)(((byte)(121)))));
+            this.grid_additional_view.StateCommon.HeaderColumn.Back.ColorAngle = 45F;
+            this.grid_additional_view.StateCommon.HeaderColumn.Back.ColorStyle = ComponentFactory.Krypton.Toolkit.PaletteColorStyle.HalfCut;
+            this.grid_additional_view.StateCommon.HeaderColumn.Content.Color1 = System.Drawing.Color.White;
+            this.grid_additional_view.StateCommon.HeaderColumn.Content.Color2 = System.Drawing.Color.White;
             this.grid_additional_view.StateCommon.HeaderColumn.Content.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.grid_additional_view.TabIndex = 11;
             this.grid_additional_view.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.grid_additional_view_CellFormatting);
@@ -128,8 +134,34 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(20, 20);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(748, 44);
+            this.panel1.Size = new System.Drawing.Size(744, 44);
             this.panel1.TabIndex = 10;
+            // 
+            // LabelAmount
+            // 
+            this.LabelAmount.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.LabelAmount.AutoSize = true;
+            this.LabelAmount.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LabelAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(35)))), ((int)(((byte)(30)))));
+            this.LabelAmount.Location = new System.Drawing.Point(334, 9);
+            this.LabelAmount.Name = "LabelAmount";
+            this.LabelAmount.Size = new System.Drawing.Size(45, 28);
+            this.LabelAmount.TabIndex = 80;
+            this.LabelAmount.Text = "PHP ";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
+            this.label1.Location = new System.Drawing.Point(206, 8);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(122, 28);
+            this.label1.TabIndex = 79;
+            this.label1.Text = "Total Amount:";
             // 
             // btnClose
             // 
@@ -139,7 +171,7 @@
             this.btnClose.FlatAppearance.BorderSize = 0;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Image = ((System.Drawing.Image)(resources.GetObject("btnClose.Image")));
-            this.btnClose.Location = new System.Drawing.Point(711, 8);
+            this.btnClose.Location = new System.Drawing.Point(707, 8);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(23, 29);
             this.btnClose.TabIndex = 78;
@@ -157,38 +189,12 @@
             this.lbtitleCustomer.TabIndex = 77;
             this.lbtitleCustomer.Text = "Additional Payments";
             // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(98)))), ((int)(((byte)(98)))));
-            this.label1.Location = new System.Drawing.Point(206, 8);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 28);
-            this.label1.TabIndex = 79;
-            this.label1.Text = "Total Amount:";
-            // 
-            // LabelAmount
-            // 
-            this.LabelAmount.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-            this.LabelAmount.AutoSize = true;
-            this.LabelAmount.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LabelAmount.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(35)))), ((int)(((byte)(30)))));
-            this.LabelAmount.Location = new System.Drawing.Point(334, 9);
-            this.LabelAmount.Name = "LabelAmount";
-            this.LabelAmount.Size = new System.Drawing.Size(45, 28);
-            this.LabelAmount.TabIndex = 80;
-            this.LabelAmount.Text = "PHP ";
-            // 
             // View_AdditionalItem_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(788, 438);
+            this.ClientSize = new System.Drawing.Size(784, 434);
             this.ControlBox = false;
             this.Controls.Add(this.grid_additional_view);
             this.Controls.Add(this.panel1);

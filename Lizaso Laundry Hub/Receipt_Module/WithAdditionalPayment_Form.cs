@@ -43,10 +43,8 @@ namespace Lizaso_Laundry_Hub.Receipt_Module
             parameters[8] = new ReportParameter("PaymentMethod", _paymentMethod);
             parameters[9] = new ReportParameter("Address", _address);
 
-            // Clear existing data sources
             reportViewer1.LocalReport.DataSources.Clear();
 
-            // Set the additionalItems as a report data source
             reportViewer1.LocalReport.DataSources.Add(new ReportDataSource("ItemDataSet", additionalItems));
 
             reportViewer1.LocalReport.SetParameters(parameters);

@@ -47,7 +47,6 @@ namespace Lizaso_Laundry_Hub.Dashboard_Widget
 
         private void UpdateCalendar(List<Calendar_InProgress_Class> inProgressBookings)
         {
-            // Assuming 'calendar1' is your custom calendar control
             calendar1.AllowEditingEvents = false;
 
             foreach (var booking in inProgressBookings)

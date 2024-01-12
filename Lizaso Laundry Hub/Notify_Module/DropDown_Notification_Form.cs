@@ -30,7 +30,7 @@ namespace Lizaso_Laundry_Hub.Notify_Module
             if (this.panel_upper_noti != null)
             {
                 this.StartPosition = FormStartPosition.Manual;
-                this.Location = new Point(850, 50); // Coordinates of the button
+                this.Location = new Point(850, 50);
             }
             else
             {
@@ -54,7 +54,6 @@ namespace Lizaso_Laundry_Hub.Notify_Module
 
                 List<NotificationLog> notificationLogs = getData.GetNotificationLog(account.User_ID);
 
-                // Reverse the order of notificationLogs to display the latest at the top
                 notificationLogs.Reverse();
 
                 foreach (var noti in notificationLogs)

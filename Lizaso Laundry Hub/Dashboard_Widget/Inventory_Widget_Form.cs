@@ -28,8 +28,6 @@ namespace Lizaso_Laundry_Hub.Dashboard_Widget
             getData.Get_AllCountItemQytAndLoss(Label_Total, Label_Loss, Label_ItemName);
         }
 
-       
-
         private void btn_ViewAllInventory_CheckedChanged(object sender, EventArgs e)
         {
             View_AllInventory_Form inventory = new View_AllInventory_Form();

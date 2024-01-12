@@ -95,7 +95,7 @@ namespace Lizaso_Laundry_Hub.Notify_Module
         {
             if (this.Opacity < 1)
             {
-                this.Opacity += 0.05; // Adjust the increment as needed for smoothness
+                this.Opacity += 0.05; 
             }
             else
             {

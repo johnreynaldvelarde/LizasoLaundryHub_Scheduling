@@ -31,13 +31,10 @@ namespace Lizaso_Laundry_Hub.Notify_Module
             
             txt_Description.Text = Log.Description;
 
-            // Calculate the time difference
             TimeSpan timeDifference = DateTime.Now - Log.LogDate;
 
-            // Assign the result of the conditional expression to a variable
             string elapsedTime = FormatElapsedTime(timeDifference);
 
-            // Update the Label_Time text using the variable
             Label_Time.Text = elapsedTime;
         }
 
