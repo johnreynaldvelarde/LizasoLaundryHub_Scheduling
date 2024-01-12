@@ -466,32 +466,39 @@ namespace Lizaso_Laundry_Hub.Settings_Module
 
         private async void btn_SaveGoogle_Click(object sender, EventArgs e)
         {
-            if (IsInternetAvailable())
+            try
             {
-                // Internet connection is available, proceed with Google Drive upload
-                UserCredential credential = await GetGoogleDriveCredential();
-
-                if (credential != null)
+                if (IsInternetAvailable())
                 {
-                    var driveService = new DriveService(new BaseClientService.Initializer()
-                    {
-                        HttpClientInitializer = credential,
-                        ApplicationName = txt_ApplicationName.Text, // Use txt_ApplicationName text
-                    });
+                    // Internet connection is available, proceed with Google Drive upload
+                    UserCredential credential = await GetGoogleDriveCredential();
 
-                    // Upload the file
-                    await UploadFileToDrive(driveService, backupFilePath);
+                    if (credential != null)
+                    {
+                        var driveService = new DriveService(new BaseClientService.Initializer()
+                        {
+                            HttpClientInitializer = credential,
+                            ApplicationName = txt_ApplicationName.Text, // Use txt_ApplicationName text
+                        });
+
+                        // Upload the file
+                        await UploadFileToDrive(driveService, backupFilePath);
+                    }
+                    else
+                    {
+                        // Handle credential retrieval failure
+                        MessageBox.Show("Failed to retrieve Google Drive credentials.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 else
                 {
-                    // Handle credential retrieval failure
-                    MessageBox.Show("Failed to retrieve Google Drive credentials.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    // No internet connection, display a message or take appropriate action
+                    MessageBox.Show("No internet connection available. Please check your network settings.", "No Internet Connection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
-            else
+            catch (Exception ex)
             {
-                // No internet connection, display a message or take appropriate action
-                MessageBox.Show("No internet connection available. Please check your network settings.", "No Internet Connection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -513,7 +520,9 @@ namespace Lizaso_Laundry_Hub.Settings_Module
         {
             UserCredential credential;
 
-            using (var stream = new FileStream("credentials.json", FileMode.Open, FileAccess.Read))
+            string credentialsPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "credentials.json");
+
+            using (var stream = new FileStream(credentialsPath, FileMode.Open, FileAccess.Read))
             {
                 string credPath = "token.json";
                 credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
