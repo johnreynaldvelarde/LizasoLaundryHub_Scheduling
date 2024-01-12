@@ -6,10 +6,16 @@ using System.Data.Sql;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
+using Google.Apis.Auth.OAuth2;
+using Google.Apis.Drive.v3;
+using Google.Apis.Services;
+using Google.Apis.Util.Store;
 
 namespace Lizaso_Laundry_Hub.Settings_Module
 {
@@ -438,6 +444,8 @@ namespace Lizaso_Laundry_Hub.Settings_Module
             }
         }
 
+        private string backupFilePath;
+
         private void btn_LocateFileForDrive_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
@@ -453,6 +461,7 @@ namespace Lizaso_Laundry_Hub.Settings_Module
             if (result == DialogResult.OK)
             {
                 btn_LocateFileForDrive.Text = openFileDialog.FileName;
+                btn_LocateFileForDrive.Text = backupFilePath;
 
                 Console.WriteLine("Selected .bak file: " + openFileDialog.FileName);
             }
@@ -460,7 +469,85 @@ namespace Lizaso_Laundry_Hub.Settings_Module
 
         private void btn_SaveGoogle_Click(object sender, EventArgs e)
         {
+            if (IsInternetAvailable())
+            {
+                // Internet connection is available, proceed with Google Drive upload
+                UserCredential credential = await GetGoogleDriveCredential();
 
+                if (credential != null)
+                {
+                    var driveService = new DriveService(new BaseClientService.Initializer()
+                    {
+                        HttpClientInitializer = credential,
+                        ApplicationName = txt_ApplicationName.Text, // Use txt_ApplicationName text
+                    });
+
+                    // Upload the file
+                    await UploadFileToDrive(driveService, backupFilePath);
+                }
+                else
+                {
+                    // Handle credential retrieval failure
+                    MessageBox.Show("Failed to retrieve Google Drive credentials.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+            else
+            {
+                // No internet connection, display a message or take appropriate action
+                MessageBox.Show("No internet connection available. Please check your network settings.", "No Internet Connection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private bool IsInternetAvailable()
+        {
+            try
+            {
+                Ping ping = new Ping();
+                PingReply reply = ping.Send("www.google.com", 1000);
+                return (reply != null && reply.Status == IPStatus.Success);
+            }
+            catch (PingException)
+            {
+                return false;
+            }
+        }
+
+        private async Task<UserCredential> GetGoogleDriveCredential()
+        {
+            UserCredential credential;
+
+            using (var stream = new FileStream("credentials.json", FileMode.Open, FileAccess.Read))
+            {
+                string credPath = "token.json";
+                credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
+                    GoogleClientSecrets.Load(stream).Secrets,
+                    new[] { DriveService.Scope.DriveFile },
+                    txt_EmailAddress.Text, // Use txt_EmailAddress text
+                    CancellationToken.None,
+                    new FileDataStore(credPath, true));
+            }
+
+            return credential;
+        }
+
+        private async Task UploadFileToDrive(DriveService service, string filePath)
+        {
+            var fileMetadata = new Google.Apis.Drive.v3.Data.File()
+            {
+                Name = Path.GetFileName(filePath),
+            };
+
+            FilesResource.CreateMediaUpload request;
+
+            using (var stream = new FileStream(filePath, FileMode.Open))
+            {
+                request = service.Files.Create(fileMetadata, stream, "application/octet-stream");
+                request.Fields = "id";
+                await request.UploadAsync();
+            }
+
+            var file = request.ResponseBody;
+            Console.WriteLine("File ID: " + file.Id);
         }
     }
 }
