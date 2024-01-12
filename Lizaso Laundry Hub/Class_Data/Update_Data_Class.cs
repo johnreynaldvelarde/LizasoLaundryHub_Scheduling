@@ -596,7 +596,7 @@ namespace Lizaso_Laundry_Hub
                         int unitStatus = Convert.ToInt32(getStatusCommand.ExecuteScalar());
 
                         // Check if the unit can be deleted (Available or Not Available)
-                        if (unitStatus == 0 || unitStatus == 3)
+                        if (unitStatus == 0 || unitStatus == 2)
                         {
                             // Proceed with setting Archive to 1
                             string updateQuery = "UPDATE Laundry_Unit SET Archive = 1 WHERE Unit_ID = @UnitID";

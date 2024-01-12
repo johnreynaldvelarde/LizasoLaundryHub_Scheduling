@@ -9,48 +9,59 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ComponentFactory.Krypton.Toolkit;
 using Calendar.NET;
+using System.Data.SqlClient;
+using Lizaso_Laundry_Hub.Class_Data;
 
 namespace Lizaso_Laundry_Hub.Dashboard_Widget
 {
     public partial class Calendar_Widget_Form : KryptonForm
     {
+        private Get_Data_Class getData;
+
         public Calendar_Widget_Form()
         {
             InitializeComponent();
-            CalendarView();
+            getData = new Get_Data_Class();
         }
 
-        public void CalendarView()
+        public void DisplayGridAndCalendar()
         {
+            getData.Get_CalendarBookingsInProgressAndReserved(grid_bookings_view);
+        }
+
+        private void Calendar_Widget_Form_Load(object sender, EventArgs e)
+        {
+            DisplayGridAndCalendar();
+            UpdateDataAndCalendar();
+        }
+
+        private void UpdateDataAndCalendar()
+        {
+            var inProgressBookings = getData.Get_CalendarInProgressBookings();
+
+            if (inProgressBookings != null)
+            {
+                UpdateCalendar(inProgressBookings);
+            }
+        }
+
+        private void UpdateCalendar(List<Calendar_InProgress_Class> inProgressBookings)
+        {
+            // Assuming 'calendar1' is your custom calendar control
             calendar1.AllowEditingEvents = false;
-            
-            var groundhogEvent = new HolidayEvent
+
+            foreach (var booking in inProgressBookings)
             {
-                Date = new DateTime(2024, 1, 1),
-                EventText = "Groundhog Day",
-                RecurringFrequency = RecurringFrequencies.Yearly
-            };
+                var inProgressEvent = new CustomEvent
+                {
+                    //Date = booking.StartTime ,
+                    Date = booking.StartTime ,
+                    RecurringFrequency = RecurringFrequencies.None,
+                    EventText = $"{booking.UnitName} is {booking.Status}"
+                };
 
-            calendar1.AddEvent(groundhogEvent);
-
-            var exerciseEvent = new CustomEvent
-            {
-                Date = DateTime.Now,
-                RecurringFrequency = RecurringFrequencies.None,
-                EventText = "Time for Exercise!"
-            };
-
-            calendar1.AddEvent(exerciseEvent);
-
-            var exerciseEvent2 = new CustomEvent
-            {
-                Date = DateTime.Now,
-                RecurringFrequency = RecurringFrequencies.None,
-                EventText = "dadad!"
-            };
-
-            calendar1.AddEvent(exerciseEvent2);
-
+                calendar1.AddEvent(inProgressEvent);
+            }
         }
     }
 }

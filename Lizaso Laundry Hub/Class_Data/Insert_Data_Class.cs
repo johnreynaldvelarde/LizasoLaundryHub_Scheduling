@@ -116,17 +116,7 @@ namespace Lizaso_Laundry_Hub
                             using (SqlCommand commandUpdateStatus = new SqlCommand(sqlUpdateUnit, connect))
                             {
                                 commandUpdateStatus.Parameters.AddWithValue("@Unit_ID", _unitID);
-
-                                int statusRowsAffected = commandUpdateStatus.ExecuteNonQuery();
-
-                                if (statusRowsAffected > 0)
-                                {
-                                    MessageBox.Show("Laundry booking successful.");
-                                }
-                                else
-                                {
-                                    MessageBox.Show("Failed to update Laundry_Unit status.");
-                                }
+                                commandUpdateStatus.ExecuteNonQuery();
                             }
                         }
                         else
@@ -139,7 +129,6 @@ namespace Lizaso_Laundry_Hub
             }
             catch (Exception ex)
             {
-                // Handle the exception (display a message, log it, etc.)
                 MessageBox.Show($"An error occurred: {ex.Message}");
                 return false;
             }

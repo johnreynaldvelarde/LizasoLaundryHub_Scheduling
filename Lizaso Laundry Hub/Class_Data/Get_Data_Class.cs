@@ -15,6 +15,8 @@ using System.Diagnostics;
 using Lizaso_Laundry_Hub.Notify_Module;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 using System.Windows.Forms.DataVisualization.Charting;
+using static Lizaso_Laundry_Hub.Dashboard_Widget.Calendar_Widget_Form;
+using Lizaso_Laundry_Hub.Class_Data;
 
 namespace Lizaso_Laundry_Hub
 {
@@ -289,7 +291,6 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
-
         // << DASHBOARD FORM / Dashboard Widget/  Inventory Widget Form / 
         // method to count all quantity in inventory and transaction item
         public bool Get_AllCountItemQytAndLoss(Label allItemQyt, Label allItemLoss, Label itemName)
@@ -343,8 +344,6 @@ namespace Lizaso_Laundry_Hub
                 return false;
             }
         }
-
-
 
         // << DASHBOARD FORM / Stats Widget Form >> 
         // method to get the most visited customer in store
@@ -401,8 +400,6 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
-
-
         public bool Get_ChartMostVisitedCustsassaomer(Chart visited_customer_chart)
         {
             try
@@ -418,6 +415,108 @@ namespace Lizaso_Laundry_Hub
                 return false;
             }
         }
+
+
+        // << DASHBOARD FORM / Calendar Widget Form >> 
+        // method to get in progress and reserved
+        public bool Get_CalendarBookingsInProgressAndReserved(DataGridView grid_progressreserved_view)
+        {
+            try
+            {
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+                    connect.Open();
+
+                    string query = @"SELECT C.Customer_Name, U.Unit_Name, LB.Start_Time, LB.End_Time, LB.Bookings_Status
+                                     FROM Bookings_View LB
+                                     JOIN Customers_View C ON LB.Customer_ID = C.Customer_ID
+                                     JOIN Unit_View U ON LB.Unit_ID = U.Unit_ID
+                                     WHERE LB.Bookings_Status IN ('In-Progress', 'Reserved')
+                                     ORDER BY LB.Start_Time";
+
+                    using (SqlCommand cmd = new SqlCommand(query, connect))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            grid_progressreserved_view.Rows.Clear(); // Clear existing rows
+
+                            while (reader.Read())
+                            {
+                                // Extract data from the reader
+                                string customerName = reader["Customer_Name"].ToString();
+                                string unitName = reader["Unit_Name"].ToString();
+                                DateTime startTime = Convert.ToDateTime(reader["Start_Time"]);
+                                DateTime endTime = Convert.ToDateTime(reader["End_Time"]);
+                                string bookingStatus = reader["Bookings_Status"].ToString();
+
+                                string timeRange = $"Start Time: {reader["Start_Time"]:MM/dd/yyyy h:mm:ss tt}\nEnd Time: {reader["End_Time"]: MM/dd/yyyy h:mm:ss tt}";
+
+                                // Add data to DataGridView
+                                grid_progressreserved_view.Rows.Add(customerName, unitName, timeRange, bookingStatus);
+                            }
+                        }
+                    }
+                }
+
+                return true;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+        // << DASHBOARD FORM / Calendar Widget Form >> 
+        // method to get In-Progress Status in Laundry Bookings and put in Calendar
+        public List<Calendar_InProgress_Class> Get_CalendarInProgressBookings()
+        {
+            try
+            {
+                List<Calendar_InProgress_Class> inProgressBookings = new List<Calendar_InProgress_Class>();
+
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+                {
+                    connect.Open();
+
+                    string query = @"SELECT Unit_Name, Start_Time, End_Time, Bookings_Status
+                                     FROM Bookings_View LB
+                                     JOIN Unit_View LU ON LB.Unit_ID = LU.Unit_ID
+                                     WHERE Bookings_Status = 'In-Progress'";
+
+                    using (SqlCommand cmd = new SqlCommand(query, connect))
+                    {
+                        using (SqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Calendar_InProgress_Class booking = new Calendar_InProgress_Class
+                                {
+                                    UnitName = reader["Unit_Name"].ToString(),
+                                    StartTime = Convert.ToDateTime(reader["Start_Time"]),
+                                    EndTime = Convert.ToDateTime(reader["End_Time"]),
+                                    Status = reader["Bookings_Status"].ToString()
+                                };
+
+                                inProgressBookings.Add(booking);
+                            }
+                        }
+                    }
+                }
+
+                return inProgressBookings;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return null; // or an empty list, depending on your requirements
+            }
+        }
+
+
+
+
+        
 
         public bool Get_AllDeliveryList(DataGridView grid_delivery_view)
         {
@@ -464,7 +563,7 @@ namespace Lizaso_Laundry_Hub
         // method to check the timeleft based on bookingID proviced
         public DateTime RetrieveEndTimeFromDatabase(int bookingID)
         {
-            DateTime endTime = DateTime.MinValue; // Default value if not found or in an error state
+            DateTime endTime = DateTime.MinValue; 
 
             try
             {
