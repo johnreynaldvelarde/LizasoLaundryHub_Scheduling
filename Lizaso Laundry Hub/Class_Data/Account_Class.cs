@@ -29,8 +29,5 @@ namespace Lizaso_Laundry_Hub
             get { return is_SuperUSer; }
             set { is_SuperUSer = value; }
         }
-
-        //public int User_ID { get; set; }
-        //public string User_Name { get; set; }
     }
 }
