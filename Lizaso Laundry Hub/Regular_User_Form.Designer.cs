@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Regular_User_Form));
             this.panel_upper = new ComponentFactory.Krypton.Toolkit.KryptonPanel();
+            this.lbl_ShowAutoBackup = new System.Windows.Forms.Label();
+            this.image_database_save = new System.Windows.Forms.PictureBox();
             this.btnNotification = new System.Windows.Forms.Button();
             this.btnLogOut = new System.Windows.Forms.Button();
             this.lblUserName = new System.Windows.Forms.Label();
@@ -48,6 +50,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.panel_upper)).BeginInit();
             this.panel_upper.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.image_database_save)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).BeginInit();
             this.kryptonPanel1.SuspendLayout();
@@ -56,6 +59,8 @@
             // 
             // panel_upper
             // 
+            this.panel_upper.Controls.Add(this.lbl_ShowAutoBackup);
+            this.panel_upper.Controls.Add(this.image_database_save);
             this.panel_upper.Controls.Add(this.btnNotification);
             this.panel_upper.Controls.Add(this.btnLogOut);
             this.panel_upper.Controls.Add(this.lblUserName);
@@ -70,6 +75,33 @@
             this.panel_upper.StateCommon.Color2 = System.Drawing.Color.FromArgb(((int)(((byte)(183)))), ((int)(((byte)(110)))), ((int)(((byte)(121)))));
             this.panel_upper.StateCommon.ColorAngle = 45F;
             this.panel_upper.TabIndex = 1;
+            // 
+            // lbl_ShowAutoBackup
+            // 
+            this.lbl_ShowAutoBackup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.lbl_ShowAutoBackup.AutoSize = true;
+            this.lbl_ShowAutoBackup.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_ShowAutoBackup.Font = new System.Drawing.Font("Poppins SemiBold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl_ShowAutoBackup.ForeColor = System.Drawing.Color.White;
+            this.lbl_ShowAutoBackup.Location = new System.Drawing.Point(321, 15);
+            this.lbl_ShowAutoBackup.Name = "lbl_ShowAutoBackup";
+            this.lbl_ShowAutoBackup.Size = new System.Drawing.Size(109, 23);
+            this.lbl_ShowAutoBackup.TabIndex = 15;
+            this.lbl_ShowAutoBackup.Text = "Auto-Backup...";
+            this.lbl_ShowAutoBackup.Visible = false;
+            // 
+            // image_database_save
+            // 
+            this.image_database_save.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.image_database_save.BackColor = System.Drawing.Color.Transparent;
+            this.image_database_save.Image = ((System.Drawing.Image)(resources.GetObject("image_database_save.Image")));
+            this.image_database_save.Location = new System.Drawing.Point(265, 0);
+            this.image_database_save.Name = "image_database_save";
+            this.image_database_save.Size = new System.Drawing.Size(50, 50);
+            this.image_database_save.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.image_database_save.TabIndex = 14;
+            this.image_database_save.TabStop = false;
+            this.image_database_save.Visible = false;
             // 
             // btnNotification
             // 
@@ -371,6 +403,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.panel_upper)).EndInit();
             this.panel_upper.ResumeLayout(false);
             this.panel_upper.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.image_database_save)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.kryptonPanel1)).EndInit();
             this.kryptonPanel1.ResumeLayout(false);
@@ -398,5 +431,7 @@
         private System.Windows.Forms.Button btn_Inventory;
         private System.Windows.Forms.Button btn_UserManage;
         private System.Windows.Forms.Button btn_Settings;
+        public System.Windows.Forms.Label lbl_ShowAutoBackup;
+        public System.Windows.Forms.PictureBox image_database_save;
     }
 }

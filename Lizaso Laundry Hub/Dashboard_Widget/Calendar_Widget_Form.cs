@@ -46,7 +46,7 @@ namespace Lizaso_Laundry_Hub.Dashboard_Widget
             {
                 Date = DateTime.Now,
                 RecurringFrequency = RecurringFrequencies.None,
-                EventText = "Gago ka ba!"
+                EventText = "dadad!"
             };
 
             calendar1.AddEvent(exerciseEvent2);

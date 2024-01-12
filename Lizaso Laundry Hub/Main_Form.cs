@@ -178,7 +178,9 @@ namespace Lizaso_Laundry_Hub
             openChildPanel(new Dashboard_Form());
 
             await StartPeriodicTask();
-            lblUpperTime.Text = DateTime.Now.ToLongTimeString();
+            //lblUpperTime.Text = DateTime.Now.ToLongTimeString();
+            lblUpperTime.Text = DateTime.Now.ToString("MMMM dd, yyyy hh:mm:ss tt");
+
             //DisplayCountPending();
         }
 
@@ -230,7 +232,9 @@ namespace Lizaso_Laundry_Hub
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            lblUpperTime.Text = DateTime.Now.ToLongTimeString();
+            //lblUpperTime.Text = DateTime.Now.ToLongTimeString();
+            lblUpperTime.Text = DateTime.Now.ToString("MMMM dd, yyyy   hh:mm:ss tt");
+
             timer1.Start();
         }
 

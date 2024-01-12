@@ -28,6 +28,7 @@ namespace Lizaso_Laundry_Hub.Class_Data
             try
             {
                 Main_Form mainForm = Application.OpenForms.OfType<Main_Form>().FirstOrDefault();
+                Regular_User_Form regularForm = Application.OpenForms.OfType<Regular_User_Form>().FirstOrDefault();
 
                 if (CheckLogoutAutoBackupSetting())
                 {
@@ -36,12 +37,21 @@ namespace Lizaso_Laundry_Hub.Class_Data
                         mainForm.ShowImageDatabase();
                         mainForm.Get_AutoSave_Label();
                     }
+                    else if(regularForm != null)
+                    {
+                        regularForm.ShowImageDatabase();
+                        regularForm.Get_AutoSave_Label();
+                    }
+                    else
+                    {
+
+                    }
 
                     backupData.BackupDatabaseEveryLogout();
                     await Task.Delay(2000);
                     UserActivityLog(account.User_Name);
                     updateData.Update_UserLastActiveAndStatus(account.User_ID);
-                    Application.OpenForms["Main_Form"].Dispose();
+                    CheckWhoFormOpen();
 
                     Login_Form frm = new Login_Form();
                     frm.Show();
@@ -50,7 +60,7 @@ namespace Lizaso_Laundry_Hub.Class_Data
                 {
                     UserActivityLog(account.User_Name);
                     updateData.Update_UserLastActiveAndStatus(account.User_ID);
-                    Application.OpenForms["Main_Form"].Dispose();
+                    CheckWhoFormOpen();
 
                     Login_Form frm1 = new Login_Form();
                     frm1.Show();
@@ -60,6 +70,32 @@ namespace Lizaso_Laundry_Hub.Class_Data
             {
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        public void CheckWhoFormOpen()
+        {
+            // Check if Main_Form is open
+            if (IsFormOpen("Main_Form"))
+            {
+                Application.OpenForms["Main_Form"].Dispose();
+            }
+            // Check if Regular_User_Form is open
+            else if (IsFormOpen("Regular_User_Form"))
+            {
+                Application.OpenForms["Regular_User_Form"].Dispose();
+            }
+        }
+
+        private bool IsFormOpen(string formName)
+        {
+            foreach (Form form in Application.OpenForms)
+            {
+                if (form.Name == formName)
+                {
+                    return true; // Form is open
+                }
+            }
+            return false; // Form is not open
         }
 
         // method to check if the auto backup is true in textfile

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Lizaso_Laundry_Hub.Class_Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,16 +9,21 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Lizaso_Laundry_Hub
 {
     public partial class Regular_User_Form : Form
     {
         public Account_Class AuthenticatedUser { get; set; }
+
         private Notify_Module.DropDown_Notification_Form dropNoti;
+
+        private Logout_Class logout;
         private Account_Class account;
-        private Activity_Log_Class activityLogger;
         private Get_Data_Class getData;
+        private Activity_Log_Class activityLogger;
+        
 
         private Timer notificationTimer;
         private Form activeForm = null;
@@ -28,9 +34,11 @@ namespace Lizaso_Laundry_Hub
         public Regular_User_Form(Account_Class authenticatedUser)
         {
             InitializeComponent();
-            getData = new Get_Data_Class();
+            logout = new Logout_Class();
             account = new Account_Class();
+            getData = new Get_Data_Class();
             activityLogger = new Activity_Log_Class();
+
             AuthenticatedUser = authenticatedUser;
 
             if (AuthenticatedUser != null)
@@ -51,6 +59,17 @@ namespace Lizaso_Laundry_Hub
 
             // Start the timer
             notificationTimer.Start();
+        }
+
+        public void ShowImageDatabase()
+        {
+            image_database_save.Visible = true;
+        }
+
+        public Label Get_AutoSave_Label()
+        {
+            lbl_ShowAutoBackup.Visible = true;
+            return lbl_ShowAutoBackup;
         }
 
         public bool UserActivityLog(string userName)
@@ -75,7 +94,7 @@ namespace Lizaso_Laundry_Hub
             using (Graphics g = lblUserName.CreateGraphics())
             {
                 SizeF size = g.MeasureString(text, lblUserName.Font);
-                return (int)size.Width + 0; // Add some padding to the width
+                return (int)size.Width + 0; 
             }
         }
 
@@ -196,6 +215,13 @@ namespace Lizaso_Laundry_Hub
      
         private void btnLogOut_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("Are you sure you want to log out?", "Logout Confirmation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.Yes)
+            {
+                logout.MethodToLogoutUser();
+            }
+            /*
             DialogResult res;
             res = MessageBox.Show("Do you want to logout", "Logout", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
@@ -210,24 +236,7 @@ namespace Lizaso_Laundry_Hub
             {
                 this.Show();
             }
-        }
-
-        public bool UserActivityLogout(string userName)
-        {
-            try
-            {
-                string activityType = "Logout";
-                string logoutDescription = $"{userName} logged out of the system at {DateTime.Now}.";
-
-                activityLogger.LogActivity(activityType, logoutDescription);
-
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine($"Error logging user activity: {ex.Message}");
-                return false; // Indicate logging failure
-            }
+            */
         }
 
         private void btnNotification_Click(object sender, EventArgs e)

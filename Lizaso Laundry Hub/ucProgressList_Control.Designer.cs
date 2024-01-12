@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucProgressList_Control));
             this.lblUnitName = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -136,11 +137,15 @@
             this.btnFinishNow.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFinishNow.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFinishNow.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(17)))), ((int)(((byte)(72)))), ((int)(((byte)(171)))));
+            this.btnFinishNow.Image = ((System.Drawing.Image)(resources.GetObject("btnFinishNow.Image")));
+            this.btnFinishNow.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnFinishNow.Location = new System.Drawing.Point(225, 52);
             this.btnFinishNow.Name = "btnFinishNow";
-            this.btnFinishNow.Size = new System.Drawing.Size(47, 47);
+            this.btnFinishNow.Size = new System.Drawing.Size(47, 70);
             this.btnFinishNow.TabIndex = 10;
             this.btnFinishNow.Text = "Finish Now";
+            this.btnFinishNow.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnFinishNow.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.btnFinishNow.UseVisualStyleBackColor = true;
             this.btnFinishNow.Click += new System.EventHandler(this.btnFinishNow_Click);
             // 

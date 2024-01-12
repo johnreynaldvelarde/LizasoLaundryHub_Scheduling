@@ -72,7 +72,7 @@
             this.lblUpperTime.BackColor = System.Drawing.Color.Transparent;
             this.lblUpperTime.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblUpperTime.ForeColor = System.Drawing.Color.White;
-            this.lblUpperTime.Location = new System.Drawing.Point(591, 12);
+            this.lblUpperTime.Location = new System.Drawing.Point(493, 12);
             this.lblUpperTime.Name = "lblUpperTime";
             this.lblUpperTime.Size = new System.Drawing.Size(82, 28);
             this.lblUpperTime.TabIndex = 3;
