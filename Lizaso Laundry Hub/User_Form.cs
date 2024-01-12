@@ -20,7 +20,7 @@ namespace Lizaso_Laundry_Hub
         private Activity_Log_Class activityLogger;
         private User_Module.View_Online_Form offline;
         private int u_userID, s_userID, getUserIDArchive;
-        private string u_username, s_userName;
+        private string u_username, s_userName, archiveName;
         private byte u_dashboard, u_services, u_schedule, u_customer, u_payments, u_user, u_inventory, u_settings;
         private byte s_services, s_schedule, s_customer, s_payments, s_user, s_inventory, s_settings;
 
@@ -217,6 +217,7 @@ namespace Lizaso_Laundry_Hub
                 if (result == DialogResult.Yes)
                 {
                     updateData.Update_UserRecycleArchive(getUserIDArchive);
+                    UserActivityLogRecycle(archiveName);
                     DisplayUserView();
                 }
             }
@@ -240,6 +241,7 @@ namespace Lizaso_Laundry_Hub
                 if (int.TryParse(grid_user_archive[1, archive].Value.ToString(), out int selectArchiveID))
                 {
                     getUserIDArchive = selectArchiveID;
+                    archiveName = grid_user_archive[2, archive].Value.ToString();
 
                 }
             }
