@@ -110,62 +110,62 @@
   <ItemGroup>
     <Compile Include="Class_Data\Account_Class.cs" />
     <Compile Include="Class_Data\Activity_Log_Class.cs" />
-    <Compile Include="Additional_Payment_Form.cs">
+    <Compile Include="Payments_Module\Additional_Payment_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Additional_Payment_Form.Designer.cs">
+    <Compile Include="Payments_Module\Additional_Payment_Form.Designer.cs">
       <DependentUpon>Additional_Payment_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Add_Customer_Form.cs">
+    <Compile Include="Customer_Module\Add_Customer_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Add_Customer_Form.Designer.cs">
+    <Compile Include="Customer_Module\Add_Customer_Form.Designer.cs">
       <DependentUpon>Add_Customer_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Add_New_Item_Form.cs">
+    <Compile Include="Inventory_Module\Add_New_Item_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Add_New_Item_Form.Designer.cs">
+    <Compile Include="Inventory_Module\Add_New_Item_Form.Designer.cs">
       <DependentUpon>Add_New_Item_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Add_Reserved_Form.cs">
+    <Compile Include="Services_Module\Add_Reserved_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Add_Reserved_Form.Designer.cs">
+    <Compile Include="Services_Module\Add_Reserved_Form.Designer.cs">
       <DependentUpon>Add_Reserved_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Add_Restock_Form.cs">
+    <Compile Include="Inventory_Module\Add_Restock_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Add_Restock_Form.Designer.cs">
+    <Compile Include="Inventory_Module\Add_Restock_Form.Designer.cs">
       <DependentUpon>Add_Restock_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Add_User_Form.cs">
+    <Compile Include="User_Module\Add_User_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Add_User_Form.Designer.cs">
+    <Compile Include="User_Module\Add_User_Form.Designer.cs">
       <DependentUpon>Add_User_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Add_Unit_Form.cs">
+    <Compile Include="Settings_Module\Add_Unit_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Add_Unit_Form.Designer.cs">
+    <Compile Include="Settings_Module\Add_Unit_Form.Designer.cs">
       <DependentUpon>Add_Unit_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Class_Data\Backup_Data_Class.cs" />
     <Compile Include="Class_Data\CalendarEvent_Class.cs" />
     <Compile Include="Class_Data\Calendar_InProgress_Class.cs" />
     <Compile Include="Class_Data\Logout_Class.cs" />
-    <Compile Include="Customer_Form.cs">
+    <Compile Include="Customer_Module\Customer_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Customer_Form.Designer.cs">
+    <Compile Include="Customer_Module\Customer_Form.Designer.cs">
       <DependentUpon>Customer_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Dashboard_Form.cs">
+    <Compile Include="Dashboard_Module\Dashboard_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Dashboard_Form.Designer.cs">
+    <Compile Include="Dashboard_Module\Dashboard_Form.Designer.cs">
       <DependentUpon>Dashboard_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Dashboard_Widget\ActivityLog_Widget_Form.cs">
@@ -229,32 +229,32 @@
       <DependentUpon>View_DeliveryList_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="DB_Connection.cs" />
-    <Compile Include="DropDown_Form.cs">
+    <Compile Include="Notify_Module\DropDown_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DropDown_Form.Designer.cs">
+    <Compile Include="Notify_Module\DropDown_Form.Designer.cs">
       <DependentUpon>DropDown_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Class_Data\Get_Data_Class.cs" />
     <Compile Include="Class_Data\Insert_Data_Class.cs" />
-    <Compile Include="Inventory_Form.cs">
+    <Compile Include="Inventory_Module\Inventory_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Inventory_Form.Designer.cs">
+    <Compile Include="Inventory_Module\Inventory_Form.Designer.cs">
       <DependentUpon>Inventory_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Class_Data\In_Reserved_Class.cs" />
     <Compile Include="Class_Data\Item_Data.cs" />
-    <Compile Include="Login_Form.cs">
+    <Compile Include="All_Form\Login_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Login_Form.Designer.cs">
+    <Compile Include="All_Form\Login_Form.Designer.cs">
       <DependentUpon>Login_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main_Form.cs">
+    <Compile Include="All_Form\Main_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main_Form.Designer.cs">
+    <Compile Include="All_Form\Main_Form.Designer.cs">
       <DependentUpon>Main_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Notify_Module\DropDown_Notification_Form.cs">
@@ -276,10 +276,10 @@
     <Compile Include="Notify_Module\ucNotification_Control.Designer.cs">
       <DependentUpon>ucNotification_Control.cs</DependentUpon>
     </Compile>
-    <Compile Include="Payments_Form.cs">
+    <Compile Include="Payments_Module\Payments_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Payments_Form.Designer.cs">
+    <Compile Include="Payments_Module\Payments_Form.Designer.cs">
       <DependentUpon>Payments_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Payments_Module\View_AdditionalItem_Form.cs">
@@ -288,10 +288,10 @@
     <Compile Include="Payments_Module\View_AdditionalItem_Form.Designer.cs">
       <DependentUpon>View_AdditionalItem_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Payment_Details_Form.cs">
+    <Compile Include="Payments_Module\Payment_Details_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Payment_Details_Form.Designer.cs">
+    <Compile Include="Payments_Module\Payment_Details_Form.Designer.cs">
       <DependentUpon>Payment_Details_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Class_Data\In_Progress_Class.cs" />
@@ -310,28 +310,28 @@
     <Compile Include="Receipt_Module\WithAdditionalPayment_Form.Designer.cs">
       <DependentUpon>WithAdditionalPayment_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Regular_User_Form.cs">
+    <Compile Include="All_Form\Regular_User_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Regular_User_Form.Designer.cs">
+    <Compile Include="All_Form\Regular_User_Form.Designer.cs">
       <DependentUpon>Regular_User_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Schedule_Form.cs">
+    <Compile Include="Schedule_Module\Schedule_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Schedule_Form.Designer.cs">
+    <Compile Include="Schedule_Module\Schedule_Form.Designer.cs">
       <DependentUpon>Schedule_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Select_Unit_Form.cs">
+    <Compile Include="Services_Module\Select_Unit_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Select_Unit_Form.Designer.cs">
+    <Compile Include="Services_Module\Select_Unit_Form.Designer.cs">
       <DependentUpon>Select_Unit_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Services_Form.cs">
+    <Compile Include="Services_Module\Services_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Services_Form.Designer.cs">
+    <Compile Include="Services_Module\Services_Form.Designer.cs">
       <DependentUpon>Services_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Services_Module\ReservedBy_PopUp_Form.cs">
@@ -340,10 +340,10 @@
     <Compile Include="Services_Module\ReservedBy_PopUp_Form.Designer.cs">
       <DependentUpon>ReservedBy_PopUp_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Settings_Form.cs">
+    <Compile Include="Settings_Module\Settings_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Settings_Form.Designer.cs">
+    <Compile Include="Settings_Module\Settings_Form.Designer.cs">
       <DependentUpon>Settings_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Settings_Module\Backup_Restore_Form.cs">
@@ -371,36 +371,36 @@
       <DependentUpon>LaundryUnit_Configuration_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="SqlServerTypes\Loader.cs" />
-    <Compile Include="Super_User_Form.cs">
+    <Compile Include="All_Form\Super_User_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Super_User_Form.Designer.cs">
+    <Compile Include="All_Form\Super_User_Form.Designer.cs">
       <DependentUpon>Super_User_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucProgressList_Control.cs">
+    <Compile Include="Services_Module\ucProgressList_Control.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucProgressList_Control.Designer.cs">
+    <Compile Include="Services_Module\ucProgressList_Control.Designer.cs">
       <DependentUpon>ucProgressList_Control.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucReservedList_Control.cs">
+    <Compile Include="Services_Module\ucReservedList_Control.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucReservedList_Control.Designer.cs">
+    <Compile Include="Services_Module\ucReservedList_Control.Designer.cs">
       <DependentUpon>ucReservedList_Control.cs</DependentUpon>
     </Compile>
-    <Compile Include="ucUnit_Control.cs">
+    <Compile Include="Services_Module\ucUnit_Control.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="ucUnit_Control.Designer.cs">
+    <Compile Include="Services_Module\ucUnit_Control.Designer.cs">
       <DependentUpon>ucUnit_Control.cs</DependentUpon>
     </Compile>
     <Compile Include="Class_Data\Unit_Class.cs" />
     <Compile Include="Class_Data\Update_Data_Class.cs" />
-    <Compile Include="User_Form.cs">
+    <Compile Include="User_Module\User_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="User_Form.Designer.cs">
+    <Compile Include="User_Module\User_Form.Designer.cs">
       <DependentUpon>User_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="User_Module\View_Online_Form.cs">
@@ -410,31 +410,31 @@
       <DependentUpon>View_Online_Form.cs</DependentUpon>
     </Compile>
     <Compile Include="Class_Data\User_Permissions_Class.cs" />
-    <EmbeddedResource Include="Additional_Payment_Form.resx">
+    <EmbeddedResource Include="Payments_Module\Additional_Payment_Form.resx">
       <DependentUpon>Additional_Payment_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Add_Customer_Form.resx">
+    <EmbeddedResource Include="Customer_Module\Add_Customer_Form.resx">
       <DependentUpon>Add_Customer_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Add_New_Item_Form.resx">
+    <EmbeddedResource Include="Inventory_Module\Add_New_Item_Form.resx">
       <DependentUpon>Add_New_Item_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Add_Reserved_Form.resx">
+    <EmbeddedResource Include="Services_Module\Add_Reserved_Form.resx">
       <DependentUpon>Add_Reserved_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Add_Restock_Form.resx">
+    <EmbeddedResource Include="Inventory_Module\Add_Restock_Form.resx">
       <DependentUpon>Add_Restock_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Add_User_Form.resx">
+    <EmbeddedResource Include="User_Module\Add_User_Form.resx">
       <DependentUpon>Add_User_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Add_Unit_Form.resx">
+    <EmbeddedResource Include="Settings_Module\Add_Unit_Form.resx">
       <DependentUpon>Add_Unit_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Customer_Form.resx">
+    <EmbeddedResource Include="Customer_Module\Customer_Form.resx">
       <DependentUpon>Customer_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Dashboard_Form.resx">
+    <EmbeddedResource Include="Dashboard_Module\Dashboard_Form.resx">
       <DependentUpon>Dashboard_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard_Widget\ActivityLog_Widget_Form.resx">
@@ -467,16 +467,16 @@
     <EmbeddedResource Include="Dashboard_Widget\View_DeliveryList_Form.resx">
       <DependentUpon>View_DeliveryList_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="DropDown_Form.resx">
+    <EmbeddedResource Include="Notify_Module\DropDown_Form.resx">
       <DependentUpon>DropDown_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inventory_Form.resx">
+    <EmbeddedResource Include="Inventory_Module\Inventory_Form.resx">
       <DependentUpon>Inventory_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Login_Form.resx">
+    <EmbeddedResource Include="All_Form\Login_Form.resx">
       <DependentUpon>Login_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main_Form.resx">
+    <EmbeddedResource Include="All_Form\Main_Form.resx">
       <DependentUpon>Main_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Notify_Module\DropDown_Notification_Form.resx">
@@ -488,13 +488,13 @@
     <EmbeddedResource Include="Notify_Module\ucNotification_Control.resx">
       <DependentUpon>ucNotification_Control.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Payments_Form.resx">
+    <EmbeddedResource Include="Payments_Module\Payments_Form.resx">
       <DependentUpon>Payments_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Payments_Module\View_AdditionalItem_Form.resx">
       <DependentUpon>View_AdditionalItem_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Payment_Details_Form.resx">
+    <EmbeddedResource Include="Payments_Module\Payment_Details_Form.resx">
       <DependentUpon>Payment_Details_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -515,22 +515,22 @@
     <EmbeddedResource Include="Receipt_Module\WithAdditionalPayment_Form.resx">
       <DependentUpon>WithAdditionalPayment_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Regular_User_Form.resx">
+    <EmbeddedResource Include="All_Form\Regular_User_Form.resx">
       <DependentUpon>Regular_User_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Schedule_Form.resx">
+    <EmbeddedResource Include="Schedule_Module\Schedule_Form.resx">
       <DependentUpon>Schedule_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Select_Unit_Form.resx">
+    <EmbeddedResource Include="Services_Module\Select_Unit_Form.resx">
       <DependentUpon>Select_Unit_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Services_Form.resx">
+    <EmbeddedResource Include="Services_Module\Services_Form.resx">
       <DependentUpon>Services_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Services_Module\ReservedBy_PopUp_Form.resx">
       <DependentUpon>ReservedBy_PopUp_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Settings_Form.resx">
+    <EmbeddedResource Include="Settings_Module\Settings_Form.resx">
       <DependentUpon>Settings_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Settings_Module\Backup_Restore_Form.resx">
@@ -545,19 +545,19 @@
     <EmbeddedResource Include="Settings_Module\LaundryUnit_Configuration_Form.resx">
       <DependentUpon>LaundryUnit_Configuration_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Super_User_Form.resx">
+    <EmbeddedResource Include="All_Form\Super_User_Form.resx">
       <DependentUpon>Super_User_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucProgressList_Control.resx">
+    <EmbeddedResource Include="Services_Module\ucProgressList_Control.resx">
       <DependentUpon>ucProgressList_Control.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucReservedList_Control.resx">
+    <EmbeddedResource Include="Services_Module\ucReservedList_Control.resx">
       <DependentUpon>ucReservedList_Control.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ucUnit_Control.resx">
+    <EmbeddedResource Include="Services_Module\ucUnit_Control.resx">
       <DependentUpon>ucUnit_Control.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="User_Form.resx">
+    <EmbeddedResource Include="User_Module\User_Form.resx">
       <DependentUpon>User_Form.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User_Module\View_Online_Form.resx">
