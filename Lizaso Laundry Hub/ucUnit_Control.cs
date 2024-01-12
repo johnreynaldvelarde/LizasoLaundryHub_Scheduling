@@ -152,15 +152,13 @@ namespace Lizaso_Laundry_Hub
                 return "Wash/Dry/Fold";
             }
 
-            return string.Empty; // Return an empty string or handle default case as needed
+            return string.Empty; 
         }
 
         private void btnSelect_Click(object sender, EventArgs e)
         {
             if (rbWash.Checked || rbWashDry.Checked || rbWashDryFold.Checked)
             {
-
-                // At least one radio button is checked
                 string selectedService = SelectedService();
 
                 Select_Unit_Form frm = new Select_Unit_Form(this.ParentForm as Services_Form);

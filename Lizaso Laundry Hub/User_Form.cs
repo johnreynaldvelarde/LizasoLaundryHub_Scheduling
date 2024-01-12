@@ -14,20 +14,15 @@ namespace Lizaso_Laundry_Hub
 {
     public partial class User_Form : KryptonForm
     {
+        private Account_Class account;
         private Get_Data_Class getData;
         private Update_Data_Class updateData;
-        private Account_Class account;
+        private Activity_Log_Class activityLogger;
         private User_Module.View_Online_Form offline;
         private int u_userID, s_userID, getUserIDArchive;
         private string u_username, s_userName;
         private byte u_dashboard, u_services, u_schedule, u_customer, u_payments, u_user, u_inventory, u_settings;
         private byte s_services, s_schedule, s_customer, s_payments, s_user, s_inventory, s_settings;
-
-        private void btn_OnlineView_Click(object sender, EventArgs e)
-        {
-            offline = new User_Module.View_Online_Form();
-            offline.Show();
-        }
 
         private string getPassword;
 
@@ -37,8 +32,14 @@ namespace Lizaso_Laundry_Hub
             getData = new Get_Data_Class();
             updateData = new Update_Data_Class();
             account = new Account_Class();
+            activityLogger = new Activity_Log_Class();
         }
 
+        private void btn_OnlineView_Click(object sender, EventArgs e)
+        {
+            offline = new User_Module.View_Online_Form();
+            offline.Show();
+        }
 
         private void btn_CreateNewUser_Click(object sender, EventArgs e)
         {
@@ -113,9 +114,17 @@ namespace Lizaso_Laundry_Hub
                 if (result == DialogResult.Yes)
                 {
                     updateData.Update_UserToDeleted(u_userID, account.User_ID);
+                    UserActivityLog(u_username);
                     DisplayUserView();
                 }
             }
+        }
+
+        public void UserActivityLog(string userName)
+        {
+            string activityType = "Archive";
+            string archiveDescription = $"{userName}'s account has been deleted as of {DateTime.Now}.";
+            activityLogger.LogActivity(activityType, archiveDescription);
         }
 
         // Datagridview for Regular User
@@ -129,7 +138,6 @@ namespace Lizaso_Laundry_Hub
                 {
                     u_userID = userId;
 
-                    // Assuming you have other columns in your DataGridView for username, services, schedule, etc.
                     u_username = grid_regular_user[2, i].Value.ToString();
                     u_dashboard = Convert.ToByte(grid_regular_user[3, i].Value.ToString() == "Yes");
                     u_services = Convert.ToByte(grid_regular_user[4, i].Value.ToString() == "Yes");
@@ -169,6 +177,7 @@ namespace Lizaso_Laundry_Hub
                 if (result == DialogResult.Yes)
                 {
                     updateData.Update_UserToDeleted(s_userID, account.User_ID);
+                    UserActivityLog(s_userName);
                     DisplayUserView();
                 }
             }
@@ -184,7 +193,6 @@ namespace Lizaso_Laundry_Hub
                 {
                     s_userID = SuperuserId;
 
-                    // Assuming you have other columns in your DataGridView for username, services, schedule, etc.
                     s_userName = grid_super_user[2, i].Value.ToString();
                     s_services = Convert.ToByte(grid_super_user[3, i].Value.ToString() == "Yes");
                     s_schedule = Convert.ToByte(grid_super_user[4, i].Value.ToString() == "Yes");
@@ -215,6 +223,13 @@ namespace Lizaso_Laundry_Hub
 
         }
 
+        public void UserActivityLogRecycle(string userName)
+        {
+            string activityType = "Recycle";
+            string recycleDescription = $"{userName}'s account has been restored from the archive as of {DateTime.Now}.";
+            activityLogger.LogActivity(activityType, recycleDescription);
+        }
+
         private void grid_user_archive_SelectionChanged(object sender, EventArgs e)
         {
 
@@ -233,10 +248,8 @@ namespace Lizaso_Laundry_Hub
         // for super user
         public void Get_UserProfileSuperUser()
         {
-            // Define the path for the notepad file
             string filePath = Path.Combine(@"C:\Lizaso Laundry Hub\User Profile", $"{s_userName}.txt");
 
-            // Check if the file exists before proceeding
             if (!File.Exists(filePath))
             {
 
@@ -245,7 +258,6 @@ namespace Lizaso_Laundry_Hub
             {
                 try
                 {
-                    // Read the details from the notepad file
                     using (StreamReader sr = new StreamReader(filePath))
                     {
                         getPassword = sr.ReadLine()?.Replace("Password: ", "");
@@ -261,10 +273,8 @@ namespace Lizaso_Laundry_Hub
         // for regular user
         public void Get_UserProfileRegularUser()
         {
-            // Define the path for the notepad file
             string filePath = Path.Combine(@"C:\Lizaso Laundry Hub\User Profile", $"{u_username}.txt");
 
-            // Check if the file exists before proceeding
             if (!File.Exists(filePath))
             {
 
@@ -273,7 +283,6 @@ namespace Lizaso_Laundry_Hub
             {
                 try
                 {
-                    // Read the details from the notepad file
                     using (StreamReader sr = new StreamReader(filePath))
                     {
                         getPassword = sr.ReadLine()?.Replace("Password: ", "");
