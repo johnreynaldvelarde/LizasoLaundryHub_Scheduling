@@ -289,15 +289,53 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
-        /*
-        public bool Get_AllCountItemQytAndLoss()
+
+        // << DASHBOARD FORM / Dashboard Widget/  Inventory Widget Form / 
+        // method to count all quantity in inventory and transaction item
+        public bool Get_AllCountItemQytAndLoss(Label allItemQyt, Label allItemLoss, Label itemName)
         {
             try
             {
                 using (SqlConnection connect = new SqlConnection(database.MyConnection()))
                 {
+                    connect.Open();
 
+                    // Count all item quantity
+                    string queryAllItemQyt = "SELECT ISNULL(SUM(Quantity), 0) FROM Item_View";
+                    using (SqlCommand cmdAllItemQyt = new SqlCommand(queryAllItemQyt, connect))
+                    {
+                        int totalItemQuantity = (int)cmdAllItemQyt.ExecuteScalar();
+                        allItemQyt.Text = totalItemQuantity.ToString();
+                    }
+
+                    // Count all item quantity in Transaction_Item
+                    string queryAllItemLoss = "SELECT ISNULL(SUM(Item_Quantity), 0) FROM TransactionItem_View";
+                    using (SqlCommand cmdAllItemLoss = new SqlCommand(queryAllItemLoss, connect))
+                    {
+                        int totalItemLoss = (int)cmdAllItemLoss.ExecuteScalar();
+                        allItemLoss.Text = totalItemLoss.ToString();
+                    }
+
+                    // Get the item with the lowest quantity
+                    string queryLowestQuantityItem = "SELECT TOP 1 ISNULL(Item_Name, 'No Item Yet') AS Item_Name, ISNULL(Quantity, 0) AS Quantity FROM Item_View ORDER BY Quantity ASC";
+                    using (SqlCommand cmdLowestQuantityItem = new SqlCommand(queryLowestQuantityItem, connect))
+                    {
+                        using (SqlDataReader reader = cmdLowestQuantityItem.ExecuteReader())
+                        {
+                            if (reader.Read())
+                            {
+                                string itemname = reader["Item_Name"].ToString();
+                                string itemQyt = reader["Quantity"].ToString();
+
+                                itemName.Text = $"{itemname} ----> {itemQyt}";
+                            }
+                        }
+                    }
+
+                    connect.Close();
                 }
+
+                return true;
             }
             catch (Exception ex)
             {
@@ -305,7 +343,8 @@ namespace Lizaso_Laundry_Hub
                 return false;
             }
         }
-        */
+
+
 
         // << DASHBOARD FORM / Stats Widget Form >> 
         // method to get the most visited customer in store

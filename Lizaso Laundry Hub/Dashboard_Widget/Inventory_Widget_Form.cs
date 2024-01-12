@@ -20,18 +20,15 @@ namespace Lizaso_Laundry_Hub.Dashboard_Widget
         {
             InitializeComponent();
             getData = new Get_Data_Class();
-            DisplayListView();
+            
         }
 
-        public void DisplayInventoryQuantity()
+        public void DisplayInventorySummary()
         {
-
+            getData.Get_AllCountItemQytAndLoss(Label_Total, Label_Loss, Label_ItemName);
         }
 
-        public void DisplayListView()
-        {
-         
-        }
+       
 
         private void btn_ViewAllInventory_CheckedChanged(object sender, EventArgs e)
         {
@@ -39,9 +36,9 @@ namespace Lizaso_Laundry_Hub.Dashboard_Widget
             inventory.Show();
         }
 
-        public void CountQuantity()
+        private void Inventory_Widget_Form_Load(object sender, EventArgs e)
         {
-
+            DisplayInventorySummary();
         }
     }
 }
