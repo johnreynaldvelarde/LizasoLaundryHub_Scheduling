@@ -40,13 +40,12 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    // Define your SQL query to fetch data with a filter for 'In Transit' deliveries
                     string sql = "SELECT D.Delivery_ID, T.Transaction_ID, C.Customer_Name, D.Delivery_Address, T.Amount, D.Delivery_Status " +
                                  "FROM Delivery_View D " +
                                  "JOIN Transaction_View T ON D.Transaction_ID = T.Transaction_ID " +
                                  "JOIN Bookings_View LB ON T.Booking_ID = LB.Booking_ID " +
                                  "JOIN Customers_View C ON LB.Customer_ID = C.Customer_ID " +
-                                 "WHERE D.Delivery_Status = 'In Transit'";  // Add this line to filter by 'In Transit' status
+                                 "WHERE D.Delivery_Status = 'In Transit'";  
 
                     SqlCommand command = new SqlCommand(sql, connect);
                     SqlDataReader reader = command.ExecuteReader();
@@ -55,7 +54,6 @@ namespace Lizaso_Laundry_Hub
 
                     while (reader.Read())
                     {
-                        // Assuming you have the corresponding columns in your Deliveries, Transactions, Laundry_Bookings, and Customers tables
                         view_delivery_list.Rows.Add(0,
                             reader["Delivery_ID"],
                             reader["Transaction_ID"],
@@ -174,7 +172,6 @@ namespace Lizaso_Laundry_Hub
                     using (SqlCommand cmd = new SqlCommand(query, connect))
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        // Clear existing rows
                         view_activity_log.Rows.Clear();
 
                         while (reader.Read())
@@ -199,6 +196,7 @@ namespace Lizaso_Laundry_Hub
                 return false;
             }
         }
+
         // << DASHBOARD FORM / Dashboard Widget/ CustomerList Widget Form >>
         // method get all customer data 
         public bool Get_AllCustomerNameandItsCustomerType(DataGridView view_allcustomer)
@@ -210,7 +208,7 @@ namespace Lizaso_Laundry_Hub
                     connect.Open();
 
                     string query = @"SELECT Customer_ID, Customer_Name, Customer_Type
-                                     FROM Customers
+                                     FROM Customers_View
                                      WHERE Archive = 0";
 
                     using (SqlCommand cmd = new SqlCommand(query, connect))
@@ -228,7 +226,7 @@ namespace Lizaso_Laundry_Hub
 
                                 if (!reader.IsDBNull(customerTypeValueIndex))
                                 {
-                                    short customerTypeValue = reader.GetByte(customerTypeValueIndex); // Direct cast to short
+                                    short customerTypeValue = reader.GetByte(customerTypeValueIndex); 
 
                                     Console.WriteLine($"Customer_Type Value: {customerTypeValue}");
 
@@ -240,7 +238,6 @@ namespace Lizaso_Laundry_Hub
                                 {
                                     Console.WriteLine("Customer_Type is DBNull");
                                 }
-
                             }
                         }
                     }
@@ -269,18 +266,16 @@ namespace Lizaso_Laundry_Hub
 
                     using (SqlDataReader reader = cmd.ExecuteReader())
                     {
-                        grid_view_item.Rows.Clear(); // Clear existing rows in the DataGridView
+                        grid_view_item.Rows.Clear(); 
 
                         while (reader.Read())
                         {
-                            // Retrieve data from the reader
                             string itemName = reader["Item_Name"].ToString();
                             int quantity = Convert.ToInt32(reader["Quantity"]);
 
                             grid_view_item.Rows.Add(0, itemName, quantity);
                         }
                     }
-
                     return true;
                 }
             }
@@ -301,7 +296,6 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    // Count all item quantity
                     string queryAllItemQyt = "SELECT ISNULL(SUM(Quantity), 0) FROM Item_View";
                     using (SqlCommand cmdAllItemQyt = new SqlCommand(queryAllItemQyt, connect))
                     {
@@ -309,7 +303,6 @@ namespace Lizaso_Laundry_Hub
                         allItemQyt.Text = totalItemQuantity.ToString();
                     }
 
-                    // Count all item quantity in Transaction_Item
                     string queryAllItemLoss = "SELECT ISNULL(SUM(Item_Quantity), 0) FROM TransactionItem_View";
                     using (SqlCommand cmdAllItemLoss = new SqlCommand(queryAllItemLoss, connect))
                     {
@@ -317,7 +310,6 @@ namespace Lizaso_Laundry_Hub
                         allItemLoss.Text = totalItemLoss.ToString();
                     }
 
-                    // Get the item with the lowest quantity
                     string queryLowestQuantityItem = "SELECT TOP 1 ISNULL(Item_Name, 'No Item Yet') AS Item_Name, ISNULL(Quantity, 0) AS Quantity FROM Item_View ORDER BY Quantity ASC";
                     using (SqlCommand cmdLowestQuantityItem = new SqlCommand(queryLowestQuantityItem, connect))
                     {
@@ -332,10 +324,8 @@ namespace Lizaso_Laundry_Hub
                             }
                         }
                     }
-
                     connect.Close();
                 }
-
                 return true;
             }
             catch (Exception ex)
@@ -416,7 +406,6 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
-
         // << DASHBOARD FORM / Calendar Widget Form >> 
         // method to get in progress and reserved
         public bool Get_CalendarBookingsInProgressAndReserved(DataGridView grid_progressreserved_view)
@@ -438,11 +427,10 @@ namespace Lizaso_Laundry_Hub
                     {
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            grid_progressreserved_view.Rows.Clear(); // Clear existing rows
+                            grid_progressreserved_view.Rows.Clear(); 
 
                             while (reader.Read())
                             {
-                                // Extract data from the reader
                                 string customerName = reader["Customer_Name"].ToString();
                                 string unitName = reader["Unit_Name"].ToString();
                                 DateTime startTime = Convert.ToDateTime(reader["Start_Time"]);
@@ -451,7 +439,6 @@ namespace Lizaso_Laundry_Hub
 
                                 string timeRange = $"Start Time: {reader["Start_Time"]:MM/dd/yyyy h:mm:ss tt}\nEnd Time: {reader["End_Time"]: MM/dd/yyyy h:mm:ss tt}";
 
-                                // Add data to DataGridView
                                 grid_progressreserved_view.Rows.Add(customerName, unitName, timeRange, bookingStatus);
                             }
                         }
@@ -503,20 +490,14 @@ namespace Lizaso_Laundry_Hub
                         }
                     }
                 }
-
                 return inProgressBookings;
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return null; // or an empty list, depending on your requirements
+                return null; 
             }
         }
-
-
-
-
-        
 
         public bool Get_AllDeliveryList(DataGridView grid_delivery_view)
         {
@@ -612,7 +593,7 @@ namespace Lizaso_Laundry_Hub
                                    "WHERE B.Unit_ID = U.Unit_ID AND B.Bookings_Status = 'Reserved' " +
                                    "ORDER BY B.Start_Time DESC) AS Bookings_Status " +
                                    "FROM Unit_View U " +
-                                   "WHERE U.Archive = 0"; // Filter by Archive = 0
+                                   "WHERE U.Archive = 0"; 
 
                     using (SqlCommand command = new SqlCommand(query, connect))
                     {
@@ -655,23 +636,23 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    string query = @"
-                SELECT
-                    LB.Booking_ID,
-                    LB.Customer_ID,
-                    LB.Unit_ID,
-                    C.Customer_Name,
-                    LU.Unit_Name,
-                    LB.Services_Type,
-                    FORMAT(LB.Start_Time, 'h:mm tt') AS ReservedStartTime,
-                    FORMAT(LB.End_Time, 'h:mm tt') AS ReservedEndTime,
-                    LB.Bookings_Status AS Status
-                FROM
-                    Bookings_View LB
-                    INNER JOIN Customers_View C ON LB.Customer_ID = C.Customer_ID
-                    INNER JOIN Unit_View LU ON LB.Unit_ID = LU.Unit_ID
-                WHERE
-                    LB.Bookings_Status = 'Reserved';";
+                    string query = @"SELECT
+                                        LB.Booking_ID,
+                                        LB.Customer_ID,
+                                        LB.Unit_ID,
+                                        C.Customer_Name,
+                                        LU.Unit_Name,
+                                        LB.Services_Type,
+                                        FORMAT(LB.Start_Time, 'h:mm tt') AS ReservedStartTime,
+                                        FORMAT(LB.End_Time, 'h:mm tt') AS ReservedEndTime,
+                                        LB.Bookings_Status AS Status
+                                    FROM
+                                        Bookings_View LB
+                                        INNER JOIN Customers_View C ON LB.Customer_ID = C.Customer_ID
+                                        INNER JOIN Unit_View LU ON LB.Unit_ID = LU.Unit_ID
+                                    WHERE
+                                        LB.Bookings_Status = 'Reserved';";
+                
 
                     using (SqlCommand command = new SqlCommand(query, connect))
                     {
@@ -717,7 +698,6 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    // Check if the username and password match in the User_Account table
                     string sql = "SELECT User_ID, User_Name FROM User_View WHERE User_Name COLLATE SQL_Latin1_General_CP1_CS_AS = @Username AND Password_Hash = @PasswordHash AND Archive = 0";
 
                     using (SqlCommand command = new SqlCommand(sql, connect))
@@ -735,7 +715,6 @@ namespace Lizaso_Laundry_Hub
                                 User_Name = reader.GetString(reader.GetOrdinal("User_Name"))
                             };
                         }
-
                        
                         return null; 
                     }
@@ -758,7 +737,6 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    // Check if the user is a Super User based on the Super_User column
                     string sql = "SELECT Super_User FROM User_View WHERE User_ID = @UserId AND Archive = 0";
 
                     using (SqlCommand command = new SqlCommand(sql, connect))
@@ -845,21 +823,21 @@ namespace Lizaso_Laundry_Hub
                     int i = 0;
                     connect.Open();
 
-                    // Define your SQL query with a CASE statement to convert bit values to 'Yes' or 'No'
+                    // its define query with a CASE statement to convert bit values to 'Yes' or 'No'
                     // Add a condition to filter out super users
                     string query = @"SELECT UA.User_ID, UA.User_Name,
-                                CASE WHEN UP.Dashboard = 1 THEN 'Yes' ELSE 'No' END AS Dashboard,
-                                CASE WHEN UP.Available_Services = 1 THEN 'Yes' ELSE 'No' END AS Available_Services,
-                                CASE WHEN UP.Schedule = 1 THEN 'Yes' ELSE 'No' END AS Schedule,
-                                CASE WHEN UP.Customer_Manage = 1 THEN 'Yes' ELSE 'No' END AS Customer_Manage,
-                                CASE WHEN UP.Payments = 1 THEN 'Yes' ELSE 'No' END AS Payments,
-                                CASE WHEN UP.User_Manage = 1 THEN 'Yes' ELSE 'No' END AS User_Manage,
-                                CASE WHEN UP.Inventory = 1 THEN 'Yes' ELSE 'No' END AS Inventory,
-                                CASE WHEN UP.Settings = 1 THEN 'Yes' ELSE 'No' END AS Settings
-                         FROM User_View UA
-                         INNER JOIN Permissions_View UP ON UA.User_ID = UP.User_ID
-                         WHERE UA.Super_User = 0
-                         AND UA.Archive = 0";
+                                        CASE WHEN UP.Dashboard = 1 THEN 'Yes' ELSE 'No' END AS Dashboard,
+                                        CASE WHEN UP.Available_Services = 1 THEN 'Yes' ELSE 'No' END AS Available_Services,
+                                        CASE WHEN UP.Schedule = 1 THEN 'Yes' ELSE 'No' END AS Schedule,
+                                        CASE WHEN UP.Customer_Manage = 1 THEN 'Yes' ELSE 'No' END AS Customer_Manage,
+                                        CASE WHEN UP.Payments = 1 THEN 'Yes' ELSE 'No' END AS Payments,
+                                        CASE WHEN UP.User_Manage = 1 THEN 'Yes' ELSE 'No' END AS User_Manage,
+                                        CASE WHEN UP.Inventory = 1 THEN 'Yes' ELSE 'No' END AS Inventory,
+                                        CASE WHEN UP.Settings = 1 THEN 'Yes' ELSE 'No' END AS Settings
+                                     FROM User_View UA
+                                     INNER JOIN Permissions_View UP ON UA.User_ID = UP.User_ID
+                                     WHERE UA.Super_User = 0
+                                     AND UA.Archive = 0";
 
                     using (SqlCommand command = new SqlCommand(query, connect))
                     using (SqlDataReader reader = command.ExecuteReader())
@@ -906,21 +884,21 @@ namespace Lizaso_Laundry_Hub
                     int i = 0;
                     connect.Open();
 
-                    // Define your SQL query with a CASE statement to convert bit values to 'Yes' or 'No'
+                    // its define query with a CASE statement to convert bit values to 'Yes' or 'No'
                     // Add a condition to filter out super users
                     string query = @"SELECT UA.User_ID, UA.User_Name,
-                                CASE WHEN UP.Dashboard = 1 THEN 'Yes' ELSE 'No' END AS Dashboard,
-                                CASE WHEN UP.Available_Services = 1 THEN 'Yes' ELSE 'No' END AS Available_Services,
-                                CASE WHEN UP.Schedule = 1 THEN 'Yes' ELSE 'No' END AS Schedule,
-                                CASE WHEN UP.Customer_Manage = 1 THEN 'Yes' ELSE 'No' END AS Customer_Manage,
-                                CASE WHEN UP.Payments = 1 THEN 'Yes' ELSE 'No' END AS Payments,
-                                CASE WHEN UP.User_Manage = 1 THEN 'Yes' ELSE 'No' END AS User_Manage,
-                                CASE WHEN UP.Inventory = 1 THEN 'Yes' ELSE 'No' END AS Inventory,
-                                CASE WHEN UP.Settings = 1 THEN 'Yes' ELSE 'No' END AS Settings
-                         FROM User_View UA
-                         INNER JOIN Permissions_View UP ON UA.User_ID = UP.User_ID
-                         WHERE UA.Super_User = 1
-                         AND UA.Archive = 0";
+                                        CASE WHEN UP.Dashboard = 1 THEN 'Yes' ELSE 'No' END AS Dashboard,
+                                        CASE WHEN UP.Available_Services = 1 THEN 'Yes' ELSE 'No' END AS Available_Services,
+                                        CASE WHEN UP.Schedule = 1 THEN 'Yes' ELSE 'No' END AS Schedule,
+                                        CASE WHEN UP.Customer_Manage = 1 THEN 'Yes' ELSE 'No' END AS Customer_Manage,
+                                        CASE WHEN UP.Payments = 1 THEN 'Yes' ELSE 'No' END AS Payments,
+                                        CASE WHEN UP.User_Manage = 1 THEN 'Yes' ELSE 'No' END AS User_Manage,
+                                        CASE WHEN UP.Inventory = 1 THEN 'Yes' ELSE 'No' END AS Inventory,
+                                        CASE WHEN UP.Settings = 1 THEN 'Yes' ELSE 'No' END AS Settings
+                                     FROM User_View UA
+                                     INNER JOIN Permissions_View UP ON UA.User_ID = UP.User_ID
+                                     WHERE UA.Super_User = 1
+                                     AND UA.Archive = 0";
 
                     using (SqlCommand command = new SqlCommand(query, connect))
                     using (SqlDataReader reader = command.ExecuteReader())
@@ -1048,18 +1026,26 @@ namespace Lizaso_Laundry_Hub
         // metyhod to check if have available unit and cannot proceed to reserved if have available unit
         public bool IsAnyUnitAvailable()
         {
-            using (SqlConnection connect = new SqlConnection(database.MyConnection()))
+            try
             {
-                connect.Open();
-
-                string sql = "SELECT TOP 1 Unit_ID FROM Unit_View WHERE Unit_Status = 0 AND Archive = 0";
-
-                using (SqlCommand command = new SqlCommand(sql, connect))
+                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
                 {
-                    object result = command.ExecuteScalar();
+                    connect.Open();
 
-                    return (result != null);
+                    string sql = "SELECT TOP 1 Unit_ID FROM Unit_View WHERE Unit_Status = 0 AND Archive = 0";
+
+                    using (SqlCommand command = new SqlCommand(sql, connect))
+                    {
+                        object result = command.ExecuteScalar();
+
+                        return (result != null);
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false; 
             }
         }
 
@@ -1096,13 +1082,13 @@ namespace Lizaso_Laundry_Hub
                                 lbl_UnitName.Text = reader["Unit_Name"].ToString();
                                 DateTime possibleNextStartTime = (DateTime)reader["End_Time"];
                                 lblReservedStartTime.Text = possibleNextStartTime.ToString("h:mm:ss tt");
-                                // Additional processing, if needed
+
                                 return true; // Unit found
                             }
                             else
                             {
                                 // No suitable unit found
-                                r_unitID.Text = ""; // Reset to empty
+                                r_unitID.Text = ""; 
                                 lbl_UnitName.Text = "No available units";
                                 lblReservedStartTime.Text = "";
                                 return false; // Unit not found
@@ -1141,14 +1127,11 @@ namespace Lizaso_Laundry_Hub
                         {
                             while (reader.Read())
                             {
-                                // Concatenate Start Time and End Time in a single string
                                 string timeRange = $"Start Time: {reader["Start_Time"]:MM/dd/yyyy h:mm:ss tt}\nEnd Time: {reader["End_Time"]: MM/dd/yyyy h:mm:ss tt}";
 
                                 // Add "minutes" to Time Left
-                                //string timeLeft = $"{reader["Time_Left"]} minutes";
                                 string timeLeft = $"{Math.Max((int)reader["Time_Left"], 0)} minutes";
 
-                                // Add rows to the DataGridView
                                 view_progress.Rows.Add(0,
                                     reader["Booking_ID"],
                                     reader["Unit_ID"],
@@ -1157,8 +1140,8 @@ namespace Lizaso_Laundry_Hub
                                     reader["Unit_Name"],
                                     reader["Services_Type"],
                                     reader["Weight"],
-                                    timeRange,  // Display Start Time and End Time in a single column
-                                    timeLeft    // Display Time Left with "minutes" added
+                                    timeRange, 
+                                    timeLeft    
                                 );
                             }
                         }
@@ -1198,14 +1181,11 @@ namespace Lizaso_Laundry_Hub
                         {
                             while (reader.Read())
                             {
-                                // Concatenate Start Time and End Time in a single string
                                 string timeRange = $"Reservation start time: {reader["Start_Time"]:MM/dd/yyyy h:mm:ss tt}\nReservation end time: {reader["End_Time"]: MM/dd/yyyy h:mm:ss tt}";
 
                                 // Add "minutes" to Time Left
-                                //string timeLeft = $"{reader["Time_Left"]} minutes";
                                 string timeLeft = $"{Math.Max((int)reader["Time_Left"], 0)} minutes";
 
-                                // Add rows to the DataGridView
                                 view_reserved.Rows.Add(0,
                                     reader["Booking_ID"],
                                     reader["Unit_ID"],
@@ -1214,8 +1194,8 @@ namespace Lizaso_Laundry_Hub
                                     reader["Unit_Name"],
                                     reader["Services_Type"],
                                     reader["Weight"],
-                                    timeRange,  // Display Start Time and End Time in a single column
-                                    timeLeft    // Display Time Left with "minutes" added
+                                    timeRange,  
+                                    timeLeft    
                                 );
                             }
                         }
@@ -1333,6 +1313,7 @@ namespace Lizaso_Laundry_Hub
                 return false;
             }
         }
+
         // << PAYMENT DETAILS FORM / Enable & Disable ckFreeShipping >>
         // method to get the customer type
         public bool Get_CustomerType(int customerID, KryptonCheckBox ckFreeShipping)
@@ -1343,27 +1324,22 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    // Retrieve Customer_Type based on customerID
                     string query = "SELECT Customer_Type FROM Customers WHERE Customer_ID = @CustomerID";
 
                     using (SqlCommand cmd = new SqlCommand(query, connect))
                     {
                         cmd.Parameters.AddWithValue("@CustomerID", customerID);
 
-                        // Execute the query to get Customer_Type
                         object result = cmd.ExecuteScalar();
 
                         if (result != null && int.TryParse(result.ToString(), out int customerType))
                         {
-                            // Check the retrieved Customer_Type
                             if (customerType == 0)
                             {
-                                // Enable the checkbox if Customer_Type is 0
                                 ckFreeShipping.Enabled = true;
                             }
                             else
                             {
-                                // Disable the checkbox if Customer_Type is 1
                                 ckFreeShipping.Enabled = false;
                             }
 
@@ -1371,7 +1347,6 @@ namespace Lizaso_Laundry_Hub
                         }
                         else
                         {
-                            // Handle the case where the Customer_Type is not retrieved or cannot be parsed
                             MessageBox.Show("Error retrieving Customer_Type information", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return false;
                         }
@@ -1385,7 +1360,8 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
-
+        // << USER FORM / Activity Log >>
+        // method to get all user activity log
         public bool Get_AllActivityLog(DataGridView view_activity_log)
         {
             try
@@ -1420,7 +1396,8 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
-        // << SCHE
+        // << PAYMENTS FORM >>
+        //  method to get all pending in laundry bookings
         public bool Get_BookingPending(DataGridView view_pending)
         {
             try
@@ -1432,9 +1409,9 @@ namespace Lizaso_Laundry_Hub
                     connect.Open();
 
                     string query = "SELECT B.Booking_ID, B.Unit_ID, B.Customer_ID, C.Customer_Name, U.Unit_Name, B.Services_Type, B.Weight, B.Bookings_Status " +
-                                   "FROM Laundry_Bookings B " +
-                                   "INNER JOIN Laundry_Unit U ON B.Unit_ID = U.Unit_ID " +
-                                   "INNER JOIN Customers C ON B.Customer_ID = C.Customer_ID " +
+                                   "FROM Bookings_View B " +
+                                   "INNER JOIN Unit_View U ON B.Unit_ID = U.Unit_ID " +
+                                   "INNER JOIN Customers_View C ON B.Customer_ID = C.Customer_ID " +
                                    "WHERE B.Bookings_Status = 'Pending'";
 
                     using (SqlCommand cmd = new SqlCommand(query, connect))
@@ -1443,7 +1420,6 @@ namespace Lizaso_Laundry_Hub
                         {
                             while (reader.Read())
                             {
-                                // Add rows to the DataGridView
                                 view_pending.Rows.Add(0,
                                     reader["Booking_ID"],
                                     reader["Unit_ID"],
@@ -1453,12 +1429,10 @@ namespace Lizaso_Laundry_Hub
                                     reader["Services_Type"],
                                     reader["Weight"],
                                     reader["Bookings_Status"]
-                               
                                 );
                             }
                         }
                     }
-
                     connect.Close();
                     return true;
                 }
@@ -1470,6 +1444,7 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
+        // method to count laundry bookings that have pending
         public bool Get_CountBookingPending(Label label_count_pending)
         {
             try
@@ -1517,70 +1492,23 @@ namespace Lizaso_Laundry_Hub
                     {
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            // Clear existing rows in the DataGridView
                             view_transaction_history.Rows.Clear();
 
-                            // Read data from the SqlDataReader and add rows to the DataGridView
                             while (reader.Read())
                             {
                                 int transactionID = reader.GetInt32(reader.GetOrdinal("Transaction_ID"));
-                                //int bookingID = reader.GetInt32(reader.GetOrdinal("Booking_ID"));
-                                //int userID = reader.GetInt32(reader.GetOrdinal("User_ID"));
                                 string userName = reader.GetString(reader.GetOrdinal("User_Name"));
                                 decimal amount = reader.GetDecimal(reader.GetOrdinal("Amount"));
                                 DateTime transactionDate = reader.GetDateTime(reader.GetOrdinal("Transaction_Date"));
                                 string paymentMethod = reader.GetString(reader.GetOrdinal("Payment_Method"));
                                 string customerName = reader.IsDBNull(reader.GetOrdinal("Customer_Name")) ? string.Empty : reader.GetString(reader.GetOrdinal("Customer_Name"));
 
-                                // Add a new row to the DataGridView
                                 view_transaction_history.Rows.Add(0, transactionID,  userName, customerName, transactionDate, paymentMethod, amount );
                             }
 
                             return true;
                         }
                     }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-        }
-
-
-
-        public bool Get_TransactionHistossry(DataGridView view_transaction_history)
-        {
-            try
-            {
-                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
-                {
-
-
-
-                    return true;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-        }
-
-        // << PAYMENTS FORM >>
-        // get the additional payments in table tranasction item with getting the transaction id in datagridview
-        public bool Get_TransactinoAdditionalPayments(DataGridView view_additonal_payments)
-        {
-            try
-            {
-                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
-                {
-
-
-
-                    return true;
                 }
             }
             catch (Exception ex)
@@ -1601,7 +1529,6 @@ namespace Lizaso_Laundry_Hub
                     int i = 0;
                     connect.Open();
 
-                    // SQL query to select Unit_ID, Unit_Name, and Unit_Status with Archive = 0
                     string query = "SELECT Unit_ID, Unit_Name, Unit_Status FROM Unit_View WHERE Archive = 0";
 
                     using (SqlCommand command = new SqlCommand(query, connect))
@@ -1609,14 +1536,12 @@ namespace Lizaso_Laundry_Hub
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
                             view_unit.Rows.Clear();
-                            // Iterate over the rows and read data
+
                             while (reader.Read())
                             {
                                 int unitID = (int)reader["Unit_ID"];
                                 string unitName = reader["Unit_Name"].ToString();
                                 int unitStatus = (Int16)reader["Unit_Status"];
-
-                                // Map the unit status values to "Available", "Occupied", "Not Available"
 
                                 string statusText = "";
                                 switch (unitStatus)
@@ -1630,7 +1555,6 @@ namespace Lizaso_Laundry_Hub
                                     case 2:
                                         statusText = "Not Available";
                                         break;
-                                    // Add more cases if needed
 
                                     default:
                                         break;
@@ -1652,6 +1576,8 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
+        // SETTINGS FORM / Laundry Unit Configuration / Archive Tab
+        // method to show the unit that have archive 1
         public bool Get_UnitDeleted(DataGridView view_unit_delete)
         {
             try
@@ -1661,7 +1587,6 @@ namespace Lizaso_Laundry_Hub
                     int i = 0;
                     connect.Open();
 
-                    // SQL query to select Unit_ID, Unit_Name, and Unit_Status with Archive = 0
                     string query = "SELECT Unit_ID, Unit_Name, Unit_Status FROM Unit_View WHERE Archive = 1";
 
                     using (SqlCommand command = new SqlCommand(query, connect))
@@ -1669,14 +1594,12 @@ namespace Lizaso_Laundry_Hub
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
                             view_unit_delete.Rows.Clear();
-                            // Iterate over the rows and read data
+
                             while (reader.Read())
                             {
                                 int unitID = (int)reader["Unit_ID"];
                                 string unitName = reader["Unit_Name"].ToString();
                                 int unitStatus = (Int16)reader["Unit_Status"];
-
-                                // Map the unit status values to "Available", "Occupied", "Not Available"
 
                                 string statusText = "";
                                 switch (unitStatus)
@@ -1712,6 +1635,8 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
+        // << SETTINGS FORM >>
+        // method to count unit status if its available occupied or not available
         public bool Get_CountAllUnitStatus(Label label_count_available, Label label_count_occupied, Label label_count_notavailable)
         {
             try
@@ -1720,7 +1645,6 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    // Count the number of available units (Unit_Status = 0) with Archive = 0
                     string queryAvailable = "SELECT COUNT(*) FROM Unit_View WHERE Unit_Status = 0 AND Archive = 0";
                     using (SqlCommand commandAvailable = new SqlCommand(queryAvailable, connect))
                     {
@@ -1728,7 +1652,6 @@ namespace Lizaso_Laundry_Hub
                         label_count_available.Text = countAvailable.ToString();
                     }
 
-                    // Count the number of occupied units (Unit_Status = 1) with Archive = 0
                     string queryOccupied = "SELECT COUNT(*) FROM Unit_View WHERE Unit_Status = 1 AND Archive = 0";
                     using (SqlCommand commandOccupied = new SqlCommand(queryOccupied, connect))
                     {
@@ -1736,8 +1659,7 @@ namespace Lizaso_Laundry_Hub
                         label_count_occupied.Text = countOccupied.ToString();
                     }
 
-                    // Count the number of not available units (Unit_Status = 3) with Archive = 0
-                    string queryNotAvailable = "SELECT COUNT(*) FROM Unit_View WHERE Unit_Status = 3 AND Archive = 0";
+                    string queryNotAvailable = "SELECT COUNT(*) FROM Unit_View WHERE Unit_Status = 2 AND Archive = 0";
                     using (SqlCommand commandNotAvailable = new SqlCommand(queryNotAvailable, connect))
                     {
                         int countNotAvailable = Convert.ToInt32(commandNotAvailable.ExecuteScalar());
@@ -1770,12 +1692,10 @@ namespace Lizaso_Laundry_Hub
                     {
                         int count = Convert.ToInt32(await command.ExecuteScalarAsync());
 
-                        // Use Control.Invoke to update the UI on the UI thread
                         label_count_pending.Invoke((MethodInvoker)delegate {
                             label_count_pending.Text = count.ToString();
                         });
 
-                        // Return the count
                         return count;
                     }
                 }
@@ -1783,7 +1703,7 @@ namespace Lizaso_Laundry_Hub
             catch (Exception ex)
             {
                 MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return 0; // Return 0 if an error occurs
+                return 0;
             }
         }
 
@@ -1844,44 +1764,6 @@ namespace Lizaso_Laundry_Hub
                     }
                     reader.Close();
                     connect.Close();
-
-                    return true;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-        }
-
-        // << SCHEDULE FORM >>
-        // get the list of in progress in Laundry Bookings and show it to calendar
-        public bool Get_CalendarListInProgress()
-        {
-            try
-            {
-                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
-                {
-
-
-                    return true;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-        }
-
-        public bool Get_CalendarListInReserved()
-        {
-            try
-            {
-                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
-                {
-
 
                     return true;
                 }
@@ -2005,6 +1887,8 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
+        // << USER FORM >>
+        //  method to get all user even its online or offline
         public bool Get_UserOnlineorOffline(DataGridView view_user, int accountUserID)
         {
             try
@@ -2018,7 +1902,6 @@ namespace Lizaso_Laundry_Hub
                     {
                         using (SqlDataReader reader = cmd.ExecuteReader())
                         {
-                            // Clear existing rows in the DataGridView
                             view_user.Rows.Clear();
 
                             while (reader.Read())
@@ -2028,10 +1911,8 @@ namespace Lizaso_Laundry_Hub
                                 DateTime? lastActive = reader.IsDBNull(reader.GetOrdinal("Last_Active")) ? (DateTime?)null : reader.GetDateTime(reader.GetOrdinal("Last_Active"));
                                 string status = reader.IsDBNull(reader.GetOrdinal("Status")) ? null : reader.GetString(reader.GetOrdinal("Status"));
 
-                                // Exclude the row corresponding to the specified accountUserID
                                 if (userId != accountUserID)
                                 {
-                                    // Add a new row to the DataGridView
                                     view_user.Rows.Add(0,userId, userName, lastActive, status);
                                 }
                             }
@@ -2058,11 +1939,10 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    // SQL query to get customer details for the reserved unit
                     string query = @"SELECT C.Customer_Name, LB.Start_Time, LB.End_Time
-                             FROM Bookings_View LB
-                             INNER JOIN Customers_View C ON LB.Customer_ID = C.Customer_ID
-                             WHERE LB.Unit_ID = @UnitID AND LB.Bookings_Status = 'Reserved'";
+                                     FROM Bookings_View LB
+                                     INNER JOIN Customers_View C ON LB.Customer_ID = C.Customer_ID
+                                     WHERE LB.Unit_ID = @UnitID AND LB.Bookings_Status = 'Reserved'";
 
                     using (SqlCommand cmd = new SqlCommand(query, connect))
                     {
@@ -2072,16 +1952,14 @@ namespace Lizaso_Laundry_Hub
                         {
                             if (reader.Read())
                             {
-                                // Update the labels with customer details
                                 customerNameLabel.Text = reader["Customer_Name"].ToString();
                                 startTimeLabel.Text = reader["Start_Time"].ToString();
                                 endTimeLabel.Text = reader["End_Time"].ToString();
 
-                                return true; // Success
+                                return true; 
                             }
                             else
                             {
-                                // No reservation found for the given unitID
                                 MessageBox.Show("No reservation found for the given unit.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
                                 return false;
                             }
@@ -2121,15 +1999,12 @@ namespace Lizaso_Laundry_Hub
                             {
                                 while (reader.Read())
                                 {
-                                    // Retrieve values from the reader
                                     string itemName = reader.GetString(0);
                                     int itemQuantity = reader.GetInt32(1);
                                     decimal amount = reader.GetDecimal(2);
 
-                                    // Use the retrieved values as needed, for example, add them to a DataGridView
                                     gridAdditionalItem.Rows.Add(0, itemName, itemQuantity, amount);
                                 }
-
                                 return true;
                             }
                             else
@@ -2146,26 +2021,6 @@ namespace Lizaso_Laundry_Hub
                 return false;
             }
         }
-
-        /*
-        public bool Get_WhoCustomerReserveds(int unitID, Label customerName, Label startTime, Label endTime)
-        {
-            try
-            {
-                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
-                {
-
-                }
-
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-        }
-        */
-
     }
 }
 
