@@ -13,8 +13,9 @@ namespace Lizaso_Laundry_Hub
     public partial class ucProgressList_Control : UserControl
     {
         public In_Progress_Class pen { get; private set; }
-        private Update_Data_Class updateData;
         private Get_Data_Class getData;
+        private Update_Data_Class updateData;
+        private Activity_Log_Class activityLogger;
 
         private int bookingID, unitID;
 
@@ -23,6 +24,7 @@ namespace Lizaso_Laundry_Hub
             InitializeComponent();
             getData = new Get_Data_Class();
             updateData = new Update_Data_Class();
+            activityLogger = new Activity_Log_Class();
             pen = pending;
             ShowPending();
         }
@@ -44,11 +46,9 @@ namespace Lizaso_Laundry_Hub
 
         public void UpdateTimeLeft()
         {
-            // Calculate the updated time left based on the current time
-            DateTime endTime = getData.RetrieveEndTimeFromDatabase(pen.BookingID); // Pass the BookingID
+            DateTime endTime = getData.RetrieveEndTimeFromDatabase(pen.BookingID); 
             TimeSpan timeLeft = endTime - DateTime.Now;
 
-            // Display the updated time left
             if (timeLeft.TotalMinutes > 1)
             {
                 lblTimeLeft.Text = $"{(int)timeLeft.TotalMinutes} minutes";
@@ -59,7 +59,6 @@ namespace Lizaso_Laundry_Hub
             }
             else
             {
-                //lblTimeLeft.Text = "0 minutes";
                 lblTimeLeft.Text = "0 seconds";
             }
 
@@ -94,8 +93,16 @@ namespace Lizaso_Laundry_Hub
             if (result == DialogResult.Yes)
             {
                 updateData.Update_BookingStatusToPending(bookingID, unitID);
-               
+                UserActivityLog(pen.Customer_Name);
             }
         }
+
+        public void UserActivityLog(string customerName)
+        {
+            string activityType = "Completed";
+            string ForcedDescription = $"{customerName}'s in-progress laundry booking has been forcefully marked as completed as of {DateTime.Now}.";
+            activityLogger.LogActivity(activityType, ForcedDescription);
+        }
+
     }
 }

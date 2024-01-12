@@ -13,8 +13,10 @@ namespace Lizaso_Laundry_Hub
     public partial class ucReservedList_Control : UserControl
     {
         public In_Reserved_Class reve { get; private set; }
-        private Update_Data_Class updateData;
         private Get_Data_Class getData;
+        private Update_Data_Class updateData;
+        private Activity_Log_Class activityLogger;
+
 
         private int bookingID, unitID;
 
@@ -22,6 +24,7 @@ namespace Lizaso_Laundry_Hub
         {
             InitializeComponent();
             updateData = new Update_Data_Class();
+            activityLogger = new Activity_Log_Class();
             reve = reserved;
             ShowReserved();
         }
@@ -33,8 +36,15 @@ namespace Lizaso_Laundry_Hub
             if (result == DialogResult.Yes)
             {
                  updateData.Update_BookingReservationToCanceled(bookingID, unitID);
-                //DisplayUnit();
+                 UserActivityLog(reve.Customer_Name);
             }
+        }
+
+        public void UserActivityLog(string customerName)
+        {
+            string activityType = "Canceled";
+            string CancelDescription = $"{customerName}'s reserved laundry booking has been forcefully marked as canceled as of {DateTime.Now}.";
+            activityLogger.LogActivity(activityType, CancelDescription);
         }
 
         public void ShowReserved()

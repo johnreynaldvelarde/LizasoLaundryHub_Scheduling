@@ -24,20 +24,16 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    // Define your SQL update query with a parameter for Delivery_ID
                     string sql = "UPDATE Deliveries SET Delivery_Status = 'Canceled' WHERE Delivery_ID = @DeliveryID";
 
                     SqlCommand command = new SqlCommand(sql, connect);
 
-                    // Add a parameter to the SqlCommand
                     command.Parameters.AddWithValue("@DeliveryID", deliveryID);
 
-                    // Execute the query
                     int rowsAffected = command.ExecuteNonQuery();
 
                     connect.Close();
 
-                    // Check if any rows were affected
                     if (rowsAffected > 0)
                     {
                         MessageBox.Show("Delivery status updated to Canceled successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -84,7 +80,6 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
-
         // << USER FORM >>
         // update user account
         public bool Update_User(int loggedInUserId, int userID, string username, string password, byte _IsSuperUser, byte _dashboard, byte _services, byte _schedule, byte _customer, byte _payments, byte _user, byte _inventory, byte _settings)
@@ -115,7 +110,6 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    // Check if the provided userId exists in the User_Account table
                     string checkUserSql = "SELECT COUNT(*) FROM User_View WHERE User_ID = @User_ID";
                     using (SqlCommand checkUserCommand = new SqlCommand(checkUserSql, connect))
                     {
@@ -124,16 +118,13 @@ namespace Lizaso_Laundry_Hub
 
                         if (userCount == 0)
                         {
-                            // User with the provided userId doesn't exist
                             MessageBox.Show("User with the specified ID not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return false;
                         }
                     }
 
-                    // Hash the password (you may want to use a secure hashing algorithm)
                     byte[] passwordHash = HashPassword(password);
 
-                    // Update the user account in the User_Account table
                     string userSql = "UPDATE User_Account SET User_Name = @User_Name, Super_User = @Super_User, Password_Hash = @Password_Hash WHERE User_ID = @User_ID";
                     using (SqlCommand userCommand = new SqlCommand(userSql, connect))
                     {
@@ -144,7 +135,6 @@ namespace Lizaso_Laundry_Hub
                         userCommand.ExecuteNonQuery();
                     }
 
-                    // Update the permissions in the User_Permissions table
                     string permissionsSql = "UPDATE User_Permissions SET Dashboard = @Dashboard, Available_Services = @Available_Services, Schedule = @Schedule, Customer_Manage = @Customer_Manage, Payments = @Payments, User_Manage = @User_Manage, Inventory = @Inventory, Settings = @Settings WHERE User_ID = @User_ID";
                     using (SqlCommand permissionsCommand = new SqlCommand(permissionsSql, connect))
                     {
@@ -179,7 +169,6 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    // Update the Last_Active timestamp and set the Status to 'Online'
                     string updateSql = "UPDATE User_Account SET Last_Active = @Last_Active, Status = 'Online' WHERE User_ID = @User_ID";
                     using (SqlCommand updateCommand = new SqlCommand(updateSql, connect))
                     {
@@ -207,7 +196,6 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    // Update the Last_Active timestamp and set the Status to 'Offline'
                     string updateSql = "UPDATE User_Account SET Last_Active = @Last_Active, Status = 'Offline' WHERE User_ID = @User_ID";
                     using (SqlCommand updateCommand = new SqlCommand(updateSql, connect))
                     {
@@ -294,16 +282,13 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    // Query the Super_User column for the specified user
                     string superUserSql = "SELECT Super_User FROM User_View WHERE User_ID = @User_ID";
                     using (SqlCommand superUserCommand = new SqlCommand(superUserSql, connect))
                     {
                         superUserCommand.Parameters.AddWithValue("@User_ID", userId);
 
-                        // Execute the query and get the Super_User value
                         object result = superUserCommand.ExecuteScalar();
 
-                        // Check if the result is not null and if Super_User is false
                         return result != null && !(bool)result;
                     }
                 }
@@ -324,16 +309,13 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    // Query the User_Status column for the specified user
                     string userStatusSql = "SELECT Status FROM User_Account WHERE User_ID = @User_ID";
                     using (SqlCommand userStatusCommand = new SqlCommand(userStatusSql, connect))
                     {
                         userStatusCommand.Parameters.AddWithValue("@User_ID", userId);
 
-                        // Execute the query and get the user status
                         object result = userStatusCommand.ExecuteScalar();
 
-                        // Check if the result is not null and if the user is online
                         return result != null && result.ToString().Equals("Online", StringComparison.OrdinalIgnoreCase);
                     }
                 }
@@ -361,18 +343,6 @@ namespace Lizaso_Laundry_Hub
                         cmd.Parameters.AddWithValue("@UserID", archiveID);
                         cmd.ExecuteNonQuery();
 
-                        /*
-                        if (rowsAffected > 0)
-                        {
-                            MessageBox.Show("Customer successfully recycle.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            return true;
-                        }
-                        else
-                        {
-                            MessageBox.Show("Customer not found or update failed.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return false;
-                        }
-                        */
                         return true;
                     }
                 }
@@ -383,10 +353,6 @@ namespace Lizaso_Laundry_Hub
                 return false;
             }
         }
-
-
-
-
 
         // HashPassword function (replace with a secure hashing algorithm)
         private byte[] HashPassword(string password)
@@ -407,7 +373,6 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    // Update Booking_Status to Canceled in Laundry_Bookings table
                     string updateBookingQuery = "UPDATE Laundry_Bookings SET Bookings_Status = 'Canceled' WHERE Booking_ID = @BookingID";
                     using (SqlCommand cmdUpdateBooking = new SqlCommand(updateBookingQuery, connect))
                     {
@@ -415,7 +380,6 @@ namespace Lizaso_Laundry_Hub
                         cmdUpdateBooking.ExecuteNonQuery();
                     }
 
-                    // Update Unit_Status to 0 in Laundry_Unit table
                     string updateUnitQuery = "UPDATE Laundry_Unit SET Unit_Status = 0 WHERE Unit_ID = @UnitID";
                     using (SqlCommand cmdUpdateUnit = new SqlCommand(updateUnitQuery, connect))
                     {
@@ -443,14 +407,12 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    // Check if the Unit_ID is found in Laundry_Bookings with Bookings_Status equal to 'Reserved'
                     string checkReservedStatusQuery = "SELECT COUNT(*) FROM Laundry_Bookings WHERE Unit_ID = @UnitID AND Bookings_Status = 'Reserved'";
                     using (SqlCommand cmdCheckReservedStatus = new SqlCommand(checkReservedStatusQuery, connect))
                     {
                         cmdCheckReservedStatus.Parameters.AddWithValue("@UnitID", unitID);
                         int reservedCount = (int)cmdCheckReservedStatus.ExecuteScalar();
 
-                        // Update Bookings_Status to 'In-Progress' when 'Reserved' is found
                         if (reservedCount > 0)
                         {
                             string updateBookingStatusQuery = "UPDATE Laundry_Bookings SET Bookings_Status = 'In-Progress' WHERE Unit_ID = @UnitID AND Bookings_Status = 'Reserved'";
@@ -462,7 +424,6 @@ namespace Lizaso_Laundry_Hub
                         }
                         else
                         {
-                            // Update Bookings_Status to 'Pending' when 'Reserved' is not found and the current status is not 'Completed' or 'Canceled'
                             string updateBookingStatusQuery = "UPDATE Laundry_Bookings SET Bookings_Status = 'Pending' WHERE Unit_ID = @UnitID AND Bookings_Status NOT IN ('Completed', 'Canceled')";
                             using (SqlCommand cmdUpdateBookingStatus = new SqlCommand(updateBookingStatusQuery, connect))
                             {
@@ -471,7 +432,6 @@ namespace Lizaso_Laundry_Hub
                             }
                         }
 
-                        // Update Booking_Status to 'Pending' in Laundry_Bookings table
                         string updateBookingtoPending = "UPDATE Laundry_Bookings SET Bookings_Status = 'Pending' WHERE Booking_ID = @BookingID";
                         using (SqlCommand cmdUpdateBooking = new SqlCommand(updateBookingtoPending, connect))
                         {
@@ -479,7 +439,6 @@ namespace Lizaso_Laundry_Hub
                             cmdUpdateBooking.ExecuteNonQuery();
                         }
 
-                        // Update Unit_Status based on the condition
                         string updateUnitQuery = "UPDATE Laundry_Unit SET Unit_Status = @UnitStatus WHERE Unit_ID = @UnitID";
                         using (SqlCommand cmdUpdateUnit = new SqlCommand(updateUnitQuery, connect))
                         {
@@ -507,7 +466,6 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    // Update Booking_Status to Canceled in Laundry_Bookings table
                     string updateBookingQuery = "UPDATE Laundry_Bookings SET Bookings_Status = 'Canceled' WHERE Booking_ID = @BookingID";
                     using (SqlCommand cmdUpdateBooking = new SqlCommand(updateBookingQuery, connect))
                     {
@@ -515,7 +473,6 @@ namespace Lizaso_Laundry_Hub
                         cmdUpdateBooking.ExecuteNonQuery();
                     }
 
-                    // Update Unit_Status to 0 in Laundry_Unit table
                     string updateUnitQuery = "UPDATE Laundry_Unit SET Unit_Status = 1 WHERE Unit_ID = @UnitID";
                     using (SqlCommand cmdUpdateUnit = new SqlCommand(updateUnitQuery, connect))
                     {
@@ -542,17 +499,14 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    // Check if the unit is not Occupied before updating
                     string getStatusQuery = "SELECT Unit_Status FROM Laundry_Unit WHERE Unit_ID = @UnitID";
                     using (SqlCommand getStatusCommand = new SqlCommand(getStatusQuery, connect))
                     {
                         getStatusCommand.Parameters.AddWithValue("@UnitID", unitID);
                         int currentStatus = Convert.ToInt32(getStatusCommand.ExecuteScalar());
 
-                        // Check if the unit is not Occupied
                         if (currentStatus != 1)
                         {
-                            // Update the unit
                             string updateQuery = "UPDATE Laundry_Unit SET Unit_Name = @UnitName, Unit_Status = @UnitStatus WHERE Unit_ID = @UnitID";
                             using (SqlCommand updateCommand = new SqlCommand(updateQuery, connect))
                             {
@@ -566,7 +520,6 @@ namespace Lizaso_Laundry_Hub
                         }
                         else
                         {
-                            // Unit is Occupied, cannot update
                             MessageBox.Show("Cannot update an occupied unit.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return false;
                         }
@@ -588,17 +541,14 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    // Check the current status of the unit
                     string getStatusQuery = "SELECT Unit_Status FROM Laundry_Unit WHERE Unit_ID = @UnitID";
                     using (SqlCommand getStatusCommand = new SqlCommand(getStatusQuery, connect))
                     {
                         getStatusCommand.Parameters.AddWithValue("@UnitID", unitID);
                         int unitStatus = Convert.ToInt32(getStatusCommand.ExecuteScalar());
 
-                        // Check if the unit can be deleted (Available or Not Available)
                         if (unitStatus == 0 || unitStatus == 2)
                         {
-                            // Proceed with setting Archive to 1
                             string updateQuery = "UPDATE Laundry_Unit SET Archive = 1 WHERE Unit_ID = @UnitID";
                             using (SqlCommand updateCommand = new SqlCommand(updateQuery, connect))
                             {
@@ -609,7 +559,6 @@ namespace Lizaso_Laundry_Hub
                         }
                         else
                         {
-                            // Unit is Occupied, cannot delete
                             MessageBox.Show("Cannot delete an occupied unit.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return false;
                         }
@@ -631,7 +580,6 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    // Check if the unitID exists
                     string checkUnitQuery = "SELECT COUNT(*) FROM Laundry_Unit WHERE Unit_ID = @UnitID";
                     using (SqlCommand checkUnitCommand = new SqlCommand(checkUnitQuery, connect))
                     {
@@ -640,7 +588,6 @@ namespace Lizaso_Laundry_Hub
 
                         if (count > 0)
                         {
-                            // Update the Archive to 0
                             string updateQuery = "UPDATE Laundry_Unit SET Archive = 0 WHERE Unit_ID = @UnitID";
                             using (SqlCommand updateCommand = new SqlCommand(updateQuery, connect))
                             {
@@ -777,12 +724,10 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    // Define the SQL query for updating customer information
                     string query = "UPDATE Customers SET Customer_Name = @CustomerName, Contact_Number = @ContactNumber, Email_Address = @EmailAddress, Address = @Address, Customer_Type = @CustomerType WHERE Customer_ID = @CustomerID";
 
                     using (SqlCommand cmd = new SqlCommand(query, connect))
                     {
-                        // Add parameters to the query to avoid SQL injection
                         cmd.Parameters.AddWithValue("@CustomerName", customerName);
                         cmd.Parameters.AddWithValue("@ContactNumber", contactNumber);
                         cmd.Parameters.AddWithValue("@EmailAddress", emailAddress);
@@ -810,12 +755,10 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    // Define the SQL query for updating customer information
                     string query = "UPDATE Customers SET Customer_Name = @CustomerName, Customer_Type = @CustomerType WHERE Customer_ID = @CustomerID";
 
                     using (SqlCommand cmd = new SqlCommand(query, connect))
                     {
-                        // Add parameters to the query to avoid SQL injection
                         cmd.Parameters.AddWithValue("@CustomerName", customerName);
                         cmd.Parameters.AddWithValue("@CustomerType", 1);
                         cmd.Parameters.AddWithValue("@CustomerID", customerID);
@@ -832,10 +775,6 @@ namespace Lizaso_Laundry_Hub
             }
         }
 
-
-
-
-
         // << INVENTORY_FORM /  Items View tab >>
         // update the item information
         public bool Update_InventoryItem(int itemID, string itemName, string categoryItem, decimal itemPrice)
@@ -846,7 +785,6 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    // Update the specified fields for the item
                     string updateSql = "UPDATE Item SET Item_Name = @ItemName, Category_Type = @CategoryItem, Price = @ItemPrice WHERE Item_ID = @ItemID";
                     SqlCommand updateCommand = new SqlCommand(updateSql, connect);
                     updateCommand.Parameters.AddWithValue("@ItemID", itemID);
@@ -885,7 +823,6 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    // Update the Quantity field for the item by adding the provided itemQuantity
                     string updateSql = "UPDATE Item SET Quantity = Quantity + @ItemQuantity WHERE Item_ID = @ItemID";
                     SqlCommand updateCommand = new SqlCommand(updateSql, connect);
                     updateCommand.Parameters.AddWithValue("@ItemID", itemID);
@@ -922,7 +859,6 @@ namespace Lizaso_Laundry_Hub
                 {
                     connect.Open();
 
-                    // Check if the quantity is 0 before updating the Archive field
                     string checkQuantitySql = "SELECT Quantity FROM Item WHERE Item_ID = @ItemID";
                     SqlCommand checkQuantityCommand = new SqlCommand(checkQuantitySql, connect);
                     checkQuantityCommand.Parameters.AddWithValue("@ItemID", itemID);
@@ -931,7 +867,6 @@ namespace Lizaso_Laundry_Hub
 
                     if (quantity == 0)
                     {
-                        // Update the Archive field to 1 (indicating deleted)
                         string updateSql = "UPDATE Item SET Archive = 1 WHERE Item_ID = @ItemID";
                         SqlCommand updateCommand = new SqlCommand(updateSql, connect);
                         updateCommand.Parameters.AddWithValue("@ItemID", itemID);
@@ -1039,29 +974,5 @@ namespace Lizaso_Laundry_Hub
                 return false;
             }
         }
-
-
-
-        public bool Now5()
-        {
-            try
-            {
-                using (SqlConnection connect = new SqlConnection(database.MyConnection()))
-                {
-
-
-
-
-                    return true;
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return false;
-            }
-        }
-
-        // Back
     }
 }
