@@ -466,35 +466,43 @@ namespace Lizaso_Laundry_Hub.Settings_Module
 
         private async void btn_SaveGoogle_Click(object sender, EventArgs e)
         {
-            try
+            if(string.Equals(btn_LocateFileForDrive.Text, "Click to the Location of Backup Folder", StringComparison.OrdinalIgnoreCase))
             {
-                if (IsInternetAvailable())
+                MessageBox.Show("Please click to select the location of the backup folder.", "Notification", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                try
                 {
-                    UserCredential credential = await GetGoogleDriveCredential();
-
-                    if (credential != null)
+                    if (IsInternetAvailable())
                     {
-                        var driveService = new DriveService(new BaseClientService.Initializer()
-                        {
-                            HttpClientInitializer = credential,
-                            ApplicationName = txt_ApplicationName.Text,
-                        });
+                        UserCredential credential = await GetGoogleDriveCredential();
 
-                        await UploadFileToDrive(driveService, backupFilePath);
+                        if (credential != null)
+                        {
+                            var driveService = new DriveService(new BaseClientService.Initializer()
+                            {
+                                HttpClientInitializer = credential,
+                                ApplicationName = txt_ApplicationName.Text,
+                            });
+
+                            await UploadFileToDrive(driveService, btn_LocateFileForDrive.Text);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Failed to retrieve Google Drive credentials.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
                     else
                     {
-                        MessageBox.Show("Failed to retrieve Google Drive credentials.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("No internet connection available. Please check your network settings.", "No Internet Connection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     }
                 }
-                else
+                catch (Exception ex)
                 {
-                    MessageBox.Show("No internet connection available. Please check your network settings.", "No Internet Connection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
 
