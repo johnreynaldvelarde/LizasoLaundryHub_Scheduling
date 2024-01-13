@@ -432,7 +432,7 @@ namespace Lizaso_Laundry_Hub
                         userId = (int)getUserIdCommand.ExecuteScalar();
                     }
 
-                    string permissionsSql = "INSERT INTO User_Permissions (User_ID, Dashboard, Available_Services, Schedule, Customer_Manage, Payments, User_Manage, Inventory, Settings) VALUES (@User_ID, @Available_Services, @Schedule, @Customer_Manage, @Payments, @User_Manage, @Inventory, @Settings)";
+                    string permissionsSql = "INSERT INTO User_Permissions (User_ID, Dashboard, Available_Services, Schedule, Customer_Manage, Payments, User_Manage, Inventory, Settings) VALUES (@User_ID, @Dashboard, @Available_Services, @Schedule, @Customer_Manage, @Payments, @User_Manage, @Inventory, @Settings)";
                     using (SqlCommand permissionsCommand = new SqlCommand(permissionsSql, connect))
                     {
                         permissionsCommand.Parameters.AddWithValue("@User_ID", userId);
