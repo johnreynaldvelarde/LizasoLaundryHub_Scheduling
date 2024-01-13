@@ -470,7 +470,6 @@ namespace Lizaso_Laundry_Hub.Settings_Module
             {
                 if (IsInternetAvailable())
                 {
-                    // Internet connection is available, proceed with Google Drive upload
                     UserCredential credential = await GetGoogleDriveCredential();
 
                     if (credential != null)
@@ -478,21 +477,18 @@ namespace Lizaso_Laundry_Hub.Settings_Module
                         var driveService = new DriveService(new BaseClientService.Initializer()
                         {
                             HttpClientInitializer = credential,
-                            ApplicationName = txt_ApplicationName.Text, // Use txt_ApplicationName text
+                            ApplicationName = txt_ApplicationName.Text,
                         });
 
-                        // Upload the file
                         await UploadFileToDrive(driveService, backupFilePath);
                     }
                     else
                     {
-                        // Handle credential retrieval failure
                         MessageBox.Show("Failed to retrieve Google Drive credentials.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
                 {
-                    // No internet connection, display a message or take appropriate action
                     MessageBox.Show("No internet connection available. Please check your network settings.", "No Internet Connection", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
@@ -530,7 +526,7 @@ namespace Lizaso_Laundry_Hub.Settings_Module
                     credential = await GoogleWebAuthorizationBroker.AuthorizeAsync(
                         GoogleClientSecrets.Load(stream).Secrets,
                         new[] { DriveService.Scope.DriveFile },
-                        txt_EmailAddress.Text, // Use txt_EmailAddress text
+                        txt_EmailAddress.Text, 
                         CancellationToken.None,
                         new FileDataStore(credPath, true));
                 }
