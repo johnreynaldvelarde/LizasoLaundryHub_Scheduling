@@ -458,7 +458,7 @@ namespace Lizaso_Laundry_Hub.Settings_Module
             if (result == DialogResult.OK)
             {
                 btn_LocateFileForDrive.Text = openFileDialog.FileName;
-                btn_LocateFileForDrive.Text = backupFilePath;
+                //btn_LocateFileForDrive.Text = backupFilePath;
 
                 Console.WriteLine("Selected .bak file: " + openFileDialog.FileName);
             }
@@ -520,7 +520,7 @@ namespace Lizaso_Laundry_Hub.Settings_Module
         {
             UserCredential credential;
 
-            string credentialsPath = Path.Combine(Application.StartupPath, "credentials.json");
+            string credentialsPath = Path.Combine("C:\\Lizaso Laundry Hub\\System Settings", "credentials.json");
 
             try
             {
